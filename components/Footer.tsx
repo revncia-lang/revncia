@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Link from "next/link";
 import { policies } from "@/lib/policies";
 import { company, nav } from "@/lib/site";
 import { Logo } from "./Logo";

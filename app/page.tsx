@@ -38,7 +38,7 @@ export default function Home() {
           <JarvisHud />
         </div>
         <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-5 py-12 md:grid-cols-12 md:px-8 md:py-16">
-          <div className="min-w-0 md:col-span-7">
+          <div className="min-w-0 md:col-span-5">
             <p className={kicker}>{company.descriptor}</p>
             <h1 className="mt-5 text-balance font-serif text-4xl leading-[1.14] text-cyan-50 md:text-5xl lg:text-[3.35rem]">
               AI, CRM, ERP, and public-impact systems that your organisation can actually run.
@@ -64,7 +64,7 @@ export default function Home() {
             </div>
             <PageGuide sections={homeGuide} />
           </div>
-          <div className="min-w-0 md:col-span-5">
+          <div className="min-w-0 md:col-span-7">
             <HumanoidRobot />
           </div>
         </div>

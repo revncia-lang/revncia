@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
 import { btnChip, btnPrimary } from "@/lib/ui";
 import { sampleOpen, type RobotMotion } from "@/lib/robotMotion";
 
@@ -17,7 +17,7 @@ export function HumanoidRobot() {
   const [allowed, setAllowed] = useState(false);
   const [apiOk, setApiOk] = useState<boolean | null>(null);
   const [line, setLine] = useState(
-    "Actions are off. Allow them so this attendant can speak. The visor and existing hands move with the voice — nothing extra is drawn on top.",
+    "Actions are off. Allow them so this attendant can speak. The head stays still — only the eyes on this figure follow the voice.",
   );
   const [mouth, setMouth] = useState(0.12);
   const [gesture, setGesture] = useState<"idle" | "wave" | "nod">("idle");
@@ -88,40 +88,33 @@ export function HumanoidRobot() {
       setMouth(0.12);
       setGesture("idle");
       setLine(
-        "Actions are off. Allow them so this attendant can speak. The visor and existing hands move with the voice — nothing extra is drawn on top.",
+        "Actions are off. Allow them so this attendant can speak. The head stays still — only the eyes on this figure follow the voice.",
       );
       return;
     }
     const intro = window.setTimeout(() => {
       void playMotion(
         "Welcome to REVNCIA. Together we transform. Voice, WhatsApp, and the AI Gateway are ready to commission.",
-        "wave",
+        "idle",
       );
     }, 400);
     return () => window.clearTimeout(intro);
   }, [allowed, playMotion]);
 
   const talking = allowed && mouth > 0.22;
-  const figureClass = !allowed
-    ? "still"
-    : gesture === "nod"
-      ? "robot-acting-nod"
-      : gesture === "wave"
-        ? "robot-acting-wave"
-        : talking
-          ? "robot-acting-talk"
-          : "robot-live";
+  const figureClass = [
+    !allowed ? "still" : "robot-eyes-live",
+    talking ? "robot-eyes-talk" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <div className="relative">
       <div className="robot-stage relative select-none">
         <div
-          className={`robot-figure relative mx-auto h-[440px] w-full max-w-[280px] md:h-[560px] md:max-w-[340px] ${figureClass}`}
-          style={
-            allowed
-              ? { filter: `brightness(${1 + mouth * 0.18})` }
-              : undefined
-          }
+          className={`robot-figure relative mx-auto w-full max-w-[min(100%,28rem)] aspect-[947/1024] md:max-w-none ${figureClass}`}
+          style={{ ["--eye"]: allowed ? mouth : 0.12 } as CSSProperties}
         >
           <Image
             src="/images/revncia-mascot.png"
@@ -130,8 +123,14 @@ export function HumanoidRobot() {
             priority
             unoptimized
             className="object-contain object-center"
-            sizes="340px"
+            sizes="(min-width: 768px) 42rem, 28rem"
           />
+          <div className="robot-face" aria-hidden>
+            <span className="robot-eye-slit" />
+            <span className="robot-eye-hud" />
+            <span className="robot-nose" />
+            <span className="robot-mouth" />
+          </div>
         </div>
       </div>
       <div className="relative z-[80] mt-3 flex flex-wrap justify-center gap-2">
