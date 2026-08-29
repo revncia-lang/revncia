@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import { offerings } from "@/lib/catalog";
@@ -249,17 +248,10 @@ export function VirtualAssistant() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="relative h-14 w-14 overflow-hidden rounded-full border border-cyan-300/40 bg-[#05070d] shadow-[0_0_20px_rgba(34,211,238,0.28)]"
+        className="h-14 w-14 rounded-full border border-cyan-300/50 bg-cyan-500 text-xs font-semibold tracking-wide text-black shadow-[0_0_24px_rgba(34,211,238,0.45)]"
         aria-label="Open virtual assistant"
       >
-        <Image
-          src="/images/revncia-mascot.png"
-          alt=""
-          fill
-          unoptimized
-          className="object-contain object-center p-0.5"
-          sizes="56px"
-        />
+        VA
       </button>
     </div>
   );
