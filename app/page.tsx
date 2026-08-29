@@ -24,11 +24,11 @@ export default function Home() {
     <main>
       <section className="relative overflow-hidden border-b border-cyan-400/15">
         <Image
-          src="/images/scene-humanoid.png"
+          src="/images/scene-gateway.png"
           alt=""
           fill
           priority
-          className="object-cover opacity-25"
+          className="object-cover opacity-20"
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#05070d] via-[#05070d]/88 to-[#05070d]/40" />
