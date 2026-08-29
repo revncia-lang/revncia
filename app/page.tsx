@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { HumanoidRobot } from "@/components/HumanoidRobot";
+import { JarvisHud } from "@/components/JarvisHud";
 import { UniqueChart } from "@/components/UniqueChart";
 import { UniqueScene } from "@/components/UniqueScene";
 import { engagement, flywheel, offerings, stages } from "@/lib/catalog";
@@ -22,17 +22,9 @@ export default function Home() {
 
   return (
     <main>
-      <section className="relative border-b border-cyan-400/15">
+      <section className="relative min-h-[100svh] border-b border-cyan-400/15">
         <div className="absolute inset-0 overflow-hidden">
-          <Image
-            src="/images/scene-gateway.png"
-            alt=""
-            fill
-            priority
-            className="object-cover opacity-20"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#05070d] via-[#05070d]/88 to-[#05070d]/40" />
+          <JarvisHud />
         </div>
         <div className="relative mx-auto grid max-w-6xl items-center gap-8 px-5 py-10 md:grid-cols-12 md:items-center md:px-8 md:py-14">
           <div className="md:col-span-7">
