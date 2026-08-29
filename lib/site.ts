@@ -13,21 +13,21 @@ export const nav = [
   {
     href: "/",
     label: "Home",
-    hint: "Hero, attendant, stages, and the full 36-line catalogue.",
+    hint: "Opening view, attendant, and the full catalogue.",
     explain:
       "Start here. The attendant is on the right of the hero. Below that: delivery stages, six priority lines, three graphs, the flywheel, then every service card. Each card opens a full specification.",
   },
   {
     href: "/platform",
     label: "Platform",
-    hint: "AI Gateway: routing, identity, knowledge, and cost control.",
+    hint: "AI Gateway: routing, identity, and cost control.",
     explain:
       "The AI Gateway page. Photograph of the core, then capability tiles, two graphs, and a link into the full platform service specification.",
   },
   {
     href: "/services",
     label: "Services",
-    hint: "Browse every offering with pains, pictures, and graphs.",
+    hint: "Every offering with pictures, graphs, and skip-this risks.",
     explain:
       "The catalogue index. Thirty-six cards in a grid. Open any card for plain English, skip-this risks, unique pictures, and unique graphs. Prev/next at the bottom of each specification.",
   },
@@ -41,21 +41,21 @@ export const nav = [
   {
     href: "/blueprint",
     label: "Blueprint",
-    hint: "The technical stack under every REVNCIA delivery.",
+    hint: "Technical stack under every REVNCIA delivery.",
     explain:
       "Architecture layers: identity, gateway, knowledge, memory, agents, safety, observe. Then a maturity graph and a link back to Platform.",
   },
   {
     href: "/about",
     label: "About",
-    hint: "Leadership, conduct, commercial layers, and how we work.",
+    hint: "Leadership, conduct, and how we work.",
     explain:
       "Who REVNCIA is, founder and office, code of conduct, six objectives, and how commercial work is layered.",
   },
   {
     href: "/contact",
     label: "Contact",
-    hint: "Write a brief. We reply from the published office.",
+    hint: "Write a brief. Reply from the published office.",
     explain:
       "Inquiry form on the left (name, organisation, email, interest, message). Office and mailto on the right. Submitting opens your email client to info@revncia.com.",
   },
