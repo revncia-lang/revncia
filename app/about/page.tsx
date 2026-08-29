@@ -28,7 +28,10 @@ export default function AboutPage() {
             core is the AI Platform: Gateway, identity, knowledge, memory,
             agents, tools, safety, observability, and cost-controlled AI.
             Delivery spans CRM, ERP, Voice, WhatsApp, automation, data, cloud,
-            and citizen services.
+            and citizen services. Cybersecurity work starts with identity, access,
+            logs, and AI-use rules; we partner for advanced security rather than
+            claiming a full cyber firm. Healthcare delivery is administrative and
+            communication-first, with privacy treated as a design constraint.
           </p>
           <p className="mt-4 text-[0.95rem] leading-relaxed text-slate-400">
             Strategy is aligned to six objectives: client growth, operational

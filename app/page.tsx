@@ -22,17 +22,19 @@ export default function Home() {
 
   return (
     <main>
-      <section className="relative overflow-hidden border-b border-cyan-400/15">
-        <Image
-          src="/images/scene-gateway.png"
-          alt=""
-          fill
-          priority
-          className="object-cover opacity-20"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#05070d] via-[#05070d]/88 to-[#05070d]/40" />
-        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-5 py-14 md:grid-cols-12 md:px-8 md:py-20">
+      <section className="relative border-b border-cyan-400/15">
+        <div className="absolute inset-0 overflow-hidden">
+          <Image
+            src="/images/scene-gateway.png"
+            alt=""
+            fill
+            priority
+            className="object-cover opacity-20"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#05070d] via-[#05070d]/88 to-[#05070d]/40" />
+        </div>
+        <div className="relative mx-auto grid max-w-6xl items-end gap-10 px-5 py-14 md:grid-cols-12 md:px-8 md:py-16">
           <div className="md:col-span-7">
             <p className="text-[0.72rem] tracking-[0.24em] uppercase text-cyan-400">
               {company.descriptor}
@@ -45,7 +47,8 @@ export default function Home() {
               We help enterprises and governments replace scattered tools,
               missed calls, and unread files with a governed platform: Voice,
               WhatsApp, CRM, ERP, documents, and citizen services — with humans
-              still in charge of the hard decisions.
+              still in charge of the hard decisions. Marketing automation is a
+              capability we deliver — it is not the company identity.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Link

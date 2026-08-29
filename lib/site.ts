@@ -2,6 +2,7 @@ export const company = {
   name: "REVNCIA",
   descriptor: "A Digital Transformation & Public Impact Company",
   tagline: "AI, CRM, ERP, and digital transformation — built for enterprises and the public sector.",
+  motto: "Together we transform",
   email: "info@revncia.com",
   address: "525 Randall Ave Ste 100, Cheyenne, WY, USA",
   founder: "Muhammad Danish",

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const rows = [
   { slug: "government", name: "Government & public sector", text: "Citizen assistants, cases, portals, measured public impact." },
   { slug: "education", name: "Education", text: "Student and teacher AI, admissions, analytics, administration." },
-  { slug: "healthcare", name: "Healthcare", text: "Admin AI and communication with privacy-first delivery." },
+  { slug: "healthcare", name: "Healthcare", text: "Admin AI, appointments, and communication — not a clinical-care product. Privacy is a design constraint." },
   { slug: "financial-services", name: "Financial services", text: "Onboarding, copilots, documents, risk, compliance." },
   { slug: "retail", name: "Retail & commerce", text: "Assistants, inventory, WhatsApp commerce, forecasting." },
   { slug: "industry-solutions", name: "Enterprise & NGOs", text: "Packaged REVNCIA for Enterprises and NGOs." },

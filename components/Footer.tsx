@@ -10,7 +10,7 @@ export function Footer() {
           <Logo />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate-400">
             Intelligent digital infrastructure for enterprises, governments, and
-            public-impact institutions.
+            public-impact institutions. {company.motto}.
           </p>
         </div>
         <div>
