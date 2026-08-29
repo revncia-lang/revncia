@@ -26,6 +26,7 @@ body {
   background: #05070d;
   color: #e8f4ff;
   font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-wrap: break-word;
 }
 
 .font-serif {

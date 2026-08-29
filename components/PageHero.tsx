@@ -13,10 +13,10 @@ export function PageHero({
         <p className="text-[0.72rem] tracking-[0.22em] uppercase text-cyan-400">
           {kicker}
         </p>
-        <h1 className="mt-4 max-w-3xl font-serif text-4xl leading-[1.12] md:text-5xl">
+        <h1 className="mt-4 max-w-3xl text-balance font-serif text-4xl leading-[1.12] md:text-5xl">
           {title}
         </h1>
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-300 md:text-lg">
+        <p className="mt-6 max-w-2xl text-pretty text-base leading-relaxed break-words text-slate-300 md:text-lg">
           {lede}
         </p>
       </div>

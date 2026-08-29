@@ -6,20 +6,21 @@ import { nav } from "@/lib/site";
 export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-cyan-400/15 bg-[#060a12]/90 backdrop-blur-md">
-      <div className="relative mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 py-4 md:px-8">
-        <Link href="/" className="text-cyan-50">
+      <div className="relative mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 py-4 md:gap-4 md:px-8">
+        <Link href="/" className="min-w-0 shrink-0 text-cyan-50">
           <Logo />
         </Link>
 
         <nav
-          className="hidden items-center gap-2 lg:flex lg:flex-wrap"
+          className="hidden min-w-0 flex-1 flex-wrap items-center justify-center gap-x-3 gap-y-1 lg:flex"
           aria-label="Primary"
         >
           {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-[0.72rem] tracking-[0.1em] uppercase text-slate-400 transition-colors hover:text-cyan-100"
+              title={item.hint}
+              className="whitespace-nowrap text-[0.7rem] tracking-[0.08em] uppercase text-slate-400 transition-colors hover:text-cyan-100"
             >
               {item.label}
             </Link>
@@ -28,7 +29,8 @@ export function Header() {
 
         <Link
           href="/contact"
-          className="hidden rounded-sm bg-cyan-400 px-4 py-2 text-[0.75rem] tracking-[0.14em] uppercase text-black lg:inline-flex"
+          title="Open the inquiry form"
+          className="hidden shrink-0 rounded-sm bg-cyan-400 px-4 py-2 text-[0.7rem] tracking-[0.12em] uppercase text-black lg:inline-flex"
         >
           Start a conversation
         </Link>

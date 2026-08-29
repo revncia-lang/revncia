@@ -10,14 +10,14 @@ export const company = {
 } as const;
 
 export const nav = [
-  { href: "/", label: "Home" },
-  { href: "/platform", label: "Platform" },
-  { href: "/services", label: "Services" },
-  { href: "/industries", label: "Industries" },
-  { href: "/blueprint", label: "Blueprint" },
-  { href: "/engagement", label: "Engage" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: "Home", hint: "Hero, attendant, stages, and the full 36-line catalogue." },
+  { href: "/platform", label: "Platform", hint: "AI Gateway: routing, identity, knowledge, and cost control." },
+  { href: "/services", label: "Services", hint: "Browse every offering with pains, pictures, and graphs." },
+  { href: "/industries", label: "Industries", hint: "Government, education, healthcare, finance, retail, NGOs." },
+  { href: "/blueprint", label: "Blueprint", hint: "The technical stack under every REVNCIA delivery." },
+  { href: "/engagement", label: "Engage", hint: "Five commercial layers — consulting through usage." },
+  { href: "/about", label: "About", hint: "Leadership, conduct, and how we work." },
+  { href: "/contact", label: "Contact", hint: "Write a brief. We reply from the published office." },
 ] as const;
 
 export const principles = [

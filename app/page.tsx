@@ -31,10 +31,10 @@ export default function Home() {
             <p className="text-[0.72rem] tracking-[0.24em] uppercase text-cyan-400">
               {company.descriptor}
             </p>
-            <h1 className="mt-5 font-serif text-4xl leading-[1.08] text-cyan-50 md:text-5xl lg:text-6xl">
+            <h1 className="mt-5 text-balance font-serif text-4xl leading-[1.12] text-cyan-50 md:text-5xl lg:text-6xl">
               AI, CRM, ERP, and public-impact systems that your organisation can actually run.
             </h1>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-300 md:text-lg">
+            <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed break-words text-slate-300 md:text-lg">
               REVNCIA is an AI digital transformation and public impact company.
               We help enterprises and governments replace scattered tools,
               missed calls, and unread files with a governed platform: Voice,

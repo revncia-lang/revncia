@@ -210,7 +210,7 @@ export function VirtualAssistant() {
                     : "mr-4 bg-white/5 px-3 py-2 text-slate-200"
                 }
               >
-                <p>{m.text}</p>
+                <p className="break-words">{m.text}</p>
                 {m.href ? (
                   <Link
                     href={m.href}
@@ -228,7 +228,7 @@ export function VirtualAssistant() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask or say your name…"
-              className="min-w-0 flex-1 bg-black/40 px-2 py-2 text-sm text-white outline-none"
+              className="min-w-0 flex-1 bg-black/40 px-2 py-2 text-sm leading-relaxed text-white outline-none"
             />
             <button
               type="button"

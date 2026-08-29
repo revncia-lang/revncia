@@ -49,10 +49,15 @@ export function HeaderMenu() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="py-1 text-sm tracking-[0.08em] uppercase text-cyan-100"
+                className="block py-1"
                 onClick={() => setOpen(false)}
               >
-                {item.label}
+                <span className="text-sm tracking-[0.08em] uppercase text-cyan-100">
+                  {item.label}
+                </span>
+                <span className="mt-0.5 block text-xs font-normal normal-case tracking-normal text-slate-500">
+                  {item.hint}
+                </span>
               </Link>
             ))}
           </nav>
