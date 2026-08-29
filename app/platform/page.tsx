@@ -18,7 +18,7 @@ export default function PlatformPage() {
   return (
     <main>
       <PageHero
-        kicker="REVNCIA Blueprint"
+        kicker="AI Platform"
         title="The AI Gateway is the core of the company."
         lede={core.body}
         sections={[

@@ -20,15 +20,15 @@ const VOWELS = /[aeiouy]/i;
 
 export function buildLocalMotion(text: string, gesture?: string): RobotMotion {
   const words = text.split(/\s+/).filter(Boolean);
-  const durationMs = Math.max(1800, words.length * 320);
-  const mouth: RobotMotion["mouth"] = [{ atMs: 0, open: 0.12 }];
-  let t = 80;
+  const durationMs = Math.max(3200, words.length * 520);
+  const mouth: RobotMotion["mouth"] = [{ atMs: 0, open: 0.1 }];
+  let t = 160;
   for (const w of words) {
-    const open = Math.min(1, 0.25 + (w.match(VOWELS)?.length ?? 1) * 0.18);
+    const open = Math.min(1, 0.28 + (w.match(VOWELS)?.length ?? 1) * 0.16);
     mouth.push({ atMs: t, open });
-    t += Math.max(140, w.length * 55);
-    mouth.push({ atMs: t, open: 0.1 });
-    t += 60;
+    t += Math.max(260, w.length * 95);
+    mouth.push({ atMs: t, open: 0.14 });
+    t += 120;
   }
   mouth.push({ atMs: durationMs, open: 0.08 });
 

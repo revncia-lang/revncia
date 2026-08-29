@@ -39,13 +39,6 @@ export const nav = [
       "Same platform, different mandates. Each industry tile opens the matching service line (government, education, healthcare admin, finance, retail, enterprise/NGO packs).",
   },
   {
-    href: "/blueprint",
-    label: "Blueprint",
-    hint: "Technical stack under every REVNCIA delivery.",
-    explain:
-      "Architecture layers: identity, gateway, knowledge, memory, agents, safety, observe. Then a maturity graph and a link back to Platform.",
-  },
-  {
     href: "/about",
     label: "About",
     hint: "Leadership, conduct, and how we work.",

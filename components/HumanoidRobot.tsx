@@ -24,6 +24,16 @@ export function HumanoidRobot() {
   const [gesture, setGesture] = useState<"idle" | "wave" | "nod">("idle");
   const playing = useRef(false);
   const raf = useRef(0);
+  const mouthEase = useRef(0.08);
+
+  const restFace = useCallback(() => {
+    playing.current = false;
+    cancelAnimationFrame(raf.current);
+    setSpeaking(false);
+    setMouth(0.08);
+    mouthEase.current = 0.08;
+    setGesture("idle");
+  }, []);
 
   useEffect(() => {
     fetch("/api/robot/motion")
@@ -50,46 +60,59 @@ export function HumanoidRobot() {
       const local = buildLocalMotion(text, next);
       setLine(local.text);
       setGesture(next === "nod" ? "nod" : next === "wave" ? "wave" : "idle");
-      setSpeaking(true);
-      setMouth(0.55);
 
       const startTick = (motion: RobotMotion) => {
         const start = performance.now();
         playing.current = true;
+        setSpeaking(true);
         const tick = (now: number) => {
           const t = now - start;
-          setMouth(Math.max(0.18, sampleOpen(motion.mouth, t)));
+          const target = sampleOpen(motion.mouth, t);
+          mouthEase.current += (target - mouthEase.current) * 0.07;
+          setMouth(mouthEase.current);
           if (t < motion.durationMs && playing.current) {
             raf.current = requestAnimationFrame(tick);
           } else {
-            playing.current = false;
-            setSpeaking(false);
-            setMouth(0.08);
-            setGesture("idle");
+            restFace();
           }
         };
         raf.current = requestAnimationFrame(tick);
       };
 
-      startTick(local);
-
-      if (window.speechSynthesis) {
+      const speak = () => {
+        if (!window.speechSynthesis) {
+          startTick(local);
+          return;
+        }
         const u = new SpeechSynthesisUtterance(local.text);
-        u.rate = 0.92;
+        u.rate = 0.78;
         u.pitch = 0.78;
         u.voice = pickMaleVoice();
+        const fallback = window.setTimeout(() => {
+          if (!playing.current) startTick(local);
+        }, 450);
         u.onstart = () => {
-          setSpeaking(true);
-          setMouth(0.62);
+          window.clearTimeout(fallback);
+          startTick(local);
         };
-        u.onend = () => {
-          if (!playing.current) {
-            setSpeaking(false);
-            setMouth(0.08);
+        u.onboundary = (e) => {
+          if (e.name === "word" || e.name === "sentence") {
+            mouthEase.current = Math.min(1, mouthEase.current + 0.22);
+            setMouth(mouthEase.current);
           }
         };
+        u.onend = () => {
+          window.clearTimeout(fallback);
+          window.setTimeout(() => restFace(), 220);
+        };
+        u.onerror = () => {
+          window.clearTimeout(fallback);
+          restFace();
+        };
         window.speechSynthesis.speak(u);
-      }
+      };
+
+      speak();
 
       void fetch("/api/robot/motion", {
         method: "POST",
@@ -97,7 +120,7 @@ export function HumanoidRobot() {
         body: JSON.stringify({ text, gesture: next }),
       }).catch(() => undefined);
     },
-    [allowed],
+    [allowed, restFace],
   );
 
   useEffect(() => {
@@ -105,9 +128,7 @@ export function HumanoidRobot() {
       playing.current = false;
       cancelAnimationFrame(raf.current);
       window.speechSynthesis?.cancel();
-      setMouth(0.08);
-      setSpeaking(false);
-      setGesture("idle");
+      restFace();
       setLine(
         "Actions are off. Allow them so this attendant can speak. The head stays still — only the eyes on this figure follow the voice.",
       );
@@ -120,7 +141,7 @@ export function HumanoidRobot() {
       );
     }, 400);
     return () => window.clearTimeout(intro);
-  }, [allowed, playMotion]);
+  }, [allowed, playMotion, restFace]);
 
   const talking = speaking;
   const figureClass = [
