@@ -125,11 +125,11 @@ export function HumanoidRobot() {
         >
           <Image
             src="/images/revncia-mascot.png"
-            alt="REVNCIA AI robot attendant — Together we transform"
+            alt="REVNCIA AI attendant"
             fill
             priority
             unoptimized
-            className="object-contain object-bottom"
+            className="object-contain object-center"
             sizes="340px"
           />
         </div>
