@@ -38,17 +38,11 @@ body {
 .robot-stage.still .robot-figure {
   filter: grayscale(0.15);
 }
-.robot-stage.idle .robot-figure {
+.robot-figure.robot-live {
   animation: robot-float 2.8s ease-in-out infinite;
 }
-.robot-stage.speak .robot-figure {
-  animation: robot-talk 0.28s ease-in-out infinite;
-}
-.robot-stage.wave .robot-figure {
-  animation: robot-sway 0.7s ease-in-out 2;
-}
-.robot-stage.nod .robot-figure {
-  animation: robot-nod 0.5s ease-in-out 2;
+.robot-figure.still {
+  filter: grayscale(0.12);
 }
 
 @keyframes robot-float {
