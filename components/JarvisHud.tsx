@@ -11,7 +11,7 @@ export function JarvisHud() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
     let raf = 0;
-    let t = 0;
+    const origin = performance.now();
 
     const resize = () => {
       const dpr = Math.min(2, window.devicePixelRatio || 1);
@@ -21,19 +21,21 @@ export function JarvisHud() {
     };
     resize();
 
-    const draw = () => {
+    const draw = (now: number) => {
       const w = canvas.clientWidth;
       const h = canvas.clientHeight;
-      t += 0.012;
+      const elapsed = (now - origin) / 1000;
+      const t = elapsed * 0.12;
+
       ctx.clearRect(0, 0, w, h);
 
       const cx = w * 0.72;
       const cy = h * 0.48;
-      const maxR = Math.min(w, h) * 0.42;
+      const maxR = Math.min(w, h) * 0.4;
 
-      ctx.strokeStyle = "rgba(34, 211, 238, 0.07)";
+      ctx.strokeStyle = "rgba(148, 163, 184, 0.045)";
       ctx.lineWidth = 1;
-      const step = 28;
+      const step = 48;
       for (let x = 0; x < w; x += step) {
         ctx.beginPath();
         ctx.moveTo(x, 0);
@@ -47,71 +49,84 @@ export function JarvisHud() {
         ctx.stroke();
       }
 
-      const rings = [0.28, 0.46, 0.64, 0.82, 1];
+      const rings = [0.32, 0.52, 0.72, 0.92];
       rings.forEach((f, i) => {
         ctx.beginPath();
-        ctx.strokeStyle = `rgba(56, 189, 248, ${0.18 + i * 0.04})`;
-        ctx.lineWidth = i === 2 ? 1.8 : 1;
+        ctx.strokeStyle = `rgba(125, 211, 252, ${0.08 + i * 0.025})`;
+        ctx.lineWidth = i === 2 ? 1.15 : 0.7;
+        ctx.setLineDash(i === 1 ? [3, 10] : []);
         ctx.arc(cx, cy, maxR * f, 0, Math.PI * 2);
         ctx.stroke();
+        ctx.setLineDash([]);
       });
 
       ctx.save();
       ctx.translate(cx, cy);
       ctx.rotate(t);
       ctx.beginPath();
-      ctx.strokeStyle = "rgba(103, 232, 249, 0.55)";
-      ctx.lineWidth = 2;
-      ctx.arc(0, 0, maxR * 0.82, 0.15, 1.05);
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.strokeStyle = "rgba(34, 211, 238, 0.35)";
-      ctx.arc(0, 0, maxR * 0.64, 3.2, 4.4);
+      ctx.strokeStyle = "rgba(186, 230, 253, 0.28)";
+      ctx.lineWidth = 1.2;
+      ctx.arc(0, 0, maxR * 0.72, 0.05, 0.72);
       ctx.stroke();
       ctx.restore();
 
       ctx.save();
       ctx.translate(cx, cy);
-      ctx.rotate(-t * 0.65);
-      for (let i = 0; i < 36; i++) {
-        const a = (i / 36) * Math.PI * 2;
-        const inner = maxR * (i % 3 === 0 ? 0.88 : 0.93);
+      ctx.rotate(-t * 0.45);
+      ctx.beginPath();
+      ctx.strokeStyle = "rgba(34, 211, 238, 0.16)";
+      ctx.lineWidth = 0.9;
+      ctx.arc(0, 0, maxR * 0.52, 2.4, 3.35);
+      ctx.stroke();
+      ctx.restore();
+
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.rotate(t * 0.22);
+      for (let i = 0; i < 24; i++) {
+        const a = (i / 24) * Math.PI * 2;
+        const major = i % 6 === 0;
+        const inner = maxR * (major ? 0.9 : 0.945);
         ctx.beginPath();
-        ctx.strokeStyle = "rgba(125, 211, 252, 0.45)";
+        ctx.strokeStyle = major
+          ? "rgba(186, 230, 253, 0.28)"
+          : "rgba(125, 211, 252, 0.14)";
+        ctx.lineWidth = major ? 1.1 : 0.6;
         ctx.moveTo(Math.cos(a) * inner, Math.sin(a) * inner);
-        ctx.lineTo(Math.cos(a) * maxR, Math.sin(a) * maxR);
+        ctx.lineTo(Math.cos(a) * maxR * 0.98, Math.sin(a) * maxR * 0.98);
         ctx.stroke();
       }
       ctx.restore();
 
-      ctx.strokeStyle = "rgba(165, 243, 252, 0.35)";
+      ctx.strokeStyle = "rgba(203, 213, 225, 0.22)";
+      ctx.lineWidth = 0.8;
       ctx.beginPath();
-      ctx.moveTo(cx - maxR * 0.18, cy);
-      ctx.lineTo(cx + maxR * 0.18, cy);
-      ctx.moveTo(cx, cy - maxR * 0.18);
-      ctx.lineTo(cx, cy + maxR * 0.18);
+      ctx.moveTo(cx - maxR * 0.1, cy);
+      ctx.lineTo(cx + maxR * 0.1, cy);
+      ctx.moveTo(cx, cy - maxR * 0.1);
+      ctx.lineTo(cx, cy + maxR * 0.1);
       ctx.stroke();
       ctx.beginPath();
-      ctx.arc(cx, cy, 6, 0, Math.PI * 2);
+      ctx.arc(cx, cy, 3.5, 0, Math.PI * 2);
       ctx.stroke();
 
-      const sweep = (Math.sin(t * 1.4) + 1) / 2;
-      ctx.fillStyle = "rgba(34, 211, 238, 0.06)";
-      ctx.fillRect(0, h * sweep - 18, w, 36);
+      const sweep = ((elapsed * 0.035) % 1 + 1) % 1;
+      ctx.fillStyle = "rgba(56, 189, 248, 0.035)";
+      ctx.fillRect(0, h * sweep - 10, w, 20);
 
-      ctx.font = "11px ui-monospace, SFMono-Regular, Menlo, monospace";
-      ctx.fillStyle = "rgba(165, 243, 252, 0.7)";
+      ctx.font = "10px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+      ctx.fillStyle = "rgba(148, 163, 184, 0.55)";
       const lines = [
-        "REVNCIA CORE  ·  ONLINE",
-        "GATEWAY ROUTING  ·  STABLE",
-        "VOICE / WHATSAPP  ·  READY",
-        "GUARDRAILS  ·  ACTIVE",
+        "REVNCIA  ·  OPERATIONS",
+        "GATEWAY  ·  NOMINAL",
+        "CHANNELS  ·  STANDBY",
+        "OVERSIGHT  ·  ENGAGED",
       ];
       lines.forEach((line, i) => {
-        ctx.fillText(line, 28, 36 + i * 18);
+        ctx.fillText(line, 28, 32 + i * 16);
       });
-      ctx.fillStyle = "rgba(103, 232, 249, 0.55)";
-      ctx.fillText("COMMAND HUD  ·  SYSTEMS NOMINAL", 28, h - 28);
+      ctx.fillStyle = "rgba(148, 163, 184, 0.4)";
+      ctx.fillText("COMMAND SURFACE  ·  READ ONLY", 28, h - 24);
 
       raf = requestAnimationFrame(draw);
     };

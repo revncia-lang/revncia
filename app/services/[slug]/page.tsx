@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { MediaFrame } from "@/components/MediaFrame";
 import { PageHero } from "@/components/PageHero";
 import { UniqueChart } from "@/components/UniqueChart";
 import { UniqueScene } from "@/components/UniqueScene";
 import { offeringBySlug, offerings } from "@/lib/catalog";
 import { detailBlocks } from "@/lib/details";
 import { painPoints, plainWhy } from "@/lib/pains";
+import { btnPrimary } from "@/lib/ui";
 
 export function generateStaticParams() {
   return offerings.map((o) => ({ slug: o.slug }));
@@ -45,28 +47,34 @@ export default async function ServicePage({
         kicker={`${o.n} · ${o.group} · Stage ${o.stage}`}
         title={o.name}
         lede={o.title}
+        sections={[
+          { title: "Picture", text: "A unique scene or photograph for this line, fitted to the column." },
+          { title: "Plain English", text: "What it is, then the longer specification." },
+          { title: "Skip-this", text: "Operational problems customers report when they wait." },
+          { title: "Graphs", text: "Three unique charts in the side column. Prev / next at the foot." },
+        ]}
       />
       <section className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-12 md:px-8">
         <div className="md:col-span-7">
           {o.image ? (
-            <div className="relative mb-8 aspect-[16/9] overflow-hidden border border-cyan-400/20">
+            <MediaFrame className="mb-8">
               <Image
                 src={o.image}
                 alt={`${o.name} — visual for this service line`}
                 fill
                 className="object-cover"
-                sizes="60vw"
+                sizes="(min-width: 768px) 50vw, 100vw"
               />
-            </div>
+            </MediaFrame>
           ) : (
-            <div className="mb-8 h-52 border border-cyan-400/20">
+            <MediaFrame className="mb-8">
               <UniqueScene id={o.slug} title={o.name} />
-            </div>
+            </MediaFrame>
           )}
 
-          <h2 className="font-serif text-2xl text-cyan-50">In plain English</h2>
-          <p className="mt-3 text-[1.05rem] leading-relaxed text-slate-200">{why}</p>
-          <p className="mt-4 text-sm leading-relaxed text-slate-400">{o.body}</p>
+          <h2 className="mt-8 font-serif text-2xl text-cyan-50">In plain English</h2>
+          <p className="mt-3 text-[1.05rem] leading-relaxed text-pretty break-words text-slate-200">{why}</p>
+          <p className="mt-4 text-sm leading-relaxed text-pretty break-words text-slate-400">{o.body}</p>
           {o.note ? (
             <p className="mt-4 border border-amber-400/30 bg-amber-400/5 p-4 text-sm text-amber-100">
               {o.note}
@@ -137,14 +145,16 @@ export default async function ServicePage({
 
           <Link
             href="/contact"
-            className="mt-10 inline-block bg-cyan-400 px-5 py-3 text-[0.75rem] uppercase tracking-[0.16em] text-black"
+            className={`${btnPrimary} mt-10`}
           >
             Talk to REVNCIA about this
           </Link>
         </div>
         <aside className="space-y-4 md:col-span-5">
-          <div className="h-40 border border-cyan-400/20">
-            <UniqueScene id={`${o.slug}-side`} title={`${o.name} map`} />
+          <div className="mb-4">
+            <MediaFrame>
+              <UniqueScene id={`${o.slug}-side`} title={`${o.name} map`} />
+            </MediaFrame>
           </div>
           <UniqueChart
             id={`${o.slug}-work`}
@@ -158,9 +168,13 @@ export default async function ServicePage({
             id={`${o.slug}-trust`}
             caption="Trust and audit readiness over time (example path)"
           />
-          <div className="flex justify-between gap-3 text-sm text-cyan-300">
-            <Link href={`/services/${prev.slug}`}>← {prev.name}</Link>
-            <Link href={`/services/${next.slug}`}>{next.name} →</Link>
+          <div className="flex min-w-0 justify-between gap-3 text-sm text-cyan-300">
+            <Link href={`/services/${prev.slug}`} className="min-w-0 text-pretty break-words">
+              ← {prev.name}
+            </Link>
+            <Link href={`/services/${next.slug}`} className="min-w-0 text-right text-pretty break-words">
+              {next.name} →
+            </Link>
           </div>
         </aside>
       </section>

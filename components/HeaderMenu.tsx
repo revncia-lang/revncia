@@ -43,7 +43,7 @@ export function HeaderMenu() {
         </svg>
       </button>
       {open ? (
-        <div className="absolute left-0 right-0 top-full border-t border-cyan-400/15 bg-[#060a12]/95 px-5 py-4 lg:hidden">
+        <div className="absolute left-0 right-0 top-full border-t border-white/10 bg-[#060a12]/95 px-5 py-5 backdrop-blur-xl lg:hidden">
           <nav className="flex flex-col gap-3" aria-label="Mobile">
             {nav.map((item) => (
               <Link

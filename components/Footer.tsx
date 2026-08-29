@@ -14,15 +14,15 @@ const actions = [
     hint: "Thirty-six lines with plain English and skip-this risks.",
   },
   {
-    href: "/engagement",
-    label: "How we engage",
-    hint: "Consulting, implementation, SaaS, managed AI, and usage.",
+    href: "/about",
+    label: "Company",
+    hint: "Leadership, conduct, and how commercial work is layered.",
   },
 ] as const;
 
 export function Footer() {
   return (
-    <footer className="mt-auto border-t border-cyan-400/15 bg-black/60 text-cyan-50">
+    <footer className="mt-auto border-t border-white/10 bg-[#060a12]/80 text-cyan-50">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
         <div className="min-w-0">
           <Logo />
@@ -60,7 +60,7 @@ export function Footer() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="inline-flex border border-cyan-400/35 px-3 py-1.5 text-[0.68rem] tracking-[0.12em] uppercase text-cyan-200 hover:border-cyan-300"
+                  className="inline-flex rounded-md border border-cyan-400/30 px-3 py-1.5 text-[0.68rem] tracking-[0.12em] uppercase text-cyan-200 transition hover:border-cyan-300/60 hover:bg-cyan-400/10"
                 >
                   {item.label}
                 </Link>

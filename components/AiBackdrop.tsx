@@ -11,16 +11,16 @@ export function AiBackdrop() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
     let raf = 0;
-    const nodes = Array.from({ length: 48 }, () => ({
+    const nodes = Array.from({ length: 22 }, () => ({
       x: Math.random(),
       y: Math.random(),
-      vx: (Math.random() - 0.5) * 0.00035,
-      vy: (Math.random() - 0.5) * 0.00035,
+      vx: (Math.random() - 0.5) * 0.00012,
+      vy: (Math.random() - 0.5) * 0.00012,
     }));
 
     const draw = () => {
       const { width, height } = canvas;
-      ctx.fillStyle = "rgba(4, 8, 16, 0.35)";
+      ctx.fillStyle = "rgba(5, 8, 14, 0.22)";
       ctx.fillRect(0, 0, width, height);
       nodes.forEach((n) => {
         n.x += n.vx;
@@ -34,14 +34,14 @@ export function AiBackdrop() {
           const dy = nodes[i].y - nodes[j].y;
           const d = Math.hypot(dx, dy);
           if (d < 0.16) {
-            ctx.strokeStyle = `rgba(56, 189, 248, ${0.12 - d})`;
+            ctx.strokeStyle = `rgba(56, 189, 248, ${0.06 - d * 0.35})`;
             ctx.beginPath();
             ctx.moveTo(nodes[i].x * width, nodes[i].y * height);
             ctx.lineTo(nodes[j].x * width, nodes[j].y * height);
             ctx.stroke();
           }
         }
-        ctx.fillStyle = "rgba(125, 211, 252, 0.7)";
+        ctx.fillStyle = "rgba(125, 211, 252, 0.28)";
         ctx.beginPath();
         ctx.arc(nodes[i].x * width, nodes[i].y * height, 1.4, 0, Math.PI * 2);
         ctx.fill();

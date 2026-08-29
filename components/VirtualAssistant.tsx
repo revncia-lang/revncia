@@ -27,7 +27,7 @@ function reply(input: string, memory: Memory): { text: string; href?: string } {
   const greet = memory.name ? `${memory.name}, ` : "";
   if (/^(hi|hello|hey|salam|assalam)/i.test(lower)) {
     return {
-      text: `${greet}welcome to REVNCIA. I can walk you through thirty-six service lines, the AI Gateway, Voice, WhatsApp, and how to engage. Ask for a service or say your name so I can remember it.`,
+      text: `${greet}welcome to REVNCIA. I can walk you through thirty-six service lines, the AI Gateway, Voice, WhatsApp, and the contact form. Ask for a service or say your name so I can remember it.`,
     };
   }
   if (/contact|email|office|address/.test(lower)) {
@@ -54,8 +54,7 @@ function reply(input: string, memory: Memory): { text: string; href?: string } {
     { keys: ["command", "executive dashboard"], slug: "command-center" },
     { keys: ["agent", "workforce"], slug: "digital-workforce" },
     { keys: ["audit", "maturity"], slug: "audits" },
-    { keys: ["consult"], slug: "consulting" },
-    { keys: ["price", "fee", "cost", "engage"], slug: "consulting" },
+    { keys: ["consult", "price", "fee", "cost"], slug: "consulting" },
   ];
   const mapped = keywordMap.find((m) => m.keys.some((k) => lower.includes(k)));
   const found = hit || offerings.find((o) => o.slug === mapped?.slug);
@@ -80,7 +79,7 @@ function reply(input: string, memory: Memory): { text: string; href?: string } {
     };
   }
   return {
-    text: `${greet}I can guide Platform, Voice AI, WhatsApp, CRM, ERP, documents, government, Command Center, and engagement. Try “WhatsApp”, “voice receptionist”, or “my name is …”.`,
+    text: `${greet}I can guide Platform, Voice AI, WhatsApp, CRM, ERP, documents, government, and Command Center. Try “WhatsApp”, “voice receptionist”, or “my name is …”.`,
     href: "/services",
   };
 }

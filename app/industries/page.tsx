@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { MediaFrame } from "@/components/MediaFrame";
 import { PageHero } from "@/components/PageHero";
 import { UniqueScene } from "@/components/UniqueScene";
+import { surfaceHover } from "@/lib/ui";
 
 export const metadata: Metadata = {
   title: "Industries",
@@ -24,21 +26,27 @@ export default function IndustriesPage() {
         kicker="Industries"
         title="Same platform. Different mandates."
         lede="Commercial clients need growth and control. Public-sector clients need service, records, and trust. Packaged industry solutions reduce one-off custom work."
+        sections={[
+          { title: "Six mandates", text: "Each tile is a full-width picture plus a short brief. Text wraps." },
+          { title: "Open a tile", text: "Goes to the matching service specification." },
+        ]}
       />
-      <section className="mx-auto max-w-6xl px-5 py-14 md:px-8">
+      <section className="mx-auto max-w-6xl px-5 py-16 md:px-8">
         <div className="grid gap-5 md:grid-cols-2">
           {rows.map((r) => (
             <Link
               key={r.slug}
               href={`/services/${r.slug}`}
-              className="overflow-hidden border border-cyan-400/15 bg-black/30"
+              className={`${surfaceHover} min-w-0 overflow-hidden`}
             >
-              <div className="h-32">
+              <MediaFrame ratio="banner" className="border-0 rounded-none rounded-t-xl">
                 <UniqueScene id={`ind-${r.slug}`} title={r.name} />
-              </div>
+              </MediaFrame>
               <div className="p-5">
-                <h2 className="font-serif text-2xl text-cyan-50">{r.name}</h2>
-                <p className="mt-2 text-sm text-slate-400">{r.text}</p>
+                <h2 className="text-pretty font-serif text-2xl text-cyan-50">{r.name}</h2>
+                <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-slate-400">
+                  {r.text}
+                </p>
               </div>
             </Link>
           ))}

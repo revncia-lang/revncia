@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { btnChip, btnPrimary } from "@/lib/ui";
 import { sampleOpen, type RobotMotion } from "@/lib/robotMotion";
 
 function pickMaleVoice() {
@@ -136,11 +137,11 @@ export function HumanoidRobot() {
       <div className="relative z-[80] mt-3 flex flex-wrap justify-center gap-2">
         <button
           type="button"
-          className={`px-3 py-1.5 text-[0.68rem] tracking-[0.14em] uppercase ${
+          className={
             allowed
-              ? "bg-cyan-400 text-black"
-              : "border border-cyan-400/40 text-cyan-200"
-          }`}
+              ? btnPrimary
+              : `${btnChip} border-cyan-400/40 text-cyan-200`
+          }
           onClick={() => setAllowed((v) => !v)}
         >
           {allowed ? "Turn actions off" : "Allow actions"}
@@ -148,7 +149,7 @@ export function HumanoidRobot() {
         <button
           type="button"
           disabled={!allowed}
-          className="border border-cyan-400/40 px-3 py-1.5 text-[0.68rem] tracking-[0.14em] uppercase text-cyan-200 disabled:opacity-30"
+          className={btnChip}
           onClick={() =>
             void playMotion(
               "REVNCIA Voice and WhatsApp operations are ready to commission.",
@@ -161,7 +162,7 @@ export function HumanoidRobot() {
         <button
           type="button"
           disabled={!allowed}
-          className="border border-cyan-400/40 px-3 py-1.5 text-[0.68rem] tracking-[0.14em] uppercase text-cyan-200 disabled:opacity-30"
+          className={btnChip}
           onClick={() => void playMotion("Waving hello from REVNCIA AI.", "wave")}
         >
           Wave
@@ -169,13 +170,13 @@ export function HumanoidRobot() {
         <button
           type="button"
           disabled={!allowed}
-          className="border border-cyan-400/40 px-3 py-1.5 text-[0.68rem] tracking-[0.14em] uppercase text-cyan-200 disabled:opacity-30"
+          className={btnChip}
           onClick={() => void playMotion("Acknowledged. I am listening.", "nod")}
         >
           Nod
         </button>
       </div>
-      <p className="mt-2 px-2 text-center text-xs leading-relaxed text-cyan-100/85">
+      <p className="mt-2 px-2 text-center text-xs leading-relaxed text-pretty break-words text-slate-400">
         {line}
       </p>
       <p className="mt-1 text-center text-[0.65rem] uppercase tracking-widest text-slate-500">

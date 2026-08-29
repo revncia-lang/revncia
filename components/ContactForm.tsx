@@ -3,9 +3,7 @@
 import { FormEvent, useState } from "react";
 import { offerings } from "@/lib/catalog";
 import { company } from "@/lib/site";
-
-const field =
-  "w-full min-w-0 border border-cyan-400/25 bg-black/50 px-3 py-2.5 text-sm leading-relaxed text-cyan-50 outline-none focus:border-cyan-400";
+import { btnPrimary, field } from "@/lib/ui";
 
 export function ContactForm() {
   const [sent, setSent] = useState(false);
@@ -34,7 +32,7 @@ export function ContactForm() {
 
   if (sent) {
     return (
-      <p className="border border-cyan-400/20 bg-black/40 p-6 text-sm leading-relaxed break-words text-slate-400">
+      <p className="rounded-xl border border-white/10 bg-white/[0.04] p-6 text-sm leading-relaxed break-words text-slate-400">
         Your email client should open with the message ready for{" "}
         <a className="break-all text-cyan-200 underline" href={`mailto:${company.email}`}>
           {company.email}
@@ -104,7 +102,7 @@ export function ContactForm() {
       </label>
       <button
         type="submit"
-        className="mt-1 w-full bg-cyan-400 px-6 py-3 text-[0.75rem] tracking-[0.16em] uppercase text-black sm:w-fit"
+        className={`${btnPrimary} mt-1 w-full sm:w-fit`}
       >
         Send inquiry
       </button>

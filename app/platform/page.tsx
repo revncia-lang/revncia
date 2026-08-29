@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { MediaFrame } from "@/components/MediaFrame";
 import { PageHero } from "@/components/PageHero";
 import { UniqueChart } from "@/components/UniqueChart";
 import { offerings } from "@/lib/catalog";
+import { btnSecondary, surface } from "@/lib/ui";
 
 export const metadata: Metadata = {
   title: "AI Platform",
@@ -19,21 +21,27 @@ export default function PlatformPage() {
         kicker="REVNCIA Blueprint"
         title="The AI Gateway is the core of the company."
         lede={core.body}
+        sections={[
+          { title: "Photograph", text: "The Gateway scene — sized to the content width." },
+          { title: "Capabilities", text: "What the platform actually does, in tiles." },
+          { title: "Graphs", text: "Routing load and token envelope — illustrative, not a quote." },
+          { title: "Specification", text: "Opens the full AI Platform service page." },
+        ]}
       />
-      <section className="relative mx-auto max-w-6xl px-5 py-14 md:px-8">
-        <div className="relative mb-10 aspect-[16/9] overflow-hidden border border-cyan-400/20">
+      <section className="relative mx-auto max-w-6xl px-5 py-16 md:px-8">
+        <MediaFrame>
           <Image
             src="/images/scene-gateway.png"
             alt="REVNCIA AI Gateway core"
             fill
             className="object-cover"
-            sizes="100vw"
+            sizes="(min-width: 1024px) 72rem, 100vw"
             priority
           />
-        </div>
-        <ul className="grid gap-3 sm:grid-cols-2">
+        </MediaFrame>
+        <ul className="mt-10 grid gap-3 sm:grid-cols-2">
           {core.capabilities.map((c) => (
-            <li key={c} className="border border-cyan-400/15 bg-black/30 px-4 py-3 text-sm">
+            <li key={c} className={`${surface} px-4 py-3 text-sm leading-relaxed text-pretty break-words`}>
               {c}
             </li>
           ))}
@@ -42,10 +50,7 @@ export default function PlatformPage() {
           <UniqueChart id="platform-routing" caption="Multi-model routing load" />
           <UniqueChart id="platform-tokens" caption="Token and cost envelope" />
         </div>
-        <Link
-          href="/services/ai-platform"
-          className="mt-8 inline-block text-sm uppercase tracking-widest text-cyan-300 underline"
-        >
+        <Link href="/services/ai-platform" className={`${btnSecondary} mt-8`}>
           Full platform specification
         </Link>
       </section>
