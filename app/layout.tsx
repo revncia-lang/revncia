@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
+import { AiBackdrop } from "@/components/AiBackdrop";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { VirtualAssistant } from "@/components/VirtualAssistant";
 import { company } from "@/lib/site";
 
 const sans = Source_Sans_3({
@@ -19,17 +21,12 @@ const serif = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: {
-    default: `${company.name} — Digital Transformation & Public Impact`,
+    default: `${company.name} — Intelligent digital infrastructure`,
     template: `%s — ${company.name}`,
   },
   description:
-    "REVNCIA delivers CRM, ERP, AI, and complete digital transformation for enterprises and the public sector.",
+    "REVNCIA builds intelligent digital infrastructure for organizations, enterprises, governments, and public-impact institutions — AI, automation, software, data, cybersecurity, and measurable outcomes.",
   metadataBase: new URL("https://revncia.com"),
-  openGraph: {
-    title: `${company.name} — Digital Transformation & Public Impact`,
-    description: company.tagline,
-    type: "website",
-  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -38,10 +35,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${sans.variable} ${serif.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col font-sans">
-        <Header />
-        {children}
-        <Footer />
+      <body className="relative flex min-h-full flex-col font-sans">
+        <AiBackdrop />
+        <div className="relative z-10 flex min-h-full flex-col">
+          <Header />
+          {children}
+          <Footer />
+        </div>
+        <VirtualAssistant />
       </body>
     </html>
   );

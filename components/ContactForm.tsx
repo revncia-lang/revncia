@@ -1,7 +1,8 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { company, solutions } from "@/lib/site";
+import { offerings } from "@/lib/catalog";
+import { company } from "@/lib/site";
 
 export function ContactForm() {
   const [sent, setSent] = useState(false);
@@ -30,7 +31,7 @@ export function ContactForm() {
 
   if (sent) {
     return (
-      <p className="border border-[color:var(--line)] bg-white p-6 text-sm leading-relaxed text-[color:var(--muted)]">
+      <p className="border border-cyan-400/20 bg-black/40 p-6 text-sm leading-relaxed text-slate-400">
         Your email client should open with the message ready for{" "}
         <a className="text-[color:var(--ink)] underline" href={`mailto:${company.email}`}>
           {company.email}
@@ -48,7 +49,7 @@ export function ContactForm() {
           required
           name="name"
           autoComplete="name"
-          className="border border-[color:var(--line)] bg-white px-3 py-2.5 outline-none focus:border-[color:var(--ink)]"
+          className="border border-cyan-400/25 bg-black/50 px-3 py-2.5 outline-none focus:border-cyan-400"
         />
       </label>
       <label className="grid gap-1.5 text-sm">
@@ -56,7 +57,7 @@ export function ContactForm() {
         <input
           name="org"
           autoComplete="organization"
-          className="border border-[color:var(--line)] bg-white px-3 py-2.5 outline-none focus:border-[color:var(--ink)]"
+          className="border border-cyan-400/25 bg-black/50 px-3 py-2.5 outline-none focus:border-cyan-400"
         />
       </label>
       <label className="grid gap-1.5 text-sm">
@@ -66,18 +67,18 @@ export function ContactForm() {
           type="email"
           name="email"
           autoComplete="email"
-          className="border border-[color:var(--line)] bg-white px-3 py-2.5 outline-none focus:border-[color:var(--ink)]"
+          className="border border-cyan-400/25 bg-black/50 px-3 py-2.5 outline-none focus:border-cyan-400"
         />
       </label>
       <label className="grid gap-1.5 text-sm">
         <span>Interest</span>
         <select
           name="interest"
-          className="border border-[color:var(--line)] bg-white px-3 py-2.5 outline-none focus:border-[color:var(--ink)]"
-          defaultValue="Digital transformation"
+          className="border border-cyan-400/25 bg-black/50 px-3 py-2.5 outline-none focus:border-cyan-400"
+          defaultValue={offerings[0].name}
         >
-          {solutions.map((s) => (
-            <option key={s.slug}>{s.title}</option>
+          {offerings.map((s) => (
+            <option key={s.slug}>{s.name}</option>
           ))}
           <option>General inquiry</option>
         </select>
@@ -88,12 +89,12 @@ export function ContactForm() {
           required
           name="message"
           rows={5}
-          className="resize-y border border-[color:var(--line)] bg-white px-3 py-2.5 outline-none focus:border-[color:var(--ink)]"
+          className="resize-y border border-cyan-400/25 bg-black/50 px-3 py-2.5 outline-none focus:border-cyan-400"
         />
       </label>
       <button
         type="submit"
-        className="mt-2 w-fit bg-[color:var(--ink)] px-6 py-3 text-[0.75rem] tracking-[0.16em] uppercase text-[color:var(--paper)]"
+        className="mt-2 w-fit bg-cyan-400 px-6 py-3 text-[0.75rem] tracking-[0.16em] uppercase text-black"
       >
         Send inquiry
       </button>

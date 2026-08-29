@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #101820;
-  --ink-soft: #1c2a38;
-  --paper: #f4efe6;
-  --paper-muted: #c9c2b4;
-  --muted: #5c6570;
-  --line: #ddd6c8;
-  --copper: #b0894d;
-  --sage: #3d5348;
+  --ink: #e8f4ff;
+  --ink-soft: #9ec5d8;
+  --paper: #060a12;
+  --paper-muted: #8ba3b5;
+  --muted: #93a4b5;
+  --line: rgba(34, 211, 238, 0.18);
+  --copper: #22d3ee;
+  --sage: #67e8f9;
 }
 
 @theme inline {
@@ -23,8 +23,8 @@ html {
 }
 
 body {
-  background: var(--paper);
-  color: var(--ink);
+  background: #05070d;
+  color: #e8f4ff;
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
@@ -32,16 +32,50 @@ body {
   font-family: var(--font-serif), Georgia, serif;
 }
 
-.hero-glow {
-  background-image:
-    linear-gradient(120deg, transparent 40%, rgba(176, 137, 77, 0.18) 100%),
-    radial-gradient(ellipse at 80% 20%, rgba(61, 83, 72, 0.45), transparent 55%);
+.robot-stage.speak .visor {
+  animation: pulse 0.35s ease-in-out infinite;
+}
+.robot-stage.speak .mouth {
+  animation: talk 0.18s linear infinite;
+}
+.robot-stage.speak .core {
+  animation: pulse 0.6s ease-in-out infinite;
+}
+.robot-stage.wave .robot-arm-r {
+  transform-origin: 163px 136px;
+  animation: wave 0.7s ease-in-out 2;
+}
+.robot-stage.nod .robot-head {
+  transform-origin: 110px 118px;
+  animation: nod 0.5s ease-in-out 2;
+}
+.robot-stage.idle .robot-torso {
+  animation: breathe 3.2s ease-in-out infinite;
 }
 
-.paper-grid {
-  background-color: var(--paper);
-  background-image:
-    linear-gradient(rgba(16, 24, 32, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(16, 24, 32, 0.035) 1px, transparent 1px);
-  background-size: 48px 48px;
+@keyframes pulse {
+  50% {
+    opacity: 0.35;
+  }
+}
+@keyframes talk {
+  50% {
+    transform: scaleY(0.4);
+    transform-origin: 110px 101px;
+  }
+}
+@keyframes wave {
+  50% {
+    transform: rotate(-28deg);
+  }
+}
+@keyframes nod {
+  50% {
+    transform: rotateX(18deg) translateY(4px);
+  }
+}
+@keyframes breathe {
+  50% {
+    transform: translateY(-3px);
+  }
 }

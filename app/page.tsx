@@ -1,270 +1,171 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ProgramCharts } from "@/components/ProgramCharts";
-import { aiServices, company, objectives, solutions, steps } from "@/lib/site";
+import { HumanoidRobot } from "@/components/HumanoidRobot";
+import { UniqueChart } from "@/components/UniqueChart";
+import { UniqueScene } from "@/components/UniqueScene";
+import { engagement, flywheel, offerings, stages } from "@/lib/catalog";
+import { company } from "@/lib/site";
 
-const serviceImages = [
-  "/images/docs-ai.png",
-  "/images/ops-room.png",
-  "/images/boardroom.png",
-  "/images/civic.png",
+const featured = [
+  "ai-platform",
+  "customer-operations",
+  "whatsapp-ai",
+  "voice-ai",
+  "crm",
+  "government",
 ] as const;
 
 export default function Home() {
+  const cards = featured
+    .map((slug) => offerings.find((o) => o.slug === slug))
+    .filter((o): o is NonNullable<typeof o> => Boolean(o));
+
   return (
     <main>
-      <section className="relative overflow-hidden bg-[color:var(--ink)] text-[color:var(--paper)]">
+      <section className="relative overflow-hidden border-b border-cyan-400/15">
         <Image
-          src="/images/ops-room.png"
+          src="/images/scene-humanoid.png"
           alt=""
           fill
           priority
-          className="object-cover opacity-35"
+          className="object-cover opacity-25"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[color:var(--ink)] via-[color:var(--ink)]/88 to-[color:var(--ink)]/55" />
-        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-12 md:px-8 md:py-20">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#05070d] via-[#05070d]/88 to-[#05070d]/40" />
+        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-5 py-14 md:grid-cols-12 md:px-8 md:py-20">
           <div className="md:col-span-7">
-            <p className="text-[0.72rem] tracking-[0.24em] uppercase text-[color:var(--copper)]">
+            <p className="text-[0.72rem] tracking-[0.24em] uppercase text-cyan-400">
               {company.descriptor}
             </p>
-            <h1 className="mt-5 font-serif text-4xl leading-[1.08] md:text-5xl lg:text-6xl">
-              Institutional AI, CRM, and ERP — designed for clients who must
-              govern every decision.
+            <h1 className="mt-5 font-serif text-4xl leading-[1.08] text-cyan-50 md:text-5xl lg:text-6xl">
+              Intelligent digital infrastructure for organizations that must
+              govern AI, not just install it.
             </h1>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-[color:var(--paper-muted)] md:text-lg">
-              REVNCIA serves enterprises, public bodies, and mission-driven
-              organisations with a complete digital transformation practice:
-              intelligent reception, contact centres, document intelligence,
-              copilots, forecasting, automation, and the CRM/ERP backbone they
-              run on.
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-300 md:text-lg">
+              REVNCIA combines AI, automation, software, data, cybersecurity,
+              and measurable public-impact outcomes. The core is the AI
+              Gateway — routing, identity, knowledge, memory, agents, safety,
+              observability, and cost control — underneath Voice, WhatsApp,
+              CRM, ERP, and citizen services.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
-                href="#ai-services"
-                className="bg-[color:var(--copper)] px-6 py-3 text-[0.75rem] tracking-[0.16em] uppercase text-[color:var(--ink)]"
+                href="/services"
+                className="bg-cyan-400 px-6 py-3 text-[0.75rem] tracking-[0.16em] uppercase text-black"
               >
-                Review AI services
+                Full catalogue
+              </Link>
+              <Link
+                href="/platform"
+                className="border border-cyan-400/40 px-6 py-3 text-[0.75rem] tracking-[0.16em] uppercase text-cyan-100"
+              >
+                AI Platform
               </Link>
               <Link
                 href="/contact"
-                className="border border-[color:var(--paper-muted)] px-6 py-3 text-[0.75rem] tracking-[0.16em] uppercase text-[color:var(--paper)]"
+                className="border border-white/20 px-6 py-3 text-[0.75rem] tracking-[0.16em] uppercase text-white"
               >
-                Brief the practice
+                Commission
               </Link>
             </div>
           </div>
-          <div className="relative md:col-span-5">
-            <div className="relative aspect-[3/4] overflow-hidden border border-[color:var(--copper)]/50 shadow-[0_24px_80px_rgba(0,0,0,0.45)]">
-              <Image
-                src="/images/hero-robot.png"
-                alt="REVNCIA institutional AI: a professional humanoid systems attendant in an executive setting"
-                fill
-                priority
-                className="object-cover object-top"
-                sizes="(min-width: 768px) 40vw, 90vw"
-              />
-            </div>
-            <p className="mt-3 text-[0.7rem] tracking-[0.14em] uppercase text-[color:var(--paper-muted)]">
-              Intelligent reception · governed automation · human oversight
-            </p>
+          <div className="md:col-span-5">
+            <HumanoidRobot />
           </div>
         </div>
       </section>
 
-      <section
-        id="ai-services"
-        className="scroll-mt-24 border-b border-[color:var(--line)] paper-grid"
-      >
-        <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
-          <p className="text-[0.72rem] tracking-[0.22em] uppercase text-[color:var(--copper)]">
-            AI services for clientage
-          </p>
-          <h2 className="mt-3 max-w-3xl font-serif text-3xl md:text-4xl">
-            A complete artificial intelligence catalogue — implemented as
-            operating services, not experiments.
-          </h2>
-          <p className="mt-5 max-w-3xl text-[0.95rem] leading-relaxed text-[color:var(--muted)]">
-            Each service is specified against your systems of record, identity
-            model, privacy schedule, and escalation policy. The same practice
-            delivers for commercial clientage and for public-impact mandates.
-          </p>
+      <section className="mx-auto max-w-6xl px-5 py-16 md:px-8">
+        <p className="text-[0.72rem] tracking-[0.22em] uppercase text-cyan-400">
+          Build in stages
+        </p>
+        <h2 className="mt-3 font-serif text-3xl text-cyan-50">
+          Not thirty-six logos on day one — a flywheel.
+        </h2>
+        <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {stages.map((s) => (
+            <article key={s.id} className="border border-cyan-400/15 bg-black/30 p-5">
+              <h3 className="font-serif text-xl text-cyan-100">{s.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-400">{s.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
 
-          <div className="mt-12 grid gap-8">
-            {aiServices.map((service, i) => (
-              <article
-                key={service.slug}
-                id={service.slug}
-                className="grid scroll-mt-24 overflow-hidden border border-[color:var(--line)] bg-white md:grid-cols-12"
+      <section className="border-y border-cyan-400/15 bg-black/25">
+        <div className="mx-auto max-w-6xl px-5 py-16 md:px-8">
+          <p className="text-[0.72rem] tracking-[0.22em] uppercase text-cyan-400">
+            Priority lines
+          </p>
+          <h2 className="mt-3 font-serif text-3xl text-cyan-50">
+            Revenue engine and public-impact core.
+          </h2>
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {cards.map((o) => (
+              <Link
+                key={o.slug}
+                href={`/services/${o.slug}`}
+                className="grid overflow-hidden border border-cyan-400/15 bg-black/40 md:grid-cols-5"
               >
-                <div className="relative min-h-[220px] md:col-span-4">
-                  <Image
-                    src={serviceImages[i % serviceImages.length]}
-                    alt=""
-                    fill
-                    className="object-cover"
-                    sizes="(min-width: 768px) 30vw, 100vw"
-                  />
+                <div className="relative min-h-[140px] md:col-span-2">
+                  <UniqueScene id={`home-${o.slug}`} title={o.name} />
                 </div>
-                <div className="md:col-span-8 px-6 py-7 md:px-8">
-                  <p className="text-[0.7rem] tracking-[0.18em] uppercase text-[color:var(--copper)]">
-                    {String(i + 1).padStart(2, "0")} · {service.name}
+                <div className="md:col-span-3 p-5">
+                  <p className="text-[0.68rem] tracking-[0.16em] uppercase text-cyan-400">
+                    {o.n} · {o.group}
                   </p>
-                  <h3 className="mt-2 font-serif text-2xl md:text-3xl">
-                    {service.title}
-                  </h3>
-                  <p className="mt-3 text-sm font-medium leading-relaxed text-[color:var(--ink)]">
-                    {service.summary}
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-[color:var(--muted)]">
-                    {service.body}
-                  </p>
+                  <h3 className="mt-1 font-serif text-2xl text-cyan-50">{o.name}</h3>
+                  <p className="mt-2 text-sm text-slate-400">{o.summary}</p>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-b border-[color:var(--line)] bg-white">
-        <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
-          <p className="text-[0.72rem] tracking-[0.22em] uppercase text-[color:var(--copper)]">
-            Measurement
-          </p>
-          <h2 className="mt-3 max-w-2xl font-serif text-3xl md:text-4xl">
-            Boards and sponsors receive graphs, not slogans.
-          </h2>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[color:var(--muted)]">
-            The charts below describe the measurement framework REVNCIA uses on
-            AI and transformation programmes. Figures are illustrative of method
-            — live programmes report against your baseline.
-          </p>
-          <div className="mt-10">
-            <ProgramCharts />
-          </div>
-        </div>
-      </section>
-
-      <section className="border-b border-[color:var(--line)]">
-        <div className="mx-auto max-w-6xl px-5 py-16 md:px-8">
-          <p className="text-[0.72rem] tracking-[0.22em] uppercase text-[color:var(--copper)]">
-            Platform practice
-          </p>
-          <h2 className="mt-3 mb-10 font-serif text-3xl">
-            CRM, ERP, and the estate AI depends on.
-          </h2>
-        </div>
-        <div className="mx-auto grid max-w-6xl gap-px bg-[color:var(--line)] sm:grid-cols-2 lg:grid-cols-3">
-          {solutions.map((s) => (
-            <Link
-              key={s.slug}
-              href={`/solutions#${s.slug}`}
-              className="bg-[color:var(--paper)] px-6 py-8 transition-colors hover:bg-white"
-            >
-              <p className="text-[0.7rem] tracking-[0.18em] uppercase text-[color:var(--copper)]">
-                {s.name}
-              </p>
-              <h3 className="mt-2 font-serif text-2xl">{s.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-[color:var(--muted)]">
-                {s.summary}
-              </p>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
-        <p className="text-[0.72rem] tracking-[0.22em] uppercase text-[color:var(--copper)]">
-          How we work
+      <section className="mx-auto max-w-6xl px-5 py-16 md:px-8">
+        <p className="text-[0.72rem] tracking-[0.22em] uppercase text-cyan-400">
+          Guidance graphs
         </p>
-        <h2 className="mt-3 max-w-xl font-serif text-3xl md:text-4xl">
-          A governed path from discovery to a system of record.
+        <h2 className="mt-3 mb-8 font-serif text-3xl text-cyan-50">
+          Unique measures for each conversation — never a recycled chart.
         </h2>
-        <div className="mt-12 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-          {steps.map((step) => (
-            <div key={step.n}>
-              <p className="font-serif text-3xl text-[color:var(--copper)]">
-                {step.n}
-              </p>
-              <h3 className="mt-2 text-lg font-medium">{step.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-[color:var(--muted)]">
-                {step.text}
-              </p>
-            </div>
-          ))}
+        <div className="grid gap-4 md:grid-cols-3">
+          <UniqueChart id="home-containment" caption="Illustrative containment path" />
+          <UniqueChart id="home-cost-routing" caption="Cost-aware model mix" />
+          <UniqueChart id="home-public-impact" caption="Public-impact cycle time" />
         </div>
       </section>
 
-      <section className="relative overflow-hidden border-y border-[color:var(--line)]">
-        <Image
-          src="/images/civic.png"
-          alt="Civic architecture representing REVNCIA public-impact work"
-          fill
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-[color:var(--ink)]/78" />
-        <div className="relative mx-auto grid max-w-6xl gap-12 px-5 py-16 md:grid-cols-2 md:px-8 md:py-24">
-          <div className="text-[color:var(--paper)]">
-            <p className="text-[0.72rem] tracking-[0.22em] uppercase text-[color:var(--copper)]">
-              Public impact
-            </p>
-            <h2 className="mt-3 font-serif text-3xl md:text-4xl">
-              Technology that serves institutions, not just markets.
-            </h2>
-            <p className="mt-5 text-[0.95rem] leading-relaxed text-[color:var(--paper-muted)]">
-              Public-impact work means citizen-facing services, accountable
-              records, and systems that survive leadership change. REVNCIA
-              brings the same delivery standard to government, civic, and
-              mission-driven organisations as we do to commercial clientage.
-            </p>
-            <Link
-              href="/about"
-              className="mt-6 inline-block text-[0.75rem] tracking-[0.16em] uppercase text-[color:var(--paper)] underline underline-offset-4"
-            >
-              About REVNCIA
-            </Link>
+      <section className="border-y border-cyan-400/15">
+        <div className="mx-auto max-w-6xl px-5 py-16 md:px-8">
+          <p className="text-[0.72rem] tracking-[0.22em] uppercase text-cyan-400">
+            Flywheel
+          </p>
+          <ol className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {flywheel.map((item, i) => (
+              <li key={item} className="border border-cyan-400/20 px-4 py-4">
+                <span className="text-[0.65rem] text-cyan-400">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <p className="mt-1 font-serif text-xl text-cyan-50">{item}</p>
+              </li>
+            ))}
+          </ol>
+          <div className="mt-12 grid gap-3 md:grid-cols-5">
+            {engagement.map((e) => (
+              <div key={e.layer} className="border border-white/10 p-4">
+                <p className="font-serif text-lg text-cyan-100">{e.layer}</p>
+                <p className="mt-1 text-xs text-slate-400">{e.cadence}</p>
+              </div>
+            ))}
           </div>
-          <div className="text-[color:var(--paper)]">
-            <p className="text-[0.72rem] tracking-[0.22em] uppercase text-[color:var(--copper)]">
-              Strategic objectives
-            </p>
-            <ul className="mt-6 divide-y divide-white/15">
-              {objectives.map((item) => (
-                <li key={item} className="py-3 font-serif text-xl">
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden">
-        <Image
-          src="/images/boardroom.png"
-          alt=""
-          fill
-          className="object-cover opacity-25"
-          sizes="100vw"
-        />
-        <div className="relative mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
-          <div className="border border-[color:var(--line)] bg-[color:var(--ink)]/92 px-6 py-12 text-[color:var(--paper)] md:px-12">
-            <h2 className="font-serif text-3xl md:text-4xl">
-              Commission a scoped AI, CRM, or ERP programme.
-            </h2>
-            <p className="mt-4 max-w-xl text-[color:var(--paper-muted)]">
-              Write to {company.email}. Describe the client operation, the
-              systems in place, and the service you need stood up under
-              governance.
-            </p>
-            <Link
-              href="/contact"
-              className="mt-8 inline-block bg-[color:var(--copper)] px-6 py-3 text-[0.75rem] tracking-[0.16em] uppercase text-[color:var(--ink)]"
-            >
-              Contact the practice
-            </Link>
-          </div>
+          <Link
+            href="/engagement"
+            className="mt-8 inline-block text-[0.75rem] uppercase tracking-[0.16em] text-cyan-300 underline"
+          >
+            How we engage
+          </Link>
         </div>
       </section>
     </main>

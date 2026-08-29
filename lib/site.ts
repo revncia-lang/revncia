@@ -10,10 +10,12 @@ export const company = {
 
 export const nav = [
   { href: "/", label: "Home" },
-  { href: "/#ai-services", label: "AI services" },
-  { href: "/about", label: "About" },
-  { href: "/solutions", label: "Solutions" },
+  { href: "/platform", label: "Platform" },
+  { href: "/services", label: "Services" },
   { href: "/industries", label: "Industries" },
+  { href: "/blueprint", label: "Blueprint" },
+  { href: "/engagement", label: "Engage" },
+  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
