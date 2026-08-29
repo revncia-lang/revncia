@@ -115,7 +115,7 @@ export function HumanoidRobot() {
     <div className="relative">
       <div className="robot-stage relative select-none">
         <div
-          className={`robot-figure relative mx-auto h-[320px] w-full max-w-[200px] md:h-[420px] md:max-w-[230px] ${figureClass}`}
+          className={`robot-figure relative mx-auto h-[440px] w-full max-w-[280px] md:h-[560px] md:max-w-[340px] ${figureClass}`}
           style={
             allowed
               ? { filter: `brightness(${1 + mouth * 0.18})` }
@@ -123,12 +123,13 @@ export function HumanoidRobot() {
           }
         >
           <Image
-            src="/images/revncia-mascot.jpg"
+            src="/images/revncia-mascot.png"
             alt="REVNCIA AI robot attendant — Together we transform"
             fill
             priority
-            className="object-contain object-center"
-            sizes="230px"
+            unoptimized
+            className="object-contain object-bottom"
+            sizes="340px"
           />
         </div>
       </div>
