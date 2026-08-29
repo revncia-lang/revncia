@@ -132,7 +132,7 @@ export function HumanoidRobot() {
 
   return (
     <div className="relative">
-      <div className="robot-stage relative -mt-1 select-none md:-mt-2">
+      <div className="robot-stage relative select-none">
         <div
           className={`robot-figure relative mx-auto w-full max-w-[min(100%,28rem)] aspect-[947/1024] md:max-w-none ${figureClass}`}
           style={{ ["--eye"]: talking ? mouth : 0.08 } as CSSProperties}

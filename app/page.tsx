@@ -37,7 +37,7 @@ export default function Home() {
         <div className="absolute inset-0 overflow-hidden">
           <JarvisHud />
         </div>
-        <div className="relative mx-auto grid max-w-6xl items-start gap-6 px-5 pt-2 pb-12 md:grid-cols-12 md:px-8 md:pt-3 md:pb-16">
+        <div className="relative mx-auto grid max-w-6xl items-start gap-6 px-5 pt-[1in] pb-12 md:grid-cols-12 md:px-8 md:pb-16">
           <div className="min-w-0 md:col-span-5">
             <p className={kicker}>{company.descriptor}</p>
             <h1 className="mt-5 text-balance font-serif text-4xl leading-[1.14] text-cyan-50 md:text-5xl lg:text-[3.35rem]">
