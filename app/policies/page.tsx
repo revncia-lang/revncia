@@ -3,7 +3,7 @@ import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
 import { policies } from "@/lib/policies";
 import { company } from "@/lib/site";
-import { surfaceHover } from "@/lib/ui";
+import { shell, surfaceHover } from "@/lib/ui";
 
 export const metadata: Metadata = {
   title: "Policies",
@@ -24,7 +24,7 @@ export default function PoliciesIndex() {
           { title: "Confidentiality", text: "Client files, identity, and security limits." },
         ]}
       />
-      <section className="mx-auto max-w-6xl px-5 py-16 md:px-8">
+      <section className={`${shell} py-16`}>
         <ul className="grid gap-4 sm:grid-cols-2">
           {policies.map((p) => (
             <li key={p.slug}>
@@ -32,7 +32,7 @@ export default function PoliciesIndex() {
                 <p className="text-[0.65rem] tracking-[0.16em] uppercase text-cyan-400/90">
                   Policy
                 </p>
-                <h2 className="mt-2 text-pretty font-serif text-2xl text-cyan-50">{p.title}</h2>
+                <h2 className="mt-2 text-pretty font-serif text-2xl">{p.title}</h2>
                 <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-slate-400">
                   {p.summary}
                 </p>

@@ -5,14 +5,14 @@ import { usePathname } from "next/navigation";
 import { Logo } from "./Logo";
 import { HeaderMenu } from "./HeaderMenu";
 import { nav } from "@/lib/site";
-import { btnPrimary } from "@/lib/ui";
+import { btnPrimary, shell } from "@/lib/ui";
 
 export function Header() {
   const path = usePathname();
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#060a12]/75 backdrop-blur-xl">
-      <div className="relative mx-auto flex max-w-6xl items-center justify-between gap-3 px-5 py-3.5 md:gap-4 md:px-8">
+      <div className={`relative ${shell} flex items-center justify-between gap-3 py-3.5 md:gap-4`}>
         <Link href="/" className="min-w-0 shrink-0 text-cyan-50">
           <Logo />
         </Link>

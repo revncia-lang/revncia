@@ -5,7 +5,7 @@ import { MediaFrame } from "@/components/MediaFrame";
 import { PageHero } from "@/components/PageHero";
 import { UniqueChart } from "@/components/UniqueChart";
 import { offerings } from "@/lib/catalog";
-import { btnSecondary, surface } from "@/lib/ui";
+import { btnSecondary, shell, surface } from "@/lib/ui";
 
 export const metadata: Metadata = {
   title: "AI Platform",
@@ -28,7 +28,7 @@ export default function PlatformPage() {
           { title: "Specification", text: "Opens the full AI Platform service page." },
         ]}
       />
-      <section className="relative mx-auto max-w-6xl px-5 py-16 md:px-8">
+      <section className={`relative ${shell} py-16`}>
         <MediaFrame>
           <Image
             src="/images/scene-gateway.png"

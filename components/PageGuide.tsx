@@ -19,12 +19,12 @@ export function PageGuide({
           <ol className="mt-4 grid gap-3 sm:grid-cols-2">
             {sections.map((s, i) => (
               <li key={s.title} className="min-w-0">
-                <p className="text-pretty font-serif text-[1.05rem] leading-snug text-cyan-50">
+                <h3 className="text-pretty font-serif text-[1.05rem] leading-snug">
                   <span className="mr-1.5 text-[0.65rem] text-cyan-400/80">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   {s.title}
-                </p>
+                </h3>
                 <p className="mt-1 text-xs leading-relaxed text-pretty break-words text-slate-500">
                   {s.text}
                 </p>

@@ -21,7 +21,7 @@ export function UniqueScene({
   return (
     <svg
       viewBox="0 0 320 190"
-      className="h-full w-full"
+      className="block h-full w-full max-w-none"
       preserveAspectRatio="xMidYMid slice"
       role="img"
       aria-label={title}

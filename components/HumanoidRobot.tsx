@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { btnChip, btnPrimary } from "@/lib/ui";
-import { buildLocalMotion, sampleOpen, type RobotMotion } from "@/lib/robotMotion";
+import { buildLocalMotion } from "@/lib/robotMotion";
 
 function pickMaleVoice() {
   const voices = window.speechSynthesis.getVoices();
@@ -17,24 +17,14 @@ export function HumanoidRobot() {
   const [allowed, setAllowed] = useState(false);
   const [apiOk, setApiOk] = useState<boolean | null>(null);
   const [line, setLine] = useState(
-    "Actions are off. Allow them so this attendant can speak. The head stays still — only the eyes on this figure follow the voice.",
+    "Actions are off. Allow them so this attendant can speak. The figure stays still.",
   );
-  const [mouth, setMouth] = useState(0.08);
-  const [speaking, setSpeaking] = useState(false);
-  const [gesture, setGesture] = useState<"idle" | "wave" | "nod">("idle");
   const playing = useRef(false);
-  const raf = useRef(0);
-  const mouthEase = useRef(0.08);
   const actDelay = useRef(0);
 
-  const restFace = useCallback(() => {
+  const restTalk = useCallback(() => {
     playing.current = false;
-    cancelAnimationFrame(raf.current);
     window.clearTimeout(actDelay.current);
-    setSpeaking(false);
-    setMouth(0.08);
-    mouthEase.current = 0.08;
-    setGesture("idle");
   }, []);
 
   useEffect(() => {
@@ -56,63 +46,25 @@ export function HumanoidRobot() {
     async (text: string, next?: string) => {
       if (!allowed) return;
       playing.current = false;
-      cancelAnimationFrame(raf.current);
       window.speechSynthesis?.cancel();
 
       const local = buildLocalMotion(text, next);
       setLine(local.text);
-      setGesture(next === "nod" ? "nod" : next === "wave" ? "wave" : "idle");
-      setSpeaking(false);
-      setMouth(0.08);
-      mouthEase.current = 0.08;
-
-      const startTick = (motion: RobotMotion) => {
-        const start = performance.now();
-        playing.current = true;
-        setSpeaking(true);
-        const tick = (now: number) => {
-          const t = now - start;
-          const target = sampleOpen(motion.mouth, t);
-          mouthEase.current += (target - mouthEase.current) * 0.07;
-          setMouth(mouthEase.current);
-          if (t < motion.durationMs && playing.current) {
-            raf.current = requestAnimationFrame(tick);
-          } else {
-            restFace();
-          }
-        };
-        raf.current = requestAnimationFrame(tick);
-      };
 
       const speak = () => {
-        if (!window.speechSynthesis) {
-          startTick(local);
-          return;
-        }
+        if (!window.speechSynthesis) return;
         const u = new SpeechSynthesisUtterance(local.text);
         u.rate = 0.78;
         u.pitch = 0.78;
         u.voice = pickMaleVoice();
-        const fallback = window.setTimeout(() => {
-          if (!playing.current) startTick(local);
-        }, 450);
         u.onstart = () => {
-          window.clearTimeout(fallback);
-          startTick(local);
-        };
-        u.onboundary = (e) => {
-          if (e.name === "word" || e.name === "sentence") {
-            mouthEase.current = Math.min(1, mouthEase.current + 0.22);
-            setMouth(mouthEase.current);
-          }
+          playing.current = true;
         };
         u.onend = () => {
-          window.clearTimeout(fallback);
-          window.setTimeout(() => restFace(), 220);
+          playing.current = false;
         };
         u.onerror = () => {
-          window.clearTimeout(fallback);
-          restFace();
+          playing.current = false;
         };
         window.speechSynthesis.speak(u);
       };
@@ -126,18 +78,16 @@ export function HumanoidRobot() {
         body: JSON.stringify({ text, gesture: next }),
       }).catch(() => undefined);
     },
-    [allowed, restFace],
+    [allowed],
   );
 
   useEffect(() => {
     if (!allowed) {
-      playing.current = false;
-      cancelAnimationFrame(raf.current);
       window.speechSynthesis?.cancel();
       window.clearTimeout(actDelay.current);
-      restFace();
+      restTalk();
       setLine(
-        "Actions are off. Allow them so this attendant can speak. The head stays still — only the eyes on this figure follow the voice.",
+        "Actions are off. Allow them so this attendant can speak. The figure stays still.",
       );
       return;
     }
@@ -148,22 +98,15 @@ export function HumanoidRobot() {
       );
     }, 400);
     return () => window.clearTimeout(intro);
-  }, [allowed, playMotion, restFace]);
-
-  const talking = speaking;
-  const figureClass = [
-    !allowed ? "still" : "",
-    talking ? "robot-eyes-talk" : "",
-  ]
-    .filter(Boolean)
-    .join(" ");
+  }, [allowed, playMotion, restTalk]);
 
   return (
     <div className="relative">
       <div className="robot-stage relative select-none">
         <div
-          className={`robot-figure relative mx-auto w-full max-w-[min(100%,28rem)] aspect-[947/1024] md:max-w-none ${figureClass}`}
-          style={{ ["--eye"]: talking ? mouth : 0.08 } as CSSProperties}
+          className={`robot-figure relative mx-auto w-full max-w-[min(100%,22rem)] aspect-[904/1024] sm:max-w-[26rem] md:max-w-[32rem] lg:max-w-[34rem] ${
+            allowed ? "" : "still"
+          }`}
         >
           <Image
             src="/images/revncia-mascot.png"
@@ -172,14 +115,8 @@ export function HumanoidRobot() {
             priority
             unoptimized
             className="object-contain object-top"
-            sizes="(min-width: 768px) 42rem, 28rem"
+            sizes="(min-width: 1024px) 34rem, (min-width: 768px) 32rem, 26rem"
           />
-          <div className="robot-face" aria-hidden>
-            <span className="robot-eye-slit" />
-            <span className="robot-eye-hud" />
-            <span className="robot-nose" />
-            <span className="robot-mouth" />
-          </div>
         </div>
       </div>
       <div className="relative z-[80] mt-3 flex flex-wrap justify-center gap-2">
@@ -201,7 +138,6 @@ export function HumanoidRobot() {
           onClick={() =>
             void playMotion(
               "REVNCIA Voice and WhatsApp operations are ready to commission.",
-              "wave",
             )
           }
         >
@@ -211,7 +147,7 @@ export function HumanoidRobot() {
           type="button"
           disabled={!allowed}
           className={btnChip}
-          onClick={() => void playMotion("Waving hello from REVNCIA AI.", "wave")}
+          onClick={() => void playMotion("Waving hello from REVNCIA AI.")}
         >
           Wave
         </button>
@@ -219,7 +155,7 @@ export function HumanoidRobot() {
           type="button"
           disabled={!allowed}
           className={btnChip}
-          onClick={() => void playMotion("Acknowledged. I am listening.", "nod")}
+          onClick={() => void playMotion("Acknowledged. I am listening.")}
         >
           Nod
         </button>

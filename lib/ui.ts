@@ -1,3 +1,7 @@
+/** Full page width with even gutters — header, footer, and every section share this. */
+export const shell =
+  "mx-auto w-full min-w-0 px-5 sm:px-8 lg:px-12 xl:px-16 2xl:px-20";
+
 export const kicker =
   "text-[0.7rem] font-medium tracking-[0.2em] uppercase text-cyan-400/90";
 

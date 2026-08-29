@@ -2,6 +2,7 @@ import Link from "next/link";
 import { policies } from "@/lib/policies";
 import { company, nav } from "@/lib/site";
 import { Logo } from "./Logo";
+import { shell } from "@/lib/ui";
 
 const actions = [
   {
@@ -27,7 +28,7 @@ const col =
 export function Footer() {
   return (
     <footer className="mt-auto border-t border-white/10 bg-[#060a12]/80 text-cyan-50">
-      <div className="mx-auto grid max-w-6xl grid-cols-1 items-stretch gap-4 px-5 py-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5 lg:px-8">
+      <div className={`${shell} grid grid-cols-1 items-stretch gap-4 py-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5`}>
         <div className={col}>
           <Logo />
           <p className="mt-4 flex-1 text-sm leading-relaxed text-pretty break-words text-slate-400">
@@ -106,11 +107,11 @@ export function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-start gap-4 px-5 py-6 text-xs leading-relaxed text-pretty break-words text-slate-500 md:grid-cols-3 md:px-8">
+        <div className={`${shell} grid grid-cols-1 items-start gap-4 py-6 text-xs leading-relaxed text-pretty break-words text-slate-500 md:grid-cols-2`}>
           <p className="min-w-0">
             © 2026 {company.name}. All rights reserved.
           </p>
-          <nav className="min-w-0" aria-label="Policies">
+          <nav className="min-w-0 md:text-right" aria-label="Policies">
             <p className="text-[0.65rem] tracking-[0.16em] uppercase text-slate-600">
               Policies
             </p>
@@ -132,9 +133,6 @@ export function Footer() {
               ))}
             </ul>
           </nav>
-          <p className="min-w-0 md:text-right">
-            Founded and led by {company.founder}, {company.founderTitle}.
-          </p>
         </div>
       </div>
     </footer>

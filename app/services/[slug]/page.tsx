@@ -9,7 +9,7 @@ import { UniqueScene } from "@/components/UniqueScene";
 import { offeringBySlug, offerings } from "@/lib/catalog";
 import { detailBlocks } from "@/lib/details";
 import { painPoints, plainWhy } from "@/lib/pains";
-import { btnPrimary } from "@/lib/ui";
+import { btnPrimary, shell } from "@/lib/ui";
 
 export function generateStaticParams() {
   return offerings.map((o) => ({ slug: o.slug }));
@@ -54,7 +54,7 @@ export default async function ServicePage({
           { title: "Graphs", text: "Three unique charts in the side column. Prev / next at the foot." },
         ]}
       />
-      <section className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-12 md:px-8">
+      <section className={`${shell} grid gap-10 py-14 md:grid-cols-12`}>
         <div className="md:col-span-7">
           {o.image ? (
             <MediaFrame className="mb-8">
@@ -72,7 +72,7 @@ export default async function ServicePage({
             </MediaFrame>
           )}
 
-          <h2 className="mt-8 font-serif text-2xl text-cyan-50">In plain English</h2>
+          <h2 className="mt-8 font-serif text-2xl">In plain English</h2>
           <p className="mt-3 text-[1.05rem] leading-relaxed text-pretty break-words text-slate-200">{why}</p>
           <p className="mt-4 text-sm leading-relaxed text-pretty break-words text-slate-400">{o.body}</p>
           {o.note ? (
@@ -81,7 +81,7 @@ export default async function ServicePage({
             </p>
           ) : null}
 
-          <h2 className="mt-12 font-serif text-2xl text-cyan-50">
+          <h2 className="mt-12 font-serif text-2xl">
             What customers struggle with if they skip this
           </h2>
           <p className="mt-2 text-sm text-slate-400">
@@ -102,7 +102,7 @@ export default async function ServicePage({
 
           {blocks.map((block) => (
             <div key={block.heading} className="mt-10">
-              <h2 className="font-serif text-2xl text-cyan-50">{block.heading}</h2>
+              <h2 className="font-serif text-2xl">{block.heading}</h2>
               <ul className="mt-4 grid gap-2 sm:grid-cols-2">
                 {block.items.map((item) => (
                   <li
@@ -116,7 +116,7 @@ export default async function ServicePage({
             </div>
           ))}
 
-          <h2 className="mt-12 font-serif text-2xl text-cyan-50">Core capabilities</h2>
+          <h2 className="mt-12 font-serif text-2xl">Core capabilities</h2>
           <ul className="mt-4 space-y-2">
             {o.capabilities.map((c) => (
               <li key={c} className="border-l-2 border-cyan-400 pl-3 text-sm text-slate-200">
@@ -127,7 +127,7 @@ export default async function ServicePage({
 
           {related.length > 0 ? (
             <div className="mt-12">
-              <h2 className="font-serif text-2xl text-cyan-50">Often bought with</h2>
+              <h2 className="font-serif text-2xl">Often bought with</h2>
               <ul className="mt-4 space-y-2">
                 {related.map((r) => (
                   <li key={r.slug}>

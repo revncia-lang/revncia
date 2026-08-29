@@ -5,9 +5,9 @@ import { MediaFrame } from "@/components/MediaFrame";
 import { PageGuide } from "@/components/PageGuide";
 import { UniqueChart } from "@/components/UniqueChart";
 import { UniqueScene } from "@/components/UniqueScene";
-import { engagement, flywheel, offerings, stages } from "@/lib/catalog";
+import { engagement, flywheel, offerings } from "@/lib/catalog";
 import { company } from "@/lib/site";
-import { btnGhost, btnPrimary, btnSecondary, kicker, surface, surfaceHover } from "@/lib/ui";
+import { btnGhost, btnPrimary, btnSecondary, kicker, shell, surface, surfaceHover } from "@/lib/ui";
 
 const featured = [
   "ai-platform",
@@ -19,8 +19,7 @@ const featured = [
 ] as const;
 
 const homeGuide = [
-  { title: "Attendant", text: "Full-body REVNCIA robot. Allow actions to speak; the visor already on the figure moves with the voice." },
-  { title: "Stages", text: "How a programme is sequenced — not thirty-six logos on day one." },
+  { title: "Attendant", text: "Wireframe REVNCIA attendant. Allow actions to hear a spoken welcome; the picture stays still." },
   { title: "Priority lines", text: "Six core offerings with a picture and a short brief." },
   { title: "Graphs & flywheel", text: "Illustrative charts, then the operating cycle and commercial layers." },
   { title: "Catalogue", text: "All thirty-six services. Open any card for the full specification." },
@@ -37,10 +36,10 @@ export default function Home() {
         <div className="absolute inset-0 overflow-hidden">
           <JarvisHud />
         </div>
-        <div className="relative mx-auto grid max-w-6xl items-start gap-6 px-5 pt-[1in] pb-12 md:grid-cols-12 md:px-8 md:pb-16">
+        <div className={`relative ${shell} grid items-start gap-6 pt-[1in] pb-12 md:grid-cols-12 md:pb-16`}>
           <div className="min-w-0 md:col-span-5">
             <p className={kicker}>{company.descriptor}</p>
-            <h1 className="mt-5 text-balance font-serif text-4xl leading-[1.14] text-cyan-50 md:text-5xl lg:text-[3.35rem]">
+            <h1 className="mt-5 text-balance font-serif text-4xl leading-[1.14] md:text-5xl lg:text-[3.35rem]">
               AI, CRM, ERP, and public-impact systems that your organisation can actually run.
             </h1>
             <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed break-words text-slate-300/95 md:text-lg">
@@ -70,46 +69,27 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-20 md:px-8">
-        <p className={kicker}>Build in stages</p>
-        <h2 className="mt-3 max-w-3xl font-serif text-3xl text-cyan-50 md:text-[2.1rem]">
-          Not thirty-six logos on day one — a flywheel.
-        </h2>
-        <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {stages.map((s) => (
-            <article key={s.id} className={`${surface} p-6`}>
-              <h3 className="text-pretty font-serif text-xl text-cyan-100">{s.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-slate-400">
-                {s.text}
-              </p>
-            </article>
-          ))}
-        </div>
-      </section>
-
       <section className="border-y border-white/10 bg-white/[0.02]">
-        <div className="mx-auto max-w-6xl px-5 py-20 md:px-8">
+        <div className={`${shell} py-20`}>
           <p className={kicker}>Priority lines</p>
-          <h2 className="mt-3 font-serif text-3xl text-cyan-50 md:text-[2.1rem]">
+          <h2 className="mt-3 font-serif text-3xl md:text-[2.1rem]">
             Revenue engine and public-impact core.
           </h2>
-          <div className="mt-10 grid gap-5 md:grid-cols-2">
+          <div className="mt-10 grid w-full gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {cards.map((o) => (
               <Link
                 key={o.slug}
                 href={`/services/${o.slug}`}
-                className={`${surfaceHover} grid overflow-hidden md:grid-cols-5`}
+                className={`${surfaceHover} flex min-w-0 flex-col overflow-hidden`}
               >
-                <div className="relative min-h-[160px] md:col-span-2 md:min-h-0">
-                  <div className="absolute inset-0">
-                    <UniqueScene id={`home-${o.slug}`} title={o.name} />
-                  </div>
-                </div>
-                <div className="min-w-0 md:col-span-3 p-5">
+                <MediaFrame ratio="landscape" className="w-full border-0 rounded-none rounded-t-xl">
+                  <UniqueScene id={`home-${o.slug}`} title={o.name} />
+                </MediaFrame>
+                <div className="min-w-0 p-5">
                   <p className="text-[0.65rem] tracking-[0.16em] uppercase text-cyan-400/90">
                     {o.n} · {o.group}
                   </p>
-                  <h3 className="mt-1 text-pretty font-serif text-2xl text-cyan-50">{o.name}</h3>
+                  <h3 className="mt-1 text-pretty font-serif text-2xl">{o.name}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-slate-400">
                     {o.summary}
                   </p>
@@ -120,12 +100,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-20 md:px-8">
+      <section className={`${shell} py-20`}>
         <p className={kicker}>Guidance graphs</p>
-        <h2 className="mt-3 mb-10 max-w-3xl font-serif text-3xl text-cyan-50 md:text-[2.1rem]">
+        <h2 className="mt-3 mb-10 max-w-3xl font-serif text-3xl md:text-[2.1rem]">
           Simple graphs so a customer can see the idea — each chart is unique to this page.
         </h2>
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid w-full gap-4 md:grid-cols-3">
           <UniqueChart id="home-containment" caption="Illustrative containment path" />
           <UniqueChart id="home-cost-routing" caption="Cost-aware model mix" />
           <UniqueChart id="home-public-impact" caption="Public-impact cycle time" />
@@ -133,7 +113,7 @@ export default function Home() {
       </section>
 
       <section className="border-y border-white/10 bg-white/[0.02]">
-        <div className="mx-auto max-w-6xl px-5 py-20 md:px-8">
+        <div className={`${shell} py-20`}>
           <p className={kicker}>Flywheel</p>
           <ol className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {flywheel.map((item, i) => (
@@ -160,19 +140,19 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-20 md:px-8">
+      <section className={`${shell} py-20`}>
         <p className={kicker}>All 36 services</p>
         <h2 className="mt-3 max-w-3xl font-serif text-3xl text-cyan-50 md:text-[2.1rem]">
           Every line from the REVNCIA brief — open a card for pictures, graphs, and what goes wrong if you wait.
         </h2>
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid w-full gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {offerings.map((o) => (
             <Link
               key={o.slug}
               href={`/services/${o.slug}`}
               className={`${surfaceHover} overflow-hidden`}
             >
-              <MediaFrame ratio="banner" className="border-0 rounded-none rounded-t-xl">
+              <MediaFrame ratio="landscape" className="w-full border-0 rounded-none rounded-t-xl">
                 <UniqueScene id={`all-${o.slug}`} title={o.name} />
               </MediaFrame>
               <div className="p-4">

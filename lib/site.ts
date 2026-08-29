@@ -15,7 +15,7 @@ export const nav = [
     label: "Home",
     hint: "Opening view, attendant, and the full catalogue.",
     explain:
-      "Start here. The attendant is on the right of the hero. Below that: delivery stages, six priority lines, three graphs, the flywheel, then every service card. Each card opens a full specification.",
+      "Start here. The attendant is on the right of the hero. Below that: six priority lines, three graphs, the flywheel, then every service card. Each card opens a full specification.",
   },
   {
     href: "/platform",

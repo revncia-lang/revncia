@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
 import { policies, policyBySlug } from "@/lib/policies";
 import { company } from "@/lib/site";
-import { btnSecondary, surface } from "@/lib/ui";
+import { btnSecondary, shell, surface } from "@/lib/ui";
 
 export function generateStaticParams() {
   return policies.map((p) => ({ slug: p.slug }));
@@ -46,7 +46,7 @@ export default async function PolicyPage({
           text: "Full wording is in the column below.",
         }))}
       />
-      <section className="mx-auto max-w-3xl px-5 py-16 md:px-8">
+      <section className={`${shell} py-16`}>
         <p className="text-sm leading-relaxed text-pretty break-words text-slate-500">
           {company.name} · {company.address} ·{" "}
           <a className="break-all text-cyan-200 underline underline-offset-4" href={`mailto:${company.email}`}>
@@ -56,7 +56,7 @@ export default async function PolicyPage({
         <div className="mt-10 space-y-6">
           {p.sections.map((s) => (
             <article key={s.heading} className={`${surface} p-6`}>
-              <h2 className="text-pretty font-serif text-2xl text-cyan-50">{s.heading}</h2>
+              <h2 className="text-pretty font-serif text-2xl">{s.heading}</h2>
               <p className="mt-3 text-sm leading-relaxed text-pretty break-words text-slate-300">
                 {s.body}
               </p>

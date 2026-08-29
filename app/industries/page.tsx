@@ -3,7 +3,7 @@ import Link from "next/link";
 import { MediaFrame } from "@/components/MediaFrame";
 import { PageHero } from "@/components/PageHero";
 import { UniqueScene } from "@/components/UniqueScene";
-import { surfaceHover } from "@/lib/ui";
+import { shell, surfaceHover } from "@/lib/ui";
 
 export const metadata: Metadata = {
   title: "Industries",
@@ -31,19 +31,19 @@ export default function IndustriesPage() {
           { title: "Open a tile", text: "Goes to the matching service specification." },
         ]}
       />
-      <section className="mx-auto max-w-6xl px-5 py-16 md:px-8">
-        <div className="grid gap-5 md:grid-cols-2">
+      <section className={`${shell} py-16`}>
+        <div className="grid w-full gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {rows.map((r) => (
             <Link
               key={r.slug}
               href={`/services/${r.slug}`}
               className={`${surfaceHover} min-w-0 overflow-hidden`}
             >
-              <MediaFrame ratio="banner" className="border-0 rounded-none rounded-t-xl">
+              <MediaFrame ratio="landscape" className="w-full border-0 rounded-none rounded-t-xl">
                 <UniqueScene id={`ind-${r.slug}`} title={r.name} />
               </MediaFrame>
               <div className="p-5">
-                <h2 className="text-pretty font-serif text-2xl text-cyan-50">{r.name}</h2>
+                <h2 className="text-pretty font-serif text-2xl">{r.name}</h2>
                 <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-slate-400">
                   {r.text}
                 </p>

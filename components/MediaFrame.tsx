@@ -15,7 +15,7 @@ export function MediaFrame({
         : "aspect-[16/9]";
   return (
     <div
-      className={`relative w-full min-w-0 overflow-hidden rounded-xl border border-white/10 ${box} ${className}`}
+      className={`relative block w-full min-w-0 overflow-hidden rounded-xl border border-white/10 ${box} ${className}`}
     >
       <div className="absolute inset-0 [&_img]:h-full [&_img]:w-full [&_svg]:h-full [&_svg]:w-full">
         {children}

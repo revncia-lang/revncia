@@ -4,7 +4,7 @@ import { PageHero } from "@/components/PageHero";
 import { UniqueScene } from "@/components/UniqueScene";
 import { engagement } from "@/lib/catalog";
 import { company, principles, objectives } from "@/lib/site";
-import { kicker, surface } from "@/lib/ui";
+import { kicker, shell, surface } from "@/lib/ui";
 
 export const metadata: Metadata = {
   title: "About",
@@ -26,12 +26,12 @@ export default function AboutPage() {
           { title: "Commercial layers", text: "Consulting through usage — how work is billed, not a separate site section." },
         ]}
       />
-      <section className="mx-auto max-w-6xl px-5 py-16 md:grid md:grid-cols-12 md:gap-12 md:px-8">
+      <section className={`${shell} py-16 md:grid md:grid-cols-12 md:gap-12`}>
         <div className="min-w-0 md:col-span-7">
           <MediaFrame ratio="banner" className="mb-8">
             <UniqueScene id="about-org" title="REVNCIA organization" />
           </MediaFrame>
-          <h2 className="font-serif text-3xl text-cyan-50">Who we are</h2>
+          <h2 className="font-serif text-3xl">Who we are</h2>
           <p className="mt-5 text-[0.95rem] leading-relaxed text-pretty break-words text-slate-400">
             {company.name} is {company.descriptor.toLowerCase()}. The long-term
             core is the AI Platform: Gateway, identity, knowledge, memory,
@@ -66,8 +66,8 @@ export default function AboutPage() {
         </aside>
       </section>
       <section className="border-t border-white/10">
-        <div className="mx-auto max-w-6xl px-5 py-16 md:px-8">
-          <h2 className="font-serif text-3xl text-cyan-50">Code of conduct</h2>
+        <div className={`${shell} py-16`}>
+          <h2 className="font-serif text-3xl">Code of conduct</h2>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {principles.map((p) => (
               <li key={p} className={`${surface} px-4 py-3 font-serif text-xl text-cyan-100`}>

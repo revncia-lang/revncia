@@ -35,7 +35,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${sans.variable} ${serif.variable} h-full antialiased`}
     >
-      <body className="relative flex min-h-full flex-col font-sans">
+      <body className="relative flex min-h-full flex-col overflow-x-clip font-sans">
         <AiBackdrop />
         <div className="relative z-10 flex min-h-full flex-col pb-24">
           <Header />
