@@ -2,8 +2,21 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { JarvisHud } from "@/components/JarvisHud";
 import { btnChip, btnPrimary } from "@/lib/ui";
 import { buildLocalMotion } from "@/lib/robotMotion";
+
+const LINES = {
+  idle: "Actions are off.",
+  welcome:
+    "Welcome to REVNCIA. Together we transform. We help your callers get answers, your staff share one system, and the public keep a record they can trust. Voice, WhatsApp, CRM, and ERP are ready when you are. Write info@revncia.com to start.",
+  speak:
+    "REVNCIA Voice and WhatsApp keep every customer conversation answered. Pair them with the AI Gateway, CRM, and ERP your staff can actually run. Email info@revncia.com to start.",
+  wave:
+    "Hello from REVNCIA. Together we transform. We would be glad to help with Voice, WhatsApp, the AI Platform, CRM, and ERP. Write info@revncia.com.",
+  nod:
+    "Understood. We are ready to listen. Tell us who waits — callers, chats, files, or citizens — and write info@revncia.com.",
+} as const;
 
 function pickMaleVoice() {
   const voices = window.speechSynthesis.getVoices();
@@ -16,9 +29,7 @@ function pickMaleVoice() {
 export function HumanoidRobot() {
   const [allowed, setAllowed] = useState(false);
   const [apiOk, setApiOk] = useState<boolean | null>(null);
-  const [line, setLine] = useState(
-    "Actions are off. Allow them so this attendant can speak. The figure stays still.",
-  );
+  const [line, setLine] = useState(LINES.idle);
   const playing = useRef(false);
 
   const restTalk = useCallback(() => {
@@ -88,22 +99,18 @@ export function HumanoidRobot() {
     if (!allowed) {
       window.speechSynthesis?.cancel();
       restTalk();
-      setLine(
-        "Actions are off. Allow them so this attendant can speak. The figure stays still.",
-      );
+      setLine(LINES.idle);
       return;
     }
-    void playMotion(
-      "Welcome to REVNCIA. Together we transform. Voice, WhatsApp, and the AI Gateway are ready to commission.",
-      "idle",
-    );
+    void playMotion(LINES.welcome, "idle");
   }, [allowed, playMotion, restTalk]);
 
   return (
     <div className="relative">
-      <div className="robot-stage relative select-none">
+      <div className="robot-stage relative mx-auto w-full max-w-[min(100%,22rem)] select-none sm:max-w-[26rem] md:max-w-[32rem] lg:max-w-[34rem]">
+        <JarvisHud />
         <div
-          className={`robot-figure relative mx-auto w-full max-w-[min(100%,22rem)] aspect-[904/1024] sm:max-w-[26rem] md:max-w-[32rem] lg:max-w-[34rem] ${
+          className={`robot-figure relative z-10 mx-auto w-full aspect-[904/1024] ${
             allowed ? "" : "still"
           }`}
         >
@@ -113,7 +120,7 @@ export function HumanoidRobot() {
             fill
             priority
             unoptimized
-            className="object-contain object-top"
+            className="z-10 object-contain object-top"
             sizes="(min-width: 1024px) 34rem, (min-width: 768px) 32rem, 26rem"
           />
         </div>
@@ -134,11 +141,7 @@ export function HumanoidRobot() {
           type="button"
           disabled={!allowed}
           className={btnChip}
-          onClick={() =>
-            void playMotion(
-              "REVNCIA Voice and WhatsApp operations are ready to commission.",
-            )
-          }
+          onClick={() => void playMotion(LINES.speak)}
         >
           Speak
         </button>
@@ -146,7 +149,7 @@ export function HumanoidRobot() {
           type="button"
           disabled={!allowed}
           className={btnChip}
-          onClick={() => void playMotion("Waving hello from REVNCIA AI.")}
+          onClick={() => void playMotion(LINES.wave)}
         >
           Wave
         </button>
@@ -154,7 +157,7 @@ export function HumanoidRobot() {
           type="button"
           disabled={!allowed}
           className={btnChip}
-          onClick={() => void playMotion("Acknowledged. I am listening.")}
+          onClick={() => void playMotion(LINES.nod)}
         >
           Nod
         </button>

@@ -14,14 +14,14 @@ export default function PoliciesIndex() {
   return (
     <main>
       <PageHero
-        kicker="Legal"
-        title="Policies. Copyright reserved."
-        lede={`© 2026 ${company.name}. All rights reserved. These four statements sit with the copyright line in the footer. Commissioned work is also governed by the signed agreement.`}
+        kicker="Your protection"
+        title="What you can expect when you write, buy, or send us a file."
+        lede={`When you write, buy, or send a file: who owns the work, how we use your mail, when a programme starts, and how we treat your files. © 2026 ${company.name}. All rights reserved. Signed work also follows the agreement you sign. Example pictures and graphs are not a quote or an SLA.`}
         sections={[
-          { title: "Copyright", text: "Marks, site assets, and who owns delivered work." },
-          { title: "Privacy", text: "Inquiry mail, the attendant, and programme data." },
-          { title: "Terms", text: "How to use this site and when a contract starts." },
-          { title: "Confidentiality", text: "Client files, identity, and security limits." },
+          { title: "Copyright", text: "Our marks stay ours. Work we deliver to you follows the agreement you sign." },
+          { title: "Privacy", text: "Inquiry mail is for a reply. Voice, WhatsApp, CRM, and citizen programmes follow your instructions and the law." },
+          { title: "Terms", text: "What you read here is information. A programme starts only when both sides accept scope in writing." },
+          { title: "Confidentiality", text: "Your files stay confidential. Cyber is implementation plus partners — not a full cyber firm." },
         ]}
       />
       <section className={`${shell} py-16`}>

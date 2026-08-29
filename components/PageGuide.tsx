@@ -14,7 +14,7 @@ export function PageGuide({
             id="on-this-page"
             className="text-[0.65rem] font-medium tracking-[0.2em] uppercase text-cyan-400/90"
           >
-            On this page
+            What you can start
           </h2>
           <ol className="mt-4 grid gap-3 sm:grid-cols-2">
             {sections.map((s, i) => (
@@ -37,11 +37,11 @@ export function PageGuide({
             id="site-navigation-guide"
             className="text-[0.65rem] font-medium tracking-[0.2em] uppercase text-cyan-400/90"
           >
-            Across the site
+            Need a different start
           </h2>
           <p className="mt-3 text-xs leading-relaxed text-pretty break-words text-slate-500">
-            The same destinations appear in the header and footer. Hover a name
-            for a short hint.
+            Voice and WhatsApp, the AI your staff use, your sector, or a
+            message to the office.
           </p>
           <ul className="mt-4 flex flex-wrap gap-2">
             {nav.map((item) => (

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { FacilitiesOnService } from "@/components/CustomerFacilities";
 import { MediaFrame } from "@/components/MediaFrame";
 import { PageHero } from "@/components/PageHero";
 import { UniqueChart } from "@/components/UniqueChart";
@@ -22,7 +23,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const o = offeringBySlug(slug);
-  return { title: o?.name ?? "Service" };
+  return { title: o?.title ?? o?.name ?? "Service" };
 }
 
 export default async function ServicePage({
@@ -44,14 +45,14 @@ export default async function ServicePage({
   return (
     <main>
       <PageHero
-        kicker={`${o.n} · ${o.group} · Stage ${o.stage}`}
-        title={o.name}
-        lede={o.title}
+        kicker={`${o.n} · ${o.name}`}
+        title={o.title}
+        lede={o.summary}
         sections={[
-          { title: "Picture", text: "A unique scene or photograph for this line, fitted to the column." },
-          { title: "Plain English", text: "What it is, then the longer specification." },
-          { title: "Skip-this", text: "Operational problems customers report when they wait." },
-          { title: "Graphs", text: "Three unique charts in the side column. Prev / next at the foot." },
+          { title: "What you receive", text: "Who it helps — callers, staff, or citizens — and what you can use after go-live." },
+          { title: "If nothing changes", text: "Problems organisations report before they put this in place." },
+          { title: "After go-live", text: "How waiting, rework, and trust usually move — examples, not a quote." },
+          { title: "How to write in", text: "Name this work in a message to info@revncia.com so the right person replies." },
         ]}
       />
       <section className={`${shell} grid gap-10 py-14 md:grid-cols-12`}>
@@ -72,8 +73,7 @@ export default async function ServicePage({
             </MediaFrame>
           )}
 
-          <h2 className="mt-8 font-serif text-2xl">In plain English</h2>
-          <p className="mt-3 text-[1.05rem] leading-relaxed text-pretty break-words text-slate-200">{why}</p>
+          <p className="mt-8 text-[1.05rem] leading-relaxed text-pretty break-words text-slate-200">{why}</p>
           <p className="mt-4 text-sm leading-relaxed text-pretty break-words text-slate-400">{o.body}</p>
           {o.note ? (
             <p className="mt-4 border border-amber-400/30 bg-amber-400/5 p-4 text-sm text-amber-100">
@@ -81,8 +81,10 @@ export default async function ServicePage({
             </p>
           ) : null}
 
+          <FacilitiesOnService slug={o.slug} />
+
           <h2 className="mt-12 font-serif text-2xl">
-            What customers struggle with if they skip this
+            What your customers and staff still struggle with if you skip this
           </h2>
           <p className="mt-2 text-sm text-slate-400">
             These are everyday problems organisations report before they adopt
@@ -116,7 +118,7 @@ export default async function ServicePage({
             </div>
           ))}
 
-          <h2 className="mt-12 font-serif text-2xl">Core capabilities</h2>
+          <h2 className="mt-12 font-serif text-2xl">What you can use after go-live</h2>
           <ul className="mt-4 space-y-2">
             {o.capabilities.map((c) => (
               <li key={c} className="border-l-2 border-cyan-400 pl-3 text-sm text-slate-200">
@@ -127,7 +129,7 @@ export default async function ServicePage({
 
           {related.length > 0 ? (
             <div className="mt-12">
-              <h2 className="font-serif text-2xl">Often bought with</h2>
+              <h2 className="font-serif text-2xl">Other lines customers pair with this</h2>
               <ul className="mt-4 space-y-2">
                 {related.map((r) => (
                   <li key={r.slug}>

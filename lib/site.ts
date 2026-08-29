@@ -1,7 +1,7 @@
 export const company = {
   name: "REVNCIA",
   descriptor: "A Digital Transformation & Public Impact Company",
-  tagline: "AI, CRM, ERP, and digital transformation — built for enterprises and the public sector.",
+  tagline: "Customers get answers. Staff get one system. The public gets a record they can trust.",
   motto: "Together we transform",
   email: "info@revncia.com",
   address: "525 Randall Ave Ste 100, Cheyenne, WY, USA",
@@ -13,44 +13,51 @@ export const nav = [
   {
     href: "/",
     label: "Home",
-    hint: "Opening view, attendant, and the full catalogue.",
+    hint: "Who gets answers first — then how to write in.",
     explain:
-      "Start here. The attendant is on the right of the hero. Below that: six priority lines, three graphs, the flywheel, then every service card. Each card opens a full specification.",
+      "Start here if callers wait, chats go unread, or staff juggle separate tools. You will see Voice, WhatsApp, CRM, ERP, and how we work with you. Write info@revncia.com when you are ready.",
   },
   {
     href: "/platform",
-    label: "Platform",
-    hint: "AI Gateway: routing, identity, and cost control.",
+    label: "AI Platform",
+    hint: "One door for staff AI — cost, identity, and a log you can show.",
     explain:
-      "The AI Gateway page. Photograph of the core, then capability tiles, two graphs, and a link into the full platform service specification.",
+      "Choose this if staff already use AI without shared rules, cost control, or a log you can show. You get one door for models, identity, and spend — not another personal chatbot login.",
   },
   {
     href: "/services",
-    label: "Services",
-    hint: "Every offering with pictures, graphs, and skip-this risks.",
+    label: "What we deliver",
+    hint: "Voice, WhatsApp, CRM, ERP, government — pick what waits first.",
     explain:
-      "The catalogue index. Thirty-six cards in a grid. Open any card for plain English, skip-this risks, unique pictures, and unique graphs. Prev/next at the bottom of each specification.",
+      "Choose a service by who waits: callers, WhatsApp chats, unread files, citizen cases, or a board that wants a plan. Each service says what you receive, who it helps, and what happens after go-live.",
+  },
+  {
+    href: "/facilities",
+    label: "What you get",
+    hint: "Voice, WhatsApp, Gateway, CRM, documents, citizen access, and how we stay.",
+    explain:
+      "Choose this to see what callers, staff, and citizens can actually use after go-live — Voice, WhatsApp, Gateway, CRM, documents, citizen access — and how you buy and reach us.",
   },
   {
     href: "/industries",
-    label: "Industries",
-    hint: "Government, education, healthcare, finance, retail, NGOs.",
+    label: "Your sector",
+    hint: "Citizens, students, patients’ admin, bank customers, shoppers.",
     explain:
-      "Same platform, different mandates. Each industry tile opens the matching service line (government, education, healthcare admin, finance, retail, enterprise/NGO packs).",
+      "Choose this if you serve citizens, students, patients’ admin, bank customers, or shoppers. Same platform, shaped for the people you already serve — with the limits that apply in your sector.",
   },
   {
     href: "/about",
-    label: "About",
-    hint: "Leadership, conduct, and how we work.",
+    label: "Who we are",
+    hint: "Office, limits, and how you can buy.",
     explain:
-      "Who REVNCIA is, founder and office, code of conduct, six objectives, and how commercial work is layered.",
+      "Choose this if you need to introduce REVNCIA to a board: who we are, the Cheyenne office, how we behave, how you can buy, and the limits we state before you sign.",
   },
   {
     href: "/contact",
-    label: "Contact",
-    hint: "Write a brief. Reply from the published office.",
+    label: "Talk with us",
+    hint: "Name who waits. We reply from the published office.",
     explain:
-      "Inquiry form on the left (name, organisation, email, interest, message). Office and mailto on the right. Submitting opens your email client to info@revncia.com.",
+      "Write when you know who waits — callers, chats, files, or a plan. Name the work so we can reply from the published office. Email-first — no invented phone or WhatsApp token.",
   },
 ] as const;
 
@@ -129,27 +136,27 @@ export const solutions = [
 export const industries = [
   {
     name: "Government & public sector",
-    text: "Citizen services, case management, records, and transparent operations with public-impact outcomes.",
+    text: "Citizens see status and book help. Offices keep an auditable file and measures you choose to publish.",
   },
   {
     name: "Enterprise & mid-market",
-    text: "CRM, ERP, and AI programs that replace fragmented tools with a governed operating system.",
+    text: "One customer and finance record staff actually open — CRM, ERP, and AI on a governed layer.",
   },
   {
     name: "Healthcare & social services",
-    text: "Care coordination, intake, and administrative systems designed around privacy and continuity.",
+    text: "Appointments, reminders, and admin — privacy first. Not a clinical-care product.",
   },
   {
     name: "Education",
-    text: "Student, staff, and operations platforms that reduce administrative load and improve service.",
+    text: "Parents, students, and teachers get answers so staff can teach — admissions and attendance included.",
   },
   {
     name: "Finance & professional services",
-    text: "Client lifecycle, reporting, and controls that stand up to audit and client confidentiality.",
+    text: "Faster onboarding, a fuller customer file, and a compliance trail. Not investment advice.",
   },
   {
     name: "Logistics & operations",
-    text: "Inventory, fulfillment, and field operations with real-time visibility and exception handling.",
+    text: "Inventory, fulfillment, and field work with a shared record — not clipboards beside the system.",
   },
 ] as const;
 

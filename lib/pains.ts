@@ -1,4 +1,4 @@
-/** Problems customers keep facing when they do not use this REVNCIA line. */
+/** Problems callers, staff, and citizens keep facing when this work is missing. */
 export const painPoints: Record<string, string[]> = {
   "ai-platform": [
     "Staff pick random AI tools with no shared rules, so answers conflict.",

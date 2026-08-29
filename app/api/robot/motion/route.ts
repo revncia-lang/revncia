@@ -54,7 +54,7 @@ export async function POST(request: Request) {
   };
   const text =
     body.text?.trim() ||
-    "Welcome to REVNCIA. I am your AI attendant.";
+    "Welcome to REVNCIA. Together we transform. Voice, WhatsApp, the AI Platform, CRM, and ERP are ready to commission. Write info@revncia.com.";
   const gesture = body.gesture;
 
   const upstream = process.env.REVNCIA_ROBOT_API_URL;

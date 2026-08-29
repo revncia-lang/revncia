@@ -1,147 +1,147 @@
-"use client";
+const CX = 200;
+const CY = 184;
 
-import { useEffect, useRef } from "react";
+function polar(r: number, deg: number) {
+  const a = ((deg - 90) * Math.PI) / 180;
+  return { x: CX + Math.cos(a) * r, y: CY + Math.sin(a) * r };
+}
+
+function ticks(count: number, inner: number, outer: number, majorEvery: number) {
+  return Array.from({ length: count }, (_, i) => {
+    const deg = (i / count) * 360;
+    const major = i % majorEvery === 0;
+    const a = polar(major ? inner - 5 : inner, deg);
+    const b = polar(outer, deg);
+    return { i, major, x1: a.x, y1: a.y, x2: b.x, y2: b.y };
+  });
+}
+
+function octagon(r: number) {
+  return Array.from({ length: 8 }, (_, i) => {
+    const p = polar(r, i * 45 + 22.5);
+    return `${p.x.toFixed(1)},${p.y.toFixed(1)}`;
+  }).join(" ");
+}
+
+const outerTicks = ticks(48, 168, 182, 6);
+const innerTicks = ticks(24, 108, 116, 4);
 
 export function JarvisHud() {
-  const ref = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const canvas = ref.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-    let raf = 0;
-    const origin = performance.now();
-
-    const resize = () => {
-      const dpr = Math.min(2, window.devicePixelRatio || 1);
-      canvas.width = Math.floor(canvas.clientWidth * dpr);
-      canvas.height = Math.floor(canvas.clientHeight * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    };
-    resize();
-
-    const draw = (now: number) => {
-      const w = canvas.clientWidth;
-      const h = canvas.clientHeight;
-      const elapsed = (now - origin) / 1000;
-      const t = elapsed * 0.12;
-
-      ctx.clearRect(0, 0, w, h);
-
-      const cx = w * 0.72;
-      const cy = h * 0.48;
-      const maxR = Math.min(w, h) * 0.4;
-
-      ctx.strokeStyle = "rgba(148, 163, 184, 0.045)";
-      ctx.lineWidth = 1;
-      const step = 48;
-      for (let x = 0; x < w; x += step) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, h);
-        ctx.stroke();
-      }
-      for (let y = 0; y < h; y += step) {
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(w, y);
-        ctx.stroke();
-      }
-
-      const rings = [0.32, 0.52, 0.72, 0.92];
-      rings.forEach((f, i) => {
-        ctx.beginPath();
-        ctx.strokeStyle = `rgba(125, 211, 252, ${0.08 + i * 0.025})`;
-        ctx.lineWidth = i === 2 ? 1.15 : 0.7;
-        ctx.setLineDash(i === 1 ? [3, 10] : []);
-        ctx.arc(cx, cy, maxR * f, 0, Math.PI * 2);
-        ctx.stroke();
-        ctx.setLineDash([]);
-      });
-
-      ctx.save();
-      ctx.translate(cx, cy);
-      ctx.rotate(t);
-      ctx.beginPath();
-      ctx.strokeStyle = "rgba(186, 230, 253, 0.28)";
-      ctx.lineWidth = 1.2;
-      ctx.arc(0, 0, maxR * 0.72, 0.05, 0.72);
-      ctx.stroke();
-      ctx.restore();
-
-      ctx.save();
-      ctx.translate(cx, cy);
-      ctx.rotate(-t * 0.45);
-      ctx.beginPath();
-      ctx.strokeStyle = "rgba(34, 211, 238, 0.16)";
-      ctx.lineWidth = 0.9;
-      ctx.arc(0, 0, maxR * 0.52, 2.4, 3.35);
-      ctx.stroke();
-      ctx.restore();
-
-      ctx.save();
-      ctx.translate(cx, cy);
-      ctx.rotate(t * 0.22);
-      for (let i = 0; i < 24; i++) {
-        const a = (i / 24) * Math.PI * 2;
-        const major = i % 6 === 0;
-        const inner = maxR * (major ? 0.9 : 0.945);
-        ctx.beginPath();
-        ctx.strokeStyle = major
-          ? "rgba(186, 230, 253, 0.28)"
-          : "rgba(125, 211, 252, 0.14)";
-        ctx.lineWidth = major ? 1.1 : 0.6;
-        ctx.moveTo(Math.cos(a) * inner, Math.sin(a) * inner);
-        ctx.lineTo(Math.cos(a) * maxR * 0.98, Math.sin(a) * maxR * 0.98);
-        ctx.stroke();
-      }
-      ctx.restore();
-
-      ctx.strokeStyle = "rgba(203, 213, 225, 0.22)";
-      ctx.lineWidth = 0.8;
-      ctx.beginPath();
-      ctx.moveTo(cx - maxR * 0.1, cy);
-      ctx.lineTo(cx + maxR * 0.1, cy);
-      ctx.moveTo(cx, cy - maxR * 0.1);
-      ctx.lineTo(cx, cy + maxR * 0.1);
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.arc(cx, cy, 3.5, 0, Math.PI * 2);
-      ctx.stroke();
-
-      const sweep = ((elapsed * 0.035) % 1 + 1) % 1;
-      ctx.fillStyle = "rgba(56, 189, 248, 0.035)";
-      ctx.fillRect(0, h * sweep - 10, w, 20);
-
-      ctx.font = "10px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
-      ctx.fillStyle = "rgba(148, 163, 184, 0.55)";
-      const lines = [
-        "REVNCIA  ·  OPERATIONS",
-        "GATEWAY  ·  NOMINAL",
-        "CHANNELS  ·  STANDBY",
-        "OVERSIGHT  ·  ENGAGED",
-      ];
-      lines.forEach((line, i) => {
-        ctx.fillText(line, 28, 32 + i * 16);
-      });
-      ctx.fillStyle = "rgba(148, 163, 184, 0.4)";
-      ctx.fillText("COMMAND SURFACE  ·  READ ONLY", 28, h - 24);
-
-      raf = requestAnimationFrame(draw);
-    };
-
-    raf = requestAnimationFrame(draw);
-    window.addEventListener("resize", resize);
-    return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener("resize", resize);
-    };
-  }, []);
-
   return (
-    <div className="jarvis-hud pointer-events-none absolute inset-0" aria-hidden>
-      <canvas ref={ref} className="absolute inset-0 h-full w-full" />
+    <div className="jarvis-hud pointer-events-none absolute inset-0 z-0" aria-hidden>
+      <div className="jarvis-os">
+        <div className="jarvis-os-scan" />
+        <div className="jarvis-os-sheen" />
+        <svg
+          className="jarvis-os-svg"
+          viewBox="0 0 400 460"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <radialGradient id="jarvis-core-glow" cx="50%" cy="42%" r="48%">
+              <stop offset="0%" stopColor="rgba(34,211,238,0)" />
+              <stop offset="62%" stopColor="rgba(34,211,238,0.03)" />
+              <stop offset="100%" stopColor="rgba(34,211,238,0)" />
+            </radialGradient>
+          </defs>
+
+          <circle cx={CX} cy={CY} r="196" fill="url(#jarvis-core-glow)" />
+
+          <g className="jarvis-os-grid">
+            <circle cx={CX} cy={CY} r="72" />
+            <circle cx={CX} cy={CY} r="128" />
+            <line x1={CX} y1="8" x2={CX} y2="360" />
+            <line x1="16" y1={CY} x2="384" y2={CY} />
+          </g>
+
+          <circle className="jarvis-ring jarvis-ring-soft" cx={CX} cy={CY} r="58" />
+          <circle className="jarvis-ring jarvis-ring-soft" cx={CX} cy={CY} r="88" />
+          <circle className="jarvis-ring jarvis-ring-mid" cx={CX} cy={CY} r="138" />
+          <circle className="jarvis-ring jarvis-ring-outer" cx={CX} cy={CY} r="186" />
+
+          <polygon className="jarvis-octagon" points={octagon(98)} />
+
+          <g className="jarvis-spin-slow">
+            <circle className="jarvis-ring-dash" cx={CX} cy={CY} r="118" />
+            {outerTicks.map((t) => (
+              <line
+                key={`o-${t.i}`}
+                className={t.major ? "jarvis-tick-major" : "jarvis-tick"}
+                x1={t.x1}
+                y1={t.y1}
+                x2={t.x2}
+                y2={t.y2}
+              />
+            ))}
+            <path className="jarvis-arc jarvis-arc-a" d="M 246 78 A 138 138 0 0 1 334 198" />
+          </g>
+
+          <g className="jarvis-spin-reverse">
+            <circle className="jarvis-ring-dash jarvis-ring-dash-fine" cx={CX} cy={CY} r="154" />
+            {innerTicks.map((t) => (
+              <line
+                key={`i-${t.i}`}
+                className={t.major ? "jarvis-tick-major" : "jarvis-tick"}
+                x1={t.x1}
+                y1={t.y1}
+                x2={t.x2}
+                y2={t.y2}
+              />
+            ))}
+            <path className="jarvis-arc jarvis-arc-b" d="M 92 230 A 118 118 0 0 1 148 86" />
+          </g>
+
+          <g className="jarvis-spin-drift">
+            <path className="jarvis-arc jarvis-arc-c" d="M 74 164 A 154 154 0 0 1 168 38" />
+          </g>
+
+          <g className="jarvis-brackets" strokeLinecap="square">
+            <path d="M 28 48 H 62 V 48 M 28 48 V 78" />
+            <path d="M 372 48 H 338 V 48 M 372 48 V 78" />
+            <path d="M 28 348 H 62 M 28 348 V 318" />
+            <path d="M 372 348 H 338 M 372 348 V 318" />
+          </g>
+        </svg>
+
+        <div className="jarvis-os-chip jarvis-os-chip-sys">
+          <span>SYS</span>
+          <em>04 · NOMINAL</em>
+        </div>
+        <div className="jarvis-os-chip jarvis-os-chip-link">
+          <span>LINK</span>
+          <em>STANDBY</em>
+        </div>
+        <div className="jarvis-os-chip jarvis-os-chip-gate">
+          <span>GATEWAY</span>
+          <em>NODE A-7</em>
+        </div>
+        <div className="jarvis-os-chip jarvis-os-chip-ops">
+          <span>OPS</span>
+          <em>READ ONLY</em>
+        </div>
+
+        <ul className="jarvis-os-telemetry">
+          <li>
+            <span>LAT</span>
+            <b>14ms</b>
+          </li>
+          <li>
+            <span>PWR</span>
+            <b>0.82</b>
+          </li>
+          <li>
+            <span>SIG</span>
+            <b>04</b>
+          </li>
+          <li>
+            <span>CORE</span>
+            <b>IDLE</b>
+          </li>
+        </ul>
+
+        <p className="jarvis-os-mark">REVNCIA OS</p>
+      </div>
       <div className="jarvis-vignette absolute inset-0" />
     </div>
   );

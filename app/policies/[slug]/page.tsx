@@ -43,7 +43,7 @@ export default async function PolicyPage({
         lede={`${p.summary} Last updated ${p.updated}. © 2026 ${company.name}. All rights reserved.`}
         sections={p.sections.map((s) => ({
           title: s.heading,
-          text: "Full wording is in the column below.",
+          text: "What we will hold to when you write, buy, or send a file.",
         }))}
       />
       <section className={`${shell} py-16`}>

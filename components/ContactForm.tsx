@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { offerings } from "@/lib/catalog";
+import { customerFacilities } from "@/lib/facilities";
 import { company } from "@/lib/site";
 import { btnPrimary, field } from "@/lib/ui";
 
@@ -74,16 +75,23 @@ export function ContactForm() {
       <label className="grid min-w-0 gap-1.5">
         <span className="text-sm text-cyan-50">Interest</span>
         <span className="text-xs leading-relaxed text-slate-500">
-          Pick the service line so the brief is routed correctly.
+          Name the work so the right person replies.
         </span>
         <select
           name="interest"
           className={field}
           defaultValue={offerings[0].name}
         >
-          {offerings.map((s) => (
-            <option key={s.slug}>{s.name}</option>
-          ))}
+          <optgroup label="Service lines">
+            {offerings.map((s) => (
+              <option key={s.slug}>{s.name}</option>
+            ))}
+          </optgroup>
+          <optgroup label="Customer facilities">
+            {customerFacilities.map((f) => (
+              <option key={f.id}>{f.name}</option>
+            ))}
+          </optgroup>
           <option>General inquiry</option>
         </select>
       </label>
@@ -104,7 +112,7 @@ export function ContactForm() {
         type="submit"
         className={`${btnPrimary} mt-1 w-full sm:w-fit`}
       >
-        Send inquiry
+        Write to us
       </button>
     </form>
   );

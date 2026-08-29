@@ -4,9 +4,9 @@ export const policies = [
   {
     slug: "copyright",
     navLabel: "Copyright",
-    title: "Copyright and intellectual property",
+    title: "Who owns the work — and what you keep after you buy",
     summary:
-      "All rights reserved. Who owns the site, the marks, and work we deliver.",
+      "All rights reserved. Customers keep what the signed statement of work says. Drafts stay ours until then.",
     updated: "29 August 2026",
     sections: [
       {
@@ -14,8 +14,12 @@ export const policies = [
         body: `© 2026 ${company.name}. All rights reserved. The name ${company.name}, the stylised R mark, the motto “${company.motto}”, the attendant image, photographs, diagrams, copy, and software interfaces published on this website are owned by ${company.name} or used under licence. You may view them in a browser. You may not copy, scrape, train models on, resell, or rebrand them without written permission.`,
       },
       {
-        heading: "Client work",
-        body: "Work we design or implement for a paying client is owned as the signed statement of work or licence says. Until that document is signed, drafts, architectures, and proposals remain REVNCIA property. Client data never becomes our marketing content.",
+        heading: "What you own after you buy",
+        body: "Work we design or implement for a paying client is owned as the signed statement of work or licence says. Until that document is signed, drafts, architectures, and proposals remain REVNCIA property. Your customer lists, citizen files, and recordings never become our marketing content. Pictures and graphs on this website stay REVNCIA’s unless a licence says otherwise.",
+      },
+      {
+        heading: "What you may do as a visitor",
+        body: "You may read this site to decide whether to write to us. You may not copy the attendant image, scenes, or copy into another product, or train a model on this site, without written permission.",
       },
       {
         heading: "Third-party marks",
@@ -30,9 +34,9 @@ export const policies = [
   {
     slug: "privacy",
     navLabel: "Privacy",
-    title: "Privacy",
+    title: "How we treat your name, mail, and programme data",
     summary:
-      "How we handle inquiry mail, site use, and personal data in delivery.",
+      "Inquiry mail is for a reply. Commissioned Voice, WhatsApp, CRM, and citizen systems follow your instructions and the law.",
     updated: "29 August 2026",
     sections: [
       {
@@ -41,7 +45,7 @@ export const policies = [
       },
       {
         heading: "This website",
-        body: "The contact form opens your own email client. We do not store that draft on this site. If you send mail, we use your name, organisation, address, and message only to reply and to route the brief. We do not sell inquiry lists.",
+        body: "The contact form opens your own email client. We do not store that draft. If you send mail, we use your name, organisation, address, and message only to reply and to reach the right person. We do not sell inquiry lists.",
       },
       {
         heading: "The attendant and assistant",
@@ -49,7 +53,11 @@ export const policies = [
       },
       {
         heading: "Commissioned systems",
-        body: "Programmes for Voice, WhatsApp, CRM, ERP, documents, or citizen services process personal data under the client’s instructions, lawful basis, and retention schedule. Healthcare work is administrative and communication-first. Privacy is a design constraint, not an add-on. We are not a clinical-care provider.",
+        body: "Programmes for Voice, WhatsApp, CRM, ERP, documents, or citizen services process personal data under the client’s instructions, lawful basis, and retention schedule. Healthcare work is administrative and communication-first. Privacy is a design constraint, not an add-on. We are not a clinical-care provider. We do not invent a retention period or a WhatsApp token.",
+      },
+      {
+        heading: "What we do not do with inquiry mail",
+        body: "We do not sell inquiry lists, invent a newsletter you did not ask for, or publish your organisation as a case study unless you agree in writing.",
       },
       {
         heading: "Requests",
@@ -60,13 +68,14 @@ export const policies = [
   {
     slug: "terms",
     navLabel: "Terms",
-    title: "Terms of use",
-    summary: "Rules for using this website. Delivery contracts sit on top.",
+    title: "When a programme starts — and what you can rely on",
+    summary:
+      "These pages are information. A programme starts only when both sides accept scope, fees, and data terms in writing.",
     updated: "29 August 2026",
     sections: [
       {
-        heading: "The site is information",
-        body: "These pages describe offerings, stages, and how to write to us. Graphs and scenes are illustrative. They are not a quote, a service-level promise, or legal, medical, or investment advice.",
+        heading: "What you can rely on — and what you cannot",
+        body: "What you read here describes offerings, facilities, and how to write to us. Example pictures and graphs are not a quote, a service-level promise, a PKR package, or legal, medical, or investment advice. No WhatsApp token or public Voice number is published here.",
       },
       {
         heading: "Acceptable use",
@@ -74,7 +83,7 @@ export const policies = [
       },
       {
         heading: "Commissioning",
-        body: "A programme starts only when both sides sign (or otherwise accept in writing) scope, fees, and data terms. Five commercial layers — consulting, implementation, SaaS, managed AI, and usage — are described on About. Figures in internal plans are scenarios, not website prices.",
+        body: "A programme starts only when both sides sign (or otherwise accept in writing) scope, fees, and data terms. You can buy consulting, implementation, monthly access, managed AI, or usage meters. Figures in plans are scenarios, not public prices.",
       },
       {
         heading: "Liability",
@@ -89,9 +98,9 @@ export const policies = [
   {
     slug: "confidentiality",
     navLabel: "Confidentiality",
-    title: "Confidentiality and security",
+    title: "How we treat your files — and the limit of our cyber offer",
     summary:
-      "How we treat client information, identity, and the limits of our cyber offer.",
+      "Briefs stay confidential. Identity and AI-use rules are design inputs. We are not a full cybersecurity firm.",
     updated: "29 August 2026",
     sections: [
       {
@@ -103,8 +112,8 @@ export const policies = [
         body: "Identity, access, logging, and rules for AI use are design inputs. We apply least privilege. We partner for advanced cybersecurity rather than claiming to be a full cyber firm.",
       },
       {
-        heading: "Continuity",
-        body: "Recovery and records expectations are set in the programme, not on this public site. If something goes wrong, write the published email and name the service line.",
+        heading: "If something in our scope breaks",
+        body: "Recovery and records expectations are set in the programme, not on this public site. Write info@revncia.com and name the service line or facility. We do not invent a status-page URL or a five-minute SLA here. Voice and WhatsApp hours after go-live are your facility — not a promise that a REVNCIA person is on the line at all hours.",
       },
       {
         heading: "Conduct",

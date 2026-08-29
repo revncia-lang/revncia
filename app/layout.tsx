@@ -21,11 +21,11 @@ const serif = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: {
-    default: `${company.name} — Intelligent digital infrastructure`,
+    default: `${company.name} — Together we transform`,
     template: `%s — ${company.name}`,
   },
   description:
-    "REVNCIA builds intelligent digital infrastructure for organizations, enterprises, governments, and public-impact institutions — AI, automation, software, data, cybersecurity, and measurable outcomes.",
+    "REVNCIA is an AI digital transformation and public impact company. Customers get Voice, WhatsApp, CRM, ERP, documents, and citizen services they can run — with honest limits, not invented SLAs.",
   metadataBase: new URL("https://revncia.com"),
 };
 

@@ -21,18 +21,18 @@ function reply(input: string, memory: Memory): { text: string; href?: string } {
   if (nameHit) {
     const name = nameHit[1].replace(/[.,!?].*$/, "").trim();
     return {
-      text: `I will remember you as ${name}. I can guide REVNCIA Platform, Voice, WhatsApp, CRM, ERP, government, and the rest of the catalogue. What do you need stood up?`,
+      text: `I will remember you as ${name}. Together we transform. Ask about Voice, WhatsApp, CRM, ERP, or who waits today. Write info@revncia.com when you want to start.`,
     };
   }
   const greet = memory.name ? `${memory.name}, ` : "";
   if (/^(hi|hello|hey|salam|assalam)/i.test(lower)) {
     return {
-      text: `${greet}welcome to REVNCIA. I can walk you through thirty-six service lines, the AI Gateway, Voice, WhatsApp, and the contact form. Ask for a service or say your name so I can remember it.`,
+      text: `${greet}welcome to REVNCIA. Together we transform. We help your callers get answers and your staff share one system — Voice, WhatsApp, the AI Gateway, CRM, and ERP. Ask about who waits, or write info@revncia.com.`,
     };
   }
   if (/contact|email|office|address/.test(lower)) {
     return {
-      text: `${greet}write ${company.email} or use the contact form. Office: ${company.address}. Founder: ${company.founder}.`,
+      text: `${greet}we would be glad to help. Write ${company.email} and name who waits — callers, chats, files, or a plan. Office: ${company.address}.`,
       href: "/contact",
     };
   }
@@ -62,24 +62,24 @@ function reply(input: string, memory: Memory): { text: string; href?: string } {
     const pain = (painPoints[found.slug] ?? [])[0];
     const why = plainWhy[found.slug] ?? found.summary;
     return {
-      text: `${greet}${found.name}: ${why} If you skip it, a common problem is: ${pain} Open the page for the full list, pictures, and graphs.`,
+      text: `${greet}${found.name}: ${why} If you skip it, a common problem is: ${pain} Write info@revncia.com to start.`,
       href: `/services/${found.slug}`,
     };
   }
   if (/problem|struggle|without|skip|don't|dont|not use/.test(lower)) {
     return {
-      text: `${greet}Each service page lists what usually goes wrong if the organisation does not adopt that line — missed calls, unread contracts, conflicting reports, and slow citizen service. Name a service and I will open it.`,
+      text: `${greet}If callers wait, chats go unread, or files pile up — name Voice, WhatsApp, documents, or government and I will help. Together we transform — write info@revncia.com when you are ready.`,
       href: "/services",
     };
   }
   if (/service|catalog|what do you|offer/.test(lower)) {
     return {
-      text: `${greet}REVNCIA delivers thirty-six lines from AI Platform and Customer Operations through Voice, WhatsApp, CRM, ERP, government, and Digital Workforce. Open Services to browse, or name a domain.`,
+      text: `${greet}REVNCIA delivers Voice, WhatsApp, the AI Platform, CRM, ERP, government, and Digital Workforce so callers get answers and staff share one system. Ask about who waits, or write info@revncia.com.`,
       href: "/services",
     };
   }
   return {
-    text: `${greet}I can guide Platform, Voice AI, WhatsApp, CRM, ERP, documents, government, and Command Center. Try “WhatsApp”, “voice receptionist”, or “my name is …”.`,
+    text: `${greet}Ask about Voice, WhatsApp, the AI your staff use, CRM, ERP, documents, or citizen cases. Or write info@revncia.com.`,
     href: "/services",
   };
 }
@@ -91,7 +91,7 @@ export function VirtualAssistant() {
   const [msgs, setMsgs] = useState<Msg[]>([
     {
       role: "va",
-      text: "REVNCIA attendant. I can text, listen, remember your name, and guide every service. Say “my name is …” to be remembered on this device.",
+      text: "Welcome to REVNCIA. Together we transform. I can help with Voice, WhatsApp, the AI Platform, CRM, and ERP. Write info@revncia.com when you want to start. Say “my name is …” to be remembered.",
     },
   ]);
   const endRef = useRef<HTMLDivElement>(null);
@@ -105,7 +105,7 @@ export function VirtualAssistant() {
         if (parsed.name) {
           setMsgs((m) => [
             ...m,
-            { role: "va", text: `Welcome back, ${parsed.name}. How may I guide you?` },
+            { role: "va", text: `Welcome back, ${parsed.name}. Together we transform. How may I help with Voice, WhatsApp, CRM, or ERP?` },
           ]);
         }
       }
@@ -215,7 +215,7 @@ export function VirtualAssistant() {
                     href={m.href}
                     className="mt-1 inline-block text-[0.7rem] uppercase tracking-wider text-cyan-300 underline"
                   >
-                    Open page
+                    What you receive
                   </Link>
                 ) : null}
               </div>

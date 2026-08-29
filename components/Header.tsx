@@ -45,7 +45,7 @@ export function Header() {
 
         <Link
           href="/contact"
-          title="Open the inquiry form"
+          title="Tell us what you need"
           className={`${btnPrimary} hidden shrink-0 lg:inline-flex`}
         >
           Start a conversation

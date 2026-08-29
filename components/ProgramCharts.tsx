@@ -40,7 +40,7 @@ export function ProgramCharts() {
     <div className="grid gap-6 lg:grid-cols-3">
       <figure className="border border-[color:var(--line)] bg-white p-5">
         <figcaption className="text-[0.7rem] tracking-[0.16em] uppercase text-[color:var(--copper)]">
-          Illustrative outcome profile
+          Example outcome profile
         </figcaption>
         <p className="mt-2 font-serif text-xl">Programme measures</p>
         <ul className="mt-5 space-y-4">

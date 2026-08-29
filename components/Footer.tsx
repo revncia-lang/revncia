@@ -7,18 +7,18 @@ import { shell } from "@/lib/ui";
 const actions = [
   {
     href: "/contact",
-    label: "Commission",
-    hint: "Inquiry form for Voice, WhatsApp, or a roadmap.",
+    label: "Talk with us",
+    hint: "Name who waits — callers, chats, files, or a plan.",
   },
   {
     href: "/services",
-    label: "All services",
-    hint: "Thirty-six lines in plain English.",
+    label: "See every service",
+    hint: "Pick the work that is waiting — callers, chats, files, or a plan.",
   },
   {
     href: "/about",
-    label: "Company",
-    hint: "Leadership, conduct, and commercial layers.",
+    label: "Who we are",
+    hint: "Who leads the work, and how we work with you.",
   },
 ] as const;
 
@@ -32,8 +32,8 @@ export function Footer() {
         <div className={col}>
           <Logo />
           <p className="mt-4 flex-1 text-sm leading-relaxed text-pretty break-words text-slate-400">
-            Intelligent digital infrastructure for enterprises, governments, and
-            public-impact institutions.
+            Customers get answers. Staff get one system. The public gets a
+            record they can trust. Together we transform.
           </p>
           <p className="mt-4 text-[0.7rem] font-medium tracking-[0.16em] uppercase text-cyan-400/90">
             {company.motto}
@@ -42,7 +42,7 @@ export function Footer() {
 
         <nav className={col} aria-label="Footer">
           <p className="shrink-0 text-[0.7rem] tracking-[0.18em] uppercase text-cyan-400">
-            Navigate
+            Where to start
           </p>
           <ul className="mt-4 flex flex-1 flex-col gap-2.5">
             {nav.map((item) => (
@@ -64,7 +64,7 @@ export function Footer() {
 
         <div className={col}>
           <p className="shrink-0 text-[0.7rem] tracking-[0.18em] uppercase text-cyan-400">
-            Actions
+            Next step
           </p>
           <ul className="mt-4 flex flex-1 flex-col gap-4">
             {actions.map((item) => (
@@ -100,8 +100,8 @@ export function Footer() {
             {company.email}
           </a>
           <p className="mt-3 text-[0.7rem] leading-snug text-pretty break-words text-slate-500">
-            Email is the action. Name the service line in the subject so we
-            route it correctly.
+            Email is how we start. Name the work in the subject so the right
+            person replies.
           </p>
         </div>
       </div>
@@ -118,7 +118,7 @@ export function Footer() {
             <ul className="mt-2 flex flex-wrap gap-x-3 gap-y-1">
               <li>
                 <Link href="/policies" className="text-slate-400 hover:text-cyan-200">
-                  Overview
+                  All policies
                 </Link>
               </li>
               {policies.map((p) => (
