@@ -26,7 +26,7 @@ export function Header() {
           <Logo />
         </Link>
 
-        <nav className="hidden items-center gap-3 xl:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-2 lg:flex lg:flex-wrap" aria-label="Primary">
           {nav.map((item) => {
             const path = item.href.split("#")[0] || "/";
             const active =
@@ -54,14 +54,14 @@ export function Header() {
 
         <Link
           href="/contact"
-          className="hidden rounded-sm bg-cyan-400 px-4 py-2 text-[0.75rem] tracking-[0.14em] uppercase text-black xl:inline-flex"
+          className="hidden rounded-sm bg-cyan-400 px-4 py-2 text-[0.75rem] tracking-[0.14em] uppercase text-black lg:inline-flex"
         >
           Start a conversation
         </Link>
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center text-cyan-100 xl:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center text-cyan-100 lg:hidden"
           aria-expanded={open}
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((v) => !v)}
@@ -86,7 +86,7 @@ export function Header() {
       </div>
 
       {open ? (
-        <div className="border-t border-cyan-400/15 px-5 py-4 xl:hidden">
+        <div className="border-t border-cyan-400/15 px-5 py-4 lg:hidden">
           <nav className="flex flex-col gap-3" aria-label="Mobile">
             {nav.map((item) => (
               <Link

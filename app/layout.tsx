@@ -37,7 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="relative flex min-h-full flex-col font-sans">
         <AiBackdrop />
-        <div className="relative z-10 flex min-h-full flex-col">
+        <div className="relative z-10 flex min-h-full flex-col pb-24">
           <Header />
           {children}
           <Footer />
