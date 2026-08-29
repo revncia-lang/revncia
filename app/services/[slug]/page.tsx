@@ -6,6 +6,8 @@ import { PageHero } from "@/components/PageHero";
 import { UniqueChart } from "@/components/UniqueChart";
 import { UniqueScene } from "@/components/UniqueScene";
 import { offeringBySlug, offerings } from "@/lib/catalog";
+import { detailBlocks } from "@/lib/details";
+import { painPoints, plainWhy } from "@/lib/pains";
 
 export function generateStaticParams() {
   return offerings.map((o) => ({ slug: o.slug }));
@@ -32,45 +34,131 @@ export default async function ServicePage({
   const i = offerings.findIndex((x) => x.slug === slug);
   const prev = offerings[(i + offerings.length - 1) % offerings.length];
   const next = offerings[(i + 1) % offerings.length];
+  const related = offerings.filter((x) => x.group === o.group && x.slug !== o.slug).slice(0, 4);
+  const blocks = detailBlocks[o.slug] ?? [];
+  const pains = painPoints[o.slug] ?? [];
+  const why = plainWhy[o.slug] ?? o.body;
 
   return (
     <main>
-      <PageHero kicker={`${o.n} · ${o.group} · Stage ${o.stage}`} title={o.name} lede={o.title} />
+      <PageHero
+        kicker={`${o.n} · ${o.group} · Stage ${o.stage}`}
+        title={o.name}
+        lede={o.title}
+      />
       <section className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-12 md:px-8">
         <div className="md:col-span-7">
           {o.image ? (
             <div className="relative mb-8 aspect-[16/9] overflow-hidden border border-cyan-400/20">
-              <Image src={o.image} alt="" fill className="object-cover" sizes="60vw" />
+              <Image
+                src={o.image}
+                alt={`${o.name} — visual for this service line`}
+                fill
+                className="object-cover"
+                sizes="60vw"
+              />
             </div>
           ) : (
             <div className="mb-8 h-52 border border-cyan-400/20">
               <UniqueScene id={o.slug} title={o.name} />
             </div>
           )}
-          <p className="text-[0.95rem] leading-relaxed text-slate-300">{o.body}</p>
+
+          <h2 className="font-serif text-2xl text-cyan-50">In plain English</h2>
+          <p className="mt-3 text-[1.05rem] leading-relaxed text-slate-200">{why}</p>
+          <p className="mt-4 text-sm leading-relaxed text-slate-400">{o.body}</p>
           {o.note ? (
             <p className="mt-4 border border-amber-400/30 bg-amber-400/5 p-4 text-sm text-amber-100">
               {o.note}
             </p>
           ) : null}
-          <ul className="mt-8 space-y-2">
+
+          <h2 className="mt-12 font-serif text-2xl text-cyan-50">
+            What customers struggle with if they skip this
+          </h2>
+          <p className="mt-2 text-sm text-slate-400">
+            These are everyday problems organisations report before they adopt
+            this kind of service. They are not a medical or legal diagnosis —
+            they are operational patterns we see in business life.
+          </p>
+          <ul className="mt-5 space-y-3">
+            {pains.map((p) => (
+              <li
+                key={p}
+                className="border border-rose-400/25 bg-rose-950/20 px-4 py-3 text-sm leading-relaxed text-rose-50"
+              >
+                {p}
+              </li>
+            ))}
+          </ul>
+
+          {blocks.map((block) => (
+            <div key={block.heading} className="mt-10">
+              <h2 className="font-serif text-2xl text-cyan-50">{block.heading}</h2>
+              <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+                {block.items.map((item) => (
+                  <li
+                    key={item}
+                    className="border border-cyan-400/15 bg-black/30 px-3 py-2 text-sm text-slate-200"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+
+          <h2 className="mt-12 font-serif text-2xl text-cyan-50">Core capabilities</h2>
+          <ul className="mt-4 space-y-2">
             {o.capabilities.map((c) => (
               <li key={c} className="border-l-2 border-cyan-400 pl-3 text-sm text-slate-200">
                 {c}
               </li>
             ))}
           </ul>
+
+          {related.length > 0 ? (
+            <div className="mt-12">
+              <h2 className="font-serif text-2xl text-cyan-50">Often bought with</h2>
+              <ul className="mt-4 space-y-2">
+                {related.map((r) => (
+                  <li key={r.slug}>
+                    <Link
+                      href={`/services/${r.slug}`}
+                      className="text-sm text-cyan-300 underline underline-offset-4"
+                    >
+                      {r.n} · {r.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+
           <Link
             href="/contact"
             className="mt-10 inline-block bg-cyan-400 px-5 py-3 text-[0.75rem] uppercase tracking-[0.16em] text-black"
           >
-            Commission this line
+            Talk to REVNCIA about this
           </Link>
         </div>
-        <aside className="md:col-span-5 space-y-4">
-          <UniqueChart id={`${o.slug}-primary`} caption={`${o.name} operating graph`} />
-          <UniqueChart id={`${o.slug}-secondary`} caption={`${o.name} guidance signal`} />
-          <div className="flex justify-between text-sm text-cyan-300">
+        <aside className="space-y-4 md:col-span-5">
+          <div className="h-40 border border-cyan-400/20">
+            <UniqueScene id={`${o.slug}-side`} title={`${o.name} map`} />
+          </div>
+          <UniqueChart
+            id={`${o.slug}-work`}
+            caption="How work usually improves after go-live (example method)"
+          />
+          <UniqueChart
+            id={`${o.slug}-wait`}
+            caption="Waiting and rework when this is missing (example pattern)"
+          />
+          <UniqueChart
+            id={`${o.slug}-trust`}
+            caption="Trust and audit readiness over time (example path)"
+          />
+          <div className="flex justify-between gap-3 text-sm text-cyan-300">
             <Link href={`/services/${prev.slug}`}>← {prev.name}</Link>
             <Link href={`/services/${next.slug}`}>{next.name} →</Link>
           </div>

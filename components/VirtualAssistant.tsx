@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import { offerings } from "@/lib/catalog";
+import { painPoints, plainWhy } from "@/lib/pains";
 import { company } from "@/lib/site";
 
 type Msg = { role: "user" | "va"; text: string; href?: string };
@@ -59,9 +60,17 @@ function reply(input: string, memory: Memory): { text: string; href?: string } {
   const mapped = keywordMap.find((m) => m.keys.some((k) => lower.includes(k)));
   const found = hit || offerings.find((o) => o.slug === mapped?.slug);
   if (found) {
+    const pain = (painPoints[found.slug] ?? [])[0];
+    const why = plainWhy[found.slug] ?? found.summary;
     return {
-      text: `${greet}${found.name}: ${found.summary} Open the service page for the full specification.`,
+      text: `${greet}${found.name}: ${why} If you skip it, a common problem is: ${pain} Open the page for the full list, pictures, and graphs.`,
       href: `/services/${found.slug}`,
+    };
+  }
+  if (/problem|struggle|without|skip|don't|dont|not use/.test(lower)) {
+    return {
+      text: `${greet}Each service page lists what usually goes wrong if the organisation does not adopt that line — missed calls, unread contracts, conflicting reports, and slow citizen service. Name a service and I will open it.`,
+      href: "/services",
     };
   }
   if (/service|catalog|what do you|offer/.test(lower)) {

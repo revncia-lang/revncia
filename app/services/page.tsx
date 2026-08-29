@@ -16,7 +16,7 @@ export default function ServicesIndex() {
       <PageHero
         kicker="Catalogue"
         title="Every REVNCIA line is specified, staged, and ready to commission."
-        lede="Thirty-six offerings. Stage 1 is the revenue engine. Stage 2 is the AI Gateway. Later stages add enterprise, public impact, and global operating layer. Open any card for capabilities, unique graphics, and a unique graph."
+        lede="Thirty-six offerings. Each page uses simple English, a unique picture, unique graphs, and a list of problems customers face when they do not adopt that service."
       />
       <section className="mx-auto max-w-6xl px-5 py-14 md:px-8">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

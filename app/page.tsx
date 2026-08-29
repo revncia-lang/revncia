@@ -38,15 +38,14 @@ export default function Home() {
               {company.descriptor}
             </p>
             <h1 className="mt-5 font-serif text-4xl leading-[1.08] text-cyan-50 md:text-5xl lg:text-6xl">
-              Intelligent digital infrastructure for organizations that must
-              govern AI, not just install it.
+              AI, CRM, ERP, and public-impact systems that your organisation can actually run.
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-300 md:text-lg">
-              REVNCIA combines AI, automation, software, data, cybersecurity,
-              and measurable public-impact outcomes. The core is the AI
-              Gateway — routing, identity, knowledge, memory, agents, safety,
-              observability, and cost control — underneath Voice, WhatsApp,
-              CRM, ERP, and citizen services.
+              REVNCIA is an AI digital transformation and public impact company.
+              We help enterprises and governments replace scattered tools,
+              missed calls, and unread files with a governed platform: Voice,
+              WhatsApp, CRM, ERP, documents, and citizen services — with humans
+              still in charge of the hard decisions.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
@@ -128,7 +127,7 @@ export default function Home() {
           Guidance graphs
         </p>
         <h2 className="mt-3 mb-8 font-serif text-3xl text-cyan-50">
-          Unique measures for each conversation — never a recycled chart.
+          Simple graphs so a customer can see the idea — each chart is unique to this page.
         </h2>
         <div className="grid gap-4 md:grid-cols-3">
           <UniqueChart id="home-containment" caption="Illustrative containment path" />
@@ -166,6 +165,34 @@ export default function Home() {
           >
             How we engage
           </Link>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-5 py-16 md:px-8">
+        <p className="text-[0.72rem] tracking-[0.22em] uppercase text-cyan-400">
+          All 36 services
+        </p>
+        <h2 className="mt-3 max-w-3xl font-serif text-3xl text-cyan-50">
+          Every line from the REVNCIA brief — open a card for pictures, graphs, and what goes wrong if you wait.
+        </h2>
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {offerings.map((o) => (
+            <Link
+              key={o.slug}
+              href={`/services/${o.slug}`}
+              className="overflow-hidden border border-cyan-400/15 bg-black/35 hover:border-cyan-400/40"
+            >
+              <div className="h-28">
+                <UniqueScene id={`all-${o.slug}`} title={o.name} />
+              </div>
+              <div className="p-4">
+                <p className="text-[0.65rem] tracking-[0.14em] uppercase text-cyan-400">
+                  {o.n} · {o.name}
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-slate-400">{o.summary}</p>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
     </main>
