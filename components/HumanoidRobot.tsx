@@ -20,11 +20,9 @@ export function HumanoidRobot() {
     "Actions are off. Allow them so this attendant can speak. The figure stays still.",
   );
   const playing = useRef(false);
-  const actDelay = useRef(0);
 
   const restTalk = useCallback(() => {
     playing.current = false;
-    window.clearTimeout(actDelay.current);
   }, []);
 
   useEffect(() => {
@@ -46,13 +44,15 @@ export function HumanoidRobot() {
     async (text: string, next?: string) => {
       if (!allowed) return;
       playing.current = false;
-      window.speechSynthesis?.cancel();
+      if (window.speechSynthesis?.speaking || window.speechSynthesis?.pending) {
+        window.speechSynthesis.cancel();
+      }
 
       const local = buildLocalMotion(text, next);
       setLine(local.text);
 
-      const speak = () => {
-        if (!window.speechSynthesis) return;
+      if (window.speechSynthesis) {
+        pickMaleVoice();
         const u = new SpeechSynthesisUtterance(local.text);
         u.rate = 0.78;
         u.pitch = 0.78;
@@ -66,11 +66,14 @@ export function HumanoidRobot() {
         u.onerror = () => {
           playing.current = false;
         };
-        window.speechSynthesis.speak(u);
-      };
-
-      window.clearTimeout(actDelay.current);
-      actDelay.current = window.setTimeout(speak, 720);
+        if (window.speechSynthesis.paused) window.speechSynthesis.resume();
+        const start = () => window.speechSynthesis.speak(u);
+        if (window.speechSynthesis.speaking || window.speechSynthesis.pending) {
+          queueMicrotask(start);
+        } else {
+          start();
+        }
+      }
 
       void fetch("/api/robot/motion", {
         method: "POST",
@@ -84,20 +87,16 @@ export function HumanoidRobot() {
   useEffect(() => {
     if (!allowed) {
       window.speechSynthesis?.cancel();
-      window.clearTimeout(actDelay.current);
       restTalk();
       setLine(
         "Actions are off. Allow them so this attendant can speak. The figure stays still.",
       );
       return;
     }
-    const intro = window.setTimeout(() => {
-      void playMotion(
-        "Welcome to REVNCIA. Together we transform. Voice, WhatsApp, and the AI Gateway are ready to commission.",
-        "idle",
-      );
-    }, 400);
-    return () => window.clearTimeout(intro);
+    void playMotion(
+      "Welcome to REVNCIA. Together we transform. Voice, WhatsApp, and the AI Gateway are ready to commission.",
+      "idle",
+    );
   }, [allowed, playMotion, restTalk]);
 
   return (
