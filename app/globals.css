@@ -35,6 +35,9 @@ body {
 .robot-figure.robot-live {
   animation: robot-float 3.2s ease-in-out infinite;
 }
+.robot-figure {
+  overflow: visible;
+}
 .robot-figure.robot-acting-talk {
   animation: robot-talk 0.28s ease-in-out infinite;
 }
@@ -51,16 +54,10 @@ body {
 @keyframes robot-float {
   0%,
   100% {
-    transform: translate(0, 0) rotate(0deg);
-  }
-  25% {
-    transform: translate(10px, -8px) rotate(2deg);
+    transform: translateY(0);
   }
   50% {
-    transform: translate(-6px, -14px) rotate(-2deg);
-  }
-  75% {
-    transform: translate(8px, -6px) rotate(1deg);
+    transform: translateY(-8px);
   }
 }
 @keyframes robot-talk {

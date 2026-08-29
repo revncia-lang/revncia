@@ -113,7 +113,26 @@ export function HumanoidRobot() {
 
   return (
     <div className="relative">
-      <div className="relative z-[80] mb-3 flex flex-wrap gap-2">
+      <div className="robot-stage relative select-none">
+        <div
+          className={`robot-figure relative mx-auto h-[320px] w-full max-w-[200px] md:h-[420px] md:max-w-[230px] ${figureClass}`}
+          style={
+            allowed
+              ? { filter: `brightness(${1 + mouth * 0.18})` }
+              : undefined
+          }
+        >
+          <Image
+            src="/images/revncia-mascot.jpg"
+            alt="REVNCIA AI robot attendant — Together we transform"
+            fill
+            priority
+            className="object-contain object-center"
+            sizes="230px"
+          />
+        </div>
+      </div>
+      <div className="relative z-[80] mt-3 flex flex-wrap justify-center gap-2">
         <button
           type="button"
           className={`px-3 py-1.5 text-[0.68rem] tracking-[0.14em] uppercase ${
@@ -155,32 +174,13 @@ export function HumanoidRobot() {
           Nod
         </button>
       </div>
-      <div className="robot-stage relative select-none">
-        <div
-          className={`robot-figure relative mx-auto h-[min(58vh,460px)] w-full max-w-[240px] ${figureClass}`}
-          style={
-            allowed
-              ? { filter: `brightness(${1 + mouth * 0.18})` }
-              : undefined
-          }
-        >
-          <Image
-            src="/images/revncia-mascot.jpg"
-            alt="REVNCIA AI robot attendant — Together we transform"
-            fill
-            priority
-            className="object-contain object-bottom"
-            sizes="280px"
-          />
-        </div>
-        <p className="mt-3 px-2 text-center text-xs leading-relaxed text-cyan-100/85">
-          {line}
-        </p>
-        <p className="mt-1 text-center text-[0.65rem] uppercase tracking-widest text-slate-500">
-          API {apiOk ? "connected" : apiOk === false ? "offline" : "…"} · Actions{" "}
-          {allowed ? "on" : "off"}
-        </p>
-      </div>
+      <p className="mt-2 px-2 text-center text-xs leading-relaxed text-cyan-100/85">
+        {line}
+      </p>
+      <p className="mt-1 text-center text-[0.65rem] uppercase tracking-widest text-slate-500">
+        API {apiOk ? "connected" : apiOk === false ? "offline" : "…"} · Actions{" "}
+        {allowed ? "on" : "off"}
+      </p>
     </div>
   );
 }

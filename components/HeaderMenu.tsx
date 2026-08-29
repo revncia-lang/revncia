@@ -1,17 +1,25 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { nav } from "@/lib/site";
 
 export function HeaderMenu() {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <div className="h-10 w-10 lg:hidden" aria-hidden />;
+  }
 
   return (
     <>
       <button
         type="button"
-        suppressHydrationWarning
         className="inline-flex h-10 w-10 items-center justify-center text-cyan-100 lg:hidden"
         aria-expanded={open}
         aria-label={open ? "Close menu" : "Open menu"}
