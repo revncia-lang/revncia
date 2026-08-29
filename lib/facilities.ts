@@ -44,7 +44,7 @@ export type HonestyLimit = {
 export const facilitiesIntro = {
   kicker: "What you can use",
   title: "What your callers, staff, and citizens can actually use after go-live.",
-  lede: "After a programme is commissioned you can run Voice, WhatsApp, the AI Gateway, CRM and ERP logins, documents, citizen portals, and operating support. Scope is written in the statement of work. We do not publish fake SLAs, WhatsApp tokens, or a PKR package.",
+  lede: "After a programme is commissioned you can run Voice, WhatsApp, the AI Gateway, CRM and ERP logins, documents, citizen portals, and operating support. Scope is written in the statement of work.",
 } as const;
 
 export const customerFacilities: CustomerFacility[] = [

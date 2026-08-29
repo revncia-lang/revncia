@@ -27,8 +27,8 @@ export default function AboutPage() {
           { title: "How you can buy", text: "Roadmap, implementation, monthly access, managed AI, or usage meters — no headline package price." },
         ]}
       />
-      <section className={`${shell} py-16 md:grid md:grid-cols-12 md:gap-12`}>
-        <div className="min-w-0 md:col-span-7">
+      <section className={`${shell} py-16`}>
+        <div className="min-w-0">
           <MediaFrame ratio="banner" className="mb-8">
             <UniqueScene id="about-org" title="REVNCIA organization" />
           </MediaFrame>
@@ -52,20 +52,6 @@ export default function AboutPage() {
             identity, risk, continuity, and records. Motto: {company.motto}.
           </p>
         </div>
-        <aside className={`${surface} mt-12 p-6 md:col-span-5 md:mt-0`}>
-          <p className={kicker}>Leadership</p>
-          <p className="mt-3 font-serif text-2xl text-cyan-50">{company.founder}</p>
-          <p className="mt-1 text-sm text-slate-400">{company.founderTitle}</p>
-          <p className="mt-6 text-sm leading-relaxed text-pretty break-words text-slate-400">
-            {company.address}
-          </p>
-          <a
-            href={`mailto:${company.email}`}
-            className="mt-3 inline-block break-all text-sm text-cyan-200 underline underline-offset-4"
-          >
-            {company.email}
-          </a>
-        </aside>
       </section>
       <section className="border-t border-white/10">
         <div className={`${shell} py-16`}>
