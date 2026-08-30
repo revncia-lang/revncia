@@ -107,15 +107,17 @@ export function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className={`${shell} grid grid-cols-1 items-start gap-4 py-6 text-xs leading-relaxed text-pretty break-words text-slate-500 md:grid-cols-2`}>
+        <div
+          className={`${shell} flex flex-col items-center py-6 text-center text-xs leading-relaxed text-pretty break-words text-slate-500`}
+        >
           <p className="min-w-0">
             © 2026 {company.name}. All rights reserved.
           </p>
-          <nav className="min-w-0 md:text-right" aria-label="Policies">
+          <nav className="mt-4 min-w-0 w-full" aria-label="Policies">
             <p className="text-[0.65rem] tracking-[0.16em] uppercase text-slate-600">
               Policies
             </p>
-            <ul className="mt-2 flex flex-wrap gap-x-3 gap-y-1">
+            <ul className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
               <li>
                 <Link href="/policies" className="text-slate-400 hover:text-cyan-200">
                   All policies
