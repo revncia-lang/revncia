@@ -36,7 +36,7 @@ export default function Home() {
         <div className={`${shell} grid items-start gap-6 pt-[0.2in] pb-12 md:grid-cols-12 md:pb-16`}>
           <div className="min-w-0 md:col-span-5">
             <p className={kicker}>{company.descriptor}</p>
-            <h1 className="mt-5 text-balance font-serif text-4xl leading-[1.14] md:text-5xl lg:text-[3.35rem]">
+            <h1 className="mt-5 text-balance font-serif font-semibold text-5xl leading-[1.08] md:text-6xl lg:text-[4.15rem]">
               Your customers get answers. Your staff get one system. The public gets a record they can trust.
             </h1>
             <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed break-words text-slate-300/95 md:text-lg">
