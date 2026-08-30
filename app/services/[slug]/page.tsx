@@ -73,10 +73,10 @@ export default async function ServicePage({
             </MediaFrame>
           )}
 
-          <p className="mt-8 text-[1.05rem] leading-relaxed text-pretty break-words text-slate-200">{why}</p>
-          <p className="mt-4 text-sm leading-relaxed text-pretty break-words text-slate-400">{o.body}</p>
+          <p className="mt-8 text-[1.05rem] leading-relaxed text-pretty break-words text-stone-800">{why}</p>
+          <p className="mt-4 text-sm leading-relaxed text-pretty break-words text-stone-400">{o.body}</p>
           {o.note ? (
-            <p className="mt-4 border border-amber-400/30 bg-amber-400/5 p-4 text-sm text-amber-100">
+            <p className="mt-4 border border-amber-300 bg-amber-50 p-4 text-sm text-amber-950">
               {o.note}
             </p>
           ) : null}
@@ -86,7 +86,7 @@ export default async function ServicePage({
           <h2 className="mt-12 font-serif text-2xl">
             What your customers and staff still struggle with if you skip this
           </h2>
-          <p className="mt-2 text-sm text-slate-400">
+          <p className="mt-2 text-sm text-stone-400">
             These are everyday problems organisations report before they adopt
             this kind of service. They are not a medical or legal diagnosis —
             they are operational patterns we see in business life.
@@ -95,7 +95,7 @@ export default async function ServicePage({
             {pains.map((p) => (
               <li
                 key={p}
-                className="border border-rose-400/25 bg-rose-950/20 px-4 py-3 text-sm leading-relaxed text-rose-50"
+                className="border border-rose-200 bg-rose-50 px-4 py-3 text-sm leading-relaxed text-rose-900"
               >
                 {p}
               </li>
@@ -109,7 +109,7 @@ export default async function ServicePage({
                 {block.items.map((item) => (
                   <li
                     key={item}
-                    className="border border-cyan-400/15 bg-black/30 px-3 py-2 text-sm text-slate-200"
+                    className="border border-orange-400/25 bg-orange-50 px-3 py-2 text-sm text-stone-700"
                   >
                     {item}
                   </li>
@@ -121,7 +121,7 @@ export default async function ServicePage({
           <h2 className="mt-12 font-serif text-2xl">What you can use after go-live</h2>
           <ul className="mt-4 space-y-2">
             {o.capabilities.map((c) => (
-              <li key={c} className="border-l-2 border-cyan-400 pl-3 text-sm text-slate-200">
+              <li key={c} className="border-l-2 border-orange-500 pl-3 text-sm text-stone-700">
                 {c}
               </li>
             ))}
@@ -135,7 +135,7 @@ export default async function ServicePage({
                   <li key={r.slug}>
                     <Link
                       href={`/services/${r.slug}`}
-                      className="text-sm text-cyan-300 underline underline-offset-4"
+                      className="text-sm text-orange-700 underline underline-offset-4"
                     >
                       {r.n} · {r.name}
                     </Link>
@@ -170,7 +170,7 @@ export default async function ServicePage({
             id={`${o.slug}-trust`}
             caption="Trust and audit readiness over time (example path)"
           />
-          <div className="flex min-w-0 justify-between gap-3 text-sm text-cyan-300">
+          <div className="flex min-w-0 justify-between gap-3 text-sm text-orange-700">
             <Link href={`/services/${prev.slug}`} className="min-w-0 text-pretty break-words">
               ← {prev.name}
             </Link>

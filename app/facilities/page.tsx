@@ -32,7 +32,7 @@ export default function FacilitiesPage() {
           <UniqueScene id="facilities-access" title="Customer facilities" />
         </MediaFrame>
         <p className={kicker}>What you can use</p>
-        <h2 className="mt-3 max-w-3xl font-serif text-3xl text-cyan-50">
+        <h2 className="mt-3 max-w-3xl font-serif text-3xl text-stone-900">
           What your callers, staff, and citizens can use after go-live.
         </h2>
         <div className="mt-10 space-y-6">
@@ -42,13 +42,13 @@ export default function FacilitiesPage() {
         </div>
       </section>
 
-      <section className="border-y border-white/10 bg-white/[0.02]">
+      <section className="border-y border-stone-200 bg-orange-50/40">
         <div className={`${shell} py-16`}>
           <p className={kicker}>How you can buy</p>
-          <h2 className="mt-3 max-w-3xl font-serif text-3xl text-cyan-50">
+          <h2 className="mt-3 max-w-3xl font-serif text-3xl text-stone-900">
             Five layers — not a single package price.
           </h2>
-          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-pretty break-words text-slate-400">
+          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-pretty break-words text-stone-400">
             Fees follow the statement of work. We do not publish a PKR headline
             figure, a token price list, or invented WhatsApp rates.
           </p>
@@ -61,10 +61,10 @@ export default function FacilitiesPage() {
       <section className={`${shell} grid gap-8 py-16 lg:grid-cols-12`}>
         <div className="lg:col-span-7">
           <p className={kicker}>Stated limits</p>
-          <h2 className="mt-3 font-serif text-3xl text-cyan-50">
+          <h2 className="mt-3 font-serif text-3xl text-stone-900">
             Limits we state before you buy.
           </h2>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-pretty break-words text-slate-400">
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-pretty break-words text-stone-400">
             Cyber work starts with identity and logs. Healthcare is
             administrative. Marketing is a capability. Nothing here is a
             medical or legal diagnosis.

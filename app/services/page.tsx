@@ -38,12 +38,12 @@ export default function ServicesIndex() {
                 <UniqueScene id={`index-${o.slug}`} title={o.name} />
               </MediaFrame>
               <div className="min-w-0 p-4">
-                <p className="text-[0.65rem] tracking-[0.16em] uppercase text-cyan-400/90">
+                <p className="text-[0.65rem] tracking-[0.16em] uppercase text-orange-400">
                     {o.n} · {o.group}
                 </p>
                 <h2 className="mt-1 text-pretty font-serif text-xl">{o.name}</h2>
-                <p className="mt-1 text-sm leading-snug text-pretty text-cyan-100/85">{o.title}</p>
-                <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-slate-400">
+                <p className="mt-1 text-sm leading-snug text-pretty text-stone-700">{o.title}</p>
+                <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-stone-400">
                   {o.summary}
                 </p>
               </div>

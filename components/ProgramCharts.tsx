@@ -6,10 +6,10 @@ const outcomeBars = [
 ];
 
 const channels = [
-  { label: "Voice", share: 32, color: "#b0894d" },
-  { label: "Digital chat", share: 28, color: "#3d5348" },
-  { label: "Email / web", share: 24, color: "#1c2a38" },
-  { label: "Counter / lobby", share: 16, color: "#8a7960" },
+  { label: "Voice", share: 32, color: "#f97316" },
+  { label: "Digital chat", share: 28, color: "#ea580c" },
+  { label: "Email / web", share: 24, color: "#c2410c" },
+  { label: "Counter / lobby", share: 16, color: "#9a3412" },
 ];
 
 const maturity = [18, 24, 31, 38, 47, 55, 62, 68, 74, 79, 84, 88];

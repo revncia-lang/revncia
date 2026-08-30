@@ -12,7 +12,7 @@ export function PageGuide({
         <section className="min-w-0" aria-labelledby="on-this-page">
           <h2
             id="on-this-page"
-            className="text-[0.65rem] font-medium tracking-[0.2em] uppercase text-orange-600"
+            className="text-[0.65rem] font-medium tracking-[0.2em] uppercase text-orange-400"
           >
             What you can start
           </h2>
@@ -20,7 +20,7 @@ export function PageGuide({
             {sections.map((s, i) => (
               <li key={s.title} className="min-w-0">
                 <h3 className="text-pretty font-serif text-[1.05rem] leading-snug">
-                  <span className="mr-1.5 text-[0.65rem] text-orange-600">
+                  <span className="mr-1.5 text-[0.65rem] text-orange-400">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   {s.title}
@@ -35,7 +35,7 @@ export function PageGuide({
         <nav className="min-w-0 border-t border-stone-200 pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0" aria-labelledby="site-navigation-guide">
           <h2
             id="site-navigation-guide"
-            className="text-[0.65rem] font-medium tracking-[0.2em] uppercase text-orange-600"
+            className="text-[0.65rem] font-medium tracking-[0.2em] uppercase text-orange-400"
           >
             Need a different start
           </h2>
@@ -49,7 +49,7 @@ export function PageGuide({
                 <Link
                   href={item.href}
                   title={item.explain}
-                  className="inline-flex rounded-md border border-stone-200 px-2.5 py-1 text-[0.65rem] tracking-[0.1em] uppercase text-stone-600 transition hover:border-orange-400/60 hover:text-orange-700"
+                  className="inline-flex rounded-md border border-stone-200 px-2.5 py-1 text-[0.65rem] tracking-[0.1em] uppercase text-stone-400 transition hover:border-orange-400/60 hover:text-orange-700"
                 >
                   {item.label}
                 </Link>

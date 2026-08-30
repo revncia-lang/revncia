@@ -32,14 +32,14 @@ export default function Home() {
 
   return (
     <main>
-      <section className="relative border-b border-white/10">
+      <section className="relative border-b border-stone-200">
         <div className={`${shell} grid items-start gap-6 pt-[0.2in] pb-12 md:grid-cols-12 md:pb-16`}>
           <div className="min-w-0 md:col-span-5">
             <p className={kicker}>{company.descriptor}</p>
             <h1 className="mt-5 text-balance font-serif font-semibold text-5xl leading-[1.08] md:text-6xl lg:text-[4.15rem]">
               Your customers get answers. Your staff get one system. The public gets a record they can trust.
             </h1>
-            <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed break-words text-slate-300/95 md:text-lg">
+            <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed break-words text-stone-600 md:text-lg">
               REVNCIA is an AI digital transformation and public impact company.
               Together we transform how work reaches the people you serve:
               callers, WhatsApp chats, unread files, and citizen cases — on one
@@ -67,7 +67,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-y border-white/10 bg-white/[0.02]">
+      <section className="border-y border-stone-200 bg-orange-50/40">
         <div className={`${shell} py-20`}>
           <p className={kicker}>Start where people already wait</p>
           <h2 className="mt-3 font-serif text-3xl md:text-[2.1rem]">
@@ -84,12 +84,12 @@ export default function Home() {
                   <UniqueScene id={`home-${o.slug}`} title={o.name} />
                 </MediaFrame>
                 <div className="min-w-0 p-5">
-                  <p className="text-[0.65rem] tracking-[0.16em] uppercase text-cyan-400/90">
+                  <p className="text-[0.65rem] tracking-[0.16em] uppercase text-orange-400">
                     {o.n} · {o.group}
                   </p>
                   <h3 className="mt-1 text-pretty font-serif text-2xl">{o.name}</h3>
-                  <p className="mt-1 text-sm leading-snug text-pretty text-cyan-100/85">{o.title}</p>
-                  <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-slate-400">
+                  <p className="mt-1 text-sm leading-snug text-pretty text-stone-700">{o.title}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-stone-400">
                     {o.summary}
                   </p>
                 </div>
@@ -113,7 +113,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-y border-white/10 bg-white/[0.02]">
+      <section className="border-y border-stone-200 bg-orange-50/40">
         <div className={`${shell} py-20`}>
           <p className={kicker}>What you keep</p>
           <h2 className="mt-3 font-serif text-3xl md:text-[2.1rem]">
@@ -122,10 +122,10 @@ export default function Home() {
           <ol className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {flywheel.map((item, i) => (
               <li key={item} className={`${surface} px-4 py-4`}>
-                <span className="text-[0.65rem] text-cyan-400/90">
+                <span className="text-[0.65rem] text-orange-400">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <p className="mt-1 text-pretty font-serif text-xl text-cyan-50">{item}</p>
+                <p className="mt-1 text-pretty font-serif text-xl text-stone-900">{item}</p>
               </li>
             ))}
           </ol>
@@ -133,7 +133,7 @@ export default function Home() {
           <div className="mt-4 grid gap-3 sm:grid-cols-2 md:grid-cols-5">
             {engagement.map((e) => (
               <div key={e.layer} className={`${surface} p-4`}>
-                <p className="text-pretty font-serif text-lg text-cyan-100">{e.layer}</p>
+                <p className="text-pretty font-serif text-lg text-stone-800">{e.layer}</p>
                 <p className="mt-1 text-xs leading-relaxed text-slate-500">{e.cadence}</p>
               </div>
             ))}
@@ -146,7 +146,7 @@ export default function Home() {
 
       <section className={`${shell} py-20`}>
         <p className={kicker}>Every service you can start</p>
-        <h2 className="mt-3 max-w-3xl font-serif text-3xl text-cyan-50 md:text-[2.1rem]">
+        <h2 className="mt-3 max-w-3xl font-serif text-3xl text-stone-900 md:text-[2.1rem]">
           Pick the work that is already waiting — callers, chats, files, cases, or a plan.
         </h2>
         <div className="mt-10 grid w-full gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -160,11 +160,11 @@ export default function Home() {
                 <UniqueScene id={`all-${o.slug}`} title={o.name} />
               </MediaFrame>
               <div className="p-4">
-                <p className="text-[0.65rem] tracking-[0.14em] uppercase text-cyan-400/90">
+                <p className="text-[0.65rem] tracking-[0.14em] uppercase text-orange-400">
                   {o.n} · {o.name}
                 </p>
-                <p className="mt-2 text-sm leading-snug text-pretty text-cyan-100/85">{o.title}</p>
-                <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-slate-400">
+                <p className="mt-2 text-sm leading-snug text-pretty text-stone-700">{o.title}</p>
+                <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-stone-400">
                   {o.summary}
                 </p>
               </div>

@@ -20,7 +20,7 @@ export function AiBackdrop() {
 
     const draw = () => {
       const { width, height } = canvas;
-      ctx.fillStyle = "rgba(255, 247, 237, 0.18)";
+      ctx.fillStyle = "rgba(255, 247, 237, 0.2)";
       ctx.fillRect(0, 0, width, height);
       nodes.forEach((n) => {
         n.x += n.vx;

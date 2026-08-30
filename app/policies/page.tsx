@@ -29,14 +29,14 @@ export default function PoliciesIndex() {
           {policies.map((p) => (
             <li key={p.slug}>
               <Link href={`/policies/${p.slug}`} className={`${surfaceHover} block h-full min-w-0 p-6`}>
-                <p className="text-[0.65rem] tracking-[0.16em] uppercase text-cyan-400/90">
+                <p className="text-[0.65rem] tracking-[0.16em] uppercase text-orange-400">
                   Policy
                 </p>
                 <h2 className="mt-2 text-pretty font-serif text-2xl">{p.title}</h2>
-                <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-slate-400">
+                <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-stone-400">
                   {p.summary}
                 </p>
-                <p className="mt-4 text-[0.65rem] uppercase tracking-widest text-slate-500">
+                <p className="mt-4 text-[0.65rem] uppercase tracking-widest text-stone-500">
                   Updated {p.updated}
                 </p>
               </Link>

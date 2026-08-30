@@ -33,7 +33,7 @@ export default function AboutPage() {
             <UniqueScene id="about-org" title="REVNCIA organization" />
           </MediaFrame>
           <h2 className="font-serif text-3xl">Who we serve — and what they keep</h2>
-          <p className="mt-5 text-[0.95rem] leading-relaxed text-pretty break-words text-slate-400">
+          <p className="mt-5 text-[0.95rem] leading-relaxed text-pretty break-words text-stone-400">
             {company.name} is {company.descriptor.toLowerCase()}. Customers keep
             a governed AI Platform: Gateway, identity, knowledge, memory,
             agents, tools, safety, observability, and cost-controlled AI.
@@ -44,7 +44,7 @@ export default function AboutPage() {
             Cheyenne office on ordinary US business days. We do not publish a
             reply-time SLA or a walk-in helpdesk.
           </p>
-          <p className="mt-4 text-[0.95rem] leading-relaxed text-pretty break-words text-slate-400">
+          <p className="mt-4 text-[0.95rem] leading-relaxed text-pretty break-words text-stone-400">
             Strategy is aligned to six objectives you can hold us to: client
             growth, operational excellence, innovation, security, financial
             sustainability, and public impact. We operate under written
@@ -53,28 +53,28 @@ export default function AboutPage() {
           </p>
         </div>
       </section>
-      <section className="border-t border-white/10">
+      <section className="border-t border-stone-200">
         <div className={`${shell} py-16`}>
           <h2 className="font-serif text-3xl">The standards we keep</h2>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {principles.map((p) => (
-              <li key={p} className={`${surface} px-4 py-3 font-serif text-xl text-cyan-100`}>
+              <li key={p} className={`${surface} px-4 py-3 font-serif text-xl text-stone-800`}>
                 {p}
               </li>
             ))}
           </ul>
           <ol className="mt-12 grid gap-4 md:grid-cols-3">
             {objectives.map((item, i) => (
-              <li key={item} className="border-t border-cyan-400/30 pt-4">
-                <span className="text-[0.7rem] tracking-[0.16em] uppercase text-cyan-400/90">
+              <li key={item} className="border-t border-orange-300 pt-4">
+                <span className="text-[0.7rem] tracking-[0.16em] uppercase text-orange-400">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <p className="mt-2 text-pretty font-serif text-2xl text-cyan-50">{item}</p>
+                <p className="mt-2 text-pretty font-serif text-2xl text-stone-900">{item}</p>
               </li>
             ))}
           </ol>
           <p className={`${kicker} mt-16`}>How you can buy</p>
-          <p className="mt-2 mb-6 max-w-2xl text-sm leading-relaxed text-slate-400">
+          <p className="mt-2 mb-6 max-w-2xl text-sm leading-relaxed text-stone-400">
             Five layers — consulting through usage. Fees follow scope. There is
             no PKR package or headline price.
           </p>

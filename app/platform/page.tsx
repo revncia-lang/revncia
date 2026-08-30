@@ -40,8 +40,8 @@ export default function PlatformPage() {
             priority
           />
         </MediaFrame>
-        <h2 className="mt-10 font-serif text-2xl text-cyan-50">What your organisation keeps</h2>
-        <p className="mt-3 max-w-3xl text-sm leading-relaxed text-pretty break-words text-slate-400">
+        <h2 className="mt-10 font-serif text-2xl">What your organisation keeps</h2>
+        <p className="mt-3 max-w-3xl text-sm leading-relaxed text-pretty break-words text-stone-400">
           {core.summary} After go-live your owner sees who asked what and what
           it cost. Unused personal ChatGPT logins are out of scope unless you
           connect them yourself.

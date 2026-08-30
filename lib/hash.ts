@@ -7,14 +7,14 @@ export function hash32(s: string) {
 }
 
 export function palette(seed: number) {
-  const h1 = seed % 360;
-  const h2 = (seed * 7 + 40) % 360;
-  const h3 = (seed * 13 + 180) % 360;
+  const h1 = 18 + (seed % 22);
+  const h2 = 26 + ((seed * 7) % 16);
+  const h3 = 12 + ((seed * 13) % 26);
   return {
-    a: `hsl(${h1} 80% 58%)`,
-    b: `hsl(${h2} 70% 48%)`,
-    c: `hsl(${h3} 55% 42%)`,
-    dim: `hsl(${h1} 32% 94%)`,
+    a: `hsl(${h1} 88% 58%)`,
+    b: `hsl(${h2} 78% 48%)`,
+    c: `hsl(${h3} 62% 38%)`,
+    dim: `hsl(${h1} 42% 94%)`,
   };
 }
 

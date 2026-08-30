@@ -186,14 +186,14 @@ export function VirtualAssistant() {
   return (
     <div className="fixed right-4 bottom-4 z-[80] flex flex-col items-end gap-2">
       {open ? (
-        <div className="w-[min(100vw-2rem,22rem)] border border-cyan-400/30 bg-[#070b14]/95 shadow-2xl backdrop-blur">
-          <div className="flex items-center justify-between border-b border-white/10 px-3 py-2">
-            <p className="text-[0.7rem] tracking-[0.14em] uppercase text-cyan-300">
+        <div className="w-[min(100vw-2rem,22rem)] border border-orange-400/35 bg-white/95 shadow-2xl backdrop-blur">
+          <div className="flex items-center justify-between border-b border-stone-200 px-3 py-2">
+            <p className="text-[0.7rem] tracking-[0.14em] uppercase text-orange-400">
               {label}
             </p>
             <button
               type="button"
-              className="text-xs text-white/60"
+              className="text-xs text-stone-500"
               onClick={() => setOpen(false)}
             >
               Close
@@ -205,15 +205,15 @@ export function VirtualAssistant() {
                 key={i}
                 className={
                   m.role === "user"
-                    ? "ml-6 bg-cyan-950/50 px-3 py-2 text-cyan-50"
-                    : "mr-4 bg-white/5 px-3 py-2 text-slate-200"
+                    ? "ml-6 bg-orange-50 px-3 py-2 text-stone-800"
+                    : "mr-4 bg-stone-50 px-3 py-2 text-stone-700"
                 }
               >
                 <p className="break-words">{m.text}</p>
                 {m.href ? (
                   <Link
                     href={m.href}
-                    className="mt-1 inline-block text-[0.7rem] uppercase tracking-wider text-cyan-300 underline"
+                    className="mt-1 inline-block text-[0.7rem] uppercase tracking-wider text-orange-400 underline"
                   >
                     What you receive
                   </Link>
@@ -222,23 +222,23 @@ export function VirtualAssistant() {
             ))}
             <div ref={endRef} />
           </div>
-          <form onSubmit={onSubmit} className="flex gap-1 border-t border-white/10 p-2">
+          <form onSubmit={onSubmit} className="flex gap-1 border-t border-stone-200 p-2">
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask or say your name…"
-              className="min-w-0 flex-1 bg-black/40 px-2 py-2 text-sm leading-relaxed text-white outline-none"
+              className="min-w-0 flex-1 bg-white px-2 py-2 text-sm leading-relaxed text-stone-900 outline-none"
             />
             <button
               type="button"
               onClick={listen}
-              className="px-2 text-[0.65rem] uppercase tracking-wider text-cyan-300"
+              className="px-2 text-[0.65rem] uppercase tracking-wider text-orange-400"
             >
               Listen
             </button>
             <button
               type="submit"
-              className="bg-cyan-400 px-3 text-[0.65rem] uppercase tracking-wider text-black"
+              className="bg-orange-500 px-3 text-[0.65rem] uppercase tracking-wider text-stone-950"
             >
               Send
             </button>
@@ -248,7 +248,7 @@ export function VirtualAssistant() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex h-14 items-center gap-2 rounded-full border border-orange-300/70 bg-orange-500 px-4 text-sm font-semibold tracking-wide text-slate-950 shadow-[0_0_24px_rgba(249,115,22,0.5)] hover:bg-orange-400"
+        className="inline-flex h-14 items-center gap-2 rounded-full border border-orange-300/70 bg-orange-500 px-4 text-sm font-semibold tracking-wide text-stone-950 shadow-[0_0_24px_rgba(249,115,22,0.5)] hover:bg-orange-400"
         aria-label="Open support assistant"
       >
         <svg

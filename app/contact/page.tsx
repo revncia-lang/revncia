@@ -27,7 +27,7 @@ export default function ContactPage() {
       <section className={`${shell} grid gap-12 py-16 md:grid-cols-2`}>
         <div className="min-w-0">
           <h2 className="font-serif text-2xl">What to tell us</h2>
-          <p className="mt-3 mb-8 text-sm leading-relaxed text-pretty break-words text-slate-400">
+          <p className="mt-3 mb-8 text-sm leading-relaxed text-pretty break-words text-stone-400">
             Sending opens a draft to {company.email} so you can review it before
             it leaves your inbox.
           </p>
@@ -39,19 +39,19 @@ export default function ContactPage() {
           </MediaFrame>
           <div className={`${surface} p-6`}>
             <h2 className="font-serif text-2xl">How customers reach us</h2>
-            <p className="mt-4 text-[0.95rem] leading-relaxed text-pretty break-words text-slate-400">
+            <p className="mt-4 text-[0.95rem] leading-relaxed text-pretty break-words text-stone-400">
               {company.name}
               <br />
               {company.address}
             </p>
-            <p className="mt-4 text-sm leading-relaxed text-pretty break-words text-slate-400">
+            <p className="mt-4 text-sm leading-relaxed text-pretty break-words text-stone-400">
               Email-first from this office on ordinary US business days. Name
               who waits in the subject. Voice and WhatsApp that your callers
               use after go-live are your channels — not a promise that a
               REVNCIA person answers at all hours.
             </p>
             <p className="mt-6 text-sm">
-              <a className="break-all text-cyan-200 underline underline-offset-4" href={`mailto:${company.email}`}>
+              <a className="break-all text-orange-700 underline underline-offset-4" href={`mailto:${company.email}`}>
                 {company.email}
               </a>
             </p>

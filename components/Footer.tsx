@@ -27,7 +27,7 @@ const col =
 
 export function Footer() {
   return (
-    <footer className="mt-auto border-t border-stone-200 bg-white text-stone-900">
+    <footer className="mt-auto border-t border-stone-200 bg-white/90 text-stone-900">
       <div className={`${shell} grid grid-cols-1 items-stretch gap-4 py-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5`}>
         <div className={col}>
           <Logo />
@@ -35,13 +35,13 @@ export function Footer() {
             Customers get answers. Staff get one system. The public gets a
             record they can trust. Together we transform.
           </p>
-          <p className="mt-4 text-[0.7rem] font-medium tracking-[0.16em] uppercase text-orange-600">
+          <p className="mt-4 text-[0.7rem] font-medium tracking-[0.16em] uppercase text-orange-400">
             {company.motto}
           </p>
         </div>
 
         <nav className={col} aria-label="Footer">
-          <p className="shrink-0 text-[0.7rem] tracking-[0.18em] uppercase text-orange-600">
+          <p className="shrink-0 text-[0.7rem] tracking-[0.18em] uppercase text-orange-400">
             Where to start
           </p>
           <ul className="mt-4 flex flex-1 flex-col gap-2.5">
@@ -50,7 +50,7 @@ export function Footer() {
                 <Link
                   href={item.href}
                   title={item.explain}
-                  className="block text-sm leading-snug text-stone-800 hover:text-orange-600"
+                  className="block text-sm leading-snug text-stone-800 hover:text-orange-700"
                 >
                   {item.label}
                 </Link>
@@ -63,7 +63,7 @@ export function Footer() {
         </nav>
 
         <div className={col}>
-          <p className="shrink-0 text-[0.7rem] tracking-[0.18em] uppercase text-orange-600">
+          <p className="shrink-0 text-[0.7rem] tracking-[0.18em] uppercase text-orange-400">
             Next step
           </p>
           <ul className="mt-4 flex flex-1 flex-col gap-4">
@@ -71,7 +71,7 @@ export function Footer() {
               <li key={item.href} className="min-w-0">
                 <Link
                   href={item.href}
-                  className="flex w-full items-center justify-center rounded-md border border-orange-300 px-3 py-2 text-center text-[0.68rem] tracking-[0.12em] uppercase text-orange-800 transition hover:border-orange-400 hover:bg-orange-50"
+                  className="flex w-full items-center justify-center rounded-md border border-orange-400/30 px-3 py-2 text-center text-[0.68rem] tracking-[0.12em] uppercase text-orange-700 transition hover:border-orange-300/60 hover:bg-orange-50"
                 >
                   {item.label}
                 </Link>
@@ -84,13 +84,13 @@ export function Footer() {
         </div>
 
         <div className={col}>
-          <p className="shrink-0 text-[0.7rem] tracking-[0.18em] uppercase text-orange-600">
+          <p className="shrink-0 text-[0.7rem] tracking-[0.18em] uppercase text-orange-400">
             Contact
           </p>
-          <p className="mt-4 text-sm leading-relaxed text-pretty break-words text-stone-600">
+          <p className="mt-4 text-sm leading-relaxed text-pretty break-words text-stone-400">
             {company.name}
           </p>
-          <p className="mt-2 flex-1 text-sm leading-relaxed text-pretty break-words text-stone-600">
+          <p className="mt-2 flex-1 text-sm leading-relaxed text-pretty break-words text-stone-400">
             {company.address}
           </p>
           <a
@@ -119,7 +119,7 @@ export function Footer() {
             </p>
             <ul className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
               <li>
-                <Link href="/policies" className="text-stone-500 hover:text-orange-600">
+                <Link href="/policies" className="text-stone-500 hover:text-orange-700">
                   All policies
                 </Link>
               </li>
@@ -127,7 +127,7 @@ export function Footer() {
                 <li key={p.slug}>
                   <Link
                     href={`/policies/${p.slug}`}
-                    className="text-stone-500 hover:text-orange-600"
+                    className="text-stone-500 hover:text-orange-700"
                   >
                     {p.navLabel}
                   </Link>

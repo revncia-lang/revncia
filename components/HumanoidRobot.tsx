@@ -412,7 +412,7 @@ export function HumanoidRobot() {
           className={
             allowed
               ? btnPrimary
-              : `${btnChip} border-orange-400/70 text-orange-100`
+              : `${btnChip} border-orange-400 text-stone-800`
           }
           onClick={() => setAllowed((v) => !v)}
         >

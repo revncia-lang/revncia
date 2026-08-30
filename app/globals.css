@@ -6,9 +6,9 @@
   --paper: #ffffff;
   --paper-muted: #78716c;
   --muted: #78716c;
-  --line: rgba(234, 88, 12, 0.22);
-  --copper: #ea580c;
-  --sage: #fb923c;
+  --line: rgba(249, 115, 22, 0.28);
+  --copper: #fb923c;
+  --sage: #fdba74;
   --accent: #f97316;
   --accent-bright: #fb923c;
   --accent-amber: #f59e0b;
@@ -310,7 +310,7 @@ h1, h2, h3 {
 .jarvis-vignette {
   background: radial-gradient(
     ellipse 78% 82% at 50% 42%,
-    rgba(255, 237, 213, 0.65) 0%,
+    rgba(249, 115, 22, 0.16) 0%,
     transparent 68%
   );
 }
@@ -320,7 +320,7 @@ h1, h2, h3 {
   overflow: visible;
   background: radial-gradient(
     ellipse 70% 74% at 50% 40%,
-    rgba(255, 237, 213, 0.7) 0%,
+    rgba(249, 115, 22, 0.14) 0%,
     transparent 72%
   );
 }
@@ -429,7 +429,7 @@ h1, h2, h3 {
   stroke-linecap: round;
 }
 .robot-brain-synapse-hot {
-  stroke: rgba(34, 211, 238, 0.38);
+  stroke: rgba(251, 146, 60, 0.42);
   stroke-dasharray: 4 6;
   animation: robot-brain-synapse 3.6s linear infinite;
 }

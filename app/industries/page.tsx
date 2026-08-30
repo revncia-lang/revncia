@@ -69,7 +69,7 @@ export default function IndustriesPage() {
               </MediaFrame>
               <div className="p-5">
                 <h2 className="text-pretty font-serif text-2xl">{r.name}</h2>
-                <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-slate-400">
+                <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-stone-400">
                   {r.text}
                 </p>
               </div>
