@@ -186,7 +186,7 @@ function RevolvingEye({ id }: { id: string }) {
       <defs>
         <radialGradient id={`${id}-glow`} cx="50%" cy="50%" r="50%">
           <stop offset="0%" stopColor="rgba(255,255,255,0.95)" />
-          <stop offset="28%" stopColor="rgba(196,30,58,0.55)" />
+          <stop offset="28%" stopColor="rgba(249,115,22,0.58)" />
           <stop offset="70%" stopColor="rgba(249,115,22,0.18)" />
           <stop offset="100%" stopColor="rgba(249,115,22,0)" />
         </radialGradient>
@@ -197,7 +197,7 @@ function RevolvingEye({ id }: { id: string }) {
           cx="50"
           cy="50"
           r="42"
-          stroke="rgba(196,30,58,0.85)"
+          stroke="rgba(234,88,12,0.88)"
           strokeWidth="1.15"
         />
         <circle
@@ -221,7 +221,7 @@ function RevolvingEye({ id }: { id: string }) {
               y1={50 + Math.sin(a) * inner}
               x2={50 + Math.cos(a) * outer}
               y2={50 + Math.sin(a) * outer}
-              stroke={major ? "rgba(245,158,11,0.95)" : "rgba(196,30,58,0.7)"}
+              stroke={major ? "rgba(245,158,11,0.95)" : "rgba(234,88,12,0.72)"}
               strokeWidth={major ? 1.4 : 0.8}
             />
           );
@@ -240,7 +240,7 @@ function RevolvingEye({ id }: { id: string }) {
           cx="50"
           cy="50"
           r="21"
-          stroke="rgba(196,30,58,0.75)"
+          stroke="rgba(234,88,12,0.78)"
           strokeWidth="1"
         />
       </g>
@@ -264,14 +264,14 @@ function RevolvingEye({ id }: { id: string }) {
           stroke="rgba(249,115,22,0.75)"
           strokeWidth="0.9"
         />
-        <circle cx="50" cy="82" r="2.1" fill="rgba(196,30,58,0.95)" />
+        <circle cx="50" cy="82" r="2.1" fill="rgba(234,88,12,0.95)" />
       </g>
       <circle className="robot-eye-core" cx="50" cy="50" r="7.5" fill="#fff" />
       <circle
         cx="50"
         cy="50"
         r="11"
-        stroke="rgba(196,30,58,0.9)"
+        stroke="rgba(234,88,12,0.92)"
         strokeWidth="1.2"
       />
     </svg>
@@ -392,7 +392,7 @@ export function HumanoidRobot() {
             fill
             priority
             unoptimized
-            className="z-10 object-contain object-top"
+            className="robot-mascot z-10 object-contain object-top"
             sizes="(min-width: 1024px) 34rem, (min-width: 768px) 32rem, 26rem"
           />
           <AiBrain />
@@ -443,7 +443,7 @@ export function HumanoidRobot() {
           Nod
         </button>
       </div>
-      <p className="mt-2 px-2 text-center text-xs leading-relaxed text-pretty break-words text-stone-400">
+      <p className="mt-2 px-2 text-center text-sm leading-relaxed text-pretty break-words text-stone-600">
         {line}
       </p>
       <p className="mt-1 text-center text-[0.65rem] uppercase tracking-widest text-stone-500">

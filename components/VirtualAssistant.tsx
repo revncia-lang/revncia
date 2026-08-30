@@ -188,12 +188,12 @@ export function VirtualAssistant() {
       {open ? (
         <div className="w-[min(100vw-2rem,22rem)] border border-orange-400/35 bg-white/95 shadow-2xl backdrop-blur">
           <div className="flex items-center justify-between border-b border-stone-200 px-3 py-2">
-            <p className="text-[0.7rem] tracking-[0.14em] uppercase text-orange-400">
+            <p className="text-[0.7rem] font-semibold tracking-[0.14em] uppercase text-orange-600">
               {label}
             </p>
             <button
               type="button"
-              className="text-xs text-stone-500"
+              className="rounded-md px-2 py-1 text-xs font-semibold uppercase tracking-wider text-orange-800 hover:bg-orange-50"
               onClick={() => setOpen(false)}
             >
               Close
@@ -213,7 +213,7 @@ export function VirtualAssistant() {
                 {m.href ? (
                   <Link
                     href={m.href}
-                    className="mt-1 inline-block text-[0.7rem] uppercase tracking-wider text-orange-400 underline"
+                    className="mt-1 inline-block text-[0.7rem] font-semibold uppercase tracking-wider text-orange-700 underline"
                   >
                     What you receive
                   </Link>
@@ -232,13 +232,13 @@ export function VirtualAssistant() {
             <button
               type="button"
               onClick={listen}
-              className="px-2 text-[0.65rem] uppercase tracking-wider text-orange-400"
+              className="rounded-md border border-orange-300 px-2 text-[0.65rem] font-semibold uppercase tracking-wider text-orange-800 hover:bg-orange-50"
             >
               Listen
             </button>
             <button
               type="submit"
-              className="bg-orange-500 px-3 text-[0.65rem] uppercase tracking-wider text-stone-950"
+              className="rounded-md bg-orange-500 px-3 text-[0.65rem] font-semibold uppercase tracking-wider text-white hover:bg-orange-600"
             >
               Send
             </button>
@@ -248,7 +248,7 @@ export function VirtualAssistant() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex h-14 items-center gap-2 rounded-full border border-orange-300/70 bg-orange-500 px-4 text-sm font-semibold tracking-wide text-stone-950 shadow-[0_0_24px_rgba(249,115,22,0.5)] hover:bg-orange-400"
+        className="inline-flex h-14 items-center gap-2 rounded-full border border-orange-400 bg-orange-500 px-4 text-sm font-semibold tracking-wide text-white shadow-[0_0_24px_rgba(249,115,22,0.5)] transition hover:bg-orange-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
         aria-label="Open support assistant"
       >
         <svg

@@ -18,7 +18,7 @@ export function PageHero({
         <p className="text-pretty text-[0.7rem] font-medium tracking-[0.2em] uppercase text-orange-600">
           {kicker}
         </p>
-        <h1 className="mt-4 max-w-5xl text-balance font-serif text-4xl leading-[1.14] md:text-5xl">
+        <h1 className="mt-4 max-w-5xl text-balance font-serif font-bold text-4xl leading-[1.1] md:text-5xl lg:text-[3.35rem]">
           {title}
         </h1>
         <p className="mt-6 max-w-4xl text-pretty text-base leading-relaxed break-words text-stone-600 md:text-lg">

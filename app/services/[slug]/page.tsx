@@ -11,6 +11,7 @@ import { offeringBySlug, offerings } from "@/lib/catalog";
 import { detailBlocks } from "@/lib/details";
 import { painPoints, plainWhy } from "@/lib/pains";
 import { btnPrimary, shell } from "@/lib/ui";
+import { chartCaption, pictureCaption } from "@/lib/visuals";
 
 export function generateStaticParams() {
   return offerings.map((o) => ({ slug: o.slug }));
@@ -57,24 +58,23 @@ export default async function ServicePage({
       />
       <section className={`${shell} grid gap-10 py-14 md:grid-cols-12`}>
         <div className="md:col-span-7">
+          <MediaFrame className="mb-8">
+            <UniqueScene id={`pic-${o.slug}`} title={pictureCaption(o.name)} />
+          </MediaFrame>
           {o.image ? (
-            <MediaFrame className="mb-8">
+            <MediaFrame className="mb-8" ratio="photo">
               <Image
                 src={o.image}
-                alt={`${o.name} — visual for this service line`}
+                alt={`${o.name} — photograph of this kind of work`}
                 fill
                 className="object-cover"
                 sizes="(min-width: 768px) 50vw, 100vw"
               />
             </MediaFrame>
-          ) : (
-            <MediaFrame className="mb-8">
-              <UniqueScene id={o.slug} title={o.name} />
-            </MediaFrame>
-          )}
+          ) : null}
 
-          <p className="mt-8 text-[1.05rem] leading-relaxed text-pretty break-words text-stone-800">{why}</p>
-          <p className="mt-4 text-sm leading-relaxed text-pretty break-words text-stone-400">{o.body}</p>
+          <p className="mt-8 text-[1.08rem] leading-relaxed text-pretty break-words text-stone-800">{why}</p>
+          <p className="mt-4 text-[0.98rem] leading-relaxed text-pretty break-words text-stone-600">{o.body}</p>
           {o.note ? (
             <p className="mt-4 border border-amber-300 bg-amber-50 p-4 text-sm text-amber-950">
               {o.note}
@@ -83,10 +83,10 @@ export default async function ServicePage({
 
           <FacilitiesOnService slug={o.slug} />
 
-          <h2 className="mt-12 font-serif text-2xl">
+          <h2 className="mt-12 font-serif font-bold text-3xl md:text-4xl">
             What your customers and staff still struggle with if you skip this
           </h2>
-          <p className="mt-2 text-sm text-stone-400">
+          <p className="mt-3 text-[0.98rem] leading-relaxed text-stone-600">
             These are everyday problems organisations report before they adopt
             this kind of service. They are not a medical or legal diagnosis —
             they are operational patterns we see in business life.
@@ -104,7 +104,7 @@ export default async function ServicePage({
 
           {blocks.map((block) => (
             <div key={block.heading} className="mt-10">
-              <h2 className="font-serif text-2xl">{block.heading}</h2>
+              <h2 className="font-serif font-bold text-3xl">{block.heading}</h2>
               <ul className="mt-4 grid gap-2 sm:grid-cols-2">
                 {block.items.map((item) => (
                   <li
@@ -118,10 +118,10 @@ export default async function ServicePage({
             </div>
           ))}
 
-          <h2 className="mt-12 font-serif text-2xl">What you can use after go-live</h2>
+          <h2 className="mt-12 font-serif font-bold text-3xl">What you can use after go-live</h2>
           <ul className="mt-4 space-y-2">
             {o.capabilities.map((c) => (
-              <li key={c} className="border-l-2 border-orange-500 pl-3 text-sm text-stone-700">
+              <li key={c} className="border-l-2 border-orange-500 pl-3 text-[0.98rem] text-stone-700">
                 {c}
               </li>
             ))}
@@ -129,13 +129,13 @@ export default async function ServicePage({
 
           {related.length > 0 ? (
             <div className="mt-12">
-              <h2 className="font-serif text-2xl">Other lines customers pair with this</h2>
+              <h2 className="font-serif font-bold text-3xl">Other lines customers pair with this</h2>
               <ul className="mt-4 space-y-2">
                 {related.map((r) => (
                   <li key={r.slug}>
                     <Link
                       href={`/services/${r.slug}`}
-                      className="text-sm text-orange-700 underline underline-offset-4"
+                      className="text-sm font-semibold text-orange-700 underline underline-offset-4"
                     >
                       {r.n} · {r.name}
                     </Link>
@@ -155,22 +155,22 @@ export default async function ServicePage({
         <aside className="space-y-4 md:col-span-5">
           <div className="mb-4">
             <MediaFrame>
-              <UniqueScene id={`${o.slug}-side`} title={`${o.name} map`} />
+              <UniqueScene id={`${o.slug}-side`} title={`${o.name} — how the pieces sit together`} />
             </MediaFrame>
           </div>
           <UniqueChart
             id={`${o.slug}-work`}
-            caption="How work usually improves after go-live (example method)"
+            caption={chartCaption(o.name, "work")}
           />
           <UniqueChart
             id={`${o.slug}-wait`}
-            caption="Waiting and rework when this is missing (example pattern)"
+            caption={chartCaption(o.name, "wait")}
           />
           <UniqueChart
             id={`${o.slug}-trust`}
-            caption="Trust and audit readiness over time (example path)"
+            caption={chartCaption(o.name, "trust")}
           />
-          <div className="flex min-w-0 justify-between gap-3 text-sm text-orange-700">
+          <div className="flex min-w-0 justify-between gap-3 text-sm font-semibold text-orange-700">
             <Link href={`/services/${prev.slug}`} className="min-w-0 text-pretty break-words">
               ← {prev.name}
             </Link>

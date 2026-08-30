@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { MediaFrame } from "@/components/MediaFrame";
 import { PageHero } from "@/components/PageHero";
-import { UniqueScene } from "@/components/UniqueScene";
+import { ServiceVisual } from "@/components/ServiceVisual";
 import { shell, surfaceHover } from "@/lib/ui";
 
 export const metadata: Metadata = {
@@ -64,12 +63,10 @@ export default function IndustriesPage() {
               href={`/services/${r.slug}`}
               className={`${surfaceHover} min-w-0 overflow-hidden`}
             >
-              <MediaFrame ratio="landscape" className="w-full border-0 rounded-none rounded-t-xl">
-                <UniqueScene id={`ind-${r.slug}`} title={r.name} />
-              </MediaFrame>
+              <ServiceVisual slug={`ind-${r.slug}`} name={r.name} />
               <div className="p-5">
-                <h2 className="text-pretty font-serif text-2xl">{r.name}</h2>
-                <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-stone-400">
+                <h2 className="text-pretty font-serif font-bold text-2xl md:text-3xl">{r.name}</h2>
+                <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-stone-600">
                   {r.text}
                 </p>
               </div>

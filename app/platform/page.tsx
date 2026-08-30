@@ -40,8 +40,8 @@ export default function PlatformPage() {
             priority
           />
         </MediaFrame>
-        <h2 className="mt-10 font-serif text-2xl">What your organisation keeps</h2>
-        <p className="mt-3 max-w-3xl text-sm leading-relaxed text-pretty break-words text-stone-400">
+        <h2 className="mt-10 font-serif font-bold text-3xl">What your organisation keeps</h2>
+        <p className="mt-3 max-w-3xl text-[0.98rem] leading-relaxed text-pretty break-words text-stone-600">
           {core.summary} After go-live your owner sees who asked what and what
           it cost. Unused personal ChatGPT logins are out of scope unless you
           connect them yourself.
@@ -55,8 +55,8 @@ export default function PlatformPage() {
         </ul>
         <FacilitiesOnService slug="ai-platform" />
         <div className="mt-10 grid gap-4 md:grid-cols-2">
-          <UniqueChart id="platform-routing" caption="Multi-model routing load" />
-          <UniqueChart id="platform-tokens" caption="Token and cost envelope" />
+          <UniqueChart id="platform-routing" caption="How staff requests are shared across approved models (example)" />
+          <UniqueChart id="platform-tokens" caption="Spend your owner can read against a cost envelope (example)" />
         </div>
         <Link href="/services/ai-platform" className={`${btnSecondary} mt-8`}>
           What the platform includes

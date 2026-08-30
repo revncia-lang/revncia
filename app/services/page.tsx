@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FacilitiesServicesBlock } from "@/components/CustomerFacilities";
-import { MediaFrame } from "@/components/MediaFrame";
 import { PageHero } from "@/components/PageHero";
-import { UniqueScene } from "@/components/UniqueScene";
+import { ServiceVisual } from "@/components/ServiceVisual";
 import { offerings } from "@/lib/catalog";
 import { shell, surfaceHover } from "@/lib/ui";
 
@@ -34,16 +33,14 @@ export default function ServicesIndex() {
               href={`/services/${o.slug}`}
               className={`${surfaceHover} flex min-w-0 flex-col overflow-hidden`}
             >
-              <MediaFrame ratio="landscape" className="w-full border-0 rounded-none rounded-t-xl">
-                <UniqueScene id={`index-${o.slug}`} title={o.name} />
-              </MediaFrame>
+              <ServiceVisual slug={o.slug} name={o.name} />
               <div className="min-w-0 p-4">
-                <p className="text-[0.65rem] tracking-[0.16em] uppercase text-orange-400">
+                <p className="text-[0.65rem] font-semibold tracking-[0.16em] uppercase text-orange-600">
                     {o.n} · {o.group}
                 </p>
-                <h2 className="mt-1 text-pretty font-serif text-xl">{o.name}</h2>
-                <p className="mt-1 text-sm leading-snug text-pretty text-stone-700">{o.title}</p>
-                <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-stone-400">
+                <h2 className="mt-1 text-pretty font-serif font-bold text-xl md:text-2xl">{o.name}</h2>
+                <p className="mt-1 text-sm leading-snug text-pretty font-medium text-stone-800">{o.title}</p>
+                <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-stone-600">
                   {o.summary}
                 </p>
               </div>

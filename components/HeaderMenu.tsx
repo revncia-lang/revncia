@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { nav } from "@/lib/site";
+import { btnPrimary } from "@/lib/ui";
 
 export function HeaderMenu() {
   const [open, setOpen] = useState(false);
@@ -20,7 +21,7 @@ export function HeaderMenu() {
     <>
       <button
         type="button"
-        className="inline-flex h-10 w-10 items-center justify-center text-stone-800 lg:hidden"
+        className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-orange-300 bg-orange-50 text-orange-800 transition hover:bg-orange-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 lg:hidden"
         aria-expanded={open}
         aria-label={open ? "Close menu" : "Open menu"}
         onClick={() => setOpen((v) => !v)}
@@ -52,14 +53,21 @@ export function HeaderMenu() {
                 className="block py-1"
                 onClick={() => setOpen(false)}
               >
-                <span className="text-sm tracking-[0.08em] uppercase text-stone-800">
+                <span className="text-sm font-semibold tracking-[0.08em] uppercase text-stone-800">
                   {item.label}
                 </span>
-                <span className="mt-0.5 block text-xs font-normal normal-case tracking-normal text-stone-500">
+                <span className="mt-0.5 block text-xs font-normal normal-case tracking-normal text-stone-600">
                   {item.hint}
                 </span>
               </Link>
             ))}
+            <Link
+              href="/contact"
+              className={`${btnPrimary} mt-2 w-full`}
+              onClick={() => setOpen(false)}
+            >
+              Start a conversation
+            </Link>
           </nav>
         </div>
       ) : null}

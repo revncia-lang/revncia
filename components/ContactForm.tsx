@@ -25,9 +25,14 @@ export function ContactForm() {
       "",
       message,
     ].join("\n");
-    window.location.href = `mailto:${company.email}?subject=${encodeURIComponent(
+    const href = `mailto:${company.email}?subject=${encodeURIComponent(
       `Inquiry — ${interest || "REVNCIA"}`,
-    )}&body=${encodeURIComponent(body)}`;
+    )}&body=${encodeURIComponent(body.slice(0, 1800))}`;
+    try {
+      window.location.href = href;
+    } catch {
+      /* mail client may be absent; success copy still offers a direct address */
+    }
     setSent(true);
   }
 

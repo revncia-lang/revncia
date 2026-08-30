@@ -2,7 +2,7 @@ import Link from "next/link";
 import { policies } from "@/lib/policies";
 import { company, nav } from "@/lib/site";
 import { Logo } from "./Logo";
-import { shell } from "@/lib/ui";
+import { btnPrimary, btnSecondary, shell } from "@/lib/ui";
 
 const actions = [
   {
@@ -35,13 +35,13 @@ export function Footer() {
             Customers get answers. Staff get one system. The public gets a
             record they can trust. Together we transform.
           </p>
-          <p className="mt-4 text-[0.7rem] font-medium tracking-[0.16em] uppercase text-orange-400">
+          <p className="mt-4 text-[0.7rem] font-semibold tracking-[0.16em] uppercase text-orange-600">
             {company.motto}
           </p>
         </div>
 
         <nav className={col} aria-label="Footer">
-          <p className="shrink-0 text-[0.7rem] tracking-[0.18em] uppercase text-orange-400">
+          <p className="shrink-0 text-[0.7rem] font-semibold tracking-[0.18em] uppercase text-orange-600">
             Where to start
           </p>
           <ul className="mt-4 flex flex-1 flex-col gap-2.5">
@@ -63,15 +63,15 @@ export function Footer() {
         </nav>
 
         <div className={col}>
-          <p className="shrink-0 text-[0.7rem] tracking-[0.18em] uppercase text-orange-400">
+          <p className="shrink-0 text-[0.7rem] font-semibold tracking-[0.18em] uppercase text-orange-600">
             Next step
           </p>
           <ul className="mt-4 flex flex-1 flex-col gap-4">
-            {actions.map((item) => (
+            {actions.map((item, idx) => (
               <li key={item.href} className="min-w-0">
                 <Link
                   href={item.href}
-                  className="flex w-full items-center justify-center rounded-md border border-orange-400/30 px-3 py-2 text-center text-[0.68rem] tracking-[0.12em] uppercase text-orange-700 transition hover:border-orange-300/60 hover:bg-orange-50"
+                  className={`${idx === 0 ? btnPrimary : btnSecondary} w-full`}
                 >
                   {item.label}
                 </Link>
@@ -84,13 +84,13 @@ export function Footer() {
         </div>
 
         <div className={col}>
-          <p className="shrink-0 text-[0.7rem] tracking-[0.18em] uppercase text-orange-400">
+          <p className="shrink-0 text-[0.7rem] font-semibold tracking-[0.18em] uppercase text-orange-600">
             Contact
           </p>
-          <p className="mt-4 text-sm leading-relaxed text-pretty break-words text-stone-400">
+          <p className="mt-4 text-sm leading-relaxed text-pretty break-words text-stone-700">
             {company.name}
           </p>
-          <p className="mt-2 flex-1 text-sm leading-relaxed text-pretty break-words text-stone-400">
+          <p className="mt-2 flex-1 text-sm leading-relaxed text-pretty break-words text-stone-600">
             {company.address}
           </p>
           <a
@@ -114,7 +114,7 @@ export function Footer() {
             © 2026 {company.name}. All rights reserved.
           </p>
           <nav className="mt-4 min-w-0 w-full" aria-label="Policies">
-            <p className="text-[0.65rem] tracking-[0.16em] uppercase text-stone-400">
+            <p className="text-[0.65rem] font-semibold tracking-[0.16em] uppercase text-stone-500">
               Policies
             </p>
             <ul className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
