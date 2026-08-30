@@ -1,17 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #1c1917;
-  --ink-soft: #57534e;
-  --paper: #ffffff;
-  --paper-muted: #78716c;
-  --muted: #78716c;
-  --line: rgba(249, 115, 22, 0.28);
-  --copper: #fb923c;
-  --sage: #fdba74;
-  --accent: #f97316;
-  --accent-bright: #fb923c;
-  --accent-amber: #f59e0b;
+  --ink: #2a221f;
+  --ink-soft: #5c514a;
+  --paper: #fff8f2;
+  --paper-deep: #faf6f0;
+  --paper-card: #fffdf8;
+  --blush: #f6ebe3;
+  --leaf: #eef3ea;
+  --paper-muted: #6f645c;
+  --muted: #6f645c;
+  --line: rgba(196, 30, 58, 0.18);
+  --copper: #c41e3a;
+  --sage: #d7e4d2;
+  --accent: #c41e3a;
+  --accent-hover: #9f1730;
+  --accent-bright: #e23a4a;
+  --accent-amber: #c45c3a;
 }
 
 @theme inline {
@@ -28,8 +33,11 @@ html {
 }
 
 body {
-  background: #fffaf5;
-  color: #1c1917;
+  background:
+    radial-gradient(ellipse 90% 55% at 12% -8%, rgba(238, 243, 234, 0.7), transparent 52%),
+    radial-gradient(ellipse 70% 45% at 96% 8%, rgba(246, 235, 227, 0.85), transparent 48%),
+    linear-gradient(180deg, #fff8f2 0%, #faf6f0 46%, #f3efe6 100%);
+  color: #2a221f;
   font-family: var(--font-sans), system-ui, sans-serif;
   overflow-wrap: break-word;
   text-wrap: pretty;
@@ -41,10 +49,10 @@ h1, h2, h3 {
   letter-spacing: -0.02em;
   background-image: linear-gradient(
     118deg,
-    #1c1917 0%,
-    #9a3412 38%,
-    #ea580c 72%,
-    #f97316 100%
+    #2a221f 0%,
+    #8b1e2d 42%,
+    #c41e3a 74%,
+    #e23a4a 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -67,7 +75,7 @@ h3 {
   background-image: none;
   -webkit-background-clip: border-box;
   background-clip: border-box;
-  color: #ea580c;
+  color: #b91c2c;
 }
 
 .font-serif {
@@ -94,50 +102,50 @@ h3 {
 }
 .jarvis-os-grid circle,
 .jarvis-os-grid line {
-  stroke: rgba(249, 115, 22, 0.12);
+  stroke: rgba(196, 30, 58, 0.12);
   stroke-width: 0.6;
 }
 .jarvis-ring {
   fill: none;
 }
 .jarvis-ring-soft {
-  stroke: rgba(251, 146, 60, 0.32);
+  stroke: rgba(226, 58, 74, 0.32);
   stroke-width: 0.7;
 }
 .jarvis-ring-mid {
-  stroke: rgba(249, 115, 22, 0.38);
+  stroke: rgba(196, 30, 58, 0.38);
   stroke-width: 1;
 }
 .jarvis-ring-outer {
-  stroke: rgba(234, 88, 12, 0.42);
+  stroke: rgba(176, 24, 48, 0.42);
   stroke-width: 1.15;
-  filter: drop-shadow(0 0 5px rgba(249, 115, 22, 0.2));
+  filter: drop-shadow(0 0 5px rgba(196, 30, 58, 0.2));
   animation: jarvis-ring-breathe 8.5s ease-in-out infinite;
 }
 .jarvis-ring-dash {
   fill: none;
-  stroke: rgba(234, 88, 12, 0.38);
+  stroke: rgba(176, 24, 48, 0.38);
   stroke-width: 0.9;
   stroke-dasharray: 5 11;
   animation: jarvis-dash 32s linear infinite;
 }
 .jarvis-ring-dash-fine {
-  stroke: rgba(251, 146, 60, 0.3);
+  stroke: rgba(226, 58, 74, 0.3);
   stroke-dasharray: 2 9;
   animation-duration: 44s;
   animation-direction: reverse;
 }
 .jarvis-octagon {
   fill: none;
-  stroke: rgba(249, 115, 22, 0.22);
+  stroke: rgba(196, 30, 58, 0.22);
   stroke-width: 0.7;
 }
 .jarvis-tick {
-  stroke: rgba(251, 146, 60, 0.32);
+  stroke: rgba(226, 58, 74, 0.32);
   stroke-width: 0.55;
 }
 .jarvis-tick-major {
-  stroke: rgba(234, 88, 12, 0.55);
+  stroke: rgba(176, 24, 48, 0.55);
   stroke-width: 1.05;
 }
 .jarvis-arc {
@@ -149,7 +157,7 @@ h3 {
   stroke-width: 1.35;
 }
 .jarvis-arc-b {
-  stroke: rgba(249, 115, 22, 0.4);
+  stroke: rgba(196, 30, 58, 0.4);
   stroke-width: 1.05;
 }
 .jarvis-arc-c {
@@ -158,7 +166,7 @@ h3 {
 }
 .jarvis-brackets path {
   fill: none;
-  stroke: rgba(234, 88, 12, 0.42);
+  stroke: rgba(176, 24, 48, 0.42);
   stroke-width: 1.1;
 }
 .jarvis-spin-slow,
@@ -187,8 +195,8 @@ h3 {
     from 210deg,
     transparent 0deg,
     transparent 318deg,
-    rgba(249, 115, 22, 0.08) 338deg,
-    rgba(251, 146, 60, 0.18) 356deg,
+    rgba(196, 30, 58, 0.08) 338deg,
+    rgba(226, 58, 74, 0.18) 356deg,
     transparent 360deg
   );
   -webkit-mask-image: radial-gradient(
@@ -226,7 +234,7 @@ h3 {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(249, 115, 22, 0.08),
+    rgba(196, 30, 58, 0.08),
     transparent
   );
   animation: jarvis-sheen 16s ease-in-out infinite;
@@ -243,7 +251,7 @@ h3 {
 }
 .jarvis-os-chip span {
   font-size: 0.58rem;
-  color: rgba(234, 88, 12, 0.82);
+  color: rgba(176, 24, 48, 0.82);
 }
 .jarvis-os-chip em {
   font-style: normal;
@@ -325,7 +333,7 @@ h3 {
 .jarvis-vignette {
   background: radial-gradient(
     ellipse 78% 82% at 50% 42%,
-    rgba(249, 115, 22, 0.16) 0%,
+    rgba(196, 30, 58, 0.16) 0%,
     transparent 68%
   );
 }
@@ -335,7 +343,7 @@ h3 {
   overflow: visible;
   background: radial-gradient(
     ellipse 70% 74% at 50% 40%,
-    rgba(249, 115, 22, 0.14) 0%,
+    rgba(196, 30, 58, 0.14) 0%,
     transparent 72%
   );
 }
@@ -388,13 +396,13 @@ h3 {
   z-index: 10;
   overflow: visible;
   background: transparent;
-  filter: drop-shadow(0 0 18px rgba(249, 115, 22, 0.42));
+  filter: drop-shadow(0 0 18px rgba(196, 30, 58, 0.42));
 }
 .robot-figure.still {
-  filter: drop-shadow(0 0 12px rgba(249, 115, 22, 0.26));
+  filter: drop-shadow(0 0 12px rgba(196, 30, 58, 0.26));
 }
 .robot-mascot {
-  filter: hue-rotate(32deg) saturate(1.48) brightness(1.06) contrast(1.04);
+  filter: hue-rotate(6deg) saturate(1.18) brightness(1.03) contrast(1.02);
 }
 
 .robot-brain {
@@ -426,7 +434,7 @@ h3 {
   transform-box: fill-box;
 }
 .robot-brain-hemisphere {
-  fill: rgba(249, 115, 22, 0.38);
+  fill: rgba(196, 30, 58, 0.38);
   stroke: rgba(253, 186, 116, 0.88);
   stroke-width: 1.7;
 }
@@ -442,12 +450,12 @@ h3 {
   opacity: 0.85;
 }
 .robot-brain-synapse {
-  stroke: rgba(251, 146, 60, 0.7);
+  stroke: rgba(226, 58, 74, 0.7);
   stroke-width: 0.9;
   stroke-linecap: round;
 }
 .robot-brain-synapse-hot {
-  stroke: rgba(251, 146, 60, 0.75);
+  stroke: rgba(226, 58, 74, 0.75);
   stroke-dasharray: 4 6;
   animation: robot-brain-synapse 3.6s linear infinite;
 }
@@ -522,7 +530,7 @@ h3 {
   height: 100%;
   overflow: visible;
   mix-blend-mode: screen;
-  filter: drop-shadow(0 0 5px rgba(249, 115, 22, 0.55));
+  filter: drop-shadow(0 0 5px rgba(196, 30, 58, 0.55));
 }
 .robot-eye-svg .spin,
 .robot-eye-svg .orbit {

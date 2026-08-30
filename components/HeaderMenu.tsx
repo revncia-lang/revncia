@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { nav } from "@/lib/site";
+import { BetaLabel } from "@/components/BetaLabel";
 import { btnPrimary } from "@/lib/ui";
 
 export function HeaderMenu() {
@@ -21,7 +22,7 @@ export function HeaderMenu() {
     <>
       <button
         type="button"
-        className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-orange-300 bg-orange-50 text-orange-800 transition hover:bg-orange-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 lg:hidden"
+        className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-[#c41e3a]/30 bg-[#f6ebe3] text-[#8b1e2d] transition hover:bg-[#efe0d6] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c41e3a] focus-visible:ring-offset-2 focus-visible:ring-offset-[#fff8f2] lg:hidden"
         aria-expanded={open}
         aria-label={open ? "Close menu" : "Open menu"}
         onClick={() => setOpen((v) => !v)}
@@ -44,7 +45,7 @@ export function HeaderMenu() {
         </svg>
       </button>
       {open ? (
-        <div className="absolute left-0 right-0 top-full border-t border-stone-200 bg-white/95 px-5 py-5 backdrop-blur-xl lg:hidden">
+        <div className="absolute left-0 right-0 top-full border-t border-[#e8d9ce] bg-[#fff8f2]/96 px-5 py-5 backdrop-blur-xl lg:hidden">
           <nav className="flex flex-col gap-3" aria-label="Mobile">
             {nav.map((item) => (
               <Link
@@ -67,6 +68,7 @@ export function HeaderMenu() {
               onClick={() => setOpen(false)}
             >
               Start a conversation
+              <BetaLabel />
             </Link>
           </nav>
         </div>

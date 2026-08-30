@@ -36,8 +36,8 @@ export function UniqueChart({
     <figure
       className={
         embedded
-          ? "min-w-0 w-full overflow-hidden bg-white px-4 pb-3 pt-2"
-          : "min-w-0 w-full overflow-hidden rounded-xl border border-stone-200 bg-white p-4 shadow-[0_10px_28px_rgba(28,25,23,0.05)]"
+          ? "min-w-0 w-full overflow-hidden bg-[#fffdf8] px-4 pb-3 pt-2"
+          : "min-w-0 w-full overflow-hidden rounded-xl border border-[#e8d9ce] bg-[#fffdf8] p-4 shadow-[0_10px_28px_rgba(90,46,36,0.05)]"
       }
     >
       <figcaption className="text-pretty text-[0.68rem] font-semibold leading-snug tracking-[0.08em] uppercase text-stone-600">

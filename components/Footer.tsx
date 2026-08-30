@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { policies } from "@/lib/policies";
 import { company, nav } from "@/lib/site";
+import { BetaLabel } from "@/components/BetaLabel";
 import { Logo } from "./Logo";
 import { btnPrimary, btnSecondary, shell } from "@/lib/ui";
 
@@ -23,11 +24,11 @@ const actions = [
 ] as const;
 
 const col =
-  "flex h-full min-h-0 min-w-0 flex-col rounded-xl border border-stone-200 bg-white p-5";
+  "flex h-full min-h-0 min-w-0 flex-col rounded-xl border border-[#e8d9ce] bg-[#fffdf8] p-5";
 
 export function Footer() {
   return (
-    <footer className="mt-auto border-t border-stone-200 bg-white/90 text-stone-900">
+    <footer className="mt-auto border-t border-[#e8d9ce] bg-[#fff8f2]/92 text-[#2a221f]">
       <div className={`${shell} grid grid-cols-1 items-stretch gap-4 py-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5`}>
         <div className={col}>
           <Logo />
@@ -35,13 +36,13 @@ export function Footer() {
             Customers get answers. Staff get one system. The public gets a
             record they can trust. Together we transform.
           </p>
-          <p className="mt-4 text-[0.7rem] font-semibold tracking-[0.16em] uppercase text-orange-600">
+          <p className="mt-4 text-[0.7rem] font-semibold tracking-[0.16em] uppercase text-[#b91c2c]">
             {company.motto}
           </p>
         </div>
 
         <nav className={col} aria-label="Footer">
-          <p className="shrink-0 text-[0.7rem] font-semibold tracking-[0.18em] uppercase text-orange-600">
+          <p className="shrink-0 text-[0.7rem] font-semibold tracking-[0.18em] uppercase text-[#b91c2c]">
             Where to start
           </p>
           <ul className="mt-4 flex flex-1 flex-col gap-2.5">
@@ -63,7 +64,7 @@ export function Footer() {
         </nav>
 
         <div className={col}>
-          <p className="shrink-0 text-[0.7rem] font-semibold tracking-[0.18em] uppercase text-orange-600">
+          <p className="shrink-0 text-[0.7rem] font-semibold tracking-[0.18em] uppercase text-[#b91c2c]">
             Next step
           </p>
           <ul className="mt-4 flex flex-1 flex-col gap-4">
@@ -74,6 +75,7 @@ export function Footer() {
                   className={`${idx === 0 ? btnPrimary : btnSecondary} w-full`}
                 >
                   {item.label}
+                  {idx === 0 ? <BetaLabel /> : null}
                 </Link>
                 <p className="mt-2 text-[0.7rem] leading-snug text-pretty break-words text-stone-500">
                   {item.hint}
@@ -84,7 +86,7 @@ export function Footer() {
         </div>
 
         <div className={col}>
-          <p className="shrink-0 text-[0.7rem] font-semibold tracking-[0.18em] uppercase text-orange-600">
+          <p className="shrink-0 text-[0.7rem] font-semibold tracking-[0.18em] uppercase text-[#b91c2c]">
             Contact
           </p>
           <p className="mt-4 text-sm leading-relaxed text-pretty break-words text-stone-700">
@@ -106,7 +108,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-stone-200">
+      <div className="border-t border-[#e8d9ce]">
         <div
           className={`${shell} flex flex-col items-center py-6 text-center text-xs leading-relaxed text-pretty break-words text-stone-500`}
         >
