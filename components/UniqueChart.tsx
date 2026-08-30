@@ -63,8 +63,8 @@ export function UniqueChart({ id, caption }: { id: string; caption: string }) {
                   key={i}
                   x1="0"
                   y1="0"
-                  x2={Math.cos(a) * v * 0.7}
-                  y2={Math.sin(a) * v * 0.55}
+                  x2={(Math.cos(a) * v * 0.7).toFixed(2)}
+                  y2={(Math.sin(a) * v * 0.55).toFixed(2)}
                   stroke={p.a}
                   strokeWidth="2"
                 />

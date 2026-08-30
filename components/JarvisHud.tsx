@@ -1,9 +1,17 @@
 const CX = 200;
 const CY = 184;
 
+/** Same digits on the server and in the browser — avoids hydration mismatches. */
+function coord(n: number) {
+  return n.toFixed(1);
+}
+
 function polar(r: number, deg: number) {
   const a = ((deg - 90) * Math.PI) / 180;
-  return { x: CX + Math.cos(a) * r, y: CY + Math.sin(a) * r };
+  return {
+    x: coord(CX + Math.cos(a) * r),
+    y: coord(CY + Math.sin(a) * r),
+  };
 }
 
 function ticks(count: number, inner: number, outer: number, majorEvery: number) {
@@ -19,7 +27,7 @@ function ticks(count: number, inner: number, outer: number, majorEvery: number) 
 function octagon(r: number) {
   return Array.from({ length: 8 }, (_, i) => {
     const p = polar(r, i * 45 + 22.5);
-    return `${p.x.toFixed(1)},${p.y.toFixed(1)}`;
+    return `${p.x},${p.y}`;
   }).join(" ");
 }
 
