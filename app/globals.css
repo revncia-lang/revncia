@@ -24,6 +24,7 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: light;
 }
 
 body {
@@ -309,7 +310,7 @@ h1, h2, h3 {
 .jarvis-vignette {
   background: radial-gradient(
     ellipse 78% 82% at 50% 42%,
-    rgba(255, 237, 213, 0.55) 0%,
+    rgba(255, 237, 213, 0.65) 0%,
     transparent 68%
   );
 }
@@ -319,7 +320,7 @@ h1, h2, h3 {
   overflow: visible;
   background: radial-gradient(
     ellipse 70% 74% at 50% 40%,
-    rgba(255, 237, 213, 0.55) 0%,
+    rgba(255, 237, 213, 0.7) 0%,
     transparent 72%
   );
 }
@@ -387,7 +388,7 @@ h1, h2, h3 {
   z-index: 15;
   pointer-events: none;
   overflow: hidden;
-  mix-blend-mode: screen;
+  mix-blend-mode: normal;
   clip-path: ellipse(48% 50% at 50% 48%);
 }
 .robot-brain-svg {
@@ -502,7 +503,7 @@ h1, h2, h3 {
   width: 100%;
   height: 100%;
   overflow: visible;
-  mix-blend-mode: screen;
+  mix-blend-mode: normal;
   filter: drop-shadow(0 0 5px rgba(196, 30, 58, 0.55));
 }
 .robot-eye-svg .spin,

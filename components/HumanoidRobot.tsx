@@ -88,7 +88,7 @@ function AiBrain() {
           </radialGradient>
           <linearGradient id="robot-brain-fold" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stopColor="rgba(253,186,116,0.55)" />
-            <stop offset="100%" stopColor="rgba(34,211,238,0.22)" />
+            <stop offset="100%" stopColor="rgba(234,88,12,0.28)" />
           </linearGradient>
         </defs>
         <g clipPath="url(#robot-brain-cavity)">
@@ -412,7 +412,7 @@ export function HumanoidRobot() {
           className={
             allowed
               ? btnPrimary
-              : `${btnChip} border-orange-400 text-orange-800`
+              : `${btnChip} border-orange-400/70 text-orange-100`
           }
           onClick={() => setAllowed((v) => !v)}
         >
@@ -443,7 +443,7 @@ export function HumanoidRobot() {
           Nod
         </button>
       </div>
-      <p className="mt-2 px-2 text-center text-xs leading-relaxed text-pretty break-words text-stone-600">
+      <p className="mt-2 px-2 text-center text-xs leading-relaxed text-pretty break-words text-stone-400">
         {line}
       </p>
       <p className="mt-1 text-center text-[0.65rem] uppercase tracking-widest text-stone-500">
