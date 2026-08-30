@@ -14,7 +14,7 @@ export function palette(seed: number) {
     a: `hsl(${h1} 80% 58%)`,
     b: `hsl(${h2} 70% 48%)`,
     c: `hsl(${h3} 55% 42%)`,
-    dim: `hsl(${h1} 30% 14%)`,
+    dim: `hsl(${h1} 32% 94%)`,
   };
 }
 

@@ -29,7 +29,7 @@ export function UniqueScene({
       <defs>
         <linearGradient id={`${id}-g`} x1="0" y1="0" x2="1" y2="1">
           <stop offset="0%" stopColor={p.dim} />
-          <stop offset="100%" stopColor="#05070d" />
+          <stop offset="100%" stopColor="#fffaf5" />
         </linearGradient>
         <radialGradient id={`${id}-r`} cx="70%" cy="20%" r="70%">
           <stop offset="0%" stopColor={p.a} stopOpacity="0.45" />

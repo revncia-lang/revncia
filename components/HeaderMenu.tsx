@@ -20,7 +20,7 @@ export function HeaderMenu() {
     <>
       <button
         type="button"
-        className="inline-flex h-10 w-10 items-center justify-center text-cyan-100 lg:hidden"
+        className="inline-flex h-10 w-10 items-center justify-center text-stone-800 lg:hidden"
         aria-expanded={open}
         aria-label={open ? "Close menu" : "Open menu"}
         onClick={() => setOpen((v) => !v)}
@@ -43,7 +43,7 @@ export function HeaderMenu() {
         </svg>
       </button>
       {open ? (
-        <div className="absolute left-0 right-0 top-full border-t border-white/10 bg-[#060a12]/95 px-5 py-5 backdrop-blur-xl lg:hidden">
+        <div className="absolute left-0 right-0 top-full border-t border-stone-200 bg-white/95 px-5 py-5 backdrop-blur-xl lg:hidden">
           <nav className="flex flex-col gap-3" aria-label="Mobile">
             {nav.map((item) => (
               <Link
@@ -52,10 +52,10 @@ export function HeaderMenu() {
                 className="block py-1"
                 onClick={() => setOpen(false)}
               >
-                <span className="text-sm tracking-[0.08em] uppercase text-cyan-100">
+                <span className="text-sm tracking-[0.08em] uppercase text-stone-800">
                   {item.label}
                 </span>
-                <span className="mt-0.5 block text-xs font-normal normal-case tracking-normal text-slate-500">
+                <span className="mt-0.5 block text-xs font-normal normal-case tracking-normal text-stone-500">
                   {item.hint}
                 </span>
               </Link>

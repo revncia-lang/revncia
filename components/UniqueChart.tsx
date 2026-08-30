@@ -8,8 +8,8 @@ export function UniqueChart({ id, caption }: { id: string; caption: string }) {
   const series = Array.from({ length: 8 }, () => 20 + r() * 70);
 
   return (
-    <figure className="min-w-0 w-full overflow-hidden rounded-xl border border-white/10 bg-white/[0.03] p-4">
-      <figcaption className="text-pretty text-[0.65rem] leading-relaxed tracking-[0.14em] uppercase text-slate-400">
+    <figure className="min-w-0 w-full overflow-hidden rounded-xl border border-stone-200 bg-white p-4">
+      <figcaption className="text-pretty text-[0.65rem] leading-relaxed tracking-[0.14em] uppercase text-stone-500">
         {caption}
       </figcaption>
       <svg viewBox="0 0 320 140" className="mt-3 aspect-[16/7] h-auto w-full" role="img" aria-label={caption} preserveAspectRatio="xMidYMid meet">

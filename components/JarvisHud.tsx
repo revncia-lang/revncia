@@ -48,9 +48,9 @@ export function JarvisHud() {
         >
           <defs>
             <radialGradient id="jarvis-core-glow" cx="50%" cy="42%" r="48%">
-              <stop offset="0%" stopColor="rgba(34,211,238,0)" />
-              <stop offset="62%" stopColor="rgba(34,211,238,0.03)" />
-              <stop offset="100%" stopColor="rgba(34,211,238,0)" />
+              <stop offset="0%" stopColor="rgba(249,115,22,0)" />
+              <stop offset="62%" stopColor="rgba(249,115,22,0.06)" />
+              <stop offset="100%" stopColor="rgba(249,115,22,0)" />
             </radialGradient>
           </defs>
 

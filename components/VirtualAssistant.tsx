@@ -248,10 +248,24 @@ export function VirtualAssistant() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="h-14 w-14 rounded-full border border-cyan-300/50 bg-cyan-500 text-xs font-semibold tracking-wide text-black shadow-[0_0_24px_rgba(34,211,238,0.45)]"
-        aria-label="Open virtual assistant"
+        className="inline-flex h-14 items-center gap-2 rounded-full border border-orange-300/70 bg-orange-500 px-4 text-sm font-semibold tracking-wide text-slate-950 shadow-[0_0_24px_rgba(249,115,22,0.5)] hover:bg-orange-400"
+        aria-label="Open support assistant"
       >
-        VA
+        <svg
+          viewBox="0 0 24 24"
+          className="h-5 w-5 shrink-0"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          aria-hidden
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.86 9.86 0 01-4.255-.938L3 20l1.06-3.188A7.5 7.5 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+          />
+        </svg>
+        Support
       </button>
     </div>
   );
