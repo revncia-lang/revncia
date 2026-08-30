@@ -214,7 +214,7 @@ export function VirtualAssistant() {
                 {m.href ? (
                   <Link
                     href={m.href}
-                    className="mt-1 inline-block text-[0.7rem] font-semibold uppercase tracking-wider text-orange-700 underline"
+                    className="mt-1 inline-block text-[0.7rem] font-semibold uppercase tracking-wider text-[#8b1e2d] underline"
                   >
                     What you receive
                   </Link>

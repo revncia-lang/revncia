@@ -97,7 +97,7 @@ export function Footer() {
           </p>
           <a
             href={`mailto:${company.email}`}
-            className="mt-3 break-all text-sm leading-snug text-orange-700 underline-offset-4 hover:underline"
+            className="mt-3 break-all text-sm leading-snug text-[#8b1e2d] underline-offset-4 hover:underline"
           >
             {company.email}
           </a>

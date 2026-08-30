@@ -53,7 +53,7 @@ export default function AboutPage() {
           </p>
         </div>
       </section>
-      <section className="border-t border-stone-200">
+      <section className="border-t border-[#e8d9ce]">
         <div className={`${shell} py-16`}>
           <h2 className="font-serif font-bold text-3xl md:text-4xl">The standards we keep</h2>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -65,8 +65,8 @@ export default function AboutPage() {
           </ul>
           <ol className="mt-12 grid gap-4 md:grid-cols-3">
             {objectives.map((item, i) => (
-              <li key={item} className="border-t border-orange-300 pt-4">
-                <span className="text-[0.7rem] tracking-[0.16em] uppercase text-orange-400">
+              <li key={item} className="border-t border-[#c41e3a]/35 pt-4">
+                <span className="text-[0.7rem] tracking-[0.16em] uppercase text-[#b91c2c]">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <p className="mt-2 text-pretty font-serif text-2xl text-stone-900">{item}</p>

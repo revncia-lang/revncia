@@ -77,7 +77,7 @@ export default async function ServicePage({
           <p className="mt-8 text-[1.08rem] leading-relaxed text-pretty break-words text-stone-800">{why}</p>
           <p className="mt-4 text-[0.98rem] leading-relaxed text-pretty break-words text-stone-600">{o.body}</p>
           {o.note ? (
-            <p className="mt-4 border border-amber-300 bg-amber-50 p-4 text-sm text-amber-950">
+            <p className="mt-4 border border-[#c41e3a]/25 bg-[#f6ebe3] p-4 text-sm text-stone-800">
               {o.note}
             </p>
           ) : null}
@@ -96,7 +96,7 @@ export default async function ServicePage({
             {pains.map((p) => (
               <li
                 key={p}
-                className="border border-rose-200 bg-rose-50 px-4 py-3 text-sm leading-relaxed text-rose-900"
+                className="border border-[#c41e3a]/20 bg-[#f6ebe3] px-4 py-3 text-sm leading-relaxed text-stone-800"
               >
                 {p}
               </li>
@@ -122,7 +122,7 @@ export default async function ServicePage({
           <h2 className="mt-12 font-serif font-bold text-3xl">What you can use after go-live</h2>
           <ul className="mt-4 space-y-2">
             {o.capabilities.map((c) => (
-              <li key={c} className="border-l-2 border-orange-500 pl-3 text-[0.98rem] text-stone-700">
+              <li key={c} className="border-l-2 border-[#c41e3a] pl-3 text-[0.98rem] text-stone-700">
                 {c}
               </li>
             ))}
@@ -136,7 +136,7 @@ export default async function ServicePage({
                   <li key={r.slug}>
                     <Link
                       href={`/services/${r.slug}`}
-                      className="text-sm font-semibold text-orange-700 underline underline-offset-4"
+                      className="text-sm font-semibold text-[#8b1e2d] underline underline-offset-4"
                     >
                       {r.n} · {r.name}
                     </Link>
@@ -172,7 +172,7 @@ export default async function ServicePage({
             id={`${o.slug}-trust`}
             caption={chartCaption(o.name, "trust")}
           />
-          <div className="flex min-w-0 justify-between gap-3 text-sm font-semibold text-orange-700">
+          <div className="flex min-w-0 justify-between gap-3 text-sm font-semibold text-[#8b1e2d]">
             <Link href={`/services/${prev.slug}`} className="min-w-0 text-pretty break-words">
               ← {prev.name}
             </Link>

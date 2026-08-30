@@ -77,19 +77,19 @@ function AiBrain() {
             <path d="M120 4 C68 6 22 32 16 78 C10 118 42 154 92 158 C112 160 128 160 148 158 C198 154 230 118 224 78 C218 32 172 6 120 4 Z" />
           </clipPath>
           <radialGradient id="robot-brain-halo" cx="50%" cy="46%" r="56%">
-            <stop offset="0%" stopColor="rgba(253,186,116,0.82)" />
-            <stop offset="38%" stopColor="rgba(249,115,22,0.52)" />
-            <stop offset="68%" stopColor="rgba(251,191,36,0.22)" />
-            <stop offset="100%" stopColor="rgba(249,115,22,0)" />
+            <stop offset="0%" stopColor="rgba(246,235,227,0.88)" />
+            <stop offset="38%" stopColor="rgba(196,30,58,0.48)" />
+            <stop offset="68%" stopColor="rgba(226,58,74,0.22)" />
+            <stop offset="100%" stopColor="rgba(196,30,58,0)" />
           </radialGradient>
           <radialGradient id="robot-brain-core" cx="50%" cy="48%" r="42%">
-            <stop offset="0%" stopColor="rgba(255,237,213,0.78)" />
-            <stop offset="42%" stopColor="rgba(251,146,60,0.45)" />
-            <stop offset="100%" stopColor="rgba(249,115,22,0)" />
+            <stop offset="0%" stopColor="rgba(255,248,242,0.82)" />
+            <stop offset="42%" stopColor="rgba(196,30,58,0.42)" />
+            <stop offset="100%" stopColor="rgba(196,30,58,0)" />
           </radialGradient>
           <linearGradient id="robot-brain-fold" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="rgba(253,186,116,0.55)" />
-            <stop offset="100%" stopColor="rgba(234,88,12,0.28)" />
+            <stop offset="0%" stopColor="rgba(226,58,74,0.55)" />
+            <stop offset="100%" stopColor="rgba(159,23,48,0.28)" />
           </linearGradient>
         </defs>
         <g clipPath="url(#robot-brain-cavity)">
@@ -187,9 +187,9 @@ function RevolvingEye({ id }: { id: string }) {
       <defs>
         <radialGradient id={`${id}-glow`} cx="50%" cy="50%" r="50%">
           <stop offset="0%" stopColor="rgba(255,255,255,0.95)" />
-          <stop offset="28%" stopColor="rgba(249,115,22,0.58)" />
-          <stop offset="70%" stopColor="rgba(249,115,22,0.18)" />
-          <stop offset="100%" stopColor="rgba(249,115,22,0)" />
+          <stop offset="28%" stopColor="rgba(196,30,58,0.58)" />
+          <stop offset="70%" stopColor="rgba(196,30,58,0.18)" />
+          <stop offset="100%" stopColor="rgba(196,30,58,0)" />
         </radialGradient>
       </defs>
       <circle cx="50" cy="50" r="46" fill={`url(#${id}-glow)`} opacity="0.55" />
@@ -198,14 +198,14 @@ function RevolvingEye({ id }: { id: string }) {
           cx="50"
           cy="50"
           r="42"
-          stroke="rgba(234,88,12,0.88)"
+          stroke="rgba(196,30,58,0.88)"
           strokeWidth="1.15"
         />
         <circle
           cx="50"
           cy="50"
           r="42"
-          stroke="rgba(251,146,60,0.7)"
+          stroke="rgba(226,58,74,0.7)"
           strokeWidth="1.1"
           strokeDasharray="6 10 2 8"
           strokeLinecap="round"
@@ -222,7 +222,7 @@ function RevolvingEye({ id }: { id: string }) {
               y1={50 + Math.sin(a) * inner}
               x2={50 + Math.cos(a) * outer}
               y2={50 + Math.sin(a) * outer}
-              stroke={major ? "rgba(245,158,11,0.95)" : "rgba(234,88,12,0.72)"}
+              stroke={major ? "rgba(226,58,74,0.95)" : "rgba(196,30,58,0.72)"}
               strokeWidth={major ? 1.4 : 0.8}
             />
           );
@@ -233,7 +233,7 @@ function RevolvingEye({ id }: { id: string }) {
           cx="50"
           cy="50"
           r="28"
-          stroke="rgba(249,115,22,0.5)"
+          stroke="rgba(196,30,58,0.5)"
           strokeWidth="0.9"
           strokeDasharray="3 5"
         />
@@ -241,38 +241,38 @@ function RevolvingEye({ id }: { id: string }) {
           cx="50"
           cy="50"
           r="21"
-          stroke="rgba(234,88,12,0.78)"
+          stroke="rgba(196,30,58,0.78)"
           strokeWidth="1"
         />
       </g>
       <g className="spin spin-scan">
         <path
           d="M50 50 L50 8 A42 42 0 0 1 86 28 Z"
-          fill="rgba(249,115,22,0.16)"
+          fill="rgba(196,30,58,0.16)"
         />
         <path
           d="M50 50 L86 28"
-          stroke="rgba(234,88,12,0.85)"
+          stroke="rgba(196,30,58,0.85)"
           strokeWidth="1.1"
         />
       </g>
       <g className="orbit">
-        <circle cx="50" cy="18" r="3.4" fill="#f8fafc" />
+        <circle cx="50" cy="18" r="3.4" fill="#fff8f2" />
         <circle
           cx="50"
           cy="18"
           r="6.2"
-          stroke="rgba(249,115,22,0.75)"
+          stroke="rgba(196,30,58,0.75)"
           strokeWidth="0.9"
         />
-        <circle cx="50" cy="82" r="2.1" fill="rgba(234,88,12,0.95)" />
+        <circle cx="50" cy="82" r="2.1" fill="rgba(196,30,58,0.95)" />
       </g>
       <circle className="robot-eye-core" cx="50" cy="50" r="7.5" fill="#fff" />
       <circle
         cx="50"
         cy="50"
         r="11"
-        stroke="rgba(234,88,12,0.92)"
+        stroke="rgba(196,30,58,0.92)"
         strokeWidth="1.2"
       />
     </svg>

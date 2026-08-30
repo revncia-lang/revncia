@@ -6,10 +6,10 @@ const outcomeBars = [
 ];
 
 const channels = [
-  { label: "Voice", share: 32, color: "#f97316" },
-  { label: "Digital chat", share: 28, color: "#ea580c" },
-  { label: "Email / web", share: 24, color: "#c2410c" },
-  { label: "Counter / lobby", share: 16, color: "#9a3412" },
+  { label: "Voice", share: 32, color: "#c41e3a" },
+  { label: "Digital chat", share: 28, color: "#8b1e2d" },
+  { label: "Email / web", share: 24, color: "#e23a4a" },
+  { label: "Counter / lobby", share: 16, color: "#9f1730" },
 ];
 
 const maturity = [18, 24, 31, 38, 47, 55, 62, 68, 74, 79, 84, 88];
@@ -38,7 +38,7 @@ export function ProgramCharts() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-3">
-      <figure className="border border-[color:var(--line)] bg-white p-5">
+      <figure className="border border-[color:var(--line)] bg-[#fffdf8] p-5">
         <figcaption className="text-[0.7rem] tracking-[0.16em] uppercase text-[color:var(--copper)]">
           Example outcome profile
         </figcaption>
@@ -63,7 +63,7 @@ export function ProgramCharts() {
         </ul>
       </figure>
 
-      <figure className="border border-[color:var(--line)] bg-white p-5">
+      <figure className="border border-[color:var(--line)] bg-[#fffdf8] p-5">
         <figcaption className="text-[0.7rem] tracking-[0.16em] uppercase text-[color:var(--copper)]">
           Service mix
         </figcaption>
@@ -94,7 +94,7 @@ export function ProgramCharts() {
         </div>
       </figure>
 
-      <figure className="border border-[color:var(--line)] bg-white p-5">
+      <figure className="border border-[color:var(--line)] bg-[#fffdf8] p-5">
         <figcaption className="text-[0.7rem] tracking-[0.16em] uppercase text-[color:var(--copper)]">
           Twelve-month build
         </figcaption>
@@ -107,22 +107,22 @@ export function ProgramCharts() {
         >
           <polyline
             fill="none"
-            stroke="#101820"
+            stroke="#c41e3a"
             strokeWidth="2"
             points={points}
           />
           {maturity.map((v, i) => {
             const x = pad + (i * (w - pad * 2)) / (maturity.length - 1);
             const y = h - pad - (v / 100) * (h - pad * 2);
-            return <circle key={i} cx={x} cy={y} r="3" fill="#b0894d" />;
+            return <circle key={i} cx={x} cy={y} r="3" fill="#8b1e2d" />;
           })}
-          <text x={pad} y={h - 2} fill="#5c6570" fontSize="10">
+          <text x={pad} y={h - 2} fill="#6f645c" fontSize="10">
             M1
           </text>
-          <text x={w - 28} y={h - 2} fill="#5c6570" fontSize="10">
+          <text x={w - 28} y={h - 2} fill="#6f645c" fontSize="10">
             M12
           </text>
-          <text x={w - 36} y={12} fill="#5c6570" fontSize="10">
+          <text x={w - 36} y={12} fill="#6f645c" fontSize="10">
             {max}%
           </text>
         </svg>

@@ -29,7 +29,7 @@ export default function PoliciesIndex() {
           {policies.map((p) => (
             <li key={p.slug}>
               <Link href={`/policies/${p.slug}`} className={`${surfaceHover} block h-full min-w-0 p-6`}>
-                <p className="text-[0.65rem] tracking-[0.16em] uppercase text-orange-400">
+                <p className="text-[0.65rem] tracking-[0.16em] uppercase text-[#b91c2c]">
                   Policy
                 </p>
                 <h2 className="mt-2 text-pretty font-serif text-2xl">{p.title}</h2>

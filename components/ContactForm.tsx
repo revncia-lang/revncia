@@ -41,7 +41,7 @@ export function ContactForm() {
     return (
       <p className="rounded-xl border border-[#e8d9ce] bg-[#f6ebe3] p-6 text-sm leading-relaxed break-words text-stone-700">
         Your email client should open with the message ready for{" "}
-        <a className="break-all text-orange-700 underline" href={`mailto:${company.email}`}>
+        <a className="break-all text-[#8b1e2d] underline" href={`mailto:${company.email}`}>
           {company.email}
         </a>
         . If it does not, write us directly.

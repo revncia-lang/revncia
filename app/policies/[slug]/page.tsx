@@ -49,7 +49,7 @@ export default async function PolicyPage({
       <section className={`${shell} py-16`}>
         <p className="text-sm leading-relaxed text-pretty break-words text-stone-600">
           {company.name} · {company.address} ·{" "}
-          <a className="break-all text-orange-700 underline underline-offset-4" href={`mailto:${company.email}`}>
+          <a className="break-all text-[#8b1e2d] underline underline-offset-4" href={`mailto:${company.email}`}>
             {company.email}
           </a>
         </p>
@@ -63,7 +63,7 @@ export default async function PolicyPage({
             </article>
           ))}
         </div>
-        <div className="mt-10 flex min-w-0 flex-wrap justify-between gap-4 text-sm text-orange-700">
+        <div className="mt-10 flex min-w-0 flex-wrap justify-between gap-4 text-sm text-[#8b1e2d]">
           <Link href={`/policies/${prev.slug}`} className="min-w-0 text-pretty break-words">
             ← {prev.title}
           </Link>

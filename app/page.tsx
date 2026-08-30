@@ -85,7 +85,7 @@ export default function Home() {
               >
                 <ServiceVisual slug={o.slug} name={o.name} />
                 <div className="min-w-0 p-5">
-                  <p className="text-[0.65rem] font-semibold tracking-[0.16em] uppercase text-orange-600">
+                  <p className="text-[0.65rem] font-semibold tracking-[0.16em] uppercase text-[#b91c2c]">
                     {o.n} · {o.group}
                   </p>
                   <h3 className="mt-1 text-pretty font-serif font-semibold text-2xl">{o.name}</h3>
@@ -123,7 +123,7 @@ export default function Home() {
           <ol className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {flywheel.map((item, i) => (
               <li key={item} className={`${surface} px-4 py-4`}>
-                <span className="text-[0.65rem] font-semibold text-orange-600">
+                <span className="text-[0.65rem] font-semibold text-[#b91c2c]">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <p className="mt-1 text-pretty font-serif font-semibold text-xl text-stone-900">{item}</p>
@@ -159,7 +159,7 @@ export default function Home() {
             >
               <ServiceVisual slug={`all-${o.slug}`} name={o.name} />
               <div className="p-4">
-                <p className="text-[0.65rem] font-semibold tracking-[0.14em] uppercase text-orange-600">
+                <p className="text-[0.65rem] font-semibold tracking-[0.14em] uppercase text-[#b91c2c]">
                   {o.n} · {o.name}
                 </p>
                 <p className="mt-2 text-sm leading-snug text-pretty font-medium text-stone-800">{o.title}</p>

@@ -211,7 +211,7 @@ export function UniqueScene({
               width="84"
               height="108"
               rx="8"
-              fill="#fff"
+              fill="#fffdf8"
               stroke={p.a}
               strokeOpacity="0.35"
             />
@@ -257,7 +257,7 @@ export function UniqueScene({
         ))}
       {kind === 14 && (
         <>
-          <rect x="36" y="36" width="248" height="100" rx="8" fill="#fff" />
+          <rect x="36" y="36" width="248" height="100" rx="8" fill="#fffdf8" />
           <rect x="52" y="52" width="120" height="10" rx="2" fill={p.a} opacity="0.8" />
           <rect x="52" y="72" width="196" height="7" rx="2" fill={p.b} opacity="0.35" />
           <rect x="52" y="88" width="168" height="7" rx="2" fill={p.c} opacity="0.28" />
@@ -324,7 +324,7 @@ export function UniqueScene({
       )}
       {mark === "ledger" && (
         <g transform="translate(248,30)">
-          <rect width="40" height="32" rx="4" fill="#fff" stroke={p.c} />
+          <rect width="40" height="32" rx="4" fill="#fffdf8" stroke={p.c} />
           <path d="M8 10 h24 M8 16 h18 M8 22 h20" stroke={p.a} />
         </g>
       )}
@@ -351,11 +351,11 @@ export function UniqueScene({
         </g>
       )}
 
-      <rect x="12" y="154" width="296" height="24" rx="0 0 10 10" fill="#fff" fillOpacity="0.88" />
+      <rect x="12" y="154" width="296" height="24" rx="0 0 10 10" fill="#fffdf8" fillOpacity="0.92" />
       <text
         x="22"
         y="170"
-        fill="#44403c"
+        fill="#2a221f"
         fontSize="10"
         fontFamily="ui-sans-serif, system-ui"
         fontWeight="600"

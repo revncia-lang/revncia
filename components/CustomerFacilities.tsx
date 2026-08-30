@@ -23,7 +23,7 @@ function RelatedLines({ slugs }: { slugs: string[] }) {
           <li key={slug}>
             <Link
               href={`/services/${slug}`}
-              className="text-xs text-orange-700 underline underline-offset-4"
+              className="text-xs text-[#8b1e2d] underline underline-offset-4"
             >
               {o.name}
             </Link>
@@ -45,7 +45,7 @@ function ListBlock({
 }) {
   const box =
     tone === "omit"
-      ? "border-amber-300 bg-amber-50 text-amber-950"
+      ? "border-[#c41e3a]/15 bg-[#faf6f0] text-stone-700"
       : "border-[#c41e3a]/20 bg-[#f6ebe3] text-stone-700";
   return (
     <div>
@@ -87,7 +87,7 @@ export function FacilityDetail({
           {facility.youReceive.slice(0, 3).map((item) => (
             <li
               key={item}
-              className="border-l-2 border-orange-500 pl-3 text-sm leading-relaxed text-stone-700"
+              className="border-l-2 border-[#c41e3a] pl-3 text-sm leading-relaxed text-stone-700"
             >
               {item}
             </li>
@@ -152,9 +152,9 @@ export function HonestyCards({ items }: { items: HonestyLimit[] }) {
   return (
     <ul className="grid gap-3 md:grid-cols-2">
       {items.map((item) => (
-        <li key={item.id} className="border border-amber-400/25 bg-amber-950/20 p-4">
-          <p className="font-serif text-lg text-amber-50">{item.title}</p>
-          <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-amber-950/85">
+        <li key={item.id} className="border border-[#c41e3a]/25 bg-[#fffdf8] p-4">
+          <p className="font-serif text-lg text-[#8b1e2d]">{item.title}</p>
+          <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-stone-700">
             {item.text}
           </p>
         </li>
@@ -176,7 +176,7 @@ export function SupportDesk() {
       </p>
       <ul className="mt-5 space-y-3">
         {customerSupport.channels.map((ch) => (
-          <li key={ch.name} className="border-l-2 border-orange-500 pl-3">
+          <li key={ch.name} className="border-l-2 border-[#c41e3a] pl-3">
             <p className="text-sm text-stone-800">{ch.name}</p>
             <p className="mt-1 text-sm leading-relaxed text-pretty break-words text-stone-600">
               {ch.detail}
@@ -189,7 +189,7 @@ export function SupportDesk() {
       </p>
       <a
         href={`mailto:${customerSupport.email}`}
-        className="mt-2 inline-block break-all text-sm text-orange-700 underline underline-offset-4"
+        className="mt-2 inline-block break-all text-sm text-[#8b1e2d] underline underline-offset-4"
       >
         {customerSupport.email}
       </a>
@@ -279,7 +279,7 @@ export function FacilitiesServicesBlock() {
 
 export function FacilitiesContactBlock() {
   return (
-    <section className="border-t border-stone-200">
+    <section className="border-t border-[#e8d9ce]">
       <div className={`${shell} py-16`}>
         <div className="grid gap-8 lg:grid-cols-12">
           <div className="lg:col-span-7">

@@ -12,7 +12,7 @@ export function PageGuide({
         <section className="min-w-0" aria-labelledby="on-this-page">
           <h2
             id="on-this-page"
-            className="heading-kicker text-[0.68rem] font-semibold tracking-[0.2em] uppercase text-orange-600"
+            className="heading-kicker text-[0.68rem] font-semibold tracking-[0.2em] uppercase"
           >
             Who this helps — and what you keep
           </h2>
@@ -20,7 +20,7 @@ export function PageGuide({
             {sections.map((s, i) => (
               <li key={s.title} className="min-w-0">
                 <h3 className="text-pretty font-serif font-semibold text-[1.15rem] leading-snug">
-                  <span className="mr-1.5 text-[0.65rem] font-semibold text-orange-600">
+                  <span className="mr-1.5 text-[0.65rem] font-semibold text-[#b91c2c]">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   {s.title}
@@ -32,10 +32,10 @@ export function PageGuide({
             ))}
           </ol>
         </section>
-        <nav className="min-w-0 border-t border-stone-200 pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0" aria-labelledby="site-navigation-guide">
+        <nav className="min-w-0 border-t border-[#e8d9ce] pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0" aria-labelledby="site-navigation-guide">
           <h2
             id="site-navigation-guide"
-            className="heading-kicker text-[0.68rem] font-semibold tracking-[0.2em] uppercase text-orange-600"
+            className="heading-kicker text-[0.68rem] font-semibold tracking-[0.2em] uppercase"
           >
             If you need another door
           </h2>

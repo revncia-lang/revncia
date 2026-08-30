@@ -59,18 +59,18 @@ export function UniqueChart({
               y1={y}
               x2={320 - padR}
               y2={y}
-              stroke="#e7e5e4"
+              stroke="#e8d9ce"
               strokeWidth="1"
             />
           );
         })}
-        <line x1={padL} y1={padT} x2={padL} y2={h - padB} stroke="#d6d3d1" />
+        <line x1={padL} y1={padT} x2={padL} y2={h - padB} stroke="#e0d2c6" />
         <line
           x1={padL}
           y1={h - padB}
           x2={320 - padR}
           y2={h - padB}
-          stroke="#d6d3d1"
+          stroke="#e0d2c6"
         />
 
         {kind === 0 &&
@@ -140,7 +140,7 @@ export function UniqueChart({
                     y1="0"
                     x2={Math.cos(a) * 50}
                     y2={Math.sin(a) * 42}
-                    stroke="#e7e5e4"
+                    stroke="#e8d9ce"
                   />
                   <line
                     x1="0"
@@ -256,7 +256,7 @@ export function UniqueChart({
                 );
               });
             })()}
-            <circle r="20" fill="#fff" />
+            <circle r="20" fill="#fffdf8" />
           </g>
         )}
 
@@ -296,7 +296,7 @@ export function UniqueChart({
                   width="18"
                   height={plotH - 10}
                   rx="2"
-                  fill="#f5f5f4"
+                  fill="#fff8f2"
                 />
                 <rect
                   x={x}
@@ -375,7 +375,7 @@ export function UniqueChart({
             x={padL + (i * plotW) / Math.max(labels.length - 1, 1)}
             y={h - 8}
             textAnchor="middle"
-            fill="#78716c"
+            fill="#6f645c"
             fontSize="8"
             fontFamily="ui-sans-serif, system-ui"
           >
