@@ -51,7 +51,7 @@ export function Footer() {
                 <Link
                   href={item.href}
                   title={item.explain}
-                  className="block text-sm leading-snug text-stone-800 hover:text-orange-700"
+                  className="block text-sm leading-snug text-stone-800 hover:text-[#8b1e2d]"
                 >
                   {item.label}
                 </Link>
@@ -121,7 +121,7 @@ export function Footer() {
             </p>
             <ul className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
               <li>
-                <Link href="/policies" className="text-stone-500 hover:text-orange-700">
+                <Link href="/policies" className="text-stone-500 hover:text-[#8b1e2d]">
                   All policies
                 </Link>
               </li>
@@ -129,7 +129,7 @@ export function Footer() {
                 <li key={p.slug}>
                   <Link
                     href={`/policies/${p.slug}`}
-                    className="text-stone-500 hover:text-orange-700"
+                    className="text-stone-500 hover:text-[#8b1e2d]"
                   >
                     {p.navLabel}
                   </Link>
