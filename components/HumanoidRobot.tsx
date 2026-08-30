@@ -72,18 +72,18 @@ function AiBrain() {
     <div className="robot-brain" aria-hidden>
       <svg className="robot-brain-svg" viewBox="0 0 240 160" fill="none">
         <defs>
-          <clipPath id="robot-brain-cavity" clipPathUnits="objectBoundingBox">
-            <path d="M0.50 0.03 C0.30 0.03 0.12 0.16 0.07 0.40 C0.03 0.62 0.10 0.88 0.32 0.97 C0.42 1.01 0.58 1.01 0.68 0.97 C0.90 0.88 0.97 0.62 0.93 0.40 C0.88 0.16 0.70 0.03 0.50 0.03 Z" />
+          <clipPath id="robot-brain-cavity">
+            <path d="M120 4 C68 6 22 32 16 78 C10 118 42 154 92 158 C112 160 128 160 148 158 C198 154 230 118 224 78 C218 32 172 6 120 4 Z" />
           </clipPath>
           <radialGradient id="robot-brain-halo" cx="50%" cy="46%" r="56%">
-            <stop offset="0%" stopColor="rgba(253,186,116,0.55)" />
-            <stop offset="38%" stopColor="rgba(249,115,22,0.32)" />
-            <stop offset="68%" stopColor="rgba(251,191,36,0.12)" />
+            <stop offset="0%" stopColor="rgba(253,186,116,0.82)" />
+            <stop offset="38%" stopColor="rgba(249,115,22,0.52)" />
+            <stop offset="68%" stopColor="rgba(251,191,36,0.22)" />
             <stop offset="100%" stopColor="rgba(249,115,22,0)" />
           </radialGradient>
           <radialGradient id="robot-brain-core" cx="50%" cy="48%" r="42%">
-            <stop offset="0%" stopColor="rgba(255,237,213,0.5)" />
-            <stop offset="42%" stopColor="rgba(251,146,60,0.28)" />
+            <stop offset="0%" stopColor="rgba(255,237,213,0.78)" />
+            <stop offset="42%" stopColor="rgba(251,146,60,0.45)" />
             <stop offset="100%" stopColor="rgba(249,115,22,0)" />
           </radialGradient>
           <linearGradient id="robot-brain-fold" x1="0" y1="0" x2="1" y2="1">
