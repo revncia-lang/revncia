@@ -1,19 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #e8f4ff;
-  --ink-soft: #9ec5d8;
-  --paper: #060a12;
-  --paper-muted: #8ba3b5;
-  --muted: #93a4b5;
-  --line: rgba(34, 211, 238, 0.18);
-  --copper: #22d3ee;
-  --sage: #67e8f9;
+  --ink: #1c1917;
+  --ink-soft: #57534e;
+  --paper: #ffffff;
+  --paper-muted: #78716c;
+  --muted: #78716c;
+  --line: rgba(234, 88, 12, 0.22);
+  --copper: #ea580c;
+  --sage: #fb923c;
+  --accent: #f97316;
+  --accent-bright: #fb923c;
+  --accent-amber: #f59e0b;
 }
 
 @theme inline {
   --color-ink: var(--ink);
   --color-paper: var(--paper);
+  --color-accent: var(--accent);
   --font-sans: var(--font-source);
   --font-serif: var(--font-cormorant);
 }
@@ -23,8 +27,8 @@ html {
 }
 
 body {
-  background: #05070d;
-  color: #e8f4ff;
+  background: #fffaf5;
+  color: #1c1917;
   font-family: var(--font-sans), system-ui, sans-serif;
   overflow-wrap: break-word;
   text-wrap: pretty;
@@ -34,10 +38,10 @@ h1, h2, h3 {
   text-wrap: balance;
   background-image: linear-gradient(
     118deg,
-    #f0fdff 0%,
-    #67e8f9 42%,
-    #22d3ee 78%,
-    #a5f3fc 100%
+    #1c1917 0%,
+    #9a3412 38%,
+    #ea580c 72%,
+    #f97316 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -47,7 +51,7 @@ h1, h2, h3 {
   background-image: none;
   -webkit-background-clip: border-box;
   background-clip: border-box;
-  color: rgb(34 211 238 / 0.9);
+  color: #ea580c;
 }
 
 .font-serif {
@@ -74,50 +78,50 @@ h1, h2, h3 {
 }
 .jarvis-os-grid circle,
 .jarvis-os-grid line {
-  stroke: rgba(148, 163, 184, 0.07);
+  stroke: rgba(249, 115, 22, 0.12);
   stroke-width: 0.6;
 }
 .jarvis-ring {
   fill: none;
 }
 .jarvis-ring-soft {
-  stroke: rgba(125, 211, 252, 0.16);
+  stroke: rgba(251, 146, 60, 0.32);
   stroke-width: 0.7;
 }
 .jarvis-ring-mid {
-  stroke: rgba(103, 232, 249, 0.22);
+  stroke: rgba(249, 115, 22, 0.38);
   stroke-width: 1;
 }
 .jarvis-ring-outer {
-  stroke: rgba(186, 230, 253, 0.28);
+  stroke: rgba(234, 88, 12, 0.42);
   stroke-width: 1.15;
-  filter: drop-shadow(0 0 4px rgba(34, 211, 238, 0.18));
+  filter: drop-shadow(0 0 5px rgba(249, 115, 22, 0.2));
   animation: jarvis-ring-breathe 8.5s ease-in-out infinite;
 }
 .jarvis-ring-dash {
   fill: none;
-  stroke: rgba(34, 211, 238, 0.28);
+  stroke: rgba(234, 88, 12, 0.38);
   stroke-width: 0.9;
   stroke-dasharray: 5 11;
   animation: jarvis-dash 32s linear infinite;
 }
 .jarvis-ring-dash-fine {
-  stroke: rgba(125, 211, 252, 0.2);
+  stroke: rgba(251, 146, 60, 0.3);
   stroke-dasharray: 2 9;
   animation-duration: 44s;
   animation-direction: reverse;
 }
 .jarvis-octagon {
   fill: none;
-  stroke: rgba(103, 232, 249, 0.14);
+  stroke: rgba(249, 115, 22, 0.22);
   stroke-width: 0.7;
 }
 .jarvis-tick {
-  stroke: rgba(125, 211, 252, 0.2);
+  stroke: rgba(251, 146, 60, 0.32);
   stroke-width: 0.55;
 }
 .jarvis-tick-major {
-  stroke: rgba(186, 230, 253, 0.42);
+  stroke: rgba(234, 88, 12, 0.55);
   stroke-width: 1.05;
 }
 .jarvis-arc {
@@ -125,20 +129,20 @@ h1, h2, h3 {
   stroke-linecap: round;
 }
 .jarvis-arc-a {
-  stroke: rgba(186, 230, 253, 0.48);
+  stroke: rgba(194, 65, 12, 0.5);
   stroke-width: 1.35;
 }
 .jarvis-arc-b {
-  stroke: rgba(34, 211, 238, 0.32);
+  stroke: rgba(249, 115, 22, 0.4);
   stroke-width: 1.05;
 }
 .jarvis-arc-c {
-  stroke: rgba(103, 232, 249, 0.22);
+  stroke: rgba(245, 158, 11, 0.38);
   stroke-width: 0.85;
 }
 .jarvis-brackets path {
   fill: none;
-  stroke: rgba(125, 211, 252, 0.38);
+  stroke: rgba(234, 88, 12, 0.42);
   stroke-width: 1.1;
 }
 .jarvis-spin-slow,
@@ -167,8 +171,8 @@ h1, h2, h3 {
     from 210deg,
     transparent 0deg,
     transparent 318deg,
-    rgba(34, 211, 238, 0.05) 338deg,
-    rgba(186, 230, 253, 0.14) 356deg,
+    rgba(249, 115, 22, 0.08) 338deg,
+    rgba(251, 146, 60, 0.18) 356deg,
     transparent 360deg
   );
   -webkit-mask-image: radial-gradient(
@@ -206,7 +210,7 @@ h1, h2, h3 {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(125, 211, 252, 0.05),
+    rgba(249, 115, 22, 0.08),
     transparent
   );
   animation: jarvis-sheen 16s ease-in-out infinite;
@@ -223,7 +227,7 @@ h1, h2, h3 {
 }
 .jarvis-os-chip span {
   font-size: 0.58rem;
-  color: rgba(103, 232, 249, 0.72);
+  color: rgba(234, 88, 12, 0.82);
 }
 .jarvis-os-chip em {
   font-style: normal;
@@ -287,7 +291,7 @@ h1, h2, h3 {
   font-size: 0.58rem;
   font-weight: 500;
   letter-spacing: 0.08em;
-  color: rgba(186, 230, 253, 0.7);
+  color: rgba(194, 65, 12, 0.78);
 }
 .jarvis-os-mark {
   position: absolute;
@@ -305,14 +309,19 @@ h1, h2, h3 {
 .jarvis-vignette {
   background: radial-gradient(
     ellipse 78% 82% at 50% 42%,
-    transparent 52%,
-    rgba(5, 7, 13, 0.18) 100%
+    rgba(255, 237, 213, 0.55) 0%,
+    transparent 68%
   );
 }
 .robot-stage {
   position: relative;
   isolation: isolate;
   overflow: visible;
+  background: radial-gradient(
+    ellipse 70% 74% at 50% 40%,
+    rgba(255, 237, 213, 0.55) 0%,
+    transparent 72%
+  );
 }
 
 @keyframes jarvis-rotate {
@@ -369,6 +378,105 @@ h1, h2, h3 {
   filter: drop-shadow(0 0 12px rgba(196, 30, 58, 0.22)) grayscale(0.06);
 }
 
+.robot-brain {
+  position: absolute;
+  left: 21.5%;
+  top: 6.5%;
+  width: 57%;
+  height: 36%;
+  z-index: 15;
+  pointer-events: none;
+  overflow: hidden;
+  mix-blend-mode: screen;
+  clip-path: ellipse(48% 50% at 50% 48%);
+}
+.robot-brain-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.robot-brain-halo {
+  animation: robot-brain-pulse 2.8s ease-in-out infinite;
+  transform-origin: 120px 78px;
+  transform-box: fill-box;
+}
+.robot-brain-core {
+  animation: robot-brain-pulse 3.4s ease-in-out infinite reverse;
+  transform-origin: 120px 80px;
+  transform-box: fill-box;
+}
+.robot-brain-hemisphere {
+  fill: rgba(249, 115, 22, 0.14);
+  stroke: rgba(253, 186, 116, 0.55);
+  stroke-width: 1.35;
+}
+.robot-brain-fissure {
+  stroke: rgba(255, 237, 213, 0.45);
+  stroke-width: 1.1;
+  stroke-linecap: round;
+}
+.robot-brain-sulcus {
+  fill: none;
+  stroke: url(#robot-brain-fold);
+  stroke-width: 1.05;
+  stroke-linecap: round;
+  opacity: 0.85;
+}
+.robot-brain-synapse {
+  stroke: rgba(251, 146, 60, 0.42);
+  stroke-width: 0.7;
+  stroke-linecap: round;
+}
+.robot-brain-synapse-hot {
+  stroke: rgba(34, 211, 238, 0.38);
+  stroke-dasharray: 4 6;
+  animation: robot-brain-synapse 3.6s linear infinite;
+}
+.robot-brain-node {
+  fill: rgba(255, 237, 213, 0.88);
+  animation: robot-brain-node 2.4s ease-in-out infinite;
+}
+.robot-brain-node-hot {
+  fill: #fbbf24;
+  filter: drop-shadow(0 0 3px rgba(251, 191, 36, 0.9));
+}
+
+@keyframes robot-brain-pulse {
+  0%,
+  100% {
+    opacity: 0.72;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+@keyframes robot-brain-pulse-calm {
+  0%,
+  100% {
+    opacity: 0.78;
+  }
+  50% {
+    opacity: 0.94;
+  }
+}
+@keyframes robot-brain-node {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes robot-brain-synapse {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
+
 .robot-eyes {
   position: absolute;
   inset: 0;
@@ -395,7 +503,7 @@ h1, h2, h3 {
   width: 100%;
   height: 100%;
   overflow: visible;
-  mix-blend-mode: screen;
+  mix-blend-mode: normal;
   filter: drop-shadow(0 0 5px rgba(196, 30, 58, 0.55));
 }
 .robot-eye-svg .spin,
@@ -448,5 +556,16 @@ h1, h2, h3 {
   .robot-eye-svg .orbit,
   .robot-eye-core {
     animation: none !important;
+  }
+  .robot-brain-halo,
+  .robot-brain-core {
+    animation: robot-brain-pulse-calm 7.5s ease-in-out infinite;
+  }
+  .robot-brain-synapse-hot {
+    animation: none;
+    stroke-dasharray: none;
+  }
+  .robot-brain-node {
+    animation: robot-brain-node 6.5s ease-in-out infinite;
   }
 }
