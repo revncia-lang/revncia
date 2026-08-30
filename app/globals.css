@@ -1,0 +1,370 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #e8f4ff;
+  --ink-soft: #9ec5d8;
+  --paper: #060a12;
+  --paper-muted: #8ba3b5;
+  --muted: #93a4b5;
+  --line: rgba(34, 211, 238, 0.18);
+  --copper: #22d3ee;
+  --sage: #67e8f9;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --font-sans: var(--font-source);
+  --font-serif: var(--font-cormorant);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #05070d;
+  color: #e8f4ff;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+
+h1, h2, h3 {
+  text-wrap: balance;
+  background-image: linear-gradient(
+    118deg,
+    #f0fdff 0%,
+    #67e8f9 42%,
+    #22d3ee 78%,
+    #a5f3fc 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.heading-kicker {
+  background-image: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  color: rgb(34 211 238 / 0.9);
+}
+
+.font-serif {
+  font-family: var(--font-serif), Georgia, serif;
+}
+
+.jarvis-hud {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: transparent;
+  overflow: visible;
+}
+.jarvis-os {
+  position: absolute;
+  inset: -2% -1% 4%;
+}
+.jarvis-os-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.jarvis-os-grid circle,
+.jarvis-os-grid line {
+  stroke: rgba(148, 163, 184, 0.07);
+  stroke-width: 0.6;
+}
+.jarvis-ring {
+  fill: none;
+}
+.jarvis-ring-soft {
+  stroke: rgba(125, 211, 252, 0.16);
+  stroke-width: 0.7;
+}
+.jarvis-ring-mid {
+  stroke: rgba(103, 232, 249, 0.22);
+  stroke-width: 1;
+}
+.jarvis-ring-outer {
+  stroke: rgba(186, 230, 253, 0.28);
+  stroke-width: 1.15;
+  filter: drop-shadow(0 0 4px rgba(34, 211, 238, 0.18));
+  animation: jarvis-ring-breathe 8.5s ease-in-out infinite;
+}
+.jarvis-ring-dash {
+  fill: none;
+  stroke: rgba(34, 211, 238, 0.28);
+  stroke-width: 0.9;
+  stroke-dasharray: 5 11;
+  animation: jarvis-dash 32s linear infinite;
+}
+.jarvis-ring-dash-fine {
+  stroke: rgba(125, 211, 252, 0.2);
+  stroke-dasharray: 2 9;
+  animation-duration: 44s;
+  animation-direction: reverse;
+}
+.jarvis-octagon {
+  fill: none;
+  stroke: rgba(103, 232, 249, 0.14);
+  stroke-width: 0.7;
+}
+.jarvis-tick {
+  stroke: rgba(125, 211, 252, 0.2);
+  stroke-width: 0.55;
+}
+.jarvis-tick-major {
+  stroke: rgba(186, 230, 253, 0.42);
+  stroke-width: 1.05;
+}
+.jarvis-arc {
+  fill: none;
+  stroke-linecap: round;
+}
+.jarvis-arc-a {
+  stroke: rgba(186, 230, 253, 0.48);
+  stroke-width: 1.35;
+}
+.jarvis-arc-b {
+  stroke: rgba(34, 211, 238, 0.32);
+  stroke-width: 1.05;
+}
+.jarvis-arc-c {
+  stroke: rgba(103, 232, 249, 0.22);
+  stroke-width: 0.85;
+}
+.jarvis-brackets path {
+  fill: none;
+  stroke: rgba(125, 211, 252, 0.38);
+  stroke-width: 1.1;
+}
+.jarvis-spin-slow,
+.jarvis-spin-reverse,
+.jarvis-spin-drift {
+  transform-box: view-box;
+  transform-origin: 200px 184px;
+}
+.jarvis-spin-slow {
+  animation: jarvis-rotate 48s linear infinite;
+}
+.jarvis-spin-reverse {
+  animation: jarvis-rotate 72s linear infinite reverse;
+}
+.jarvis-spin-drift {
+  animation: jarvis-rotate 96s linear infinite;
+}
+.jarvis-os-scan {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 4%;
+  height: 78%;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 210deg,
+    transparent 0deg,
+    transparent 318deg,
+    rgba(34, 211, 238, 0.05) 338deg,
+    rgba(186, 230, 253, 0.14) 356deg,
+    transparent 360deg
+  );
+  -webkit-mask-image: radial-gradient(
+    circle,
+    transparent 36%,
+    #000 42%,
+    #000 70%,
+    transparent 76%
+  );
+  mask-image: radial-gradient(
+    circle,
+    transparent 36%,
+    #000 42%,
+    #000 70%,
+    transparent 76%
+  );
+  animation: jarvis-rotate 22s linear infinite;
+}
+.jarvis-os-sheen {
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  top: 8%;
+  height: 70%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.jarvis-os-sheen::after {
+  content: "";
+  position: absolute;
+  top: 6%;
+  bottom: 6%;
+  width: 16%;
+  left: -22%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(125, 211, 252, 0.05),
+    transparent
+  );
+  animation: jarvis-sheen 16s ease-in-out infinite;
+}
+.jarvis-os-chip {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  animation: jarvis-chip 6.4s ease-in-out infinite;
+}
+.jarvis-os-chip span {
+  font-size: 0.58rem;
+  color: rgba(103, 232, 249, 0.72);
+}
+.jarvis-os-chip em {
+  font-style: normal;
+  font-size: 0.52rem;
+  color: rgba(148, 163, 184, 0.62);
+  letter-spacing: 0.12em;
+}
+.jarvis-os-chip-sys {
+  top: 3%;
+  left: 2%;
+}
+.jarvis-os-chip-link {
+  top: 3%;
+  right: 2%;
+  text-align: right;
+  animation-delay: 1.4s;
+}
+.jarvis-os-chip-gate {
+  bottom: 10%;
+  left: 2%;
+  animation-delay: 2.6s;
+}
+.jarvis-os-chip-ops {
+  bottom: 10%;
+  right: 2%;
+  text-align: right;
+  animation-delay: 3.8s;
+}
+.jarvis-os-telemetry {
+  position: absolute;
+  left: 2%;
+  top: 38%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+.jarvis-os-telemetry li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  margin-bottom: 0.28rem;
+  animation: jarvis-chip 7.2s ease-in-out infinite;
+}
+.jarvis-os-telemetry li:nth-child(2) {
+  animation-delay: 0.9s;
+}
+.jarvis-os-telemetry li:nth-child(3) {
+  animation-delay: 1.8s;
+}
+.jarvis-os-telemetry li:nth-child(4) {
+  animation-delay: 2.7s;
+}
+.jarvis-os-telemetry span {
+  width: 2.4rem;
+  font-size: 0.5rem;
+  letter-spacing: 0.14em;
+  color: rgba(148, 163, 184, 0.48);
+}
+.jarvis-os-telemetry b {
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: rgba(186, 230, 253, 0.7);
+}
+.jarvis-os-mark {
+  position: absolute;
+  right: 2%;
+  top: 40%;
+  margin: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(148, 163, 184, 0.42);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+.jarvis-vignette {
+  background: radial-gradient(
+    ellipse 78% 82% at 50% 42%,
+    transparent 52%,
+    rgba(5, 7, 13, 0.18) 100%
+  );
+}
+.robot-stage {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+}
+
+@keyframes jarvis-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes jarvis-dash {
+  to {
+    stroke-dashoffset: -280;
+  }
+}
+@keyframes jarvis-ring-breathe {
+  0%,
+  100% {
+    opacity: 0.72;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes jarvis-chip {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes jarvis-sheen {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(720%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jarvis-hud * {
+    animation: none !important;
+  }
+}
+
+.robot-figure {
+  position: relative;
+  z-index: 10;
+  overflow: visible;
+  background: transparent;
+  filter: drop-shadow(0 0 18px rgba(196, 30, 58, 0.35));
+}
+.robot-figure.still {
+  filter: drop-shadow(0 0 12px rgba(196, 30, 58, 0.22)) grayscale(0.06);
+}
