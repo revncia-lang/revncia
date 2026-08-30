@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { BetaLabel } from "@/components/BetaLabel";
 import { FacilitiesOnService } from "@/components/CustomerFacilities";
 import { MediaFrame } from "@/components/MediaFrame";
 import { PageHero } from "@/components/PageHero";
@@ -150,6 +151,7 @@ export default async function ServicePage({
             className={`${btnPrimary} mt-10`}
           >
             Talk to REVNCIA about this
+            <BetaLabel />
           </Link>
         </div>
         <aside className="space-y-4 md:col-span-5">

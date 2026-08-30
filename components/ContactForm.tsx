@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { BetaLabel } from "@/components/BetaLabel";
 import { offerings } from "@/lib/catalog";
 import { customerFacilities } from "@/lib/facilities";
 import { company } from "@/lib/site";
@@ -38,7 +39,7 @@ export function ContactForm() {
 
   if (sent) {
     return (
-      <p className="rounded-xl border border-stone-200 bg-orange-50 p-6 text-sm leading-relaxed break-words text-stone-600">
+      <p className="rounded-xl border border-[#e8d9ce] bg-[#f6ebe3] p-6 text-sm leading-relaxed break-words text-stone-700">
         Your email client should open with the message ready for{" "}
         <a className="break-all text-orange-700 underline" href={`mailto:${company.email}`}>
           {company.email}
@@ -118,6 +119,7 @@ export function ContactForm() {
         className={`${btnPrimary} mt-1 w-full sm:w-fit`}
       >
         Write to us
+        <BetaLabel />
       </button>
     </form>
   );

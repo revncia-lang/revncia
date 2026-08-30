@@ -47,7 +47,7 @@ export default async function PolicyPage({
         }))}
       />
       <section className={`${shell} py-16`}>
-        <p className="text-sm leading-relaxed text-pretty break-words text-slate-500">
+        <p className="text-sm leading-relaxed text-pretty break-words text-stone-600">
           {company.name} · {company.address} ·{" "}
           <a className="break-all text-orange-700 underline underline-offset-4" href={`mailto:${company.email}`}>
             {company.email}
@@ -57,7 +57,7 @@ export default async function PolicyPage({
           {p.sections.map((s) => (
             <article key={s.heading} className={`${surface} p-6`}>
               <h2 className="text-pretty font-serif text-2xl">{s.heading}</h2>
-              <p className="mt-3 text-sm leading-relaxed text-pretty break-words text-stone-400">
+              <p className="mt-3 text-sm leading-relaxed text-pretty break-words text-stone-600">
                 {s.body}
               </p>
             </article>

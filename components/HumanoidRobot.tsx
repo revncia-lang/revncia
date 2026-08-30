@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { BetaLabel } from "@/components/BetaLabel";
 import { JarvisHud } from "@/components/JarvisHud";
 import { btnChip, btnPrimary } from "@/lib/ui";
 import { buildLocalMotion } from "@/lib/robotMotion";
@@ -412,7 +413,7 @@ export function HumanoidRobot() {
           className={
             allowed
               ? btnPrimary
-              : `${btnChip} border-orange-400 text-stone-800`
+              : `${btnChip} border-[#c41e3a]/40 text-[#2a221f]`
           }
           onClick={() => setAllowed((v) => !v)}
         >
@@ -425,6 +426,7 @@ export function HumanoidRobot() {
           onClick={() => void playMotion(LINES.speak)}
         >
           Speak
+          <BetaLabel tone="on-milk" />
         </button>
         <button
           type="button"

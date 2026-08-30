@@ -49,7 +49,7 @@ function ListBlock({
       : "border-orange-400/25 bg-orange-50 text-stone-700";
   return (
     <div>
-      <h4 className="text-[0.68rem] tracking-[0.14em] uppercase text-orange-400">
+      <h4 className="text-[0.68rem] tracking-[0.14em] uppercase text-[#b91c2c]">
         {heading}
       </h4>
       <ul className="mt-2 space-y-2">
@@ -72,14 +72,14 @@ export function FacilityDetail({
 }) {
   return (
     <article id={facility.id} className={`${surface} min-w-0 scroll-mt-24 p-5 md:p-6`}>
-      <p className="text-[0.65rem] tracking-[0.16em] uppercase text-orange-400">
+      <p className="text-[0.65rem] tracking-[0.16em] uppercase text-[#b91c2c]">
         {facility.n} · Facility
       </p>
       <h3 className="mt-1 text-pretty font-serif text-2xl text-stone-900">
         {facility.name}
       </h3>
       <p className="mt-1 text-sm text-stone-700">{facility.title}</p>
-      <p className="mt-3 text-sm leading-relaxed text-pretty break-words text-stone-400">
+      <p className="mt-3 text-sm leading-relaxed text-pretty break-words text-stone-600">
         {facility.summary}
       </p>
       {compact ? (
@@ -124,11 +124,11 @@ export function BuyLayersGrid({
     >
       {buyLayers.map((layer) => (
         <div key={layer.id} className={`${surface} p-4`}>
-          <p className="text-[0.65rem] tracking-[0.14em] uppercase text-orange-400">
+          <p className="text-[0.65rem] tracking-[0.14em] uppercase text-[#b91c2c]">
             {layer.cadence}
           </p>
           <p className="mt-1 font-serif text-lg text-stone-800">{layer.layer}</p>
-          <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-stone-400">
+          <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-stone-600">
             {layer.whatYouGet}
           </p>
           {compact ? null : (
@@ -168,23 +168,23 @@ export function SupportDesk() {
     <div className={`${surface} p-6`}>
       <p className={kicker}>Hours and channels</p>
       <h3 className="mt-2 font-serif text-2xl text-stone-900">How you reach us</h3>
-      <p className="mt-3 text-sm leading-relaxed text-pretty break-words text-stone-400">
+      <p className="mt-3 text-sm leading-relaxed text-pretty break-words text-stone-600">
         {customerSupport.hours}
       </p>
-      <p className="mt-3 text-sm leading-relaxed text-pretty break-words text-stone-400">
+      <p className="mt-3 text-sm leading-relaxed text-pretty break-words text-stone-600">
         {customerSupport.channelNote}
       </p>
       <ul className="mt-5 space-y-3">
         {customerSupport.channels.map((ch) => (
           <li key={ch.name} className="border-l-2 border-orange-500 pl-3">
             <p className="text-sm text-stone-800">{ch.name}</p>
-            <p className="mt-1 text-sm leading-relaxed text-pretty break-words text-stone-400">
+            <p className="mt-1 text-sm leading-relaxed text-pretty break-words text-stone-600">
               {ch.detail}
             </p>
           </li>
         ))}
       </ul>
-      <p className="mt-5 text-sm text-stone-400">
+      <p className="mt-5 text-sm text-stone-600">
         Office: {customerSupport.office}
       </p>
       <a
@@ -199,13 +199,13 @@ export function SupportDesk() {
 
 export function FacilitiesHomeSection() {
   return (
-    <section className="border-y border-stone-200 bg-orange-50/40">
+    <section className="border-y border-[#e8d9ce] bg-[#f6efe6]/70">
       <div className={`${shell} py-20`}>
         <p className={kicker}>{facilitiesIntro.kicker}</p>
         <h2 className="mt-3 max-w-3xl font-serif text-3xl md:text-[2.1rem]">
           {facilitiesIntro.title}
         </h2>
-        <p className="mt-4 max-w-3xl text-sm leading-relaxed text-pretty break-words text-stone-400 md:text-[0.95rem]">
+        <p className="mt-4 max-w-3xl text-sm leading-relaxed text-pretty break-words text-stone-600 md:text-[0.95rem]">
           {facilitiesIntro.lede}
         </p>
         <div className="mt-10 grid w-full gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -215,20 +215,20 @@ export function FacilitiesHomeSection() {
               href={`/facilities#${f.id}`}
               className={`${surfaceHover} min-w-0 p-5`}
             >
-              <p className="text-[0.65rem] tracking-[0.16em] uppercase text-orange-400">
+              <p className="text-[0.65rem] tracking-[0.16em] uppercase text-[#b91c2c]">
                 {f.n} · Facility
               </p>
               <h3 className="mt-1 text-pretty font-serif text-xl text-stone-900">
                 {f.name}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-stone-400">
+              <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-stone-600">
                 {f.summary}
               </p>
             </Link>
           ))}
         </div>
         <p className={`${kicker} mt-14`}>How you can buy</p>
-        <p className="mt-2 mb-6 max-w-2xl text-sm leading-relaxed text-stone-400">
+        <p className="mt-2 mb-6 max-w-2xl text-sm leading-relaxed text-stone-600">
           Five commercial layers — consulting through usage. Fees follow scope.
           There is no headline package price.
         </p>
@@ -243,13 +243,13 @@ export function FacilitiesHomeSection() {
 
 export function FacilitiesServicesBlock() {
   return (
-    <section className="border-b border-stone-200 bg-orange-50/40">
+    <section className="border-b border-[#e8d9ce] bg-[#f6efe6]/70">
       <div className={`${shell} py-14`}>
         <p className={kicker}>What you can run</p>
         <h2 className="mt-3 max-w-3xl font-serif text-3xl text-stone-900">
           Voice, WhatsApp, CRM, and the channels callers already use.
         </h2>
-        <p className="mt-4 max-w-3xl text-sm leading-relaxed text-pretty break-words text-stone-400">
+        <p className="mt-4 max-w-3xl text-sm leading-relaxed text-pretty break-words text-stone-600">
           Voice, WhatsApp, the AI Gateway, CRM and ERP logins, documents,
           citizen portals, and operating support — what callers, staff, and
           citizens can actually use after go-live.
@@ -287,7 +287,7 @@ export function FacilitiesContactBlock() {
             <h2 className="mt-3 font-serif text-3xl text-stone-900">
               Name what you need to run — Voice, WhatsApp, or a portal.
             </h2>
-            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-pretty break-words text-stone-400">
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-pretty break-words text-stone-600">
               Tell us whether you need Voice, WhatsApp, Gateway access, CRM or
               ERP, documents, a citizen portal, or someone to operate the system
               after go-live. Pick a buy layer if you already know — consulting,
@@ -332,7 +332,7 @@ export function FacilitiesOnService({ slug }: { slug: string }) {
   return (
     <div className="mt-12">
       <h2 className="font-serif text-2xl">What you can use after go-live</h2>
-      <p className="mt-2 text-sm leading-relaxed text-stone-400">
+      <p className="mt-2 text-sm leading-relaxed text-stone-600">
         Access, what is included, and honest limits for callers, staff, or
         citizens.
       </p>

@@ -5,7 +5,8 @@ import { MediaFrame } from "@/components/MediaFrame";
 import { PageHero } from "@/components/PageHero";
 import { UniqueScene } from "@/components/UniqueScene";
 import { customerFacilities, facilitiesIntro, honestyLimits } from "@/lib/facilities";
-import { btnPrimary, kicker, shell } from "@/lib/ui";
+import { BetaLabel } from "@/components/BetaLabel";
+import { band, btnPrimary, kicker, shell } from "@/lib/ui";
 
 export const metadata: Metadata = {
   title: "What you get",
@@ -42,13 +43,13 @@ export default function FacilitiesPage() {
         </div>
       </section>
 
-      <section className="border-y border-stone-200 bg-orange-50/40">
+      <section className={band}>
         <div className={`${shell} py-16`}>
           <p className={kicker}>How you can buy</p>
           <h2 className="mt-3 max-w-3xl font-serif text-3xl text-stone-900">
             Five layers — not a single package price.
           </h2>
-          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-pretty break-words text-stone-400">
+          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-pretty break-words text-stone-600">
             Fees follow the statement of work. We do not publish a PKR headline
             figure, a token price list, or invented WhatsApp rates.
           </p>
@@ -64,7 +65,7 @@ export default function FacilitiesPage() {
           <h2 className="mt-3 font-serif text-3xl text-stone-900">
             Limits we state before you buy.
           </h2>
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-pretty break-words text-stone-400">
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-pretty break-words text-stone-600">
             Cyber work starts with identity and logs. Healthcare is
             administrative. Marketing is a capability. Nothing here is a
             medical or legal diagnosis.
@@ -74,6 +75,7 @@ export default function FacilitiesPage() {
           </div>
           <Link href="/contact" className={`${btnPrimary} mt-10`}>
             Write to us about a facility
+            <BetaLabel />
           </Link>
         </div>
         <div className="lg:col-span-5">

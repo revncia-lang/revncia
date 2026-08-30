@@ -33,7 +33,7 @@ export default function PoliciesIndex() {
                   Policy
                 </p>
                 <h2 className="mt-2 text-pretty font-serif text-2xl">{p.title}</h2>
-                <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-stone-400">
+                <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-stone-600">
                   {p.summary}
                 </p>
                 <p className="mt-4 text-[0.65rem] uppercase tracking-widest text-stone-500">

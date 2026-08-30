@@ -7,7 +7,7 @@ export function PageGuide({
   sections: readonly { title: string; text: string }[];
 }) {
   return (
-    <div className="mt-10 overflow-hidden rounded-xl border border-stone-200 bg-white shadow-[0_10px_28px_rgba(28,25,23,0.05)]">
+    <div className="mt-10 overflow-hidden rounded-xl border border-[#e8d9ce] bg-[#fffdf8] shadow-[0_10px_28px_rgba(90,46,36,0.05)]">
       <div className="grid min-w-0 gap-8 p-5 md:p-6 lg:grid-cols-[1.1fr_0.9fr]">
         <section className="min-w-0" aria-labelledby="on-this-page">
           <h2
@@ -49,7 +49,7 @@ export function PageGuide({
                 <Link
                   href={item.href}
                   title={item.explain}
-                  className="inline-flex rounded-md border border-orange-300 bg-orange-50 px-2.5 py-1.5 text-[0.65rem] font-semibold tracking-[0.1em] uppercase text-orange-800 transition hover:border-orange-400 hover:bg-orange-100"
+                  className="inline-flex rounded-md border border-[#c41e3a]/25 bg-[#fff8f2] px-2.5 py-1.5 text-[0.65rem] font-semibold tracking-[0.1em] uppercase text-[#8b1e2d] transition hover:border-[#c41e3a]/50 hover:bg-[#f6ebe3]"
                 >
                   {item.label}
                 </Link>

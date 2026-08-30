@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BetaLabel } from "@/components/BetaLabel";
 import { FacilitiesHomeSection } from "@/components/CustomerFacilities";
 import { HumanoidRobot } from "@/components/HumanoidRobot";
 import { PageGuide } from "@/components/PageGuide";
@@ -6,7 +7,7 @@ import { ServiceVisual } from "@/components/ServiceVisual";
 import { UniqueChart } from "@/components/UniqueChart";
 import { engagement, flywheel, offerings } from "@/lib/catalog";
 import { company } from "@/lib/site";
-import { btnGhost, btnPrimary, btnSecondary, display, kicker, shell, surface, surfaceHover } from "@/lib/ui";
+import { band, btnPrimary, btnSecondary, display, kicker, shell, surface, surfaceHover } from "@/lib/ui";
 
 const featured = [
   "ai-platform",
@@ -31,7 +32,7 @@ export default function Home() {
 
   return (
     <main>
-      <section className="relative border-b border-stone-200">
+      <section className="relative border-b border-[#e8d9ce]">
         <div className={`${shell} grid items-start gap-6 pt-[0.2in] pb-12 md:grid-cols-12 md:pb-16`}>
           <div className="min-w-0 md:col-span-5">
             <p className={kicker}>{company.descriptor}</p>
@@ -51,12 +52,14 @@ export default function Home() {
             <div className="mt-10 flex flex-wrap gap-3">
               <Link href="/services" className={btnPrimary}>
                 See every service
+                <BetaLabel />
               </Link>
               <Link href="/platform" className={btnSecondary}>
                 How we run AI
               </Link>
-              <Link href="/contact" className={btnGhost}>
+              <Link href="/contact" className={btnPrimary}>
                 Start a conversation
+                <BetaLabel />
               </Link>
             </div>
             <PageGuide sections={homeGuide} />
@@ -67,7 +70,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-y border-stone-200 bg-orange-50/40">
+      <section className={band}>
         <div className={`${shell} py-20`}>
           <p className={kicker}>Start where people already wait</p>
           <h2 className="mt-3 font-serif font-bold text-3xl md:text-4xl">
@@ -111,7 +114,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-y border-stone-200 bg-orange-50/40">
+      <section className={band}>
         <div className={`${shell} py-20`}>
           <p className={kicker}>What you keep</p>
           <h2 className="mt-3 font-serif font-bold text-3xl md:text-4xl">

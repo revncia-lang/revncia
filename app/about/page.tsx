@@ -33,7 +33,7 @@ export default function AboutPage() {
             <UniqueScene id="about-org" title="REVNCIA organization" />
           </MediaFrame>
           <h2 className="font-serif text-3xl">Who we serve — and what they keep</h2>
-          <p className="mt-5 text-[0.95rem] leading-relaxed text-pretty break-words text-stone-400">
+          <p className="mt-5 text-[0.95rem] leading-relaxed text-pretty break-words text-stone-600">
             {company.name} is {company.descriptor.toLowerCase()}. Customers keep
             a governed AI Platform: Gateway, identity, knowledge, memory,
             agents, tools, safety, observability, and cost-controlled AI.
@@ -44,7 +44,7 @@ export default function AboutPage() {
             Cheyenne office on ordinary US business days. We do not publish a
             reply-time SLA or a walk-in helpdesk.
           </p>
-          <p className="mt-4 text-[0.95rem] leading-relaxed text-pretty break-words text-stone-400">
+          <p className="mt-4 text-[0.95rem] leading-relaxed text-pretty break-words text-stone-600">
             Strategy is aligned to six objectives you can hold us to: client
             growth, operational excellence, innovation, security, financial
             sustainability, and public impact. We operate under written
@@ -74,7 +74,7 @@ export default function AboutPage() {
             ))}
           </ol>
           <p className={`${kicker} mt-16`}>How you can buy</p>
-          <p className="mt-2 mb-6 max-w-2xl text-sm leading-relaxed text-stone-400">
+          <p className="mt-2 mb-6 max-w-2xl text-sm leading-relaxed text-stone-600">
             Five layers — consulting through usage. Fees follow scope. There is
             no PKR package or headline price.
           </p>
