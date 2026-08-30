@@ -368,3 +368,85 @@ h1, h2, h3 {
 .robot-figure.still {
   filter: drop-shadow(0 0 12px rgba(196, 30, 58, 0.22)) grayscale(0.06);
 }
+
+.robot-eyes {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+}
+.robot-eye {
+  position: absolute;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+}
+.robot-eye-l {
+  left: 33.4%;
+  top: 46.2%;
+  width: 12.8%;
+}
+.robot-eye-r {
+  left: 65.05%;
+  top: 46%;
+  width: 18.2%;
+}
+.robot-eye-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 0 5px rgba(196, 30, 58, 0.55));
+}
+.robot-eye-svg .spin,
+.robot-eye-svg .orbit {
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+}
+.robot-eye-svg .spin-outer {
+  animation: robot-eye-revolve 7.2s linear infinite;
+}
+.robot-eye-svg .spin-mid {
+  animation: robot-eye-revolve 4.6s linear infinite reverse;
+}
+.robot-eye-svg .spin-scan {
+  animation: robot-eye-revolve 2.8s linear infinite;
+}
+.robot-eye-svg .orbit {
+  animation: robot-eye-revolve 3.4s linear infinite;
+}
+.robot-eye-l .spin-outer {
+  animation-duration: 6.4s;
+  animation-direction: reverse;
+}
+.robot-eye-l .orbit {
+  animation-duration: 2.6s;
+}
+.robot-eye-core {
+  animation: robot-eye-core 2.2s ease-in-out infinite;
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+}
+
+@keyframes robot-eye-revolve {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes robot-eye-core {
+  0%,
+  100% {
+    opacity: 0.82;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .robot-eye-svg .spin,
+  .robot-eye-svg .orbit,
+  .robot-eye-core {
+    animation: none !important;
+  }
+}
