@@ -110,7 +110,7 @@ export default async function ServicePage({
                 {block.items.map((item) => (
                   <li
                     key={item}
-                    className="border border-orange-400/25 bg-orange-50 px-3 py-2 text-sm text-stone-700"
+                    className="border border-[#c41e3a]/20 bg-[#f6ebe3] px-3 py-2 text-sm text-stone-700"
                   >
                     {item}
                   </li>

@@ -32,7 +32,7 @@ export default function AboutPage() {
           <MediaFrame ratio="banner" className="mb-8">
             <UniqueScene id="about-org" title="REVNCIA organization" />
           </MediaFrame>
-          <h2 className="font-serif text-3xl">Who we serve — and what they keep</h2>
+          <h2 className="font-serif font-bold text-3xl md:text-4xl">Who we serve — and what they keep</h2>
           <p className="mt-5 text-[0.95rem] leading-relaxed text-pretty break-words text-stone-600">
             {company.name} is {company.descriptor.toLowerCase()}. Customers keep
             a governed AI Platform: Gateway, identity, knowledge, memory,
@@ -55,7 +55,7 @@ export default function AboutPage() {
       </section>
       <section className="border-t border-stone-200">
         <div className={`${shell} py-16`}>
-          <h2 className="font-serif text-3xl">The standards we keep</h2>
+          <h2 className="font-serif font-bold text-3xl md:text-4xl">The standards we keep</h2>
           <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {principles.map((p) => (
               <li key={p} className={`${surface} px-4 py-3 font-serif text-xl text-stone-800`}>

@@ -54,7 +54,7 @@ export function UniqueScene({
       </defs>
       <rect width="320" height="190" fill={`url(#${id}-g)`} />
       <rect width="320" height="190" fill={`url(#${id}-r)`} />
-      <rect x="12" y="12" width="296" height="166" rx="10" fill="#fff" fillOpacity="0.55" />
+      <rect x="12" y="12" width="296" height="166" rx="10" fill="#fffdf8" fillOpacity="0.62" />
 
       {kind === 0 &&
         pts.map((pt, i) => (

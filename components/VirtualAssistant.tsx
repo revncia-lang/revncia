@@ -194,7 +194,7 @@ export function VirtualAssistant() {
             </p>
             <button
               type="button"
-              className="rounded-md px-2 py-1 text-xs font-semibold uppercase tracking-wider text-orange-800 hover:bg-orange-50"
+              className="rounded-md px-2 py-1 text-xs font-semibold uppercase tracking-wider text-[#8b1e2d] hover:bg-[#f6ebe3]"
               onClick={() => setOpen(false)}
             >
               Close

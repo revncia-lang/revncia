@@ -46,7 +46,7 @@ function ListBlock({
   const box =
     tone === "omit"
       ? "border-amber-300 bg-amber-50 text-amber-950"
-      : "border-orange-400/25 bg-orange-50 text-stone-700";
+      : "border-[#c41e3a]/20 bg-[#f6ebe3] text-stone-700";
   return (
     <div>
       <h4 className="text-[0.68rem] tracking-[0.14em] uppercase text-[#b91c2c]">
