@@ -127,7 +127,7 @@ function pickMaleVoice() {
 export function HumanoidRobot() {
   const [allowed, setAllowed] = useState(false);
   const [apiOk, setApiOk] = useState<boolean | null>(null);
-  const [line, setLine] = useState(LINES.idle);
+  const [line, setLine] = useState<string>(LINES.idle);
   const playing = useRef(false);
 
   const restTalk = useCallback(() => {
