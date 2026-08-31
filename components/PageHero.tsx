@@ -13,7 +13,7 @@ export function PageHero({
   sections?: readonly { title: string; text: string }[];
 }) {
   return (
-    <section className="border-b border-[#e8d9ce] bg-gradient-to-b from-[#f6ebe3]/90 to-transparent">
+    <section className="border-b border-[#d2d2d7] bg-gradient-to-b from-[#e8f1ff]/90 to-transparent">
       <div className={`${shell} py-14 md:py-20`}>
         <p className="heading-kicker text-pretty text-[0.7rem] font-medium tracking-[0.2em] uppercase">
           {kicker}

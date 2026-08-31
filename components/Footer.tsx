@@ -24,11 +24,11 @@ const actions = [
 ] as const;
 
 const col =
-  "flex h-full min-h-0 min-w-0 flex-col rounded-xl border border-[#e8d9ce] bg-[#fffdf8] p-5";
+  "flex h-full min-h-0 min-w-0 flex-col rounded-xl border border-[#d2d2d7] bg-[#ffffff] p-5";
 
 export function Footer() {
   return (
-    <footer className="mt-auto border-t border-[#e8d9ce] bg-[#fff8f2]/92 text-[#2a221f]">
+    <footer className="mt-auto border-t border-[#d2d2d7] bg-[#f5f5f7]/92 text-[#1d1d1f]">
       <div className={`${shell} grid grid-cols-1 items-stretch gap-4 py-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5`}>
         <div className={col}>
           <Logo />
@@ -36,13 +36,13 @@ export function Footer() {
             Customers get answers. Staff get one system. The public gets a
             record they can trust. Together we transform.
           </p>
-          <p className="mt-4 text-[0.7rem] font-semibold tracking-[0.16em] uppercase text-[#b91c2c]">
+          <p className="mt-4 text-[0.7rem] font-semibold tracking-[0.16em] uppercase text-[#0071e3]">
             {company.motto}
           </p>
         </div>
 
         <nav className={col} aria-label="Footer">
-          <p className="shrink-0 text-[0.7rem] font-semibold tracking-[0.18em] uppercase text-[#b91c2c]">
+          <p className="shrink-0 text-[0.7rem] font-semibold tracking-[0.18em] uppercase text-[#0071e3]">
             Where to start
           </p>
           <ul className="mt-4 flex flex-1 flex-col gap-2.5">
@@ -51,7 +51,7 @@ export function Footer() {
                 <Link
                   href={item.href}
                   title={item.explain}
-                  className="block text-sm leading-snug text-stone-800 hover:text-[#8b1e2d]"
+                  className="block text-sm leading-snug text-stone-800 hover:text-[#0071e3]"
                 >
                   {item.label}
                 </Link>
@@ -64,7 +64,7 @@ export function Footer() {
         </nav>
 
         <div className={col}>
-          <p className="shrink-0 text-[0.7rem] font-semibold tracking-[0.18em] uppercase text-[#b91c2c]">
+          <p className="shrink-0 text-[0.7rem] font-semibold tracking-[0.18em] uppercase text-[#0071e3]">
             Next step
           </p>
           <ul className="mt-4 flex flex-1 flex-col gap-4">
@@ -86,7 +86,7 @@ export function Footer() {
         </div>
 
         <div className={col}>
-          <p className="shrink-0 text-[0.7rem] font-semibold tracking-[0.18em] uppercase text-[#b91c2c]">
+          <p className="shrink-0 text-[0.7rem] font-semibold tracking-[0.18em] uppercase text-[#0071e3]">
             Contact
           </p>
           <p className="mt-4 text-sm leading-relaxed text-pretty break-words text-stone-700">
@@ -97,7 +97,7 @@ export function Footer() {
           </p>
           <a
             href={`mailto:${company.email}`}
-            className="mt-3 break-all text-sm leading-snug text-[#8b1e2d] underline-offset-4 hover:underline"
+            className="mt-3 break-all text-sm leading-snug text-[#0071e3] underline-offset-4 hover:underline"
           >
             {company.email}
           </a>
@@ -108,7 +108,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-[#e8d9ce]">
+      <div className="border-t border-[#d2d2d7]">
         <div
           className={`${shell} flex flex-col items-center py-6 text-center text-xs leading-relaxed text-pretty break-words text-stone-500`}
         >
@@ -121,7 +121,7 @@ export function Footer() {
             </p>
             <ul className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
               <li>
-                <Link href="/policies" className="text-stone-500 hover:text-[#8b1e2d]">
+                <Link href="/policies" className="text-stone-500 hover:text-[#0071e3]">
                   All policies
                 </Link>
               </li>
@@ -129,7 +129,7 @@ export function Footer() {
                 <li key={p.slug}>
                   <Link
                     href={`/policies/${p.slug}`}
-                    className="text-stone-500 hover:text-[#8b1e2d]"
+                    className="text-stone-500 hover:text-[#0071e3]"
                   >
                     {p.navLabel}
                   </Link>

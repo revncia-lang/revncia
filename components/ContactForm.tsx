@@ -39,9 +39,9 @@ export function ContactForm() {
 
   if (sent) {
     return (
-      <p className="rounded-xl border border-[#e8d9ce] bg-[#f6ebe3] p-6 text-sm leading-relaxed break-words text-stone-700">
+      <p className="rounded-xl border border-[#d2d2d7] bg-[#e8f1ff] p-6 text-sm leading-relaxed break-words text-stone-700">
         Your email client should open with the message ready for{" "}
-        <a className="break-all text-[#8b1e2d] underline" href={`mailto:${company.email}`}>
+        <a className="break-all text-[#0071e3] underline" href={`mailto:${company.email}`}>
           {company.email}
         </a>
         . If it does not, write us directly.

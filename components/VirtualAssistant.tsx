@@ -187,14 +187,14 @@ export function VirtualAssistant() {
   return (
     <div className="fixed right-4 bottom-4 z-[80] flex flex-col items-end gap-2">
       {open ? (
-        <div className="w-[min(100vw-2rem,22rem)] border border-[#c41e3a]/25 bg-[#fffdf8]/96 shadow-2xl backdrop-blur">
-          <div className="flex items-center justify-between border-b border-[#e8d9ce] px-3 py-2">
-            <p className="text-[0.7rem] font-semibold tracking-[0.14em] uppercase text-[#b91c2c]">
+        <div className="w-[min(100vw-2rem,22rem)] border border-[#0071e3]/25 bg-[#ffffff]/96 shadow-2xl backdrop-blur">
+          <div className="flex items-center justify-between border-b border-[#d2d2d7] px-3 py-2">
+            <p className="text-[0.7rem] font-semibold tracking-[0.14em] uppercase text-[#0071e3]">
               {label}
             </p>
             <button
               type="button"
-              className="rounded-md px-2 py-1 text-xs font-semibold uppercase tracking-wider text-[#8b1e2d] hover:bg-[#f6ebe3]"
+              className="rounded-md px-2 py-1 text-xs font-semibold uppercase tracking-wider text-[#0071e3] hover:bg-[#e8f1ff]"
               onClick={() => setOpen(false)}
             >
               Close
@@ -206,15 +206,15 @@ export function VirtualAssistant() {
                 key={i}
                 className={
                   m.role === "user"
-                    ? "ml-6 bg-[#f6ebe3] px-3 py-2 text-[#2a221f]"
-                    : "mr-4 bg-[#fff8f2] px-3 py-2 text-stone-700"
+                    ? "ml-6 bg-[#e8f1ff] px-3 py-2 text-[#1d1d1f]"
+                    : "mr-4 bg-[#f5f5f7] px-3 py-2 text-stone-700"
                 }
               >
                 <p className="break-words">{m.text}</p>
                 {m.href ? (
                   <Link
                     href={m.href}
-                    className="mt-1 inline-block text-[0.7rem] font-semibold uppercase tracking-wider text-[#8b1e2d] underline"
+                    className="mt-1 inline-block text-[0.7rem] font-semibold uppercase tracking-wider text-[#0071e3] underline"
                   >
                     What you receive
                   </Link>
@@ -223,23 +223,23 @@ export function VirtualAssistant() {
             ))}
             <div ref={endRef} />
           </div>
-          <form onSubmit={onSubmit} className="flex gap-1 border-t border-[#e8d9ce] p-2">
+          <form onSubmit={onSubmit} className="flex gap-1 border-t border-[#d2d2d7] p-2">
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask or say your name…"
-              className="min-w-0 flex-1 bg-[#fffdf8] px-2 py-2 text-sm leading-relaxed text-[#2a221f] outline-none"
+              className="min-w-0 flex-1 bg-[#ffffff] px-2 py-2 text-sm leading-relaxed text-[#1d1d1f] outline-none"
             />
             <button
               type="button"
               onClick={listen}
-              className="rounded-md border border-[#c41e3a]/30 px-2 text-[0.65rem] font-semibold uppercase tracking-wider text-[#8b1e2d] hover:bg-[#f6ebe3]"
+              className="rounded-md border border-[#0071e3]/30 px-2 text-[0.65rem] font-semibold uppercase tracking-wider text-[#0071e3] hover:bg-[#e8f1ff]"
             >
               Listen
             </button>
             <button
               type="submit"
-              className="rounded-md bg-[#c41e3a] px-3 text-[0.65rem] font-semibold uppercase tracking-wider text-white hover:bg-[#9f1730]"
+              className="rounded-md bg-[#0071e3] px-3 text-[0.65rem] font-semibold uppercase tracking-wider text-white hover:bg-[#0077ed]"
             >
               Send
             </button>
@@ -249,7 +249,7 @@ export function VirtualAssistant() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex h-14 items-center gap-2 rounded-full border border-[#c41e3a] bg-[#c41e3a] px-4 text-sm font-semibold tracking-wide text-white shadow-[0_0_24px_rgba(196,30,58,0.45)] transition hover:bg-[#9f1730] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c41e3a] focus-visible:ring-offset-2 focus-visible:ring-offset-[#fff8f2]"
+        className="inline-flex h-14 items-center gap-2 rounded-full border border-[#0071e3] bg-[#0071e3] px-4 text-sm font-semibold tracking-wide text-white shadow-[0_0_24px_rgba(0,113,227,0.4)] transition hover:bg-[#0077ed] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071e3] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f5f5f7]"
         aria-label="Open support assistant"
       >
         <svg

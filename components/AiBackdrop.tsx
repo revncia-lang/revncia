@@ -20,7 +20,7 @@ export function AiBackdrop() {
 
     const draw = () => {
       const { width, height } = canvas;
-      ctx.fillStyle = "rgba(255, 248, 242, 0.18)";
+      ctx.fillStyle = "rgba(245, 245, 247, 0.18)";
       ctx.fillRect(0, 0, width, height);
       nodes.forEach((n) => {
         n.x += n.vx;
@@ -34,14 +34,14 @@ export function AiBackdrop() {
           const dy = nodes[i].y - nodes[j].y;
           const d = Math.hypot(dx, dy);
           if (d < 0.16) {
-            ctx.strokeStyle = `rgba(196, 30, 58, ${0.12 - d * 0.5})`;
+            ctx.strokeStyle = `rgba(0, 113, 227, ${0.12 - d * 0.5})`;
             ctx.beginPath();
             ctx.moveTo(nodes[i].x * width, nodes[i].y * height);
             ctx.lineTo(nodes[j].x * width, nodes[j].y * height);
             ctx.stroke();
           }
         }
-        ctx.fillStyle = "rgba(196, 30, 58, 0.28)";
+        ctx.fillStyle = "rgba(0, 113, 227, 0.28)";
         ctx.beginPath();
         ctx.arc(nodes[i].x * width, nodes[i].y * height, 1.4, 0, Math.PI * 2);
         ctx.fill();

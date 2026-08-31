@@ -32,8 +32,8 @@ export default function Home() {
 
   return (
     <main>
-      <section className="relative border-b border-[#e8d9ce]">
-        <div className={`${shell} grid items-start gap-6 pt-[0.2in] pb-12 md:grid-cols-12 md:pb-16`}>
+      <section className="relative border-b border-[#d2d2d7]">
+        <div className={`${shell} grid items-start gap-6 pt-2 pb-12 md:grid-cols-12 md:pt-3 md:pb-16`}>
           <div className="min-w-0 md:col-span-5">
             <p className={kicker}>{company.descriptor}</p>
             <h1 className={`mt-5 ${display}`}>
@@ -85,7 +85,7 @@ export default function Home() {
               >
                 <ServiceVisual slug={o.slug} name={o.name} />
                 <div className="min-w-0 p-5">
-                  <p className="text-[0.65rem] font-semibold tracking-[0.16em] uppercase text-[#b91c2c]">
+                  <p className="text-[0.65rem] font-semibold tracking-[0.16em] uppercase text-[#0071e3]">
                     {o.n} · {o.group}
                   </p>
                   <h3 className="mt-1 text-pretty font-serif font-semibold text-2xl">{o.name}</h3>
@@ -123,7 +123,7 @@ export default function Home() {
           <ol className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {flywheel.map((item, i) => (
               <li key={item} className={`${surface} px-4 py-4`}>
-                <span className="text-[0.65rem] font-semibold text-[#b91c2c]">
+                <span className="text-[0.65rem] font-semibold text-[#0071e3]">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <p className="mt-1 text-pretty font-serif font-semibold text-xl text-stone-900">{item}</p>
@@ -159,7 +159,7 @@ export default function Home() {
             >
               <ServiceVisual slug={`all-${o.slug}`} name={o.name} />
               <div className="p-4">
-                <p className="text-[0.65rem] font-semibold tracking-[0.14em] uppercase text-[#b91c2c]">
+                <p className="text-[0.65rem] font-semibold tracking-[0.14em] uppercase text-[#0071e3]">
                   {o.n} · {o.name}
                 </p>
                 <p className="mt-2 text-sm leading-snug text-pretty font-medium text-stone-800">{o.title}</p>

@@ -35,7 +35,7 @@ export default function ServicesIndex() {
             >
               <ServiceVisual slug={o.slug} name={o.name} />
               <div className="min-w-0 p-4">
-                <p className="text-[0.65rem] font-semibold tracking-[0.16em] uppercase text-[#b91c2c]">
+                <p className="text-[0.65rem] font-semibold tracking-[0.16em] uppercase text-[#0071e3]">
                     {o.n} · {o.group}
                 </p>
                 <h2 className="mt-1 text-pretty font-serif font-bold text-xl md:text-2xl">{o.name}</h2>

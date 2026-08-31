@@ -23,7 +23,7 @@ function RelatedLines({ slugs }: { slugs: string[] }) {
           <li key={slug}>
             <Link
               href={`/services/${slug}`}
-              className="text-xs text-[#8b1e2d] underline underline-offset-4"
+              className="text-xs text-[#0071e3] underline underline-offset-4"
             >
               {o.name}
             </Link>
@@ -45,11 +45,11 @@ function ListBlock({
 }) {
   const box =
     tone === "omit"
-      ? "border-[#c41e3a]/15 bg-[#faf6f0] text-stone-700"
-      : "border-[#c41e3a]/20 bg-[#f6ebe3] text-stone-700";
+      ? "border-[#0071e3]/15 bg-[#fbfbfd] text-stone-700"
+      : "border-[#0071e3]/20 bg-[#e8f1ff] text-stone-700";
   return (
     <div>
-      <h4 className="text-[0.68rem] tracking-[0.14em] uppercase text-[#b91c2c]">
+      <h4 className="text-[0.68rem] tracking-[0.14em] uppercase text-[#0071e3]">
         {heading}
       </h4>
       <ul className="mt-2 space-y-2">
@@ -72,7 +72,7 @@ export function FacilityDetail({
 }) {
   return (
     <article id={facility.id} className={`${surface} min-w-0 scroll-mt-24 p-5 md:p-6`}>
-      <p className="text-[0.65rem] tracking-[0.16em] uppercase text-[#b91c2c]">
+      <p className="text-[0.65rem] tracking-[0.16em] uppercase text-[#0071e3]">
         {facility.n} · Facility
       </p>
       <h3 className="mt-1 text-pretty font-serif text-2xl text-stone-900">
@@ -87,7 +87,7 @@ export function FacilityDetail({
           {facility.youReceive.slice(0, 3).map((item) => (
             <li
               key={item}
-              className="border-l-2 border-[#c41e3a] pl-3 text-sm leading-relaxed text-stone-700"
+              className="border-l-2 border-[#0071e3] pl-3 text-sm leading-relaxed text-stone-700"
             >
               {item}
             </li>
@@ -124,7 +124,7 @@ export function BuyLayersGrid({
     >
       {buyLayers.map((layer) => (
         <div key={layer.id} className={`${surface} p-4`}>
-          <p className="text-[0.65rem] tracking-[0.14em] uppercase text-[#b91c2c]">
+          <p className="text-[0.65rem] tracking-[0.14em] uppercase text-[#0071e3]">
             {layer.cadence}
           </p>
           <p className="mt-1 font-serif text-lg text-stone-800">{layer.layer}</p>
@@ -152,8 +152,8 @@ export function HonestyCards({ items }: { items: HonestyLimit[] }) {
   return (
     <ul className="grid gap-3 md:grid-cols-2">
       {items.map((item) => (
-        <li key={item.id} className="border border-[#c41e3a]/25 bg-[#fffdf8] p-4">
-          <p className="font-serif text-lg text-[#8b1e2d]">{item.title}</p>
+        <li key={item.id} className="border border-[#0071e3]/25 bg-[#ffffff] p-4">
+          <p className="font-serif text-lg text-[#0071e3]">{item.title}</p>
           <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-stone-700">
             {item.text}
           </p>
@@ -176,7 +176,7 @@ export function SupportDesk() {
       </p>
       <ul className="mt-5 space-y-3">
         {customerSupport.channels.map((ch) => (
-          <li key={ch.name} className="border-l-2 border-[#c41e3a] pl-3">
+          <li key={ch.name} className="border-l-2 border-[#0071e3] pl-3">
             <p className="text-sm text-stone-800">{ch.name}</p>
             <p className="mt-1 text-sm leading-relaxed text-pretty break-words text-stone-600">
               {ch.detail}
@@ -189,7 +189,7 @@ export function SupportDesk() {
       </p>
       <a
         href={`mailto:${customerSupport.email}`}
-        className="mt-2 inline-block break-all text-sm text-[#8b1e2d] underline underline-offset-4"
+        className="mt-2 inline-block break-all text-sm text-[#0071e3] underline underline-offset-4"
       >
         {customerSupport.email}
       </a>
@@ -199,7 +199,7 @@ export function SupportDesk() {
 
 export function FacilitiesHomeSection() {
   return (
-    <section className="border-y border-[#e8d9ce] bg-[#f6efe6]/70">
+    <section className="border-y border-[#d2d2d7] bg-[#f5f5f7]/70">
       <div className={`${shell} py-20`}>
         <p className={kicker}>{facilitiesIntro.kicker}</p>
         <h2 className="mt-3 max-w-3xl font-serif text-3xl md:text-[2.1rem]">
@@ -215,7 +215,7 @@ export function FacilitiesHomeSection() {
               href={`/facilities#${f.id}`}
               className={`${surfaceHover} min-w-0 p-5`}
             >
-              <p className="text-[0.65rem] tracking-[0.16em] uppercase text-[#b91c2c]">
+              <p className="text-[0.65rem] tracking-[0.16em] uppercase text-[#0071e3]">
                 {f.n} · Facility
               </p>
               <h3 className="mt-1 text-pretty font-serif text-xl text-stone-900">
@@ -243,7 +243,7 @@ export function FacilitiesHomeSection() {
 
 export function FacilitiesServicesBlock() {
   return (
-    <section className="border-b border-[#e8d9ce] bg-[#f6efe6]/70">
+    <section className="border-b border-[#d2d2d7] bg-[#f5f5f7]/70">
       <div className={`${shell} py-14`}>
         <p className={kicker}>What you can run</p>
         <h2 className="mt-3 max-w-3xl font-serif text-3xl text-stone-900">
@@ -279,7 +279,7 @@ export function FacilitiesServicesBlock() {
 
 export function FacilitiesContactBlock() {
   return (
-    <section className="border-t border-[#e8d9ce]">
+    <section className="border-t border-[#d2d2d7]">
       <div className={`${shell} py-16`}>
         <div className="grid gap-8 lg:grid-cols-12">
           <div className="lg:col-span-7">

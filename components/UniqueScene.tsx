@@ -45,7 +45,7 @@ export function UniqueScene({
       <defs>
         <linearGradient id={`${id}-g`} x1="0" y1="0" x2="1" y2="1">
           <stop offset="0%" stopColor={p.dim} />
-          <stop offset="100%" stopColor="#fff8f2" />
+          <stop offset="100%" stopColor="#f5f5f7" />
         </linearGradient>
         <radialGradient id={`${id}-r`} cx="78%" cy="18%" r="62%">
           <stop offset="0%" stopColor={p.a} stopOpacity="0.28" />
@@ -54,7 +54,7 @@ export function UniqueScene({
       </defs>
       <rect width="320" height="190" fill={`url(#${id}-g)`} />
       <rect width="320" height="190" fill={`url(#${id}-r)`} />
-      <rect x="12" y="12" width="296" height="166" rx="10" fill="#fffdf8" fillOpacity="0.62" />
+      <rect x="12" y="12" width="296" height="166" rx="10" fill="#ffffff" fillOpacity="0.62" />
 
       {kind === 0 &&
         pts.map((pt, i) => (
@@ -211,7 +211,7 @@ export function UniqueScene({
               width="84"
               height="108"
               rx="8"
-              fill="#fffdf8"
+              fill="#ffffff"
               stroke={p.a}
               strokeOpacity="0.35"
             />
@@ -257,7 +257,7 @@ export function UniqueScene({
         ))}
       {kind === 14 && (
         <>
-          <rect x="36" y="36" width="248" height="100" rx="8" fill="#fffdf8" />
+          <rect x="36" y="36" width="248" height="100" rx="8" fill="#ffffff" />
           <rect x="52" y="52" width="120" height="10" rx="2" fill={p.a} opacity="0.8" />
           <rect x="52" y="72" width="196" height="7" rx="2" fill={p.b} opacity="0.35" />
           <rect x="52" y="88" width="168" height="7" rx="2" fill={p.c} opacity="0.28" />
@@ -324,7 +324,7 @@ export function UniqueScene({
       )}
       {mark === "ledger" && (
         <g transform="translate(248,30)">
-          <rect width="40" height="32" rx="4" fill="#fffdf8" stroke={p.c} />
+          <rect width="40" height="32" rx="4" fill="#ffffff" stroke={p.c} />
           <path d="M8 10 h24 M8 16 h18 M8 22 h20" stroke={p.a} />
         </g>
       )}
@@ -351,11 +351,11 @@ export function UniqueScene({
         </g>
       )}
 
-      <rect x="12" y="154" width="296" height="24" rx="0 0 10 10" fill="#fffdf8" fillOpacity="0.92" />
+      <rect x="12" y="154" width="296" height="24" rx="0 0 10 10" fill="#ffffff" fillOpacity="0.92" />
       <text
         x="22"
         y="170"
-        fill="#2a221f"
+        fill="#1d1d1f"
         fontSize="10"
         fontFamily="ui-sans-serif, system-ui"
         fontWeight="600"

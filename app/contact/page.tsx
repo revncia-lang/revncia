@@ -51,7 +51,7 @@ export default function ContactPage() {
               REVNCIA person answers at all hours.
             </p>
             <p className="mt-6 text-sm">
-              <a className="break-all text-[#8b1e2d] underline underline-offset-4" href={`mailto:${company.email}`}>
+              <a className="break-all text-[#0071e3] underline underline-offset-4" href={`mailto:${company.email}`}>
                 {company.email}
               </a>
             </p>

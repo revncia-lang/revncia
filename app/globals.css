@@ -335,11 +335,17 @@ h3 {
   position: relative;
   isolation: isolate;
   overflow: visible;
+  margin-top: -1.25rem;
   background: radial-gradient(
-    ellipse 70% 74% at 50% 40%,
-    rgba(0, 113, 227, 0.14) 0%,
+    ellipse 58% 52% at 50% 28%,
+    rgba(0, 113, 227, 0.1) 0%,
     transparent 72%
   );
+}
+@media (min-width: 768px) {
+  .robot-stage {
+    margin-top: -2.25rem;
+  }
 }
 
 @keyframes jarvis-rotate {
@@ -390,29 +396,56 @@ h3 {
   z-index: 10;
   overflow: visible;
   background: transparent;
-  filter: drop-shadow(0 0 18px rgba(196, 30, 58, 0.42));
+  filter:
+    drop-shadow(0 18px 32px rgba(0, 0, 0, 0.12))
+    drop-shadow(0 0 22px rgba(0, 113, 227, 0.28));
 }
 .robot-figure.still {
-  filter: drop-shadow(0 0 12px rgba(196, 30, 58, 0.26));
+  filter:
+    drop-shadow(0 14px 24px rgba(0, 0, 0, 0.1))
+    drop-shadow(0 0 14px rgba(210, 210, 215, 0.7));
 }
 .robot-mascot {
   filter: hue-rotate(6deg) saturate(1.18) brightness(1.03) contrast(1.02);
 }
 
+.robot-brain-bleed {
+  position: absolute;
+  left: 4%;
+  top: -12%;
+  width: 92%;
+  height: 72%;
+  z-index: 8;
+  pointer-events: none;
+  overflow: visible;
+  mix-blend-mode: screen;
+  background: radial-gradient(
+    ellipse 58% 52% at 50% 40%,
+    rgba(255, 255, 255, 0.72) 0%,
+    rgba(255, 214, 10, 0.55) 16%,
+    rgba(255, 159, 10, 0.5) 34%,
+    rgba(255, 59, 48, 0.42) 52%,
+    transparent 74%
+  );
+  filter:
+    drop-shadow(0 0 22px rgba(255, 159, 10, 0.85))
+    drop-shadow(0 0 48px rgba(255, 59, 48, 0.7));
+}
+
 .robot-brain {
   position: absolute;
-  left: 18%;
-  top: 3.2%;
-  width: 64%;
-  height: 44%;
+  left: 14%;
+  top: 1.5%;
+  width: 72%;
+  height: 50%;
   z-index: 15;
   pointer-events: none;
   overflow: visible;
   mix-blend-mode: screen;
   filter:
-    drop-shadow(0 0 14px rgba(255, 186, 90, 0.72))
-    drop-shadow(0 0 28px rgba(226, 58, 74, 0.85))
-    drop-shadow(0 0 48px rgba(196, 30, 58, 0.55));
+    drop-shadow(0 0 16px rgba(255, 255, 255, 0.95))
+    drop-shadow(0 0 28px rgba(255, 159, 10, 0.95))
+    drop-shadow(0 0 52px rgba(255, 59, 48, 0.9));
 }
 .robot-brain-svg {
   display: block;
@@ -431,45 +464,44 @@ h3 {
   transform-box: fill-box;
 }
 .robot-brain-hemisphere {
-  fill: rgba(255, 92, 92, 0.22);
+  fill: rgba(255, 59, 48, 0.18);
   stroke: none;
 }
 .robot-brain-fissure {
-  stroke: rgba(255, 248, 242, 0.92);
-  stroke-width: 1.45;
+  stroke: rgba(255, 255, 255, 0.9);
+  stroke-width: 1.4;
   stroke-linecap: round;
-  filter: drop-shadow(0 0 6px rgba(255, 214, 120, 0.9));
 }
 .robot-brain-sulcus {
   fill: none;
-  stroke-width: 1.35;
+  stroke-width: 1.45;
   stroke-linecap: round;
   opacity: 0.95;
-  filter: drop-shadow(0 0 4px rgba(255, 186, 90, 0.7));
+  filter: drop-shadow(0 0 5px rgba(255, 159, 10, 0.85));
 }
 .robot-brain-synapse {
-  stroke: rgba(255, 214, 120, 0.88);
-  stroke-width: 1.35;
+  stroke: rgba(255, 214, 10, 0.92);
+  stroke-width: 1.55;
   stroke-linecap: round;
 }
 .robot-brain-synapse-hot {
-  stroke: rgba(255, 255, 255, 0.95);
-  stroke-width: 1.7;
+  stroke: rgba(255, 255, 255, 1);
+  stroke-width: 2;
   stroke-dasharray: 5 7;
-  animation: robot-brain-synapse 2.4s linear infinite;
-  filter: drop-shadow(0 0 6px rgba(255, 186, 90, 1));
+  animation: robot-brain-synapse 1.8s linear infinite;
+  filter: drop-shadow(0 0 8px rgba(255, 159, 10, 1));
 }
 .robot-brain-node {
-  fill: rgba(255, 255, 255, 0.98);
-  animation: robot-brain-node 1.8s ease-in-out infinite;
-  filter: drop-shadow(0 0 5px rgba(255, 214, 120, 0.95));
+  fill: rgba(255, 255, 255, 1);
+  animation: robot-brain-node 1.6s ease-in-out infinite;
+  filter: drop-shadow(0 0 7px rgba(255, 214, 10, 1));
   transform-box: fill-box;
   transform-origin: center;
 }
 .robot-brain-node-hot {
-  fill: #ffe08a;
-  filter: drop-shadow(0 0 8px rgba(255, 186, 90, 1))
-    drop-shadow(0 0 14px rgba(226, 58, 74, 1));
+  fill: #ffd60a;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 1))
+    drop-shadow(0 0 16px rgba(255, 59, 48, 1));
 }
 
 @keyframes robot-brain-pulse {
@@ -480,7 +512,7 @@ h3 {
   }
   50% {
     opacity: 1;
-    transform: scale(1.12);
+    transform: scale(1.14);
   }
 }
 @keyframes robot-brain-pulse-calm {
@@ -495,12 +527,12 @@ h3 {
 @keyframes robot-brain-node {
   0%,
   100% {
-    opacity: 0.55;
-    transform: scale(0.88);
+    opacity: 0.5;
+    transform: scale(0.86);
   }
   50% {
     opacity: 1;
-    transform: scale(1.28);
+    transform: scale(1.32);
   }
 }
 @keyframes robot-brain-synapse {
@@ -536,7 +568,7 @@ h3 {
   height: 100%;
   overflow: visible;
   mix-blend-mode: screen;
-  filter: drop-shadow(0 0 5px rgba(196, 30, 58, 0.55));
+  filter: drop-shadow(0 0 6px rgba(255, 59, 48, 0.75));
 }
 .robot-eye-svg .spin,
 .robot-eye-svg .orbit {

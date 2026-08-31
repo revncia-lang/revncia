@@ -12,7 +12,7 @@ export function ServiceVisual({
 }) {
   return (
     <div className="flex min-w-0 flex-col">
-      <MediaFrame ratio="landscape" className="w-full rounded-none rounded-t-xl border-0 border-b border-[#e8d9ce]">
+      <MediaFrame ratio="landscape" className="w-full rounded-none rounded-t-xl border-0 border-b border-[#d2d2d7]">
         <UniqueScene id={`pic-${slug}`} title={pictureCaption(name)} />
       </MediaFrame>
       <UniqueChart

@@ -77,7 +77,7 @@ export default async function ServicePage({
           <p className="mt-8 text-[1.08rem] leading-relaxed text-pretty break-words text-stone-800">{why}</p>
           <p className="mt-4 text-[0.98rem] leading-relaxed text-pretty break-words text-stone-600">{o.body}</p>
           {o.note ? (
-            <p className="mt-4 border border-[#c41e3a]/25 bg-[#f6ebe3] p-4 text-sm text-stone-800">
+            <p className="mt-4 border border-[#0071e3]/25 bg-[#e8f1ff] p-4 text-sm text-stone-800">
               {o.note}
             </p>
           ) : null}
@@ -96,7 +96,7 @@ export default async function ServicePage({
             {pains.map((p) => (
               <li
                 key={p}
-                className="border border-[#c41e3a]/20 bg-[#f6ebe3] px-4 py-3 text-sm leading-relaxed text-stone-800"
+                className="border border-[#0071e3]/20 bg-[#e8f1ff] px-4 py-3 text-sm leading-relaxed text-stone-800"
               >
                 {p}
               </li>
@@ -110,7 +110,7 @@ export default async function ServicePage({
                 {block.items.map((item) => (
                   <li
                     key={item}
-                    className="border border-[#c41e3a]/20 bg-[#f6ebe3] px-3 py-2 text-sm text-stone-700"
+                    className="border border-[#0071e3]/20 bg-[#e8f1ff] px-3 py-2 text-sm text-stone-700"
                   >
                     {item}
                   </li>
@@ -122,7 +122,7 @@ export default async function ServicePage({
           <h2 className="mt-12 font-serif font-bold text-3xl">What you can use after go-live</h2>
           <ul className="mt-4 space-y-2">
             {o.capabilities.map((c) => (
-              <li key={c} className="border-l-2 border-[#c41e3a] pl-3 text-[0.98rem] text-stone-700">
+              <li key={c} className="border-l-2 border-[#0071e3] pl-3 text-[0.98rem] text-stone-700">
                 {c}
               </li>
             ))}
@@ -136,7 +136,7 @@ export default async function ServicePage({
                   <li key={r.slug}>
                     <Link
                       href={`/services/${r.slug}`}
-                      className="text-sm font-semibold text-[#8b1e2d] underline underline-offset-4"
+                      className="text-sm font-semibold text-[#0071e3] underline underline-offset-4"
                     >
                       {r.n} · {r.name}
                     </Link>
@@ -172,7 +172,7 @@ export default async function ServicePage({
             id={`${o.slug}-trust`}
             caption={chartCaption(o.name, "trust")}
           />
-          <div className="flex min-w-0 justify-between gap-3 text-sm font-semibold text-[#8b1e2d]">
+          <div className="flex min-w-0 justify-between gap-3 text-sm font-semibold text-[#0071e3]">
             <Link href={`/services/${prev.slug}`} className="min-w-0 text-pretty break-words">
               ← {prev.name}
             </Link>

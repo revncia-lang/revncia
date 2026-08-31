@@ -7,7 +7,7 @@ export function PageGuide({
   sections: readonly { title: string; text: string }[];
 }) {
   return (
-    <div className="mt-10 overflow-hidden rounded-xl border border-[#e8d9ce] bg-[#fffdf8] shadow-[0_10px_28px_rgba(90,46,36,0.05)]">
+    <div className="mt-10 overflow-hidden rounded-xl border border-[#d2d2d7] bg-[#ffffff] shadow-[0_10px_28px_rgba(90,46,36,0.05)]">
       <div className="grid min-w-0 gap-8 p-5 md:p-6 lg:grid-cols-[1.1fr_0.9fr]">
         <section className="min-w-0" aria-labelledby="on-this-page">
           <h2
@@ -20,7 +20,7 @@ export function PageGuide({
             {sections.map((s, i) => (
               <li key={s.title} className="min-w-0">
                 <h3 className="text-pretty font-serif font-semibold text-[1.15rem] leading-snug">
-                  <span className="mr-1.5 text-[0.65rem] font-semibold text-[#b91c2c]">
+                  <span className="mr-1.5 text-[0.65rem] font-semibold text-[#0071e3]">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   {s.title}
@@ -32,7 +32,7 @@ export function PageGuide({
             ))}
           </ol>
         </section>
-        <nav className="min-w-0 border-t border-[#e8d9ce] pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0" aria-labelledby="site-navigation-guide">
+        <nav className="min-w-0 border-t border-[#d2d2d7] pt-6 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0" aria-labelledby="site-navigation-guide">
           <h2
             id="site-navigation-guide"
             className="heading-kicker text-[0.68rem] font-semibold tracking-[0.2em] uppercase"
@@ -49,7 +49,7 @@ export function PageGuide({
                 <Link
                   href={item.href}
                   title={item.explain}
-                  className="inline-flex rounded-md border border-[#c41e3a]/25 bg-[#fff8f2] px-2.5 py-1.5 text-[0.65rem] font-semibold tracking-[0.1em] uppercase text-[#8b1e2d] transition hover:border-[#c41e3a]/50 hover:bg-[#f6ebe3]"
+                  className="inline-flex rounded-md border border-[#0071e3]/25 bg-[#f5f5f7] px-2.5 py-1.5 text-[0.65rem] font-semibold tracking-[0.1em] uppercase text-[#0071e3] transition hover:border-[#0071e3]/50 hover:bg-[#e8f1ff]"
                 >
                   {item.label}
                 </Link>
