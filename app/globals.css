@@ -1,22 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #2a221f;
-  --ink-soft: #5c514a;
-  --paper: #fff8f2;
-  --paper-deep: #faf6f0;
-  --paper-card: #fffdf8;
-  --blush: #f6ebe3;
-  --leaf: #eef3ea;
-  --paper-muted: #6f645c;
-  --muted: #6f645c;
-  --line: rgba(196, 30, 58, 0.18);
-  --copper: #c41e3a;
-  --sage: #d7e4d2;
-  --accent: #c41e3a;
-  --accent-hover: #9f1730;
-  --accent-bright: #e23a4a;
-  --accent-amber: #c45c3a;
+  /* Apple / macOS marketing: silver paper, system blue CTAs, iMac color wash */
+  --ink: #1d1d1f;
+  --ink-soft: #6e6e73;
+  --paper: #f5f5f7;
+  --paper-deep: #fbfbfd;
+  --paper-card: #ffffff;
+  --blush: #e8f1ff;
+  --leaf: #e3f4ea;
+  --paper-muted: #86868b;
+  --muted: #86868b;
+  --line: rgba(0, 113, 227, 0.18);
+  --copper: #0071e3;
+  --sage: #d2d2d7;
+  --accent: #0071e3;
+  --accent-hover: #0077ed;
+  --accent-bright: #2997ff;
+  --accent-amber: #ff9f0a;
 }
 
 @theme inline {
@@ -24,7 +25,7 @@
   --color-paper: var(--paper);
   --color-accent: var(--accent);
   --font-sans: var(--font-source);
-  --font-serif: var(--font-cormorant);
+  --font-serif: var(--font-source);
 }
 
 html {
@@ -34,11 +35,12 @@ html {
 
 body {
   background:
-    radial-gradient(ellipse 90% 55% at 12% -8%, rgba(238, 243, 234, 0.7), transparent 52%),
-    radial-gradient(ellipse 70% 45% at 96% 8%, rgba(246, 235, 227, 0.85), transparent 48%),
-    linear-gradient(180deg, #fff8f2 0%, #faf6f0 46%, #f3efe6 100%);
-  color: #2a221f;
-  font-family: var(--font-sans), system-ui, sans-serif;
+    radial-gradient(ellipse 80% 50% at 8% -10%, rgba(0, 113, 227, 0.14), transparent 52%),
+    radial-gradient(ellipse 55% 40% at 92% 0%, rgba(191, 90, 242, 0.12), transparent 48%),
+    radial-gradient(ellipse 45% 35% at 78% 100%, rgba(52, 199, 89, 0.1), transparent 50%),
+    linear-gradient(180deg, #f5f5f7 0%, #fbfbfd 48%, #f2f2f7 100%);
+  color: #1d1d1f;
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
   overflow-wrap: break-word;
   text-wrap: pretty;
 }
@@ -46,17 +48,9 @@ body {
 h1, h2, h3 {
   text-wrap: balance;
   font-weight: 700;
-  letter-spacing: -0.02em;
-  background-image: linear-gradient(
-    118deg,
-    #2a221f 0%,
-    #8b1e2d 42%,
-    #c41e3a 74%,
-    #e23a4a 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  letter-spacing: -0.022em;
+  background-image: none;
+  color: #1d1d1f;
 }
 h1 {
   font-size: clamp(2.35rem, 4.6vw, 4.6rem);
@@ -75,11 +69,11 @@ h3 {
   background-image: none;
   -webkit-background-clip: border-box;
   background-clip: border-box;
-  color: #b91c2c;
+  color: #0071e3;
 }
 
 .font-serif {
-  font-family: var(--font-serif), Georgia, serif;
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
 }
 
 .jarvis-hud {
@@ -102,50 +96,50 @@ h3 {
 }
 .jarvis-os-grid circle,
 .jarvis-os-grid line {
-  stroke: rgba(196, 30, 58, 0.12);
+  stroke: rgba(0, 113, 227, 0.12);
   stroke-width: 0.6;
 }
 .jarvis-ring {
   fill: none;
 }
 .jarvis-ring-soft {
-  stroke: rgba(226, 58, 74, 0.32);
+  stroke: rgba(41, 151, 255, 0.32);
   stroke-width: 0.7;
 }
 .jarvis-ring-mid {
-  stroke: rgba(196, 30, 58, 0.38);
+  stroke: rgba(0, 113, 227, 0.38);
   stroke-width: 1;
 }
 .jarvis-ring-outer {
-  stroke: rgba(176, 24, 48, 0.42);
+  stroke: rgba(0, 102, 204, 0.42);
   stroke-width: 1.15;
-  filter: drop-shadow(0 0 5px rgba(196, 30, 58, 0.2));
+  filter: drop-shadow(0 0 5px rgba(0, 113, 227, 0.2));
   animation: jarvis-ring-breathe 8.5s ease-in-out infinite;
 }
 .jarvis-ring-dash {
   fill: none;
-  stroke: rgba(176, 24, 48, 0.38);
+  stroke: rgba(0, 102, 204, 0.38);
   stroke-width: 0.9;
   stroke-dasharray: 5 11;
   animation: jarvis-dash 32s linear infinite;
 }
 .jarvis-ring-dash-fine {
-  stroke: rgba(226, 58, 74, 0.3);
+  stroke: rgba(41, 151, 255, 0.3);
   stroke-dasharray: 2 9;
   animation-duration: 44s;
   animation-direction: reverse;
 }
 .jarvis-octagon {
   fill: none;
-  stroke: rgba(196, 30, 58, 0.22);
+  stroke: rgba(0, 113, 227, 0.22);
   stroke-width: 0.7;
 }
 .jarvis-tick {
-  stroke: rgba(226, 58, 74, 0.32);
+  stroke: rgba(41, 151, 255, 0.32);
   stroke-width: 0.55;
 }
 .jarvis-tick-major {
-  stroke: rgba(176, 24, 48, 0.55);
+  stroke: rgba(0, 102, 204, 0.55);
   stroke-width: 1.05;
 }
 .jarvis-arc {
@@ -153,20 +147,20 @@ h3 {
   stroke-linecap: round;
 }
 .jarvis-arc-a {
-  stroke: rgba(196, 30, 58, 0.5);
+  stroke: rgba(0, 113, 227, 0.5);
   stroke-width: 1.35;
 }
 .jarvis-arc-b {
-  stroke: rgba(196, 30, 58, 0.4);
+  stroke: rgba(0, 113, 227, 0.4);
   stroke-width: 1.05;
 }
 .jarvis-arc-c {
-  stroke: rgba(226, 58, 74, 0.38);
+  stroke: rgba(41, 151, 255, 0.38);
   stroke-width: 0.85;
 }
 .jarvis-brackets path {
   fill: none;
-  stroke: rgba(176, 24, 48, 0.42);
+  stroke: rgba(0, 102, 204, 0.42);
   stroke-width: 1.1;
 }
 .jarvis-spin-slow,
@@ -195,8 +189,8 @@ h3 {
     from 210deg,
     transparent 0deg,
     transparent 318deg,
-    rgba(196, 30, 58, 0.08) 338deg,
-    rgba(226, 58, 74, 0.18) 356deg,
+    rgba(0, 113, 227, 0.08) 338deg,
+    rgba(41, 151, 255, 0.18) 356deg,
     transparent 360deg
   );
   -webkit-mask-image: radial-gradient(
@@ -234,7 +228,7 @@ h3 {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(196, 30, 58, 0.08),
+    rgba(0, 113, 227, 0.08),
     transparent
   );
   animation: jarvis-sheen 16s ease-in-out infinite;
@@ -251,12 +245,12 @@ h3 {
 }
 .jarvis-os-chip span {
   font-size: 0.58rem;
-  color: rgba(176, 24, 48, 0.82);
+  color: rgba(0, 102, 204, 0.82);
 }
 .jarvis-os-chip em {
   font-style: normal;
   font-size: 0.52rem;
-  color: rgba(196, 30, 58, 0.55);
+  color: rgba(0, 113, 227, 0.55);
   letter-spacing: 0.12em;
 }
 .jarvis-os-chip-sys {
@@ -309,13 +303,13 @@ h3 {
   width: 2.4rem;
   font-size: 0.5rem;
   letter-spacing: 0.14em;
-  color: rgba(139, 30, 45, 0.48);
+  color: rgba(0, 90, 180, 0.48);
 }
 .jarvis-os-telemetry b {
   font-size: 0.58rem;
   font-weight: 500;
   letter-spacing: 0.08em;
-  color: rgba(196, 30, 58, 0.78);
+  color: rgba(0, 113, 227, 0.78);
 }
 .jarvis-os-mark {
   position: absolute;
@@ -326,14 +320,14 @@ h3 {
   font-size: 0.5rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(139, 30, 45, 0.42);
+  color: rgba(0, 90, 180, 0.42);
   writing-mode: vertical-rl;
   transform: rotate(180deg);
 }
 .jarvis-vignette {
   background: radial-gradient(
     ellipse 78% 82% at 50% 42%,
-    rgba(196, 30, 58, 0.16) 0%,
+    rgba(0, 113, 227, 0.16) 0%,
     transparent 68%
   );
 }
@@ -343,7 +337,7 @@ h3 {
   overflow: visible;
   background: radial-gradient(
     ellipse 70% 74% at 50% 40%,
-    rgba(196, 30, 58, 0.14) 0%,
+    rgba(0, 113, 227, 0.14) 0%,
     transparent 72%
   );
 }
@@ -407,15 +401,18 @@ h3 {
 
 .robot-brain {
   position: absolute;
-  left: 22%;
-  top: 5.8%;
-  width: 56%;
-  height: 37.5%;
+  left: 18%;
+  top: 3.2%;
+  width: 64%;
+  height: 44%;
   z-index: 15;
   pointer-events: none;
-  overflow: hidden;
+  overflow: visible;
   mix-blend-mode: screen;
-  clip-path: ellipse(49% 51% at 50% 46%);
+  filter:
+    drop-shadow(0 0 14px rgba(255, 186, 90, 0.72))
+    drop-shadow(0 0 28px rgba(226, 58, 74, 0.85))
+    drop-shadow(0 0 48px rgba(196, 30, 58, 0.55));
 }
 .robot-brain-svg {
   display: block;
@@ -424,82 +421,91 @@ h3 {
   overflow: visible;
 }
 .robot-brain-halo {
-  animation: robot-brain-pulse 2.8s ease-in-out infinite;
+  animation: robot-brain-pulse 2.2s ease-in-out infinite;
   transform-origin: 120px 78px;
   transform-box: fill-box;
 }
 .robot-brain-core {
-  animation: robot-brain-pulse 3.4s ease-in-out infinite reverse;
+  animation: robot-brain-pulse 2.8s ease-in-out infinite reverse;
   transform-origin: 120px 80px;
   transform-box: fill-box;
 }
 .robot-brain-hemisphere {
-  fill: rgba(196, 30, 58, 0.38);
-  stroke: rgba(246, 235, 227, 0.9);
-  stroke-width: 1.7;
+  fill: rgba(255, 92, 92, 0.22);
+  stroke: none;
 }
 .robot-brain-fissure {
-  stroke: rgba(255, 248, 242, 0.75);
-  stroke-width: 1.25;
+  stroke: rgba(255, 248, 242, 0.92);
+  stroke-width: 1.45;
   stroke-linecap: round;
+  filter: drop-shadow(0 0 6px rgba(255, 214, 120, 0.9));
 }
 .robot-brain-sulcus {
   fill: none;
-  stroke-width: 1.05;
+  stroke-width: 1.35;
   stroke-linecap: round;
-  opacity: 0.85;
+  opacity: 0.95;
+  filter: drop-shadow(0 0 4px rgba(255, 186, 90, 0.7));
 }
 .robot-brain-synapse {
-  stroke: rgba(226, 58, 74, 0.7);
-  stroke-width: 0.9;
+  stroke: rgba(255, 214, 120, 0.88);
+  stroke-width: 1.35;
   stroke-linecap: round;
 }
 .robot-brain-synapse-hot {
-  stroke: rgba(226, 58, 74, 0.75);
-  stroke-dasharray: 4 6;
-  animation: robot-brain-synapse 3.6s linear infinite;
+  stroke: rgba(255, 255, 255, 0.95);
+  stroke-width: 1.7;
+  stroke-dasharray: 5 7;
+  animation: robot-brain-synapse 2.4s linear infinite;
+  filter: drop-shadow(0 0 6px rgba(255, 186, 90, 1));
 }
 .robot-brain-node {
-  fill: rgba(255, 248, 242, 0.95);
-  animation: robot-brain-node 2.4s ease-in-out infinite;
+  fill: rgba(255, 255, 255, 0.98);
+  animation: robot-brain-node 1.8s ease-in-out infinite;
+  filter: drop-shadow(0 0 5px rgba(255, 214, 120, 0.95));
+  transform-box: fill-box;
+  transform-origin: center;
 }
 .robot-brain-node-hot {
-  fill: #e23a4a;
-  filter: drop-shadow(0 0 4px rgba(196, 30, 58, 0.9));
+  fill: #ffe08a;
+  filter: drop-shadow(0 0 8px rgba(255, 186, 90, 1))
+    drop-shadow(0 0 14px rgba(226, 58, 74, 1));
 }
 
 @keyframes robot-brain-pulse {
   0%,
   100% {
-    opacity: 0.72;
-    transform: scale(0.96);
+    opacity: 0.78;
+    transform: scale(0.94);
   }
   50% {
     opacity: 1;
-    transform: scale(1.04);
+    transform: scale(1.12);
   }
 }
 @keyframes robot-brain-pulse-calm {
   0%,
   100% {
-    opacity: 0.78;
+    opacity: 0.82;
   }
   50% {
-    opacity: 0.94;
+    opacity: 1;
   }
 }
 @keyframes robot-brain-node {
   0%,
   100% {
     opacity: 0.55;
+    transform: scale(0.88);
   }
   50% {
     opacity: 1;
+    transform: scale(1.28);
   }
 }
 @keyframes robot-brain-synapse {
   to {
-    stroke-dashoffset: -28;
+    stroke-dashoffset: -36;
   }
 }
 

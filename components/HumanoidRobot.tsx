@@ -73,95 +73,119 @@ function AiBrain() {
     <div className="robot-brain" aria-hidden>
       <svg className="robot-brain-svg" viewBox="0 0 240 160" fill="none">
         <defs>
-          <clipPath id="robot-brain-cavity">
-            <path d="M120 4 C68 6 22 32 16 78 C10 118 42 154 92 158 C112 160 128 160 148 158 C198 154 230 118 224 78 C218 32 172 6 120 4 Z" />
-          </clipPath>
-          <radialGradient id="robot-brain-halo" cx="50%" cy="46%" r="56%">
-            <stop offset="0%" stopColor="rgba(246,235,227,0.88)" />
-            <stop offset="38%" stopColor="rgba(196,30,58,0.48)" />
-            <stop offset="68%" stopColor="rgba(226,58,74,0.22)" />
+          <filter
+            id="robot-brain-bloom"
+            x="-55%"
+            y="-55%"
+            width="210%"
+            height="210%"
+          >
+            <feGaussianBlur stdDeviation="7" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          <filter
+            id="robot-brain-spark"
+            x="-80%"
+            y="-80%"
+            width="260%"
+            height="260%"
+          >
+            <feGaussianBlur stdDeviation="2.4" result="spark" />
+            <feMerge>
+              <feMergeNode in="spark" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          <radialGradient id="robot-brain-halo" cx="50%" cy="46%" r="62%">
+            <stop offset="0%" stopColor="rgba(255,255,255,0.98)" />
+            <stop offset="18%" stopColor="rgba(255,214,120,0.85)" />
+            <stop offset="42%" stopColor="rgba(255,92,92,0.82)" />
+            <stop offset="68%" stopColor="rgba(226,58,74,0.42)" />
             <stop offset="100%" stopColor="rgba(196,30,58,0)" />
           </radialGradient>
-          <radialGradient id="robot-brain-core" cx="50%" cy="48%" r="42%">
-            <stop offset="0%" stopColor="rgba(255,248,242,0.82)" />
-            <stop offset="42%" stopColor="rgba(196,30,58,0.42)" />
+          <radialGradient id="robot-brain-core" cx="50%" cy="48%" r="48%">
+            <stop offset="0%" stopColor="rgba(255,255,255,1)" />
+            <stop offset="28%" stopColor="rgba(255,186,90,0.92)" />
+            <stop offset="58%" stopColor="rgba(226,58,74,0.78)" />
             <stop offset="100%" stopColor="rgba(196,30,58,0)" />
           </radialGradient>
           <linearGradient id="robot-brain-fold" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="rgba(226,58,74,0.55)" />
-            <stop offset="100%" stopColor="rgba(159,23,48,0.28)" />
+            <stop offset="0%" stopColor="rgba(255,214,120,0.95)" />
+            <stop offset="100%" stopColor="rgba(255,92,92,0.55)" />
           </linearGradient>
         </defs>
-        <g clipPath="url(#robot-brain-cavity)">
-          <ellipse
-            className="robot-brain-halo"
-            cx="120"
-            cy="78"
-            rx="108"
-            ry="72"
-            fill="url(#robot-brain-halo)"
-          />
-          <ellipse
-            className="robot-brain-core"
-            cx="120"
-            cy="80"
-            rx="72"
-            ry="52"
-            fill="url(#robot-brain-core)"
-          />
-          <path
-            className="robot-brain-hemisphere"
-            d="M120 20 C98 16 70 22 52 40 C32 60 26 86 34 108 C42 128 66 142 96 144 C110 145 118 136 120 124 V20 Z"
-          />
-          <path
-            className="robot-brain-hemisphere"
-            d="M120 20 C142 16 170 22 188 40 C208 60 214 86 206 108 C198 128 174 142 144 144 C130 145 122 136 120 124 V20 Z"
-          />
-          <path
-            className="robot-brain-fissure"
-            d="M120 24 V132"
-          />
-          <path
-            className="robot-brain-sulcus"
-            stroke="url(#robot-brain-fold)"
-            d="M72 42 C84 54 86 70 74 86 C64 98 70 112 86 120"
-          />
-          <path
-            className="robot-brain-sulcus"
-            stroke="url(#robot-brain-fold)"
-            d="M168 42 C156 54 154 70 166 86 C176 98 170 112 154 120"
-          />
-          <path
-            className="robot-brain-sulcus"
-            stroke="url(#robot-brain-fold)"
-            d="M54 70 C66 74 78 68 90 78 C98 86 92 100 104 108"
-          />
-          <path
-            className="robot-brain-sulcus"
-            stroke="url(#robot-brain-fold)"
-            d="M186 70 C174 74 162 68 150 78 C142 86 148 100 136 108"
-          />
-          <path
-            className="robot-brain-sulcus"
-            stroke="url(#robot-brain-fold)"
-            d="M100 38 C108 52 112 66 104 84"
-          />
-          <path
-            className="robot-brain-sulcus"
-            stroke="url(#robot-brain-fold)"
-            d="M140 38 C132 52 128 66 136 84"
-          />
+        <ellipse
+          className="robot-brain-halo"
+          cx="120"
+          cy="78"
+          rx="118"
+          ry="78"
+          fill="url(#robot-brain-halo)"
+          filter="url(#robot-brain-bloom)"
+        />
+        <ellipse
+          className="robot-brain-core"
+          cx="120"
+          cy="80"
+          rx="82"
+          ry="58"
+          fill="url(#robot-brain-core)"
+        />
+        <path
+          className="robot-brain-hemisphere"
+          d="M120 20 C98 16 70 22 52 40 C32 60 26 86 34 108 C42 128 66 142 96 144 C110 145 118 136 120 124 V20 Z"
+        />
+        <path
+          className="robot-brain-hemisphere"
+          d="M120 20 C142 16 170 22 188 40 C208 60 214 86 206 108 C198 128 174 142 144 144 C130 145 122 136 120 124 V20 Z"
+        />
+        <path className="robot-brain-fissure" d="M120 24 V132" />
+        <path
+          className="robot-brain-sulcus"
+          stroke="url(#robot-brain-fold)"
+          d="M72 42 C84 54 86 70 74 86 C64 98 70 112 86 120"
+        />
+        <path
+          className="robot-brain-sulcus"
+          stroke="url(#robot-brain-fold)"
+          d="M168 42 C156 54 154 70 166 86 C176 98 170 112 154 120"
+        />
+        <path
+          className="robot-brain-sulcus"
+          stroke="url(#robot-brain-fold)"
+          d="M54 70 C66 74 78 68 90 78 C98 86 92 100 104 108"
+        />
+        <path
+          className="robot-brain-sulcus"
+          stroke="url(#robot-brain-fold)"
+          d="M186 70 C174 74 162 68 150 78 C142 86 148 100 136 108"
+        />
+        <path
+          className="robot-brain-sulcus"
+          stroke="url(#robot-brain-fold)"
+          d="M100 38 C108 52 112 66 104 84"
+        />
+        <path
+          className="robot-brain-sulcus"
+          stroke="url(#robot-brain-fold)"
+          d="M140 38 C132 52 128 66 136 84"
+        />
+        <g filter="url(#robot-brain-spark)">
           {BRAIN_SYNAPSES.map(([a, b], i) => {
             const na = BRAIN_NODES[a];
             const nb = BRAIN_NODES[b];
             return (
               <line
                 key={`syn-${i}`}
-                className={`robot-brain-synapse${i % 3 === 0 ? " robot-brain-synapse-hot" : ""}`}
+                className={`robot-brain-synapse${i % 2 === 0 ? " robot-brain-synapse-hot" : ""}`}
                 x1={na.x}
                 y1={na.y}
                 x2={nb.x}
                 y2={nb.y}
+                style={{ animationDelay: `${(i % 5) * 0.18}s` }}
               />
             );
           })}
@@ -171,8 +195,8 @@ function AiBrain() {
               className={`robot-brain-node${n.hot ? " robot-brain-node-hot" : ""}`}
               cx={n.x}
               cy={n.y}
-              r={n.r}
-              style={{ animationDelay: `${(i % 7) * 0.28}s` }}
+              r={n.hot ? n.r + 1.1 : n.r + 0.4}
+              style={{ animationDelay: `${(i % 7) * 0.22}s` }}
             />
           ))}
         </g>
@@ -257,7 +281,7 @@ function RevolvingEye({ id }: { id: string }) {
         />
       </g>
       <g className="orbit">
-        <circle cx="50" cy="18" r="3.4" fill="#fff8f2" />
+        <circle cx="50" cy="18" r="3.4" fill="#f5f5f7" />
         <circle
           cx="50"
           cy="18"
@@ -413,7 +437,7 @@ export function HumanoidRobot() {
           className={
             allowed
               ? btnPrimary
-              : `${btnChip} border-[#c41e3a]/40 text-[#2a221f]`
+              : `${btnChip} border-[#0071e3]/40 text-[#1d1d1f]`
           }
           onClick={() => setAllowed((v) => !v)}
         >
