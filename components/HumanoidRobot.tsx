@@ -401,7 +401,7 @@ export function HumanoidRobot() {
           }`}
         >
           <div className="robot-brain-bleed" aria-hidden />
-          <Image>
+          <Image
             src="/images/revncia-mascot.png"
             alt="REVNCIA AI attendant"
             fill
