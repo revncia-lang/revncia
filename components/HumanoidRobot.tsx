@@ -75,10 +75,10 @@ function AiBrain() {
         <defs>
           <filter
             id="robot-brain-bloom"
-            x="-70%"
-            y="-70%"
-            width="240%"
-            height="240%"
+            x="-90%"
+            y="-90%"
+            width="280%"
+            height="280%"
           >
             <feGaussianBlur stdDeviation="14" result="blur" />
             <feMerge>
@@ -200,9 +200,9 @@ function RevolvingEye({ id }: { id: string }) {
       <defs>
         <radialGradient id={`${id}-glow`} cx="50%" cy="50%" r="50%">
           <stop offset="0%" stopColor="rgba(255,255,255,0.95)" />
-          <stop offset="28%" stopColor="rgba(0,113,227,0.58)" />
-          <stop offset="70%" stopColor="rgba(0,113,227,0.18)" />
-          <stop offset="100%" stopColor="rgba(0,113,227,0)" />
+          <stop offset="28%" stopColor="rgba(255,59,48,0.58)" />
+          <stop offset="70%" stopColor="rgba(255,59,48,0.18)" />
+          <stop offset="100%" stopColor="rgba(255,59,48,0)" />
         </radialGradient>
       </defs>
       <circle cx="50" cy="50" r="46" fill={`url(#${id}-glow)`} opacity="0.55" />
@@ -211,14 +211,14 @@ function RevolvingEye({ id }: { id: string }) {
           cx="50"
           cy="50"
           r="42"
-          stroke="rgba(0,113,227,0.88)"
+          stroke="rgba(255,59,48,0.88)"
           strokeWidth="1.15"
         />
         <circle
           cx="50"
           cy="50"
           r="42"
-              stroke="rgba(0,122,255,0.7)"
+          stroke="rgba(255,159,10,0.7)"
           strokeWidth="1.1"
           strokeDasharray="6 10 2 8"
           strokeLinecap="round"
@@ -235,7 +235,7 @@ function RevolvingEye({ id }: { id: string }) {
               y1={50 + Math.sin(a) * inner}
               x2={50 + Math.cos(a) * outer}
               y2={50 + Math.sin(a) * outer}
-              stroke={major ? "rgba(0,122,255,0.95)" : "rgba(0,113,227,0.72)"}
+              stroke={major ? "rgba(255,159,10,0.95)" : "rgba(255,59,48,0.72)"}
               strokeWidth={major ? 1.4 : 0.8}
             />
           );
@@ -246,7 +246,7 @@ function RevolvingEye({ id }: { id: string }) {
           cx="50"
           cy="50"
           r="28"
-          stroke="rgba(0,113,227,0.5)"
+          stroke="rgba(255,59,48,0.5)"
           strokeWidth="0.9"
           strokeDasharray="3 5"
         />
@@ -254,18 +254,18 @@ function RevolvingEye({ id }: { id: string }) {
           cx="50"
           cy="50"
           r="21"
-          stroke="rgba(0,113,227,0.78)"
+          stroke="rgba(255,59,48,0.78)"
           strokeWidth="1"
         />
       </g>
       <g className="spin spin-scan">
         <path
           d="M50 50 L50 8 A42 42 0 0 1 86 28 Z"
-          fill="rgba(0,113,227,0.16)"
+          fill="rgba(255,59,48,0.16)"
         />
         <path
           d="M50 50 L86 28"
-          stroke="rgba(0,113,227,0.85)"
+          stroke="rgba(255,59,48,0.85)"
           strokeWidth="1.1"
         />
       </g>
@@ -275,17 +275,17 @@ function RevolvingEye({ id }: { id: string }) {
           cx="50"
           cy="18"
           r="6.2"
-          stroke="rgba(0,113,227,0.75)"
+          stroke="rgba(255,59,48,0.75)"
           strokeWidth="0.9"
         />
-        <circle cx="50" cy="82" r="2.1" fill="rgba(0,113,227,0.95)" />
+        <circle cx="50" cy="82" r="2.1" fill="rgba(255,59,48,0.95)" />
       </g>
       <circle className="robot-eye-core" cx="50" cy="50" r="7.5" fill="#fff" />
       <circle
         cx="50"
         cy="50"
         r="11"
-        stroke="rgba(0,113,227,0.92)"
+        stroke="rgba(255,59,48,0.92)"
         strokeWidth="1.2"
       />
     </svg>
@@ -401,8 +401,7 @@ export function HumanoidRobot() {
           }`}
         >
           <div className="robot-brain-bleed" aria-hidden />
-          <AiBrainGlow />
-          <Image
+          <Image>
             src="/images/revncia-mascot.png"
             alt="REVNCIA AI attendant"
             fill
