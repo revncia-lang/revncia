@@ -11,7 +11,7 @@ import {
   type CustomerFacility,
   type HonestyLimit,
 } from "@/lib/facilities";
-import { btnSecondary, kicker, shell, surface, surfaceHover, tabItem } from "@/lib/ui";
+import { btnSecondary, kicker, shell, surface, surfaceHover } from "@/lib/ui";
 
 function RelatedLines({ slugs }: { slugs: string[] }) {
   return (
@@ -45,8 +45,8 @@ function ListBlock({
 }) {
   const box =
     tone === "omit"
-      ? "border-[#0071e3]/15 bg-[#fbfbfd] text-stone-700"
-      : "border-[#0071e3]/20 bg-[#e8f1ff] text-stone-700";
+      ? "border-white/15 bg-[#002436] text-white hover:bg-[#002436] hover:text-white"
+      : "border-white/20 bg-[#002436] text-white hover:bg-[#002436] hover:text-white";
   return (
     <div>
       <h4 className="text-[0.68rem] tracking-[0.14em] uppercase text-[#0071e3]">
@@ -54,7 +54,7 @@ function ListBlock({
       </h4>
       <ul className="mt-2 space-y-2">
         {items.map((item) => (
-          <li key={item} className={`border px-3 py-2 text-sm leading-relaxed ${box}`}>
+          <li key={item} className={`resource-tab border px-3 py-2 text-sm leading-relaxed ${box}`}>
             {item}
           </li>
         ))}
@@ -152,9 +152,9 @@ export function HonestyCards({ items }: { items: HonestyLimit[] }) {
   return (
     <ul className="grid gap-3 md:grid-cols-2">
       {items.map((item) => (
-        <li key={item.id} className="border border-[#0071e3]/25 bg-[#ffffff] p-4">
-          <p className="font-serif text-lg text-[#0071e3]">{item.title}</p>
-          <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-stone-700">
+        <li key={item.id} className="resource-tab border border-white/15 bg-[#002436] p-4 text-white hover:bg-[#002436] hover:text-white">
+          <p className="font-serif text-lg text-white">{item.title}</p>
+          <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-white">
             {item.text}
           </p>
         </li>
