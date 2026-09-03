@@ -11,7 +11,7 @@ export function Header() {
   const path = usePathname();
 
   return (
-    <header className="site-header relative sticky top-0 z-50 border-b border-white/15 bg-black text-white">
+    <header className="site-header relative sticky top-0 z-50 border-b border-white/15 bg-[#002436] text-white">
       <div className={`${shell} flex min-h-[76px] items-center justify-between gap-4`}>
         <Link href="/" className="min-w-0 shrink-0 text-white">
           <Logo />

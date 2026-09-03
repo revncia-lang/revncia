@@ -24,6 +24,17 @@ npm run deploy
 
 That runs `opennextjs-cloudflare build` then `opennextjs-cloudflare deploy` (Worker + `.open-next/assets`). Do **not** use `wrangler pages deploy ./public`.
 
+### GitHub Actions (automatic on push)
+
+Pushes to **`revncia-corporate-website`** or **`main`** run `.github/workflows/deploy.yml`: `npm ci` → OpenNext Cloudflare build → `wrangler deploy` to Worker `revncia` (`https://revncia.revncia.workers.dev`). You can also run the workflow manually (**Actions** → **Deploy Worker** → **Run workflow**).
+
+Add these repository secrets (Settings → Secrets and variables → Actions). Do not commit tokens.
+
+| Secret | Purpose |
+| --- | --- |
+| `CLOUDFLARE_API_TOKEN` | API token with **Account → Cloudflare Workers Scripts → Edit** (and typically **Account → Account Settings → Read**). Create at [Cloudflare API tokens](https://dash.cloudflare.com/profile/api-tokens). |
+| `CLOUDFLARE_ACCOUNT_ID` | Account ID from the Cloudflare dashboard (Workers overview or account URL). |
+
 ### Workers Builds (recommended Git deploy)
 
 Workers & Pages → Create → **Workers** (not classic Pages static) → connect `revncia-lang/revncia` → production branch **`revncia-corporate-website`**:

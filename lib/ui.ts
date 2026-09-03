@@ -14,25 +14,25 @@ export const heading3 =
   "font-sans font-semibold tracking-tight text-2xl leading-snug md:text-[1.75rem]";
 
 const btnFocus =
-  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-black";
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7ebde0]/80 focus-visible:ring-offset-2 focus-visible:ring-offset-[#002436]";
 
-const btnOrange =
-  "btn-cta border border-orange-600 bg-orange-500 text-white shadow-[0_0_24px_rgba(249,115,22,0.28)] transition hover:border-orange-700 hover:bg-orange-600 hover:text-white";
+const btnBrand =
+  "btn-cta border border-[#327eae] bg-[#3B91C7] text-white shadow-[0_0_24px_rgba(59,145,199,0.28)] transition hover:border-[#276890] hover:bg-[#2F7AAB] hover:text-white";
 
 export const btnPrimary =
-  `inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-[0.68rem] font-semibold tracking-[0.12em] uppercase ${btnOrange} ${btnFocus}`;
+  `inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-[0.68rem] font-semibold tracking-[0.12em] uppercase ${btnBrand} ${btnFocus}`;
 
 export const btnSecondary =
-  `inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-[0.68rem] font-semibold tracking-[0.12em] uppercase ${btnOrange} ${btnFocus}`;
+  `inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-[0.68rem] font-semibold tracking-[0.12em] uppercase ${btnBrand} ${btnFocus}`;
 
 export const btnGhost =
-  `inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-[0.68rem] font-semibold tracking-[0.12em] uppercase ${btnOrange} ${btnFocus}`;
+  `inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-[0.68rem] font-semibold tracking-[0.12em] uppercase ${btnBrand} ${btnFocus}`;
 
 export const btnChip =
-  `inline-flex items-center justify-center gap-1.5 rounded-lg px-3 py-2 text-[0.62rem] font-semibold tracking-[0.1em] uppercase disabled:cursor-not-allowed disabled:opacity-40 ${btnOrange} ${btnFocus}`;
+  `inline-flex items-center justify-center gap-1.5 rounded-lg px-3 py-2 text-[0.62rem] font-semibold tracking-[0.1em] uppercase disabled:cursor-not-allowed disabled:opacity-40 ${btnBrand} ${btnFocus}`;
 
 export const tabItem =
-  "nav-tab inline-flex items-center justify-center rounded-lg bg-black px-3 py-2 text-[0.62rem] font-semibold tracking-[0.14em] uppercase text-white transition hover:bg-black hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black";
+  "nav-tab inline-flex items-center justify-center rounded-lg bg-black px-3 py-2 text-[0.62rem] font-semibold tracking-[0.14em] uppercase text-white transition hover:bg-black hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#002436]";
 
 export const surface =
   "rounded-2xl border border-white/10 bg-white/[0.025] shadow-[0_18px_60px_rgba(0,0,0,0.24)] backdrop-blur-sm";

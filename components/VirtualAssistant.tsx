@@ -251,7 +251,7 @@ export function VirtualAssistant() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="btn-cta inline-flex h-12 min-w-[5.5rem] items-center justify-center rounded-full border px-6 text-sm font-semibold tracking-normal text-white shadow-[0_8px_24px_rgba(249,115,22,0.28)] transition hover:bg-orange-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+        className="btn-cta inline-flex h-12 min-w-[5.5rem] items-center justify-center rounded-full border px-6 text-sm font-semibold tracking-normal text-white shadow-[0_8px_24px_rgba(59,145,199,0.28)] transition hover:bg-[#2F7AAB] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7ebde0]/80 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
         aria-label="Help!"
         aria-expanded={open}
       >
