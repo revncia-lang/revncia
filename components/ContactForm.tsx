@@ -39,9 +39,9 @@ export function ContactForm() {
 
   if (sent) {
     return (
-      <p className="rounded-xl border border-[#d2d2d7] bg-[#e8f1ff] p-6 text-sm leading-relaxed break-words text-stone-700">
+      <p className="rounded-xl border border-cyan-200/15 bg-cyan-200/[.05] p-6 text-sm leading-relaxed break-words text-white/65">
         Your email client should open with the message ready for{" "}
-        <a className="break-all text-[#0071e3] underline" href={`mailto:${company.email}`}>
+        <a className="break-all text-cyan-200/80 underline" href={`mailto:${company.email}`}>
           {company.email}
         </a>
         . If it does not, write us directly.
@@ -52,22 +52,22 @@ export function ContactForm() {
   return (
     <form onSubmit={onSubmit} className="grid w-full min-w-0 gap-5">
       <label className="grid min-w-0 gap-1.5">
-        <span className="text-sm text-stone-900">Name</span>
-        <span className="text-xs leading-relaxed text-stone-500">
+        <span className="text-sm text-white/80">Name</span>
+        <span className="text-xs leading-relaxed text-white/35">
           The person we should address in the reply.
         </span>
         <input required name="name" autoComplete="name" className={field} />
       </label>
       <label className="grid min-w-0 gap-1.5">
-        <span className="text-sm text-stone-900">Organization</span>
-        <span className="text-xs leading-relaxed text-stone-500">
+        <span className="text-sm text-white/80">Organization</span>
+        <span className="text-xs leading-relaxed text-white/35">
           Company, ministry, university, or NGO — optional.
         </span>
         <input name="org" autoComplete="organization" className={field} />
       </label>
       <label className="grid min-w-0 gap-1.5">
-        <span className="text-sm text-stone-900">Email</span>
-        <span className="text-xs leading-relaxed text-stone-500">
+        <span className="text-sm text-white/80">Email</span>
+        <span className="text-xs leading-relaxed text-white/35">
           We reply to this address from {company.email}.
         </span>
         <input
@@ -79,8 +79,8 @@ export function ContactForm() {
         />
       </label>
       <label className="grid min-w-0 gap-1.5">
-        <span className="text-sm text-stone-900">Interest</span>
-        <span className="text-xs leading-relaxed text-stone-500">
+        <span className="text-sm text-white/80">Interest</span>
+        <span className="text-xs leading-relaxed text-white/35">
           Name the work so the right person replies.
         </span>
         <select
@@ -102,8 +102,8 @@ export function ContactForm() {
         </select>
       </label>
       <label className="grid min-w-0 gap-1.5">
-        <span className="text-sm text-stone-900">How can we help?</span>
-        <span className="text-xs leading-relaxed text-stone-500">
+        <span className="text-sm text-white/80">How can we help?</span>
+        <span className="text-xs leading-relaxed text-white/35">
           Volume, systems in use, and the outcome you need. Wrap as you type —
           the field expands.
         </span>

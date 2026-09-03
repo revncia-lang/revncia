@@ -17,6 +17,7 @@ export default function AboutPage() {
   return (
     <main>
       <PageHero
+        sceneId="about-hero" sceneTitle="REVNCIA organization and governance" cta={{href:"/contact",label:"Meet REVNCIA"}} 
         kicker="Who we are"
         title="A company you can introduce to a board — office published, limits written, work owned."
         lede="Customers get Voice, WhatsApp, CRM, ERP, documents, and citizen services they can actually operate. Together we transform how work gets done — with written limits, not a launch announcement. Cyber is implementation plus partners. Healthcare is administrative. Marketing is a capability, not our name."

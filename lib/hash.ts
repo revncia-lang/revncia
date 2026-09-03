@@ -7,15 +7,11 @@ export function hash32(s: string) {
 }
 
 export function palette(seed: number) {
-  const hues = [211, 205, 220, 200, 215, 199];
-  const h1 = hues[seed % hues.length];
-  const h2 = hues[(seed * 3) % hues.length];
-  const h3 = hues[(seed * 7) % hues.length];
   return {
-    a: `hsl(${h1} 86% 46%)`,
-    b: `hsl(${h2} 12% 58%)`,
-    c: `hsl(${h3} 10% 42%)`,
-    dim: `hsl(${h1} 24% 96%)`,
+    a: "#ffffff",
+    b: "#a9b1b8",
+    c: "#62d9ff",
+    dim: "#05080a",
   };
 }
 

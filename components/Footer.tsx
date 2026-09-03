@@ -1,144 +1,34 @@
 import Link from "next/link";
 import { policies } from "@/lib/policies";
 import { company, nav } from "@/lib/site";
-import { BetaLabel } from "@/components/BetaLabel";
 import { Logo } from "./Logo";
 import { btnPrimary, btnSecondary, shell } from "@/lib/ui";
 
-const actions = [
-  {
-    href: "/contact",
-    label: "Talk with us",
-    hint: "Name who waits — callers, chats, files, or a plan.",
-  },
-  {
-    href: "/services",
-    label: "See every service",
-    hint: "Pick the work that is waiting — callers, chats, files, or a plan.",
-  },
-  {
-    href: "/about",
-    label: "Who we are",
-    hint: "Who leads the work, and how we work with you.",
-  },
-] as const;
-
-const col =
-  "flex h-full min-h-0 min-w-0 flex-col rounded-xl border border-[#d2d2d7] bg-[#ffffff] p-5";
-
 export function Footer() {
   return (
-    <footer className="mt-auto border-t border-[#d2d2d7] bg-[#f5f5f7]/92 text-[#1d1d1f]">
-      <div className={`${shell} grid grid-cols-1 items-stretch gap-4 py-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5`}>
-        <div className={col}>
+    <footer className="mt-auto border-t border-white/10 bg-black text-white">
+      <div className={`${shell} grid gap-5 py-16 sm:grid-cols-2 lg:grid-cols-4`}>
+        <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
           <Logo />
-          <p className="mt-4 flex-1 text-sm leading-relaxed text-pretty break-words text-stone-600">
-            Customers get answers. Staff get one system. The public gets a
-            record they can trust. Together we transform.
-          </p>
-          <p className="mt-4 text-[0.7rem] font-semibold tracking-[0.16em] uppercase text-[#0071e3]">
-            {company.motto}
-          </p>
+          <p className="mt-5 text-sm leading-7 text-white/45">AI transformation, automation, intelligence and measurable public impact — delivered as systems people can actually run.</p>
+          <p className="mt-5 text-[0.62rem] font-semibold tracking-[0.2em] uppercase text-cyan-200/70">{company.motto}</p>
         </div>
-
-        <nav className={col} aria-label="Footer">
-          <p className="shrink-0 text-[0.7rem] font-semibold tracking-[0.18em] uppercase text-[#0071e3]">
-            Where to start
-          </p>
-          <ul className="mt-4 flex flex-1 flex-col gap-2.5">
-            {nav.map((item) => (
-              <li key={item.href} className="min-w-0">
-                <Link
-                  href={item.href}
-                  title={item.explain}
-                  className="block text-sm leading-snug text-stone-800 hover:text-[#0071e3]"
-                >
-                  {item.label}
-                </Link>
-                <p className="mt-0.5 text-[0.7rem] leading-snug text-pretty break-words text-stone-500">
-                  {item.hint}
-                </p>
-              </li>
-            ))}
-          </ul>
+        <nav className="rounded-2xl border border-white/10 bg-white/[0.02] p-6" aria-label="Footer">
+          <p className="text-[0.62rem] font-semibold tracking-[0.2em] uppercase text-white/35">Explore</p>
+          <ul className="mt-5 space-y-3">{nav.map(item => <li key={item.href}><Link href={item.href} className="text-sm text-white/55 transition hover:text-white">{item.label}</Link></li>)}</ul>
         </nav>
-
-        <div className={col}>
-          <p className="shrink-0 text-[0.7rem] font-semibold tracking-[0.18em] uppercase text-[#0071e3]">
-            Next step
-          </p>
-          <ul className="mt-4 flex flex-1 flex-col gap-4">
-            {actions.map((item, idx) => (
-              <li key={item.href} className="min-w-0">
-                <Link
-                  href={item.href}
-                  className={`${idx === 0 ? btnPrimary : btnSecondary} w-full`}
-                >
-                  {item.label}
-                  {idx === 0 ? <BetaLabel /> : null}
-                </Link>
-                <p className="mt-2 text-[0.7rem] leading-snug text-pretty break-words text-stone-500">
-                  {item.hint}
-                </p>
-              </li>
-            ))}
-          </ul>
+        <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+          <p className="text-[0.62rem] font-semibold tracking-[0.2em] uppercase text-white/35">Move forward</p>
+          <div className="mt-5 grid gap-3"><Link href="/services" className={btnPrimary}>Explore all services →</Link><Link href="/platform" className={btnSecondary}>Explore platform →</Link><Link href="/contact" className={btnSecondary}>Talk to an expert →</Link></div>
         </div>
-
-        <div className={col}>
-          <p className="shrink-0 text-[0.7rem] font-semibold tracking-[0.18em] uppercase text-[#0071e3]">
-            Contact
-          </p>
-          <p className="mt-4 text-sm leading-relaxed text-pretty break-words text-stone-700">
-            {company.name}
-          </p>
-          <p className="mt-2 flex-1 text-sm leading-relaxed text-pretty break-words text-stone-600">
-            {company.address}
-          </p>
-          <a
-            href={`mailto:${company.email}`}
-            className="mt-3 break-all text-sm leading-snug text-[#0071e3] underline-offset-4 hover:underline"
-          >
-            {company.email}
-          </a>
-          <p className="mt-3 text-[0.7rem] leading-snug text-pretty break-words text-stone-500">
-            Email is how we start. Name the work in the subject so the right
-            person replies.
-          </p>
+        <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+          <p className="text-[0.62rem] font-semibold tracking-[0.2em] uppercase text-white/35">REVNCIA</p>
+          <p className="mt-5 text-sm leading-7 text-white/55">{company.address}</p>
+          <a href={`mailto:${company.email}`} className="mt-4 block break-all text-sm text-cyan-200/80 hover:text-cyan-100">{company.email}</a>
+          <p className="mt-6 text-xs leading-6 text-white/30">© 2026 {company.name}. All rights reserved.</p>
         </div>
       </div>
-
-      <div className="border-t border-[#d2d2d7]">
-        <div
-          className={`${shell} flex flex-col items-center py-6 text-center text-xs leading-relaxed text-pretty break-words text-stone-500`}
-        >
-          <p className="min-w-0">
-            © 2026 {company.name}. All rights reserved.
-          </p>
-          <nav className="mt-4 min-w-0 w-full" aria-label="Policies">
-            <p className="text-[0.65rem] font-semibold tracking-[0.16em] uppercase text-stone-500">
-              Policies
-            </p>
-            <ul className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
-              <li>
-                <Link href="/policies" className="text-stone-500 hover:text-[#0071e3]">
-                  All policies
-                </Link>
-              </li>
-              {policies.map((p) => (
-                <li key={p.slug}>
-                  <Link
-                    href={`/policies/${p.slug}`}
-                    className="text-stone-500 hover:text-[#0071e3]"
-                  >
-                    {p.navLabel}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
-      </div>
+      <div className="border-t border-white/10"><div className={`${shell} flex flex-wrap items-center justify-center gap-x-5 gap-y-2 py-5 text-xs text-white/30`}><Link href="/policies">Policies</Link>{policies.map(p => <Link key={p.slug} href={`/policies/${p.slug}`}>{p.navLabel}</Link>)}</div></div>
     </footer>
   );
 }

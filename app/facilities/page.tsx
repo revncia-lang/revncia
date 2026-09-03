@@ -19,6 +19,7 @@ export default function FacilitiesPage() {
   return (
     <main>
       <PageHero
+        sceneId="facilities-hero" sceneTitle="REVNCIA customer operating facilities" cta={{href:"/contact",label:"Plan your facility"}} 
         kicker={facilitiesIntro.kicker}
         title={facilitiesIntro.title}
         lede={facilitiesIntro.lede}

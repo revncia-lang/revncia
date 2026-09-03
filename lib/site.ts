@@ -19,42 +19,42 @@ export const nav = [
   },
   {
     href: "/platform",
-    label: "AI Platform",
+    label: "Platform",
     hint: "One door for staff AI — cost, identity, and a log you can show.",
     explain:
       "Choose this if staff already use AI without shared rules, cost control, or a log you can show. You get one door for models, identity, and spend — not another personal chatbot login.",
   },
   {
     href: "/services",
-    label: "What we deliver",
+    label: "Services",
     hint: "Voice, WhatsApp, CRM, ERP, government — pick what waits first.",
     explain:
       "Choose a service by who waits: callers, WhatsApp chats, unread files, citizen cases, or a board that wants a plan. Each service says what you receive, who it helps, and what happens after go-live.",
   },
   {
     href: "/facilities",
-    label: "What you get",
+    label: "Resources",
     hint: "Voice, WhatsApp, Gateway, CRM, documents, citizen access, and how we stay.",
     explain:
       "Choose this to see what callers, staff, and citizens can actually use after go-live — Voice, WhatsApp, Gateway, CRM, documents, citizen access — and how you buy and reach us.",
   },
   {
     href: "/industries",
-    label: "Your sector",
+    label: "Industries",
     hint: "Citizens, students, patients’ admin, bank customers, shoppers.",
     explain:
       "Choose this if you serve citizens, students, patients’ admin, bank customers, or shoppers. Same platform, shaped for the people you already serve — with the limits that apply in your sector.",
   },
   {
     href: "/about",
-    label: "Who we are",
+    label: "About",
     hint: "Office, limits, and how you can buy.",
     explain:
       "Choose this if you need to introduce REVNCIA to a board: who we are, the Cheyenne office, how we behave, how you can buy, and the limits we state before you sign.",
   },
   {
     href: "/contact",
-    label: "Talk with us",
+    label: "Contact",
     hint: "Name who waits. We reply from the published office.",
     explain:
       "Write when you know who waits — callers, chats, files, or a plan. Name the work so we can reply from the published office. Email-first — no invented phone or WhatsApp token.",

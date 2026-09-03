@@ -47,6 +47,7 @@ export default function IndustriesPage() {
   return (
     <main>
       <PageHero
+        sceneId="industries-hero" sceneTitle="REVNCIA industry transformation network" cta={{href:"/contact",label:"Talk about your sector"}} 
         kicker="Your sector"
         title="The people you serve already have a mandate — we shape the platform to it."
         lede="Citizens need status. Students need answers so teachers can teach. Patients need reminders — not a clinical product. Bank customers need a file you can defend. Shoppers need a reply. Enterprises and NGOs need a pack they can compare. Together we transform the work your sector is already responsible for."

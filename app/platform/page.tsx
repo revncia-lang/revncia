@@ -15,10 +15,11 @@ export const metadata: Metadata = {
 };
 
 export default function PlatformPage() {
-  const core = offerings.find((o) => o.slug === "ai-platform")!;
+  const core = offerings.find((o) => o.slug === "ai-transformation")!;
   return (
     <main>
       <PageHero
+        sceneId="platform-hero" sceneTitle="REVNCIA AI Gateway architecture" cta={{href:"/contact",label:"Discuss your AI operating model"}} 
         kicker="AI Platform"
         title="Your staff run AI through one door — with cost, identity, and a log you can show."
         lede="Customers and employees should not depend on personal chatbot logins. You receive an AI Gateway: the right model, the right access, a cost envelope your owner can defend, and a trail a board can read. After go-live new assistants reuse the same door. Together we transform how the organisation runs AI — without losing the audit trail. We do not publish a token price list or a public API key."

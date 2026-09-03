@@ -101,8 +101,8 @@ function AiBrain() {
           </filter>
           <radialGradient id="robot-brain-halo" cx="50%" cy="46%" r="86%">
             <stop offset="0%" stopColor="rgba(255,255,255,0.42)" />
-            <stop offset="22%" stopColor="rgba(0,122,255,0.28)" />
-            <stop offset="52%" stopColor="rgba(0,113,227,0.14)" />
+            <stop offset="22%" stopColor="rgba(98,217,255,0.16)" />
+            <stop offset="52%" stopColor="rgba(98,217,255,0.08)" />
             <stop offset="100%" stopColor="rgba(0,113,227,0)" />
           </radialGradient>
           <radialGradient id="robot-brain-core" cx="50%" cy="48%" r="64%">
@@ -111,8 +111,8 @@ function AiBrain() {
             <stop offset="100%" stopColor="rgba(0,113,227,0)" />
           </radialGradient>
           <linearGradient id="robot-brain-fold" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="rgba(125,193,255,0.4)" />
-            <stop offset="100%" stopColor="rgba(0,113,227,0.2)" />
+            <stop offset="0%" stopColor="rgba(255,255,255,0.34)" />
+            <stop offset="100%" stopColor="rgba(98,217,255,0.10)" />
           </linearGradient>
         </defs>
         <ellipse
@@ -200,9 +200,9 @@ function RevolvingEye({ id }: { id: string }) {
       <defs>
         <radialGradient id={`${id}-glow`} cx="50%" cy="50%" r="50%">
           <stop offset="0%" stopColor="rgba(255,255,255,0.95)" />
-          <stop offset="28%" stopColor="rgba(255,59,48,0.58)" />
-          <stop offset="70%" stopColor="rgba(255,59,48,0.18)" />
-          <stop offset="100%" stopColor="rgba(255,59,48,0)" />
+          <stop offset="28%" stopColor="rgba(98,217,255,0.20)" />
+          <stop offset="70%" stopColor="rgba(98,217,255,0.07)" />
+          <stop offset="100%" stopColor="rgba(98,217,255,0)" />
         </radialGradient>
       </defs>
       <circle cx="50" cy="50" r="46" fill={`url(#${id}-glow)`} opacity="0.55" />
@@ -211,14 +211,14 @@ function RevolvingEye({ id }: { id: string }) {
           cx="50"
           cy="50"
           r="42"
-          stroke="rgba(255,59,48,0.88)"
+          stroke="rgba(255,255,255,0.72)"
           strokeWidth="1.15"
         />
         <circle
           cx="50"
           cy="50"
           r="42"
-          stroke="rgba(255,159,10,0.7)"
+          stroke="rgba(255,255,255,0.34)"
           strokeWidth="1.1"
           strokeDasharray="6 10 2 8"
           strokeLinecap="round"
@@ -235,7 +235,7 @@ function RevolvingEye({ id }: { id: string }) {
               y1={50 + Math.sin(a) * inner}
               x2={50 + Math.cos(a) * outer}
               y2={50 + Math.sin(a) * outer}
-              stroke={major ? "rgba(255,159,10,0.95)" : "rgba(255,59,48,0.72)"}
+              stroke={major ? "rgba(255,255,255,0.72)" : "rgba(255,255,255,0.42)"}
               strokeWidth={major ? 1.4 : 0.8}
             />
           );
@@ -246,7 +246,7 @@ function RevolvingEye({ id }: { id: string }) {
           cx="50"
           cy="50"
           r="28"
-          stroke="rgba(255,59,48,0.5)"
+          stroke="rgba(255,255,255,0.24)"
           strokeWidth="0.9"
           strokeDasharray="3 5"
         />
@@ -254,18 +254,18 @@ function RevolvingEye({ id }: { id: string }) {
           cx="50"
           cy="50"
           r="21"
-          stroke="rgba(255,59,48,0.78)"
+          stroke="rgba(255,255,255,0.54)"
           strokeWidth="1"
         />
       </g>
       <g className="spin spin-scan">
         <path
           d="M50 50 L50 8 A42 42 0 0 1 86 28 Z"
-          fill="rgba(255,59,48,0.16)"
+          fill="rgba(98,217,255,0.06)"
         />
         <path
           d="M50 50 L86 28"
-          stroke="rgba(255,59,48,0.85)"
+          stroke="rgba(98,217,255,0.48)"
           strokeWidth="1.1"
         />
       </g>
@@ -278,14 +278,14 @@ function RevolvingEye({ id }: { id: string }) {
           stroke="rgba(255,59,48,0.75)"
           strokeWidth="0.9"
         />
-        <circle cx="50" cy="82" r="2.1" fill="rgba(255,59,48,0.95)" />
+        <circle cx="50" cy="82" r="2.1" fill="rgba(98,217,255,0.62)" />
       </g>
       <circle className="robot-eye-core" cx="50" cy="50" r="7.5" fill="#fff" />
       <circle
         cx="50"
         cy="50"
         r="11"
-        stroke="rgba(255,59,48,0.92)"
+        stroke="rgba(255,255,255,0.58)"
         strokeWidth="1.2"
       />
     </svg>
@@ -402,7 +402,7 @@ export function HumanoidRobot() {
         >
           <div className="robot-brain-bleed" aria-hidden />
           <Image
-            src="/images/revncia-mascot.png"
+            src="/images/revncia-mascot-wireframe.png"
             alt="REVNCIA AI attendant"
             fill
             priority
@@ -427,7 +427,7 @@ export function HumanoidRobot() {
           className={
             allowed
               ? btnPrimary
-              : `${btnChip} border-[#0071e3]/40 text-[#1d1d1f]`
+              : `${btnChip} border-white/20 text-white/75`
           }
           onClick={() => setAllowed((v) => !v)}
         >

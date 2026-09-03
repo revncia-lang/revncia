@@ -36,8 +36,8 @@ export function UniqueChart({
     <figure
       className={
         embedded
-          ? "min-w-0 w-full overflow-hidden bg-[#ffffff] px-4 pb-3 pt-2"
-          : "min-w-0 w-full overflow-hidden rounded-xl border border-[#d2d2d7] bg-[#ffffff] p-4 shadow-[0_10px_28px_rgba(90,46,36,0.05)]"
+          ? "min-w-0 w-full overflow-hidden bg-[#05080a] px-4 pb-3 pt-2"
+          : "min-w-0 w-full overflow-hidden rounded-xl border border-[rgba(255,255,255,0.12)] bg-[#05080a] p-4 shadow-[0_10px_28px_rgba(90,46,36,0.05)]"
       }
     >
       <figcaption className="text-pretty text-[0.68rem] font-semibold leading-snug tracking-[0.08em] uppercase text-stone-600">
@@ -59,18 +59,18 @@ export function UniqueChart({
               y1={y}
               x2={320 - padR}
               y2={y}
-              stroke="#d2d2d7"
+              stroke="rgba(255,255,255,0.12)"
               strokeWidth="1"
             />
           );
         })}
-        <line x1={padL} y1={padT} x2={padL} y2={h - padB} stroke="#d2d2d7" />
+        <line x1={padL} y1={padT} x2={padL} y2={h - padB} stroke="rgba(255,255,255,0.12)" />
         <line
           x1={padL}
           y1={h - padB}
           x2={320 - padR}
           y2={h - padB}
-          stroke="#d2d2d7"
+          stroke="rgba(255,255,255,0.12)"
         />
 
         {kind === 0 &&
@@ -140,7 +140,7 @@ export function UniqueChart({
                     y1="0"
                     x2={Math.cos(a) * 50}
                     y2={Math.sin(a) * 42}
-                    stroke="#d2d2d7"
+                    stroke="rgba(255,255,255,0.12)"
                   />
                   <line
                     x1="0"
@@ -256,7 +256,7 @@ export function UniqueChart({
                 );
               });
             })()}
-            <circle r="20" fill="#ffffff" />
+            <circle r="20" fill="#05080a" />
           </g>
         )}
 
@@ -296,7 +296,7 @@ export function UniqueChart({
                   width="18"
                   height={plotH - 10}
                   rx="2"
-                  fill="#f5f5f7"
+                  fill="#0a0f12"
                 />
                 <rect
                   x={x}
@@ -375,7 +375,7 @@ export function UniqueChart({
             x={padL + (i * plotW) / Math.max(labels.length - 1, 1)}
             y={h - 8}
             textAnchor="middle"
-            fill="#6f645c"
+            fill="rgba(255,255,255,0.38)"
             fontSize="8"
             fontFamily="ui-sans-serif, system-ui"
           >

@@ -5,54 +5,30 @@ import { usePathname } from "next/navigation";
 import { Logo } from "./Logo";
 import { HeaderMenu } from "./HeaderMenu";
 import { nav } from "@/lib/site";
-import { BetaLabel } from "@/components/BetaLabel";
 import { btnPrimary, shell } from "@/lib/ui";
 
 export function Header() {
   const path = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#d2d2d7] bg-[#f5f5f7]/92 backdrop-blur-xl">
-      <div className={`relative ${shell} flex items-center justify-between gap-3 py-3.5 md:gap-4`}>
-        <Link href="/" className="min-w-0 shrink-0 text-stone-900">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/80 backdrop-blur-2xl">
+      <div className={`${shell} flex min-h-[76px] items-center justify-between gap-4`}>
+        <Link href="/" className="min-w-0 shrink-0 text-white">
           <Logo />
         </Link>
-
-        <nav
-          className="hidden min-w-0 flex-1 flex-wrap items-center justify-center gap-x-1 gap-y-1 lg:flex"
-          aria-label="Primary"
-        >
+        <nav className="hidden min-w-0 flex-1 items-center justify-center gap-1 lg:flex" aria-label="Primary">
           {nav.map((item) => {
-            const on =
-              item.href === "/"
-                ? path === "/"
-                : path === item.href || path.startsWith(`${item.href}/`);
+            const on = item.href === "/" ? path === "/" : path === item.href || path.startsWith(`${item.href}/`);
             return (
-              <Link
-                key={item.href}
-                href={item.href}
-                title={item.hint}
-                className={`rounded-md px-2.5 py-1.5 text-[0.68rem] tracking-[0.1em] uppercase transition ${
-                  on
-                    ? "bg-[#e8f1ff] text-[#0071e3]"
-                    : "text-stone-600 hover:bg-[#e8f1ff] hover:text-[#0071e3]"
-                }`}
-              >
+              <Link key={item.href} href={item.href} title={item.hint}
+                className={`relative rounded-lg px-3 py-2 text-[0.62rem] font-semibold tracking-[0.14em] uppercase transition ${on ? "text-white" : "text-white/48 hover:text-white"}`}>
                 {item.label}
+                <span className={`absolute inset-x-3 -bottom-[1px] h-px bg-white transition ${on ? "opacity-100" : "opacity-0"}`} />
               </Link>
             );
           })}
         </nav>
-
-        <Link
-          href="/contact"
-          title="Tell us what you need"
-          className={`${btnPrimary} hidden shrink-0 lg:inline-flex`}
-        >
-          Start a conversation
-          <BetaLabel />
-        </Link>
-
+        <Link href="/contact" className={`${btnPrimary} hidden shrink-0 lg:inline-flex`}>Request demo <span aria-hidden>→</span></Link>
         <HeaderMenu />
       </div>
     </header>
