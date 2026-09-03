@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
-import { BetaLabel } from "@/components/BetaLabel";
 import { offerings } from "@/lib/catalog";
 import { painPoints, plainWhy } from "@/lib/pains";
 import { company } from "@/lib/site";
+import { btnPrimary } from "@/lib/ui";
 
 type Msg = { role: "user" | "va"; text: string; href?: string };
 
@@ -180,67 +180,69 @@ export function VirtualAssistant() {
   }
 
   const label = useMemo(
-    () => (memory.name ? `Assistant · ${memory.name}` : "REVNCIA Assistant"),
+    () => (memory.name ? memory.name : "REVNCIA"),
     [memory.name],
   );
 
   return (
-    <div className="fixed right-4 bottom-4 z-[80] flex flex-col items-end gap-2">
+    <div className="fixed right-4 bottom-4 z-[80] flex flex-col items-end gap-3">
       {open ? (
-        <div className="w-[min(100vw-2rem,22rem)] border border-[#0071e3]/25 bg-[#ffffff]/96 shadow-2xl backdrop-blur">
-          <div className="flex items-center justify-between border-b border-[#d2d2d7] px-3 py-2">
-            <p className="text-[0.7rem] font-semibold tracking-[0.14em] uppercase text-[#0071e3]">
-              {label}
-            </p>
+        <div className="va-panel w-[min(100vw-2rem,22rem)] overflow-hidden">
+          <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
+            <div>
+              <p className="va-panel-title text-[0.72rem] font-semibold tracking-[0.16em] uppercase">
+                {label}
+              </p>
+              <p className="mt-0.5 text-xs leading-snug text-white/55">
+                How can we help?
+              </p>
+            </div>
             <button
               type="button"
-              className="rounded-md px-2 py-1 text-xs font-semibold uppercase tracking-wider text-[#0071e3] hover:bg-[#e8f1ff]"
+              className="va-panel-close rounded-md px-2.5 py-1 text-xs font-medium tracking-wide"
               onClick={() => setOpen(false)}
             >
               Close
             </button>
           </div>
-          <div className="max-h-72 space-y-2 overflow-y-auto p-3 text-sm">
+          <div className="max-h-72 space-y-2.5 overflow-y-auto px-4 py-3 text-[0.9rem] leading-6">
             {msgs.map((m, i) => (
               <div
                 key={i}
                 className={
                   m.role === "user"
-                    ? "ml-6 bg-[#e8f1ff] px-3 py-2 text-[#1d1d1f]"
-                    : "mr-4 bg-[#f5f5f7] px-3 py-2 text-stone-700"
+                    ? "va-msg-user ml-8 px-3.5 py-2.5"
+                    : "va-msg-va mr-6 px-3.5 py-2.5"
                 }
               >
                 <p className="break-words">{m.text}</p>
                 {m.href ? (
                   <Link
                     href={m.href}
-                    className="mt-1 inline-block text-[0.7rem] font-semibold uppercase tracking-wider text-[#0071e3] underline"
+                    className="va-msg-link mt-2 inline-block text-xs font-medium tracking-wide"
                   >
-                    What you receive
+                    Continue
                   </Link>
                 ) : null}
               </div>
             ))}
             <div ref={endRef} />
           </div>
-          <form onSubmit={onSubmit} className="flex gap-1 border-t border-[#d2d2d7] p-2">
+          <form onSubmit={onSubmit} className="flex items-center gap-1.5 border-t border-white/10 p-3">
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask or say your name…"
-              className="min-w-0 flex-1 bg-[#ffffff] px-2 py-2 text-sm leading-relaxed text-[#1d1d1f] outline-none"
+              placeholder="Type a question…"
+              className="va-input min-w-0 flex-1 px-3 py-2 text-sm leading-relaxed outline-none"
             />
             <button
               type="button"
               onClick={listen}
-              className="rounded-md border border-[#0071e3]/30 px-2 text-[0.65rem] font-semibold uppercase tracking-wider text-[#0071e3] hover:bg-[#e8f1ff]"
+              className="va-listen px-2.5 py-2 text-[0.65rem] font-semibold uppercase tracking-wider"
             >
               Listen
             </button>
-            <button
-              type="submit"
-              className="rounded-md bg-[#0071e3] px-3 text-[0.65rem] font-semibold uppercase tracking-wider text-white hover:bg-[#0077ed]"
-            >
+            <button type="submit" className={`${btnPrimary} px-3 py-2`}>
               Send
             </button>
           </form>
@@ -249,25 +251,11 @@ export function VirtualAssistant() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex h-14 items-center gap-2 rounded-full border border-[#0071e3] bg-[#0071e3] px-4 text-sm font-semibold tracking-wide text-white shadow-[0_0_24px_rgba(0,113,227,0.4)] transition hover:bg-[#0077ed] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071e3] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f5f5f7]"
-        aria-label="Open support assistant"
+        className="btn-cta inline-flex h-12 min-w-[5.5rem] items-center justify-center rounded-full border px-6 text-sm font-semibold tracking-normal text-white shadow-[0_8px_24px_rgba(249,115,22,0.28)] transition hover:bg-orange-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-300/80 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+        aria-label="Help!"
+        aria-expanded={open}
       >
-        <svg
-          viewBox="0 0 24 24"
-          className="h-5 w-5 shrink-0"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          aria-hidden
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.86 9.86 0 01-4.255-.938L3 20l1.06-3.188A7.5 7.5 0 013 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-          />
-        </svg>
-        Support
-        <BetaLabel />
+        Help!
       </button>
     </div>
   );
