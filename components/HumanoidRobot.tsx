@@ -101,18 +101,18 @@ function AiBrain() {
           </filter>
           <radialGradient id="robot-brain-halo" cx="50%" cy="46%" r="86%">
             <stop offset="0%" stopColor="rgba(255,255,255,0.42)" />
-            <stop offset="22%" stopColor="rgba(98,217,255,0.16)" />
-            <stop offset="52%" stopColor="rgba(98,217,255,0.08)" />
-            <stop offset="100%" stopColor="rgba(0,113,227,0)" />
+            <stop offset="22%" stopColor="rgba(196,184,174,0.22)" />
+            <stop offset="52%" stopColor="rgba(184,174,164,0.10)" />
+            <stop offset="100%" stopColor="rgba(196,184,174,0)" />
           </radialGradient>
           <radialGradient id="robot-brain-core" cx="50%" cy="48%" r="64%">
             <stop offset="0%" stopColor="rgba(255,255,255,0.32)" />
-            <stop offset="30%" stopColor="rgba(0,122,255,0.22)" />
-            <stop offset="100%" stopColor="rgba(0,113,227,0)" />
+            <stop offset="30%" stopColor="rgba(196,184,174,0.24)" />
+            <stop offset="100%" stopColor="rgba(196,184,174,0)" />
           </radialGradient>
           <linearGradient id="robot-brain-fold" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="rgba(255,255,255,0.34)" />
-            <stop offset="100%" stopColor="rgba(98,217,255,0.10)" />
+            <stop offset="0%" stopColor="rgba(212,203,195,0.40)" />
+            <stop offset="100%" stopColor="rgba(196,184,174,0.12)" />
           </linearGradient>
         </defs>
         <ellipse
@@ -200,9 +200,9 @@ function RevolvingEye({ id }: { id: string }) {
       <defs>
         <radialGradient id={`${id}-glow`} cx="50%" cy="50%" r="50%">
           <stop offset="0%" stopColor="rgba(255,255,255,0.95)" />
-          <stop offset="28%" stopColor="rgba(98,217,255,0.20)" />
-          <stop offset="70%" stopColor="rgba(98,217,255,0.07)" />
-          <stop offset="100%" stopColor="rgba(98,217,255,0)" />
+          <stop offset="28%" stopColor="rgba(196,184,174,0.28)" />
+          <stop offset="70%" stopColor="rgba(184,174,164,0.10)" />
+          <stop offset="100%" stopColor="rgba(196,184,174,0)" />
         </radialGradient>
       </defs>
       <circle cx="50" cy="50" r="46" fill={`url(#${id}-glow)`} opacity="0.55" />
@@ -261,11 +261,11 @@ function RevolvingEye({ id }: { id: string }) {
       <g className="spin spin-scan">
         <path
           d="M50 50 L50 8 A42 42 0 0 1 86 28 Z"
-          fill="rgba(98,217,255,0.06)"
+          fill="rgba(196,184,174,0.10)"
         />
         <path
           d="M50 50 L86 28"
-          stroke="rgba(98,217,255,0.48)"
+          stroke="rgba(196,184,174,0.62)"
           strokeWidth="1.1"
         />
       </g>
@@ -425,9 +425,7 @@ export function HumanoidRobot() {
         <button
           type="button"
           className={
-            allowed
-              ? btnPrimary
-              : `${btnChip} border-white/20 text-white/75`
+            allowed ? btnPrimary : btnChip
           }
           onClick={() => setAllowed((v) => !v)}
         >
@@ -440,7 +438,7 @@ export function HumanoidRobot() {
           onClick={() => void playMotion(LINES.speak)}
         >
           Speak
-          <BetaLabel tone="on-milk" />
+          <BetaLabel />
         </button>
         <button
           type="button"

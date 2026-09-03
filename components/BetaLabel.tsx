@@ -7,8 +7,8 @@ export function BetaLabel({
     <span
       className={
         tone === "on-milk"
-          ? "inline-flex items-center rounded px-1.5 py-px text-[0.52rem] font-bold tracking-[0.14em] uppercase text-[#0071e3] ring-1 ring-[#0071e3]/30"
-          : "inline-flex items-center rounded bg-white/25 px-1.5 py-px text-[0.52rem] font-bold tracking-[0.14em] uppercase text-white"
+          ? "inline-flex items-center rounded px-1.5 py-px text-[0.52rem] font-bold tracking-[0.14em] uppercase text-white ring-1 ring-white/45"
+          : "inline-flex items-center rounded bg-black/20 px-1.5 py-px text-[0.52rem] font-bold tracking-[0.14em] uppercase text-white"
       }
     >
       Beta

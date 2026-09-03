@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { nav } from "@/lib/site";
 import { BetaLabel } from "@/components/BetaLabel";
-import { btnPrimary } from "@/lib/ui";
+import { btnPrimary, tabItem } from "@/lib/ui";
 
 export function HeaderMenu() {
   const [open, setOpen] = useState(false);
@@ -22,7 +22,7 @@ export function HeaderMenu() {
     <>
       <button
         type="button"
-        className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/15 bg-white/[.03] text-white transition hover:bg-white/[.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071e3] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f5f5f7] lg:hidden"
+        className={`${tabItem} h-10 w-10 px-0 py-0 lg:hidden`}
         aria-expanded={open}
         aria-label={open ? "Close menu" : "Open menu"}
         onClick={() => setOpen((v) => !v)}
@@ -51,7 +51,7 @@ export function HeaderMenu() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="block py-1"
+                className={`${tabItem} w-full justify-start py-2.5 text-left`}
                 onClick={() => setOpen(false)}
               >
                 <span className="text-sm font-semibold tracking-[0.08em] uppercase text-white">

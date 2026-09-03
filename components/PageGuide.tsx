@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { nav } from "@/lib/site";
+import { tabItem } from "@/lib/ui";
 
 export function PageGuide({
   sections,
@@ -49,7 +50,7 @@ export function PageGuide({
                 <Link
                   href={item.href}
                   title={item.explain}
-                  className="inline-flex rounded-md border border-white/15 bg-white/[0.025] px-2.5 py-1.5 text-[0.65rem] font-semibold tracking-[0.1em] uppercase text-cyan-200 transition hover:border-cyan-200/50 hover:bg-cyan-200/10"
+                  className={tabItem}
                 >
                   {item.label}
                 </Link>

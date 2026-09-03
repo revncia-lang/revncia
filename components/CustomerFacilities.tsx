@@ -11,7 +11,7 @@ import {
   type CustomerFacility,
   type HonestyLimit,
 } from "@/lib/facilities";
-import { btnSecondary, kicker, shell, surface, surfaceHover } from "@/lib/ui";
+import { btnSecondary, kicker, shell, surface, surfaceHover, tabItem } from "@/lib/ui";
 
 function RelatedLines({ slugs }: { slugs: string[] }) {
   return (
@@ -23,7 +23,7 @@ function RelatedLines({ slugs }: { slugs: string[] }) {
           <li key={slug}>
             <Link
               href={`/services/${slug}`}
-              className="text-xs text-[#0071e3] underline underline-offset-4"
+            className="text-xs text-white underline underline-offset-4"
             >
               {o.name}
             </Link>
