@@ -36,8 +36,12 @@ a { text-decoration:none; }
 /* Make legacy light utilities follow the REVNCIA dark visual system. */
 .text-stone-500,.text-stone-600,.text-stone-700,.text-stone-800,.text-stone-900 { color:rgba(255,255,255,.55) !important; }
 .bg-white { background-color:rgba(255,255,255,.025) !important; }
+.bg-\[\#ffffff\],.bg-\[\#fbfbfd\],.bg-\[\#e8f1ff\] { background-color:#002436 !important; color:#fff !important; }
 .border-\[\#d2d2d7\] { border-color:rgba(255,255,255,.10) !important; }
 .bg-\[\#f5f5f7\] { background-color:#000 !important; }
+.resource-tab{background-color:#002436!important;color:#fff!important}
+.resource-tab:hover,.resource-tab:focus-visible,.resource-tab.is-on,.resource-tab:focus{background-color:#002436!important;color:#fff!important}
+.resource-tab p,.resource-tab span,.resource-tab a{color:#fff!important}
 .bg-\[\#ececef\] { background-color:rgba(255,255,255,.018) !important; }
 .text-\[\#1d1d1f\] { color:#fff !important; }
 .text-\[\#0071e3\] { color:#b9efff !important; }
