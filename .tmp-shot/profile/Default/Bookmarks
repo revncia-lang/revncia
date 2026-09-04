@@ -1,0 +1,198 @@
+{
+   "checksum": "0c42221d54d0ede53ee739e1b7e20b03",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "13413152205800111",
+            "date_last_used": "13421085308925398",
+            "guid": "ab07abec-afdf-40bd-9ed5-1df38f541265",
+            "id": "9",
+            "name": "Binance: The World’s Most Trusted Cryptocurrency Exchange to Buy, Trade & Invest in Crypto",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://www.binance.com/en",
+            "visit_count": 19
+         }, {
+            "date_added": "13413155403812206",
+            "date_last_used": "13415572297804295",
+            "guid": "df9f2074-d377-4150-8667-b9121c43a9db",
+            "id": "10",
+            "name": "Buy Need for Speed™ Heat - Electronic Arts",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://www.ea.com/games/need-for-speed/need-for-speed-heat",
+            "visit_count": 3
+         }, {
+            "date_added": "13413158393918226",
+            "date_last_used": "13427754912896617",
+            "guid": "d0c26e55-6143-467e-abf6-41f5f8f08403",
+            "id": "11",
+            "name": "Cart | Hostinger",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://cart.hostinger.com/pay/4b48401d-d8ae-4427-aa0f-12e284ae23b0?_ga=GA1.1.2124244260.1768683057&_ga_73N1QWLEMH=GS2.1.s1768683057%24o1%24g1%24t1768684715%24j39%24l0%24h1117932420%24dZI8tyHPE9u4ui9MUkMHEW3qRUsMzv1FXRg&session_id=1768683057&device_id=e6e33bd3-9373-4e22-8000-5484847d8c7d&from=websites",
+            "visit_count": 5
+         }, {
+            "date_added": "13413410912641710",
+            "date_last_used": "13428532523517508",
+            "guid": "ee9db713-e7f1-49de-b07d-44e9d7363df8",
+            "id": "12",
+            "name": "YouTube",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://www.youtube.com/",
+            "visit_count": 54
+         }, {
+            "date_added": "13420667048459577",
+            "date_last_used": "13420667539819578",
+            "guid": "b6dd5b2d-3054-4c1e-b388-9f94f2fabb0e",
+            "id": "13",
+            "name": "All games | Official PlayStation™Store New Zealand",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://store.playstation.com/en-nz/pages/browse",
+            "visit_count": 2
+         }, {
+            "date_added": "13422907672088160",
+            "date_last_used": "13424244646778816",
+            "guid": "df4cbbcc-2fa7-4d89-989c-e32c5f198ad9",
+            "id": "14",
+            "name": "UX Toolkit | Marqeta",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://www.marqeta.com/platform/ux-toolkit",
+            "visit_count": 2
+         }, {
+            "date_added": "13422907683318200",
+            "date_last_used": "13424244658895433",
+            "guid": "d2b1426c-23cf-4d0e-a211-fee2b6828a55",
+            "id": "15",
+            "name": "Marqeta | Modern Card Issuing & Payment Solutions",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://www.marqeta.com/",
+            "visit_count": 2
+         }, {
+            "date_added": "13427754991159097",
+            "date_last_used": "0",
+            "guid": "23acdbb9-815b-4d77-9449-36b75bfb3486",
+            "id": "16",
+            "name": "Home - Microsoft Azure",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://portal.azure.com/#home",
+            "visit_count": 0
+         } ],
+         "date_added": "13432567880472261",
+         "date_last_used": "0",
+         "date_modified": "13427754991159097",
+         "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
+         "id": "1",
+         "name": "Favorites bar",
+         "source": "unknown",
+         "type": "folder"
+      },
+      "other": {
+         "children": [ {
+            "children": [  ],
+            "date_added": "13338491098532305",
+            "date_last_used": "0",
+            "date_modified": "13338491098532305",
+            "guid": "42bbd32a-1968-4ef1-8b42-e837c63d4e29",
+            "id": "17",
+            "name": "Other Bookmarks",
+            "source": "unknown",
+            "type": "folder"
+         }, {
+            "children": [  ],
+            "date_added": "13338491098533257",
+            "date_last_used": "0",
+            "date_modified": "13338491098533257",
+            "guid": "0946a4a0-c767-440c-8041-7c2530d6771b",
+            "id": "18",
+            "name": "Synced Bookmarks",
+            "source": "unknown",
+            "type": "folder"
+         }, {
+            "date_added": "13413212634885027",
+            "date_last_used": "0",
+            "guid": "f7e77df7-7e21-4c75-b7fb-7605a8f20bb6",
+            "id": "19",
+            "name": "Wyo DOR",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://revenue.wyo.gov/",
+            "visit_count": 0
+         } ],
+         "date_added": "13432567880472261",
+         "date_last_used": "0",
+         "date_modified": "13413212634885027",
+         "guid": "82b081ec-3dd3-529c-8475-ab6c344590dd",
+         "id": "2",
+         "name": "Other favorites",
+         "source": "unknown",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [ {
+            "date_added": "13338564818128913",
+            "date_last_used": "0",
+            "guid": "cc98d910-c596-4d21-8fca-f264f740eaf7",
+            "id": "7",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "world_grafix | Fiverr",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://www.fiverr.com/world_grafix?up_rollout=true",
+            "visit_count": 0
+         }, {
+            "date_added": "13346102473421818",
+            "date_last_used": "0",
+            "guid": "68ca51d9-875c-4044-8d7c-df8adf5ff088",
+            "id": "8",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Receive SMS online | Temporary Phone Number | United States Phone Number",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://receive-smss.com/sms/12672133096/",
+            "visit_count": 0
+         } ],
+         "date_added": "13432567880472261",
+         "date_last_used": "0",
+         "date_modified": "13346102473421818",
+         "guid": "4cf2e351-0e85-532b-bb37-df045d8f8d0f",
+         "id": "3",
+         "name": "Mobile favorites",
+         "source": "unknown",
+         "type": "folder"
+      },
+      "workspaces_v2": {
+         "children": [  ],
+         "date_added": "13432567880472261",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "75aa6670-344f-549d-b742-660f029506ab",
+         "id": "5",
+         "name": "Workspaces",
+         "source": "unknown",
+         "type": "folder"
+      }
+   },
+   "sync_metadata": "CjEKDgiIgQISCNbttVKgAQAAEgAqGC9hbkp5dkRvUTJIMTJNZTdKN0Y3OWc9PUgDoAYHEq4BCBISqQEKHEUrUjY4TzVRN0cvekg0YkI2Wk5hRU94UDhFTT0SJDA5NDZhNGEwLWM3NjctNDQwYy04MDQxLTdjMjUzMGQ2NzcxYhgAIAAoADD5/7v1wjE4qoK89cIxQKqCvPXCMUocb2JvVjdGZmtXYVdMQzZuTjBBSHRDdXc2aVM0PVoeIhxvcWFKeVJyc1Uvb0tyKzNzTTlDdkZ2Z0pMbk09ZQAAAABqAMI+AmAAEq4BCBESqQEKHEhOeDk4bVVHaTEwUHZsZXNjZkZUZHNsRVBwaz0SJDQyYmJkMzJhLTE5NjgtNGVmMS04YjQyLWU4MzdjNjNkNGUyORgAIAAoADD3/7v1wjE484G89cIxQPOBvPXCMUocenVUUTNoeldlWWdVZnpqZmUrbjU1UE85MmpzPVoeIhxrL25NS1RoMkhZTHN4WWJib0VxNjBmZGdjMWM9ZQAAAABqAMI+AmAAEo4BCAISiQEKHFljU1RvbnZFU1B3cUNzNEwyY3JWaHY2OEw5OD0SJDkwNjAwNzgzLWNjNDQtNWI3ZS1hMzNkLTNkYjNjMzc0NDk2YRgAIAAoADDz1rv1wjE4htq79cIxQIbau/XCMUocb1BWa2h3QlJiVjY1S0NXUjIrSU9OSFdvT3U4PWUAAAAAagDCPgJgABKOAQgFEokBChx3UkJyWkwrNlBBOWF2S2dqTlA3SlhETGNmdnM9EiRlNGNiY2U1Ni0wODE5LTU2MDUtYjI5Ni1hMDI2YmVhMTZjM2MYACAAKAAwnI7c0bEzOOaP3NGxM0Dmj9zRsTNKHG5teDY1c1FEdnhJOFRnRWV2K0ErbnR0b1NuND1lAAAAAGoAwj4CYAASrwEIDhKqAQocVE0xNm8zY1VDZURueWI3WlVPZFBvdHVIeWNjPRIkZGY0Y2JiY2MtMmZhNy00ZDg5LTk4OWMtZTMyYzVmMTk4YWQ5GAAgACgAMOD2itXwMzj7wYvV8DNA+8GL1fAzShxDSHRKQUltM1hwYnlBdXlKemNKNXVSTWZucVU9Wh8iHfdMR1g1aUdxQkZyT25XaFV2N21GaXEwOWIzMjg9ZZS/FPhqAMI+AmAFEq4BCAkSqQEKHEM4M05mczFuc2ZGdXZEbVZmZWdJSUZ4U25LQT0SJGFiMDdhYmVjLWFmZGYtNDBiZC05ZWQ1LTFkZjM4ZjU0MTI2NRgAIAAoADDe9orV8DM4wb2L1fAzQMG9i9XwM0occHg5eU0veS9ENmU4SDNSV2QwQmV2aHpSMmxzPVoeIhxMazU2NzhucWoreVYrWS9OT0E4ckVOM1R2cE09ZUP4EgtqAMI+AmAFEq8BCA8SqgEKHHVONVAzQmF5elM2QVZldngwUVU4dzVVaTlkbz0SJGQyYjE0MjZjLTIzY2YtNGQwZS1hMjExLWZlZTJiNjgyOGE1NRgAIAAoADDf9orV8DM47b+L1fAzQO2/i9XwM0occ3ZWTVVMTzk2eDB1ckN2ODZkRXNrMGtFd1BnPVofIh37NU45b2hZQkVwMU5lZnVQN2tLN3FZb3BGVlNFPWWUvxT4agDCPgJgBRKvAQgTEqoBChxnMURzR0U1UzA2bER0Tlk2dDBWNlVvcmtZaVk9EiRmN2U3N2RmNy03ZTIxLTRjNzUtYjdmYi03NjA1YThmMjBiYjYYACAAKAAw4/aK1fAzON/Ii9XwM0DfyIvV8DNKHFFlY05Zbk9jYUFnMjJPRVZ2YXdOZ3M4M09Paz1aHyIdt0tvenV3YWt0SEFlMnV5WmNSeUVtS1haU1dPYz1lKNoMxWoAwj4CYAUSrwEIEBKqAQocT1hvVGhHVm9kWjJNdFZlRTJKM2o5bUU4L0s4PRIkMjNhY2RiYjktODE1Yi00ZDc3LTk0NDktMzZiNzViZmIzNDg2GAAgACgAMNTm6J7zMzj39eie8zNA9/XonvMzShxHNzZXRmlqOTN0RmZ5K1ZJcGV0YlZkeFhnWEk9Wh8iHf1oK2kzQnVpaklERSt1bDVpS2ZTb0RPY3ZhcjQ9ZYhHri9qAMI+AmAFEq4BCAcSqQEKHDZsMWJ2OW5QSHVOS1JzYlZtQU16dStYYzNUcz0SJGNjOThkOTEwLWM1OTYtNGQyMS04ZmNhLWYyNjRmNzQwZWFmNxgAIAAoADDGgOGA9jE4joK89cIxQI6CvPXCMUocSWRMVkhjRSsrUnFYMkxEOFNjeElsUHFSdDZzPVoeIhxPQzJHRU5hbHRyZEtiOWtNNW93UDJwWUYzNkU9ZZwFaT5qAMI+AmAFEq8BCA0SqgEKHDIrcGFON0lJcC9tYUxYOHpVRFJkUTFhOHBQcz0SJGI2ZGQ1YjJkLTMwNTQtNGMxZS1iMzg4LTlmOTRmMmZhYmIwZRgAIAAoADDh9orV8DM4l8SL1fAzQJfEi9XwM0ocdTdDUjFOZ3NQK0tJQ0hhWWJKQlppOGFPRVVFPVofIh3ucFhIOE8zMUplS0F2ZWNaYTVudTkvUHFGZGo4PWXmf1MbagDCPgJgBRKvAQgIEqoBChx5ZU8rUTJXTkkrSVh0RzRaZ1E2Znkvd1FCQk09EiQ2OGNhNTFkOS04NzVjLTQwNDQtOGQ3Yy1kZjhhZGY1ZmYwODgYACAAKAAwiKjwh8MxOJGp8IfDMUCRqfCHwzFKHGdsb09oSHVxSUxZeTNQNmd1ZUZHN25mMGRlVT1aHyIdpzJ6cHgxQ3h5V20xVUJydnM2WXdtWjl3Wm5EMD1lmbnBe2oAwj4CYAUSrwEICxKqAQocaVRFQ2RtYlNkR2huNjFDNTBLT1F3SUhkSk9rPRIkZDBjMjZlNTUtNjE0My00NjdlLWFiZjYtNDFmNWY4ZjA4NDAzGAAgACgAMMWn5J7zMzjTuovV8DNA07qL1fAzShwvS1VwdFJtRWVabU4yZmlSSGo4YU9aQXRjNFE9Wh8iHbhVMjJURHBzVFBPUWFZOGM3RmYwakwvdFZVZG89ZbbdJEtqAMI+AmAFEq4BCAoSqQEKHE1KandoVzk3c1dQeld5ZzhxSjBwSE9nei96OD0SJGRmOWYyMDc0LWQzNzctNDE1MC04NjY3LWI5MTIxYzQzYTlkYhgAIAAoADDc9orV8DM4t7iL1fAzQLe4i9XwM0ocSmI1WFpTTjZ4V3lNRCtLbVREcDNFMnBFUUZZPVoeIhxwWk52Y3hZNEJGT1RoWVBPV25NT3N0NTZPT289ZW4SNABqAMI+AmAFEq8BCAwSqgEKHDVTWk9BRmNMcnZ3NEZRWXVBU0dUMDNqVldoWT0SJGVlOWRiNzEzLWU3ZjEtNDlkZS1iMDdkLTQ0ZTlkNzM2M2RmOBgAIAAoADDrysmR9jM4rcaL1fAzQK3Gi9XwM0ocZ2JWcmF4djg1SzVPZFltZ0NxS0FIMkE4Y1l3PVofIh3cU1AxQkFndWg2WnV6QlBpRXZ4akdFcFlXSUNFPWVQQsPSagDCPgJgBRKOAQgBEokBChx5eEovNmZ2a2VjcjdrcDVFUXpCNHRXTHBkYkU9EiRiYWMzZTI0NS02ODk2LTUzMTAtYmRiYi01MWRiZjc1ZjEzM2QYACAAKAAw8ta79cIxOODZu/XCMUDg2bv1wjFKHGFSQ1dMZ2hGOWI1SW5xS0lEdnVKL2p2UWtGYz1lAAAAAGoAwj4CYAASjgEIAxKJAQocbmpnRHU4OGVDcnZYcDg2cEQ3ZkhHY3FGcDg4PRIkZjA5MTM5N2EtNzU2OS01NWE4LTk3OTktMzIzNjJiN2M1YTFjGAAgACgAMPfWu/XCMTjZ2rv1wjFA2dq79cIxShx5ek5CMDFjbjU0QTdjUlUwdVQrL1BnbVR0VW89ZQAAAABqAMI+AmAAMAA4AA==",
+   "version": 1
+}

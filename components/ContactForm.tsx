@@ -1,0 +1,126 @@
+"use client";
+
+import { FormEvent, useState } from "react";
+import { BetaLabel } from "@/components/BetaLabel";
+import { offerings } from "@/lib/catalog";
+import { customerFacilities } from "@/lib/facilities";
+import { company } from "@/lib/site";
+import { btnPrimary, field } from "@/lib/ui";
+
+export function ContactForm() {
+  const [sent, setSent] = useState(false);
+
+  function onSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    const name = String(data.get("name") || "");
+    const org = String(data.get("org") || "");
+    const email = String(data.get("email") || "");
+    const interest = String(data.get("interest") || "");
+    const message = String(data.get("message") || "");
+    const body = [
+      `Name: ${name}`,
+      `Organization: ${org}`,
+      `Email: ${email}`,
+      `Interest: ${interest}`,
+      "",
+      message,
+    ].join("\n");
+    const href = `mailto:${company.email}?subject=${encodeURIComponent(
+      `Inquiry — ${interest || "REVNCIA"}`,
+    )}&body=${encodeURIComponent(body.slice(0, 1800))}`;
+    try {
+      window.location.href = href;
+    } catch {
+      /* mail client may be absent; success copy still offers a direct address */
+    }
+    setSent(true);
+  }
+
+  if (sent) {
+    return (
+      <p className="rounded-xl border border-cyan-200/15 bg-cyan-200/[.05] p-6 text-sm leading-relaxed break-words text-white/65">
+        Your email client should open with the message ready for{" "}
+        <a className="break-all text-cyan-200/80 underline" href={`mailto:${company.email}`}>
+          {company.email}
+        </a>
+        . If it does not, write us directly.
+      </p>
+    );
+  }
+
+  return (
+    <form onSubmit={onSubmit} className="grid w-full min-w-0 gap-5">
+      <label className="grid min-w-0 gap-1.5">
+        <span className="text-sm text-white/80">Name</span>
+        <span className="text-xs leading-relaxed text-white/35">
+          The person we should address in the reply.
+        </span>
+        <input required name="name" autoComplete="name" className={field} />
+      </label>
+      <label className="grid min-w-0 gap-1.5">
+        <span className="text-sm text-white/80">Organization</span>
+        <span className="text-xs leading-relaxed text-white/35">
+          Company, ministry, university, or NGO — optional.
+        </span>
+        <input name="org" autoComplete="organization" className={field} />
+      </label>
+      <label className="grid min-w-0 gap-1.5">
+        <span className="text-sm text-white/80">Email</span>
+        <span className="text-xs leading-relaxed text-white/35">
+          We reply to this address from {company.email}.
+        </span>
+        <input
+          required
+          type="email"
+          name="email"
+          autoComplete="email"
+          className={field}
+        />
+      </label>
+      <label className="grid min-w-0 gap-1.5">
+        <span className="text-sm text-white/80">Interest</span>
+        <span className="text-xs leading-relaxed text-white/35">
+          Name the work so the right person replies.
+        </span>
+        <select
+          name="interest"
+          className={field}
+          defaultValue={offerings[0].name}
+        >
+          <optgroup label="Service lines">
+            {offerings.map((s) => (
+              <option key={s.slug}>{s.name}</option>
+            ))}
+          </optgroup>
+          <optgroup label="Customer facilities">
+            {customerFacilities.map((f) => (
+              <option key={f.id}>{f.name}</option>
+            ))}
+          </optgroup>
+          <option>General inquiry</option>
+        </select>
+      </label>
+      <label className="grid min-w-0 gap-1.5">
+        <span className="text-sm text-white/80">How can we help?</span>
+        <span className="text-xs leading-relaxed text-white/35">
+          Volume, systems in use, and the outcome you need. Wrap as you type —
+          the field expands.
+        </span>
+        <textarea
+          required
+          name="message"
+          rows={5}
+          className={`${field} resize-y`}
+        />
+      </label>
+      <button
+        type="submit"
+        className={`${btnPrimary} mt-1 w-full sm:w-fit`}
+      >
+        Write to us
+        <BetaLabel />
+      </button>
+    </form>
+  );
+}

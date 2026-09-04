@@ -1,0 +1,31 @@
+2026-08-30 12:51:20.919: [INFO] CurrentProfilePath: C:\Users\USER\revncia\.tmp-shot\profile\Default
+2026-08-30 12:51:20.919: [INFO] Profiles total count: 1
+2026-08-30 12:51:20.919: [INFO] Profile: name=Profile 1 path=C:\Users\USER\revncia\.tmp-shot\profile\Default lastActive=2026-08-30T12:51:20.860Z
+2026-08-30 12:51:20.919: [INFO] LastUsedProfileDir: C:\Users\USER\revncia\.tmp-shot\profile\Default
+2026-08-30 12:51:20.919: [INFO] MostRecentlyActiveProfile: name=Profile 1 path=C:\Users\USER\revncia\.tmp-shot\profile\Default lastActive=2026-08-30T12:51:20.860Z
+2026-08-30 12:51:20.919: [INFO] OnDoneLoading sync enabled: 0
+2026-08-30 12:51:20.919: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-08-30 12:51:20.919: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-08-30 12:51:20.919: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-08-30 12:51:20.970: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0
+2026-08-30 12:51:22.536: [INFO] VisibilityChanged: 0
+2026-08-30 12:51:24.402: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0
+2026-08-30 12:51:24.419: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 3
+2026-08-30 12:51:24.432: [INFO] Primary account changed.
+2026-08-30 12:51:24.432: [INFO] OnPrimaryAccountChanged PrimaryAccountChangeEvent::Type::kSet
+2026-08-30 12:51:24.442: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 3
+2026-08-30 12:51:24.732: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 3
+2026-08-30 12:51:31.403: [INFO] BookmarkNodeAdded, ABU: 0
+2026-08-30 12:51:31.409: [INFO] BookmarkNodeAdded, ABU: 0
+2026-08-30 12:51:31.410: [INFO] BookmarkNodeAdded, ABU: 0
+2026-08-30 12:51:31.411: [INFO] BookmarkNodeAdded, ABU: 0
+2026-08-30 12:51:31.413: [INFO] BookmarkNodeAdded, ABU: 0
+2026-08-30 12:51:31.415: [INFO] BookmarkNodeAdded, ABU: 0
+2026-08-30 12:51:31.416: [INFO] BookmarkNodeAdded, ABU: 0
+2026-08-30 12:51:31.417: [INFO] BookmarkNodeAdded, ABU: 0
+2026-08-30 12:51:31.418: [INFO] BookmarkNodeAdded, ABU: 0
+2026-08-30 12:51:31.419: [INFO] BookmarkNodeAdded, ABU: 0
+2026-08-30 12:51:31.420: [INFO] BookmarkNodeAdded, ABU: 0
+2026-08-30 12:51:31.420: [INFO] BookmarkNodeAdded, ABU: 0
+2026-08-30 12:51:31.421: [INFO] BookmarkNodeAdded, ABU: 0
+2026-08-30 12:51:43.119: [INFO] BookmarksSnapshot Shutdown total=11 bar=8 other=3 mobile=2 showBar=0 showBarNTP=1

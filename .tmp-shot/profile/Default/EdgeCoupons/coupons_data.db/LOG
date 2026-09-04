@@ -1,0 +1,5 @@
+2026/08/30-17:51:25.137 12c50 Creating DB C:\Users\USER\revncia\.tmp-shot\profile\Default\EdgeCoupons/coupons_data.db since it was missing.
+2026/08/30-17:51:25.215 12c50 Reusing MANIFEST C:\Users\USER\revncia\.tmp-shot\profile\Default\EdgeCoupons/coupons_data.db/MANIFEST-000001
+2026/08/30-17:51:40.099 13074 Level-0 table #5: started
+2026/08/30-17:51:40.125 13074 Level-0 table #5: 683284 bytes OK
+2026/08/30-17:51:40.130 13074 Delete type=0 #3
