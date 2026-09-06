@@ -1,149 +1,133 @@
-import { shell } from "@/lib/ui";
 import Link from "next/link";
-import type { ReactNode } from "react";
+import { shell } from "@/lib/ui";
 
-const groups = [
-  { title: "Command Center", href: "/os", icon: "CC" },
-  { title: "AI Core", href: "/os/ai", icon: "AI" },
-  { title: "Service Catalog", href: "/os/services", icon: "SC" },
-  { title: "Service Requests", href: "/os/service-requests", icon: "SR" },
-  { title: "Agents", href: "/os/agents", icon: "AG" },
-  { title: "Workflows", href: "/os/workflows", icon: "WF" },
-  { title: "Projects", href: "/os/projects", icon: "PR" },
-  { title: "Knowledge", href: "/os/knowledge", icon: "KN" },
-  { title: "Integrations", href: "/os/integrations", icon: "IN" },
-  { title: "Analytics", href: "/os/analytics", icon: "AN" },
-  { title: "Governance", href: "/os/governance", icon: "GV" },
+const navigation = [
+  {
+    heading: "WORKSPACE",
+    items: [
+      ["Command Center", "/os"],
+      ["AI Workspace", "/os/ai"],
+      ["AI Agents", "/os/agents"],
+    ],
+  },
+  {
+    heading: "BUSINESS",
+    items: [
+      ["CRM", "/os/crm"],
+      ["ERP", "/os/erp"],
+      ["Projects", "/os/projects"],
+      ["Workflows", "/os/workflows"],
+    ],
+  },
+  {
+    heading: "KNOWLEDGE",
+    items: [
+      ["Documents", "/os/documents"],
+      ["Knowledge", "/os/knowledge"],
+      ["Resources", "/facilities"],
+    ],
+  },
+  {
+    heading: "TECHNOLOGY",
+    items: [
+      ["Integrations", "/os/integrations"],
+      ["Security", "/os/security"],
+      ["Governance", "/os/governance"],
+      ["Analytics", "/os/analytics"],
+    ],
+  },
+  {
+    heading: "REVNCIA SERVICES",
+    items: [
+      ["Service Requests", "/os/service-requests"],
+      ["Implementations", "/os/implementations"],
+      ["Managed Services", "/os/managed-services"],
+      ["Services", "/os/services"],
+    ],
+  },
+  {
+    heading: "ADMINISTRATION",
+    items: [
+      ["Settings", "/os/settings"],
+      ["Plans & Pricing", "/plans"],
+      ["Account", "/signup"],
+      ["Help & Support", "/contact"],
+    ],
+  },
 ];
 
 export default function OSLayout({
   children,
 }: {
-  children: ReactNode;
+  children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-[#f5f5f5] text-[#242424]">
+    <div className="min-h-screen bg-[#f5f7f9] text-slate-900">
 
-      {/* Microsoft-style top application bar */}
-      <header className="sticky top-0 z-50 border-b border-[#e1e1e1] bg-white">
-        <div className={`${shell} flex min-h-[64px] items-center justify-between`}>
+      <header className="border-b border-slate-200 bg-white">
+        <div className={`${shell} flex min-h-[68px] items-center justify-between gap-4`}>
+          <Link href="/os" className="flex items-center gap-3">
+            <div className="flex h-9 w-9 items-center justify-center rounded-md bg-[#0078D4] text-sm font-bold !text-white">
+              R
+            </div>
 
-          <div className="flex items-center gap-4">
-            <Link
-              href="/os"
-              className="flex items-center gap-3"
-            >
-              <span className="flex h-9 w-9 items-center justify-center bg-[#0067b8] text-xs font-bold !text-white">
-                R
-              </span>
-
-              <div>
-                <div className="text-lg font-semibold tracking-tight text-[#242424]">
-                  REVNCIA
-                </div>
-
-                <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#666]">
-                  Operating System
-                </div>
+            <div>
+              <div className="text-lg font-semibold tracking-tight">
+                REVNCIA
               </div>
-            </Link>
-
-            <span className="hidden h-7 w-px bg-[#dedede] md:block" />
-
-            <span className="hidden text-sm font-semibold text-[#555] md:block">
-              Command Center
-            </span>
-          </div>
+              <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">
+                OS
+              </div>
+            </div>
+          </Link>
 
           <div className="flex items-center gap-3">
             <Link
-              href="/"
-              className="hidden min-h-[40px] items-center justify-center border border-[#0067b8] bg-[#0067b8] px-5 py-2 text-sm font-semibold !text-white transition hover:bg-[#005a9f] hover:!text-white sm:inline-flex"
+              href="/os/ai"
+              className="hidden rounded-md border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-[#0078D4] hover:text-[#0078D4] sm:inline-flex"
             >
-              REVNCIA Website
+              AI Workspace
             </Link>
 
             <Link
               href="/contact"
-              className="inline-flex min-h-[40px] items-center justify-center border border-[#0067b8] bg-[#0067b8] px-5 py-2 text-sm font-semibold !text-white transition hover:bg-[#005a9f] hover:!text-white"
+              className="rounded-md bg-[#0078D4] px-4 py-2 text-sm font-semibold !text-white hover:bg-[#106ebe]"
             >
-              Contact
+              Support
             </Link>
           </div>
         </div>
       </header>
 
-      {/* Application workspace */}
-      <div className={`${shell} grid lg:grid-cols-[280px_minmax(0,1fr)]`}>
+      <div className={`${shell} grid min-w-0 lg:grid-cols-[280px_minmax(0,1fr)]`}>
 
-        {/* Left navigation */}
-        <aside className="border-b border-[#e1e1e1] bg-white lg:min-h-[calc(100vh-64px)] lg:border-b-0 lg:border-r">
+        <aside className="border-b border-slate-200 bg-white py-6 lg:min-h-[calc(100vh-68px)] lg:border-b-0 lg:border-r lg:pr-5">
+          <nav className="space-y-7">
+            {navigation.map((group) => (
+              <div key={group.heading}>
+                <div className="mb-2 px-3 text-[11px] font-bold uppercase tracking-[0.14em] text-slate-400">
+                  {group.heading}
+                </div>
 
-          <div className="p-4 sm:p-5">
-
-            <div className="mb-5 border-b border-[#e5e5e5] pb-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#666]">
-                REVNCIA OS
-              </p>
-
-              <p className="mt-2 text-sm leading-6 text-[#555]">
-                Manage AI, services, workflows, projects, knowledge and governance from one workspace.
-              </p>
-            </div>
-
-            <p className="mb-2 px-3 text-[11px] font-bold uppercase tracking-[0.14em] text-[#777]">
-              Workspace
-            </p>
-
-            <nav className="space-y-1">
-              {groups.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="group flex min-h-[48px] items-center gap-3 border border-transparent px-3 py-2.5 text-sm font-semibold text-[#444] transition hover:border-[#e1e1e1] hover:bg-[#f3f3f3] hover:text-[#0067b8]"
-                >
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center border border-[#dedede] bg-[#fafafa] text-[10px] font-bold text-[#555] transition group-hover:border-[#b8d6ea] group-hover:bg-[#eef7fd] group-hover:text-[#0067b8]">
-                    {item.icon}
-                  </span>
-
-                  <span className="min-w-0 flex-1 truncate">
-                    {item.title}
-                  </span>
-                </Link>
-              ))}
-            </nav>
-
-            <div className="mt-7 border-t border-[#e5e5e5] pt-5">
-              <p className="px-3 text-[11px] font-bold uppercase tracking-[0.14em] text-[#777]">
-                Quick Actions
-              </p>
-
-              <div className="mt-3 space-y-2">
-                <Link
-                  href="/contact"
-                  className="flex min-h-[44px] items-center justify-center border border-[#0067b8] bg-[#0067b8] px-4 py-2.5 text-sm font-semibold !text-white transition hover:bg-[#005a9f] hover:!text-white"
-                >
-                  Start a Request
-                </Link>
-
-                <Link
-                  href="/services"
-                  className="flex min-h-[44px] items-center justify-center border border-[#0067b8] bg-[#0067b8] px-4 py-2.5 text-sm font-semibold !text-white transition hover:bg-[#005a9f] hover:!text-white"
-                >
-                  Explore Services
-                </Link>
+                <div className="space-y-1">
+                  {group.items.map(([label, href]) => (
+                    <Link
+                      key={label}
+                      href={href}
+                      className="block rounded-md px-3 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-[#f0f6fb] hover:text-[#0078D4]"
+                    >
+                      {label}
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </div>
-
-          </div>
+            ))}
+          </nav>
         </aside>
 
-        {/* Main application area */}
-        <main className="min-w-0 bg-[#f5f5f5]">
-          <div className="min-h-[calc(100vh-64px)]">
-            {children}
-          </div>
-        </main>
+        <section className="min-w-0 py-6 lg:pl-7">
+          {children}
+        </section>
 
       </div>
     </div>

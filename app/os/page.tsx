@@ -1,145 +1,284 @@
+import OSSearch from "@/components/OSSearch";
 import Link from "next/link";
 
 const modules = [
-  ["AI Core", "/os/ai", "AI models, assistants and governed intelligence."],
-  ["Agents", "/os/agents", "Deploy task-focused AI agents."],
-  ["Workflows", "/os/workflows", "Automate repeatable organisational processes."],
-  ["Projects", "/os/projects", "Manage transformation initiatives."],
-  ["Service Requests", "/os/service-requests", "Track customer and internal requests."],
-  ["Service Catalog", "/os/services", "Manage the REVNCIA service portfolio."],
-  ["Knowledge", "/os/knowledge", "Centralise organisational knowledge."],
-  ["Integrations", "/os/integrations", "Connect business systems and services."],
-  ["Analytics", "/os/analytics", "Monitor operational performance."],
-  ["Governance", "/os/governance", "Manage controls, access and oversight."],
+  {
+    title: "AI Workspace",
+    description: "Use REVNCIA AI for business analysis, content, knowledge, documents and decision support.",
+    href: "/os/ai",
+    label: "Open AI Workspace",
+  },
+  {
+    title: "AI Agents",
+    description: "Create, configure and manage specialized AI agents for authorized business tasks.",
+    href: "/os/agents",
+    label: "Manage AI Agents",
+  },
+  {
+    title: "CRM",
+    description: "Manage customers, leads, opportunities, relationships and follow-up activities.",
+    href: "/os/crm",
+    label: "Open CRM",
+  },
+  {
+    title: "ERP",
+    description: "Manage finance, operations, vendors, purchasing and business records.",
+    href: "/os/erp",
+    label: "Open ERP",
+  },
+  {
+    title: "Projects",
+    description: "Manage projects, milestones, tasks, delivery, teams and implementation activities.",
+    href: "/os/projects",
+    label: "Open Projects",
+  },
+  {
+    title: "Workflows",
+    description: "Design business workflows, approvals, automation and operational processes.",
+    href: "/os/workflows",
+    label: "Open Workflows",
+  },
+  {
+    title: "Documents",
+    description: "Organize, manage and work with controlled business documents and records.",
+    href: "/os/documents",
+    label: "Open Documents",
+  },
+  {
+    title: "Knowledge",
+    description: "Create a centralized business knowledge environment for teams and AI.",
+    href: "/os/knowledge",
+    label: "Open Knowledge",
+  },
+  {
+    title: "Integrations",
+    description: "Connect approved business systems, APIs, communication platforms and technology.",
+    href: "/os/integrations",
+    label: "Manage Integrations",
+  },
+  {
+    title: "Security",
+    description: "Monitor security controls, access, protection and security operations.",
+    href: "/os/security",
+    label: "Open Security",
+  },
+  {
+    title: "Governance",
+    description: "Manage policies, controls, approvals, governance and organizational accountability.",
+    href: "/os/governance",
+    label: "Open Governance",
+  },
+  {
+    title: "Analytics",
+    description: "Review business performance, operational information and actionable insights.",
+    href: "/os/analytics",
+    label: "Open Analytics",
+  },
 ];
 
-export default function OSHomePage() {
+const services = [
+  ["Service Requests", "/os/service-requests"],
+  ["Implementations", "/os/implementations"],
+  ["Managed Services", "/os/managed-services"],
+  ["REVNCIA Services", "/os/services"],
+];
+
+const admin = [
+  ["Settings", "/os/settings"],
+  ["Account", "/signup"],
+  ["Plans & Billing", "/plans"],
+  ["Help & Support", "/contact"],
+];
+
+export default function RevnciaOSPage() {
   return (
-    <main>
+    <main className="min-h-screen bg-[#f5f7f9] text-slate-900">
+      <OSSearch />
+      <div className="mx-auto w-full max-w-[1600px] px-4 py-8 sm:px-6 lg:px-8 xl:px-10">
 
-      <section className="border-b border-[#e1e1e1] bg-white">
-        <div className="mx-auto w-full max-w-[1600px] px-4 py-14 sm:px-6 md:py-18 lg:px-8 xl:px-10">
-
-          <div className="grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr]">
-
-            <div className="max-w-[1600px]">
-              <div className="inline-flex items-center border border-[#d9d9d9] bg-[#f5f5f5] px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-[#555]">
-                REVNCIA Operating System
-              </div>
-
-              <h1 className="mt-5 text-4xl font-semibold leading-[1.08] tracking-[-0.03em] text-[#242424] md:text-6xl">
-                One command centre for your
-                <span className="block text-[#0067b8]">
-                  AI-powered organisation.
-                </span>
-              </h1>
-
-              <p className="mt-5 max-w-3xl text-base leading-8 text-[#555] md:text-lg">
-                REVNCIA OS brings AI, agents, workflows, projects, services,
-                knowledge, integrations, analytics and governance into one
-                professional operating environment.
+        <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#0078D4]">
+                REVNCIA OS
               </p>
 
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <Link
-                  href="/os/ai"
-                  className="inline-flex min-h-[48px] items-center justify-center border border-[#0067b8] bg-[#0067b8] px-7 py-3 text-sm font-bold !text-white transition hover:bg-[#005a9f] hover:!text-white"
-                >
-                  Open AI Core
-                </Link>
+              <h1 className="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">
+                Your digital business workspace
+              </h1>
 
-                <Link
-                  href="/contact"
-                  className="inline-flex min-h-[48px] items-center justify-center border border-[#0067b8] bg-white px-7 py-3 text-sm font-bold text-[#0067b8] transition hover:bg-[#f3f8fc]"
-                >
-                  Discuss Your Requirements
-                </Link>
-              </div>
+              <p className="mt-3 max-w-3xl text-base leading-7 text-slate-600">
+                Manage AI, customers, projects, workflows, documents,
+                knowledge, security, governance and REVNCIA services from one
+                connected workspace.
+              </p>
             </div>
 
-            <div className="border border-[#d9d9d9] bg-[#f5f5f5] p-5 shadow-[0_10px_30px_rgba(0,0,0,0.06)]">
-              <div className="border border-[#dedede] bg-white p-5">
-                <div className="flex items-center justify-between border-b border-[#e5e5e5] pb-4">
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#777]">
-                      REVNCIA OS
-                    </p>
-                    <p className="mt-1 text-lg font-semibold text-[#242424]">
-                      Command Center
-                    </p>
-                  </div>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/os/ai"
+                className="rounded-md bg-[#0078D4] px-5 py-3 text-sm font-semibold !text-white hover:bg-[#106ebe]"
+              >
+                Open AI Workspace
+              </Link>
 
-                  <span className="flex h-10 w-10 items-center justify-center bg-[#0067b8] text-sm font-bold !text-white">
-                    R
-                  </span>
-                </div>
-
-                <div className="mt-5 grid grid-cols-2 gap-3">
-                  <div className="border border-[#e1e1e1] bg-[#fafafa] p-4">
-                    <p className="text-xs font-semibold text-[#777]">AI</p>
-                    <p className="mt-1 text-sm font-semibold">Core</p>
-                  </div>
-
-                  <div className="border border-[#e1e1e1] bg-[#fafafa] p-4">
-                    <p className="text-xs font-semibold text-[#777]">WORK</p>
-                    <p className="mt-1 text-sm font-semibold">Flows</p>
-                  </div>
-
-                  <div className="border border-[#e1e1e1] bg-[#fafafa] p-4">
-                    <p className="text-xs font-semibold text-[#777]">DATA</p>
-                    <p className="mt-1 text-sm font-semibold">Insights</p>
-                  </div>
-
-                  <div className="border border-[#e1e1e1] bg-[#fafafa] p-4">
-                    <p className="text-xs font-semibold text-[#777]">CONTROL</p>
-                    <p className="mt-1 text-sm font-semibold">Governance</p>
-                  </div>
-                </div>
-              </div>
+              <Link
+                href="/os/service-requests"
+                className="rounded-md border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:border-[#0078D4] hover:text-[#0078D4]"
+              >
+                Request a Service
+              </Link>
             </div>
-
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="bg-[#f5f5f5]">
-        <div className="mx-auto w-full max-w-[1600px] px-4 py-14 sm:px-6 lg:px-8 xl:px-10">
+        <section className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          {[
+            ["12", "Core OS Modules"],
+            ["AI", "Intelligent Workspace"],
+            ["24/7", "Digital Operations"],
+            ["1", "Connected Client Workspace"],
+          ].map(([value, label]) => (
+            <div
+              key={label}
+              className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm"
+            >
+              <div className="text-2xl font-semibold text-slate-900">
+                {value}
+              </div>
+              <div className="mt-1 text-sm text-slate-500">
+                {label}
+              </div>
+            </div>
+          ))}
+        </section>
 
-          <div className="max-w-3xl">
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#666]">
-              OS Modules
+        <section className="mt-10">
+          <div className="mb-5">
+            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#0078D4]">
+              WORKSPACE
             </p>
 
-            <h2 className="mt-3 text-3xl font-semibold text-[#242424] md:text-4xl">
-              Everything is visible in one workspace.
+            <h2 className="mt-1 text-2xl font-semibold">
+              Business applications
             </h2>
           </div>
 
-          <div className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-            {modules.map(([title, href, description]) => (
-              <Link
-                key={href}
-                href={href}
-                className="group border border-[#dedede] bg-white p-5 shadow-[0_5px_18px_rgba(0,0,0,0.035)] transition hover:-translate-y-0.5 hover:border-[#b9d5e8] hover:shadow-[0_8px_24px_rgba(0,0,0,0.07)]"
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {modules.map((module) => (
+              <article
+                key={module.title}
+                className="flex min-h-[230px] flex-col rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md"
               >
-                <h3 className="text-base font-semibold text-[#242424] group-hover:text-[#0067b8]">
+                <div className="flex-1">
+                  <h3 className="text-xl font-semibold text-slate-900">
+                    {module.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm leading-6 text-slate-600">
+                    {module.description}
+                  </p>
+                </div>
+
+                <Link
+                  href={module.href}
+                  className="mt-6 inline-flex w-fit rounded-md bg-[#0078D4] px-4 py-2.5 text-sm font-semibold !text-white hover:bg-[#106ebe]"
+                >
+                  {module.label}
+                </Link>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-10">
+          <div className="mb-5">
+            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#0078D4]">
+              REVNCIA SERVICES
+            </p>
+
+            <h2 className="mt-1 text-2xl font-semibold">
+              Get more from REVNCIA
+            </h2>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {services.map(([title, href]) => (
+              <Link
+                key={title}
+                href={href}
+                className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-[#0078D4] hover:shadow-md"
+              >
+                <div className="text-base font-semibold text-slate-900">
                   {title}
-                </h3>
+                </div>
 
-                <p className="mt-3 text-sm leading-6 text-[#666]">
-                  {description}
-                </p>
-
-                <span className="mt-5 inline-flex text-sm font-bold text-[#0067b8]">
-                  Open module
-                </span>
+                <div className="mt-2 text-sm font-medium text-[#0078D4]">
+                  Open →
+                </div>
               </Link>
             ))}
           </div>
+        </section>
 
-        </div>
-      </section>
+        <section className="mt-10 rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#0078D4]">
+                ADMINISTRATION
+              </p>
 
+              <h2 className="mt-1 text-2xl font-semibold">
+                Account and organization
+              </h2>
+
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">
+                Manage your REVNCIA account, organization settings, plans,
+                billing and support.
+              </p>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {admin.map(([title, href]) => (
+                <Link
+                  key={title}
+                  href={href}
+                  className="rounded-md border border-slate-300 px-4 py-3 text-center text-sm font-semibold text-slate-700 hover:border-[#0078D4] hover:text-[#0078D4]"
+                >
+                  {title}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="mt-10 rounded-xl bg-[#0078D4] p-7 text-white shadow-sm sm:p-9">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.14em] text-white/80">
+                NEED HELP?
+              </p>
+
+              <h2 className="mt-2 text-2xl font-semibold">
+                Let REVNCIA help you transform your operations.
+              </h2>
+
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-white/85">
+                Request an AI, automation, transformation, cybersecurity or
+                enterprise technology service directly from your workspace.
+              </p>
+            </div>
+
+            <Link
+              href="/contact"
+              className="inline-flex w-fit rounded-md bg-white px-5 py-3 text-sm font-semibold text-[#0078D4] hover:bg-slate-100"
+            >
+              Contact REVNCIA →
+            </Link>
+          </div>
+        </section>
+
+      </div>
     </main>
   );
 }

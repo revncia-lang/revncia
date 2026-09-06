@@ -1,247 +1,133 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 const suggestions = [
-  {
-    title: "AI Automation",
-    description: "Automate repetitive business workflows with AI.",
-    href: "/services",
-  },
-  {
-    title: "Digital Transformation",
-    description: "Modernize operations, systems and customer experiences.",
-    href: "/services",
-  },
-  {
-    title: "Cybersecurity",
-    description: "Protect your organisation, systems and data.",
-    href: "/services",
-  },
-  {
-    title: "REVNCIA AI Platform",
-    description: "Explore the core REVNCIA AI capabilities.",
-    href: "/platform",
-  },
-  {
-    title: "REVNCIA OS",
-    description: "Access your intelligent digital workspace.",
-    href: "/os",
-  },
-  {
-    title: "Industry Solutions",
-    description: "Explore solutions for your industry.",
-    href: "/industries",
-  },
-  {
-    title: "Plans & Pricing",
-    description: "Review REVNCIA plans and service options.",
-    href: "/plans",
-  },
-  {
-    title: "Contact REVNCIA",
-    description: "Talk with the REVNCIA team about your requirements.",
-    href: "/contact",
-  },
+  ["AI Automation", "/services"],
+  ["Digital Transformation", "/services"],
+  ["Cybersecurity & Protection", "/services"],
+  ["REVNCIA AI Platform", "/platform"],
+  ["REVNCIA OS", "/os"],
+  ["Industry Solutions", "/industries"],
+  ["Plans & Pricing", "/plans"],
+  ["Contact REVNCIA", "/contact"],
 ];
 
-export function HomeSearch() {
+export default function HomeSearch() {
   const [query, setQuery] = useState("");
-  const [focused, setFocused] = useState(false);
+  const [showSuggestions, setShowSuggestions] = useState(false);
 
-  const filteredSuggestions = useMemo(() => {
-    const value = query.trim().toLowerCase();
-
-    if (!value) {
-      return suggestions.slice(0, 5);
-    }
-
-    return suggestions
-      .filter((item) =>
-        `${item.title} ${item.description}`
-          .toLowerCase()
-          .includes(value)
-      )
-      .slice(0, 6);
-  }, [query]);
+  const filteredSuggestions = suggestions.filter(([label]) =>
+    label.toLowerCase().includes(query.toLowerCase())
+  );
 
   return (
-    <section className="border-y border-[#d9d9d9] bg-white">
+    <section className="border-b border-slate-200 bg-white">
       <div className="mx-auto w-full max-w-[1600px] px-4 py-8 sm:px-6 lg:px-8 xl:px-10">
+        <div className="max-w-4xl">
+          <p className="mb-2 text-sm font-semibold uppercase tracking-[0.16em] text-[#0078D4]">
+            REVNCIA EXPLORER
+          </p>
 
-        <div className="mx-auto max-w-5xl">
+          <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+            Hi there, welcome to REVNCIA
+          </h2>
 
-          <div className="text-center">
-            <p className="text-sm font-semibold tracking-wide text-[#0078D4]">
-              REVNCIA EXPLORER
-            </p>
+          <p className="mt-3 text-base text-slate-600 sm:text-lg">
+            Find what you need faster with REVNCIA-powered suggestions.
+          </p>
 
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-[#242424] sm:text-3xl">
-              Hi there, welcome to REVNCIA
-            </h2>
-
-            <p className="mt-3 text-sm text-[#5e5e5e] sm:text-base">
-              Find what you need faster with REVNCIA-powered suggestions.
-            </p>
-          </div>
-
-          {/* Search */}
-          <div className="relative mt-7">
-
-            <div
-              className={[
-                "flex min-h-14 items-center rounded-md border bg-white",
-                focused
-                  ? "border-[#0078D4] ring-2 ring-[#0078D4]/20"
-                  : "border-[#8a8886]",
-              ].join(" ")}
-            >
-
-              <span
-                className="ml-4 flex h-5 w-5 shrink-0 items-center justify-center text-[#5e5e5e]"
+          <div className="relative mt-6">
+            <div className="flex min-h-[56px] items-center overflow-hidden rounded-md border border-slate-300 bg-white shadow-sm transition focus-within:border-[#0078D4] focus-within:ring-2 focus-within:ring-[#0078D4]/20">
+              <svg
                 aria-hidden="true"
+                className="ml-4 h-5 w-5 shrink-0 text-slate-500"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  className="h-5 w-5"
-                >
-                  <circle cx="11" cy="11" r="7" />
-                  <path d="m20 20-4-4" />
-                </svg>
-              </span>
+                <circle cx="11" cy="11" r="7" />
+                <path d="m20 20-3.5-3.5" />
+              </svg>
 
               <input
                 value={query}
-                onChange={(event) => setQuery(event.target.value)}
-                onFocus={() => setFocused(true)}
-                onBlur={() => {
-                  setTimeout(() => setFocused(false), 150);
+                onChange={(event) => {
+                  setQuery(event.target.value);
+                  setShowSuggestions(true);
                 }}
-                type="search"
+                onFocus={() => setShowSuggestions(true)}
                 placeholder="Search REVNCIA"
                 aria-label="Search REVNCIA"
-                className="min-w-0 flex-1 bg-transparent px-4 py-4 text-base text-[#242424] outline-none placeholder:text-[#737373]"
+                className="min-w-0 flex-1 border-0 bg-transparent px-4 py-4 text-base text-slate-900 outline-none placeholder:text-slate-500"
               />
 
-              {query && (
-                <button
-                  type="button"
-                  onClick={() => setQuery("")}
-                  aria-label="Clear search"
-                  className="mr-2 rounded-md px-3 py-2 text-sm text-[#5e5e5e] hover:bg-[#f5f5f5]"
-                >
-                  Clear
-                </button>
-              )}
-
               <Link
-                href="/services"
-                className="mr-2 hidden rounded-md bg-[#0078D4] px-5 py-3 text-sm font-semibold !text-white hover:bg-[#106ebe] sm:block"
+                href={
+                  query.trim()
+                    ? `/search?q=${encodeURIComponent(query.trim())}`
+                    : "/search"
+                }
+                className="mr-2 rounded-md bg-[#0078D4] px-5 py-3 text-sm font-semibold !text-white transition hover:bg-[#106ebe]"
               >
                 Search
               </Link>
-
             </div>
 
-            {/* Suggestions */}
-            {focused && (
-              <div className="absolute left-0 right-0 top-[calc(100%+8px)] z-40 rounded-md border border-[#d9d9d9] bg-white p-3 shadow-xl">
-
-                <p className="px-3 py-2 text-xs font-semibold tracking-wide text-[#5e5e5e]">
-                  {query.trim()
-                    ? "SUGGESTED RESULTS"
-                    : "EXPLORE REVNCIA"}
-                </p>
-
-                {filteredSuggestions.length > 0 ? (
-                  <div className="grid gap-1 sm:grid-cols-2">
-
-                    {filteredSuggestions.map((item) => (
-                      <Link
-                        key={item.title}
-                        href={item.href}
-                        onClick={() => setFocused(false)}
-                        className="rounded-md p-3 hover:bg-[#f5f7f9]"
-                      >
-                        <span className="block text-sm font-semibold text-[#242424]">
-                          {item.title}
-                        </span>
-
-                        <span className="mt-1 block text-xs leading-5 text-[#5e5e5e]">
-                          {item.description}
-                        </span>
-                      </Link>
-                    ))}
-
-                  </div>
-                ) : (
-                  <div className="px-3 py-5 text-sm text-[#5e5e5e]">
-                    No matching REVNCIA suggestions found.
-                    <Link
-                      href="/contact"
-                      className="ml-1 font-semibold text-[#0078D4] hover:underline"
-                    >
-                      Contact REVNCIA
-                    </Link>
-                  </div>
-                )}
-
+            {showSuggestions && filteredSuggestions.length > 0 && (
+              <div className="absolute z-30 mt-2 w-full overflow-hidden rounded-md border border-slate-200 bg-white shadow-xl">
+                {filteredSuggestions.map(([label, href]) => (
+                  <Link
+                    key={label}
+                    href={href}
+                    onClick={() => setShowSuggestions(false)}
+                    className="block border-b border-slate-100 px-5 py-3 text-sm font-medium text-slate-700 transition last:border-b-0 hover:bg-slate-50 hover:text-[#0078D4]"
+                  >
+                    {label}
+                  </Link>
+                ))}
               </div>
             )}
-
           </div>
 
-          {/* Quick Actions */}
-          <div className="mt-7 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm">
-
-            <Link
-              href="/platform"
-              className="font-medium text-[#0078D4] hover:underline"
-            >
-              Explore REVNCIA
-            </Link>
-
+          <div className="mt-6 flex flex-wrap gap-3">
             <Link
               href="/services"
-              className="font-medium text-[#0078D4] hover:underline"
+              className="rounded-md border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-[#0078D4] hover:text-[#0078D4]"
             >
               Find a Service
             </Link>
 
             <Link
               href="/os"
-              className="font-medium text-[#0078D4] hover:underline"
+              className="rounded-md border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-[#0078D4] hover:text-[#0078D4]"
             >
               Explore REVNCIA OS
             </Link>
 
             <Link
               href="/industries"
-              className="font-medium text-[#0078D4] hover:underline"
+              className="rounded-md border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-[#0078D4] hover:text-[#0078D4]"
             >
               Explore Industries
             </Link>
 
             <Link
               href="/plans"
-              className="font-medium text-[#0078D4] hover:underline"
+              className="rounded-md border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-[#0078D4] hover:text-[#0078D4]"
             >
-              Plans &amp; Pricing
+              Plans & Pricing
             </Link>
 
             <Link
               href="/signup"
-              className="font-medium text-[#0078D4] hover:underline"
+              className="rounded-md border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-[#0078D4] hover:text-[#0078D4]"
             >
               Sign in to my account
             </Link>
-
           </div>
-
         </div>
       </div>
     </section>

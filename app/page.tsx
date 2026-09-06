@@ -1,6 +1,6 @@
+import HomeSearch from "@/components/HomeSearch";
 import Link from "next/link";
 import { shell } from "@/lib/ui";
-import { HomeSearch } from "@/components/HomeSearch";
 import { ServiceGrid } from "@/components/ServiceGrid";
 
 const solutions = [
