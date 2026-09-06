@@ -19,7 +19,7 @@ export default function LoginPage() {
   }
 
   return <main className="min-h-[70vh] bg-[#f5f5f5] py-16">
-    <div className={`${shell} mx-auto grid max-w-6xl gap-12 lg:grid-cols-[.8fr_1.2fr]`}>
+    <div className={`${shell} mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-[.8fr_1.2fr]`}>
       <section>
         <p className="text-xs font-semibold uppercase tracking-[.18em] text-[#0078d4]">Customer access</p>
         <h1 className="mt-4 text-4xl font-semibold text-[#505050]">Log in to REVNCIA</h1>
@@ -40,3 +40,4 @@ export default function LoginPage() {
     </div>
   </main>;
 }
+

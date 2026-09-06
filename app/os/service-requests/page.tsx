@@ -1,17 +1,85 @@
 import Link from "next/link";
-import { shell } from "@/lib/ui";
 
-const rows = [
-  ["SR-2026-001", "AI Readiness Assessment", "In Review", "High"],
-  ["SR-2026-002", "Process Automation", "New", "Medium"],
-  ["SR-2026-003", "Data Strategy", "In Progress", "High"],
-  ["SR-2026-004", "AI Agent Development", "In Progress", "High"],
-  ["SR-2026-005", "Workflow Automation", "Completed", "Low"],
-];
+export default function ServiceRequestsPage() {
+  return (
+    <main className="min-h-screen bg-[#f5f5f5] text-[#242424]">
+      <section className="border-b border-[#e1e1e1] bg-white">
+        <div className="mx-auto w-full max-w-[1600px] px-4 py-14 sm:px-6 lg:px-8 xl:px-10">
+          <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#666]">
+            REVNCIA OS
+          </p>
 
-export default function ServiceRequests() {
-  return <div className="min-h-[calc(100vh-72px)] bg-[radial-gradient(ellipse_70%_40%_at_70%_0%,rgba(98,217,255,.06),transparent_65%)]"><div className={`${shell} py-10 lg:py-14`}>
-    <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end"><div><div className="text-[9px] font-semibold uppercase tracking-[0.25em] text-cyan-200/55">Services / Requests</div><h1 className="mt-3 text-4xl font-semibold tracking-[-0.035em]">Service Requests</h1><p className="mt-4 max-w-2xl text-sm leading-7 text-white/42">Manage discovery, assessment, approvals and implementation requests from one operating queue.</p></div><Link href="/os/services" className="inline-flex w-fit rounded-xl border border-white/15 px-5 py-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/65 hover:border-white/35 hover:text-white">Browse catalog →</Link></div>
-    <div className="mt-8 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.025]"><div className="grid grid-cols-[1.1fr_2fr_1.2fr_1fr] border-b border-white/10 px-5 py-4 text-[9px] font-semibold uppercase tracking-[0.16em] text-white/25"><span>ID</span><span>Service</span><span>Status</span><span>Priority</span></div>{rows.map(r=><div key={r[0]} className="grid grid-cols-[1.1fr_2fr_1.2fr_1fr] items-center border-b border-white/7 px-5 py-4 text-xs last:border-0"><span className="font-mono text-white/35">{r[0]}</span><span className="text-white/75">{r[1]}</span><span><span className="rounded-md border border-cyan-200/15 bg-cyan-200/5 px-2 py-1 text-[9px] uppercase tracking-[0.1em] text-cyan-100/70">{r[2]}</span></span><span className="text-white/45">{r[3]}</span></div>)}</div>
-  </div></div>;
+          <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">
+            Service Requests
+          </h1>
+
+          <p className="mt-4 max-w-3xl text-base leading-8 text-[#555]">
+            Manage customer requirements, service requests and delivery
+            activities through the REVNCIA operating environment.
+          </p>
+
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/services"
+              className="inline-flex min-h-[48px] items-center justify-center border border-[#0067b8] bg-[#0067b8] px-7 py-3 text-sm font-bold !text-white transition hover:bg-[#005a9f] hover:!text-white"
+            >
+              Browse Service Catalog
+            </Link>
+
+            <Link
+              href="/contact"
+              className="inline-flex min-h-[48px] items-center justify-center border border-[#0067b8] bg-white px-7 py-3 text-sm font-bold text-[#0067b8] transition hover:bg-[#f3f8fc]"
+            >
+              New Service Request
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-[#e1e1e1] bg-[#f5f5f5]">
+        <div className="mx-auto w-full max-w-[1600px] px-4 py-12 sm:px-6 lg:px-8 xl:px-10">
+          <div className="grid gap-5 md:grid-cols-3">
+            <article className="border border-[#dedede] bg-white p-6">
+              <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#666]">
+                Intake
+              </p>
+              <h2 className="mt-3 text-xl font-semibold">
+                Capture requirements
+              </h2>
+              <p className="mt-3 text-sm leading-7 text-[#555]">
+                Record what the customer needs, the desired outcome and the
+                business context.
+              </p>
+            </article>
+
+            <article className="border border-[#dedede] bg-white p-6">
+              <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#666]">
+                Delivery
+              </p>
+              <h2 className="mt-3 text-xl font-semibold">
+                Coordinate services
+              </h2>
+              <p className="mt-3 text-sm leading-7 text-[#555]">
+                Connect requirements with the appropriate REVNCIA service and
+                delivery workflow.
+              </p>
+            </article>
+
+            <article className="border border-[#dedede] bg-white p-6">
+              <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#666]">
+                Outcome
+              </p>
+              <h2 className="mt-3 text-xl font-semibold">
+                Track business value
+              </h2>
+              <p className="mt-3 text-sm leading-7 text-[#555]">
+                Keep visibility on progress, completion and the expected
+                business outcome.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
 }

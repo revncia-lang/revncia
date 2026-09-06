@@ -3,12 +3,12 @@ import Link from "next/link";
 export default function ModulePage() {
   return (
     <div className="min-h-[calc(100vh-72px)] px-5 py-10 sm:px-8 lg:px-10">
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-[1600px]">
         <Link
           href="/os"
           className="text-xs text-cyan-300/70 hover:text-cyan-200"
         >
-          ← Back to Command Center
+          Back to Command Center
         </Link>
 
         <div className="mt-10 rounded-3xl border border-white/10 bg-white/[0.025] p-8 sm:p-12">

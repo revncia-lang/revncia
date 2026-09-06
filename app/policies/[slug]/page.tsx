@@ -1,80 +1,50 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
-import { policies, policyBySlug } from "@/lib/policies";
+import { policies } from "@/lib/policies";
 import { company } from "@/lib/site";
-import { btnSecondary, shell, surface } from "@/lib/ui";
+import { shell, surfaceHover } from "@/lib/ui";
 
-export function generateStaticParams() {
-  return policies.map((p) => ({ slug: p.slug }));
-}
+export const metadata: Metadata = {
+  title: "Policies",
+  description: `Copyright, privacy, terms, and confidentiality for ${company.name}. All rights reserved.`,
+};
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}): Promise<Metadata> {
-  const { slug } = await params;
-  const p = policyBySlug(slug);
-  return {
-    title: p?.title ?? "Policy",
-    description: p?.summary,
-  };
-}
-
-export default async function PolicyPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
-  const p = policyBySlug(slug);
-  if (!p) notFound();
-  const i = policies.findIndex((x) => x.slug === slug);
-  const prev = policies[(i + policies.length - 1) % policies.length];
-  const next = policies[(i + 1) % policies.length];
-
+export default function PoliciesIndex() {
   return (
     <main>
       <PageHero
-        kicker="Policy"
-        title={p.title}
-        lede={`${p.summary} Last updated ${p.updated}. © 2026 ${company.name}. All rights reserved.`}
-        sections={p.sections.map((s) => ({
-          title: s.heading,
-          text: "What we will hold to when you write, buy, or send a file.",
-        }))}
+        kicker="Your protection"
+        title="What you can expect when you write, buy, or send us a file."
+        lede={`When you write, buy, or send a file: who owns the work, how we use your mail, when a programme starts, and how we treat your files. 026 ${company.name}. All rights reserved. Signed work also follows the agreement you sign. Example pictures and graphs are not a quote or an SLA.`}
+        sections={[
+          { title: "Copyright", text: "Our marks stay ours. Work we deliver to you follows the agreement you sign." },
+          { title: "Privacy", text: "Inquiry mail is for a reply. Voice, WhatsApp, CRM, and citizen programmes follow your instructions and the law." },
+          { title: "Terms", text: "What you read here is information. A programme starts only when both sides accept scope in writing." },
+          { title: "Confidentiality", text: "Your files stay confidential. Cyber is implementation plus partners not a full cyber firm." },
+        ]}
       />
       <section className={`${shell} py-16`}>
-        <p className="text-sm leading-relaxed text-pretty break-words text-stone-600">
-          {company.name} · {company.address} ·{" "}
-          <a className="break-all text-[#0071e3] underline underline-offset-4" href={`mailto:${company.email}`}>
-            {company.email}
-          </a>
-        </p>
-        <div className="mt-10 space-y-6">
-          {p.sections.map((s) => (
-            <article key={s.heading} className={`${surface} p-6`}>
-              <h2 className="text-pretty font-serif text-2xl">{s.heading}</h2>
-              <p className="mt-3 text-sm leading-relaxed text-pretty break-words text-stone-600">
-                {s.body}
-              </p>
-            </article>
+        <ul className="grid gap-4 sm:grid-cols-2">
+          {policies.map((p) => (
+            <li key={p.slug}>
+              <Link href={`/policies/${p.slug}`} className={`${surfaceHover} block h-full min-w-0 p-6`}>
+                <p className="text-[0.65rem] tracking-[0.16em] uppercase text-[#0071e3]">
+                  Policy
+                </p>
+                <h2 className="mt-2 text-pretty font-serif text-2xl">{p.title}</h2>
+                <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-stone-600">
+                  {p.summary}
+                </p>
+                <p className="mt-4 text-[0.65rem] uppercase tracking-widest text-stone-500">
+                  Updated {p.updated}
+                </p>
+              </Link>
+            </li>
           ))}
-        </div>
-        <div className="mt-10 flex min-w-0 flex-wrap justify-between gap-4 text-sm text-[#0071e3]">
-          <Link href={`/policies/${prev.slug}`} className="min-w-0 text-pretty break-words">
-            ← {prev.title}
-          </Link>
-          <Link href={`/policies/${next.slug}`} className="min-w-0 text-right text-pretty break-words">
-            {next.title} →
-          </Link>
-        </div>
-        <Link href="/policies" className={`${btnSecondary} mt-10`}>
-          All policies
-        </Link>
+        </ul>
       </section>
     </main>
   );
 }
+

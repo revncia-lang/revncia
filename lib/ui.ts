@@ -1,5 +1,4 @@
-export const shell =
-  "mx-auto w-full min-w-0 px-5 sm:px-8 lg:px-12 xl:px-16 2xl:px-20";
+export const shell = "mx-auto w-full max-w-[1600px] min-w-0 px-4 sm:px-6 lg:px-8 xl:px-10";
 
 export const kicker =
   "heading-kicker text-[0.68rem] font-semibold tracking-[0.22em] uppercase";

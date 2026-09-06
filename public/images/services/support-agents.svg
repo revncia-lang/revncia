@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="1600"
+  height="900"
+  viewBox="0 0 1600 900"
+  role="img"
+  aria-labelledby="title desc"
+>
+  <title>Support Agents</title>
+
+  <desc>
+    Unique REVNCIA visual for Support Agents
+  </desc>
+
+  <defs>
+    <linearGradient
+      id="background"
+      x1="0"
+      y1="0"
+      x2="1"
+      y2="1"
+    >
+      <stop
+        offset="0%"
+        stop-color="#f8fbfd"
+      />
+
+      <stop
+        offset="55%"
+        stop-color="#eef5fa"
+      />
+
+      <stop
+        offset="100%"
+        stop-color="#dcecf6"
+      />
+    </linearGradient>
+
+    <radialGradient id="glow">
+      <stop
+        offset="0%"
+        stop-color="#1677a8"
+        stop-opacity=".24"
+      />
+
+      <stop
+        offset="100%"
+        stop-color="#1677a8"
+        stop-opacity="0"
+      />
+    </radialGradient>
+
+    <filter id="shadow">
+      <feDropShadow
+        dx="0"
+        dy="18"
+        stdDeviation="22"
+        flood-color="#12344a"
+        flood-opacity=".16"
+      />
+    </filter>
+  </defs>
+
+  <rect
+    width="1600"
+    height="900"
+    fill="url(#background)"
+  />
+
+  <circle
+    cx="1250"
+    cy="130"
+    r="330"
+    fill="url(#glow)"
+  />
+
+  <circle
+    cx="1450"
+    cy="720"
+    r="250"
+    fill="url(#glow)"
+    opacity=".6"
+  />
+
+  <path
+    d="M0 720
+       C280 590 430 820 710 690
+       S1120 540 1600 700
+       V900
+       H0
+       Z"
+    fill="#ffffff"
+    opacity=".72"
+  />
+
+  <g
+    opacity=".18"
+    stroke="#1677a8"
+    stroke-width="2"
+  >
+    <path
+      d="M90 110 H420"
+    />
+
+    <path
+      d="M90 135 H330"
+    />
+
+    <path
+      d="M1180 790 H1500"
+    />
+
+    <path
+      d="M1250 815 H1450"
+    />
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect
+      x="95"
+      y="105"
+      width="720"
+      height="560"
+      rx="42"
+      fill="#ffffff"
+      stroke="#d6e2ea"
+      stroke-width="3"
+    />
+  </g>
+
+  <text
+    x="145"
+    y="185"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="24"
+    font-weight="700"
+    letter-spacing="5"
+    fill="#1677a8"
+  >
+    REVNCIA SERVICE
+  </text>
+
+  <text
+    x="145"
+    y="275"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="58"
+    font-weight="700"
+    fill="#172b3a"
+  >
+    Support Agents
+  </text>
+
+  <rect
+    x="145"
+    y="315"
+    width="145"
+    height="5"
+    rx="2"
+    fill="#1677a8"
+  />
+
+  <text
+    x="145"
+    y="375"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="23"
+    fill="#526575"
+  >
+    Digital transformation capability
+  </text>
+
+  <text
+    x="145"
+    y="415"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="23"
+    fill="#526575"
+  >
+    designed for measurable outcomes.
+  </text>
+
+  <g transform="translate(0 10)">
+    
+      <path
+        d="M570 265 C610 125 720 125 780 265"
+        fill="none"
+        stroke="#1677a8"
+        stroke-width="8"
+      />
+
+      <path
+        d="M600 260 C635 170 705 170 750 260"
+        fill="none"
+        stroke="#075985"
+        stroke-width="6"
+      />
+
+      <circle
+        cx="675"
+        cy="255"
+        r="40"
+        fill="#1677a8"
+        opacity=".9"
+      />
+
+      <circle
+        cx="675"
+        cy="255"
+        r="15"
+        fill="#ffffff"
+      />
+    
+  </g>
+
+  <g>
+    <circle
+      cx="1090"
+      cy="430"
+      r="225"
+      fill="#ffffff"
+      opacity=".72"
+    />
+
+    <circle
+      cx="1090"
+      cy="430"
+      r="185"
+      fill="none"
+      stroke="#1677a8"
+      stroke-width="3"
+      opacity=".28"
+    />
+
+    <circle
+      cx="1090"
+      cy="430"
+      r="140"
+      fill="none"
+      stroke="#075985"
+      stroke-width="2"
+      opacity=".35"
+    />
+
+    <circle
+      cx="1090"
+      cy="430"
+      r="90"
+      fill="#1677a8"
+      opacity=".9"
+    />
+
+    <path
+      d="M1045 430
+         L1075 460
+         L1145 380"
+      fill="none"
+      stroke="#ffffff"
+      stroke-width="16"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </g>
+
+  <text
+    x="1040"
+    y="710"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="18"
+    font-weight="700"
+    letter-spacing="4"
+    fill="#1677a8"
+  >
+    UNIQUE SERVICE VISUAL
+  </text>
+
+  <text
+    x="1040"
+    y="748"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="20"
+    fill="#526575"
+  >
+    REVNCIA AI • AUTOMATION • TRANSFORMATION
+  </text>
+
+</svg>

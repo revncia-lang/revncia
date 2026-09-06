@@ -1,48 +1,239 @@
 "use client";
 
 import Link from "next/link";
-import { FormEvent, useState } from "react";
-import { btnPrimary, shell, field } from "@/lib/ui";
+import { useState } from "react";
 import { subscriptionPlans } from "@/lib/plans";
 
-export default function SignupPage() {
-  const [message, setMessage] = useState("");
-  const [planId, setPlanId] = useState("basic");
-  const selectedPlan = subscriptionPlans.find((plan) => plan.id === planId) ?? subscriptionPlans[0];
+type SubscriptionPlan = (typeof subscriptionPlans)[number];
 
-  function submitSignup(event: FormEvent<HTMLFormElement>) {
+export default function SignupPage() {
+  const [selectedPlan, setSelectedPlan] =
+    useState<SubscriptionPlan>(subscriptionPlans[0]);
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [company, setCompany] = useState("");
+  const [message, setMessage] = useState("");
+
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setMessage("Your plan and workspace request are ready for secure payment onboarding. Access will be activated only after the payment provider confirms the transaction and REVNCIA provisions your account.");
+
+    setMessage(
+      "Your registration request has been prepared. REVNCIA will use the submitted requirements to continue the onboarding process."
+    );
   }
 
-  return <main className="min-h-[70vh] bg-[#f5f5f5] py-16">
-    <div className={`${shell} mx-auto max-w-4xl`}>
-      <div className="grid gap-10">
-      <section>
-        <p className="text-xs font-semibold uppercase tracking-[.18em] text-[#0078d4]">Customer workspace</p>
-        <h1 className="mt-4 text-4xl font-semibold text-[#505050]">Sign up with REVNCIA</h1>
-        <p className="mt-4 max-w-xl leading-7 text-[#606060]">Create a customer workspace for your organization and prepare your team for secure, measurable digital transformation.</p>
-        <form onSubmit={submitSignup} className="mt-8 grid gap-5 border-t-4 border-[#0078d4] border-x border-b border-[#d2d2d2] bg-white p-6 shadow-[0_12px_35px_rgba(11,31,51,.08)]">
-          <label className="grid gap-2 text-sm font-semibold text-[#505050]">Your name<input required name="name" autoComplete="name" className={field} /></label>
-          <label className="grid gap-2 text-sm font-semibold text-[#505050]">Work email<input required type="email" name="email" autoComplete="email" className={field} /></label>
-          <label className="grid gap-2 text-sm font-semibold text-[#505050]">Organization<input required name="organization" autoComplete="organization" className={field} /></label>
-          <label className="grid gap-2 text-sm font-semibold text-[#505050]">Plan<select required name="plan" value={planId} onChange={(event) => setPlanId(event.target.value)} className={field}>{subscriptionPlans.map((plan) => <option key={plan.id} value={plan.id}>{plan.name} — {plan.price} one-time · {plan.accessLabel}</option>)}</select></label>
-          <button type="submit" className={btnPrimary}>Request secure checkout</button>
-          <p className="text-xs leading-5 text-[#606060]">Privacy first: checkout payment fields must be hosted by the approved payment provider. This form does not collect payment credentials.</p>
-          {message ? <p className="text-sm leading-6 text-[#505050]" role="status">{message}</p> : null}
-        </form>
-        <p className="mt-5 text-sm text-[#606060]">Already have access? <Link href="/login" className="font-semibold text-[#0078d4] hover:underline">Log in</Link></p>
+  return (
+    <main className="min-h-screen bg-white text-[#242424]">
+      <section className="border-b border-[#dedede] bg-[#f7f7f7]">
+        <div className="mx-auto w-full max-w-[1600px] px-4 py-14 sm:px-6 lg:px-8 xl:px-10 md:py-20">
+          <div className="max-w-[1600px]">
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#666]">
+              REVNCIA ACCOUNT
+            </p>
+
+            <h1 className="mt-4 text-4xl font-bold leading-tight tracking-[-0.025em] md:text-6xl">
+              Start your REVNCIA journey.
+            </h1>
+
+            <p className="mt-6 max-w-3xl text-base leading-8 text-[#555] md:text-lg">
+              Select the service access level that best matches your
+              organisation and submit your requirements for onboarding.
+            </p>
+          </div>
+        </div>
       </section>
-      <aside className="border border-[#d2d2d2] bg-white p-8 shadow-[0_12px_35px_rgba(11,31,51,.08)]">
-        <div className="flex items-start justify-between gap-4 border-b border-[#edebe9] pb-5"><div><p className="text-xs font-semibold uppercase tracking-[.18em] text-[#0078d4]">Selected subscription</p><h2 className="mt-2 text-2xl font-semibold text-[#505050]">{selectedPlan.name}</h2></div><span className="border border-[#0078d4] px-3 py-2 text-xs font-semibold text-[#0078d4]">{selectedPlan.accessLabel}</span></div>
-        <p className="mt-5 border-l-4 border-[#0078d4] bg-[#f5f9fc] p-4 text-sm leading-6 text-[#606060]"><strong className="text-[#505050]">Service Access fee:</strong> {selectedPlan.price} one-time. This charge covers access to the listed services only. Project installation is a separate one-time fee, and monthly maintenance is quoted separately according to the size and requirements of the requested project or service.</p>
-        <p className="mt-4 text-sm leading-6 text-[#606060]">Your selected plan is activated after verified payment and account provisioning. This keeps access aligned with the services your organization has chosen.</p>
-        <h3 className="mt-8 text-xs font-semibold uppercase tracking-[.16em] text-[#0078d4]">Subscription benefits</h3>
-        <div className="mt-4 grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">{selectedPlan.benefits.map((benefit) => <article key={benefit} className="border border-[#d2d2d2] bg-[#f5f9fc] p-4"><span className="text-lg font-semibold text-[#0078d4]">✓</span><p className="mt-2 text-sm font-semibold leading-5 text-[#505050]">{benefit}</p></article>)}</div>
-        <div className="mt-8 flex items-center justify-between border-b border-[#edebe9] pb-3"><h3 className="text-xs font-semibold uppercase tracking-[.16em] text-[#0078d4]">Services included</h3><span className="text-xs text-[#606060]">{selectedPlan.services.length} available</span></div>
-        <ol className="mt-4 grid max-h-72 grid-cols-1 gap-x-5 gap-y-2 overflow-y-auto text-sm leading-6 text-[#606060] sm:grid-cols-2">{selectedPlan.services.map((service, index) => <li key={service} className="border-b border-[#f0f0f0] pb-1"><span className="mr-2 font-semibold text-[#0078d4]">{String(index + 1).padStart(2, "0")}</span>{service}</li>)}</ol>
-      </aside>
-      </div>
-    </div>
-  </main>;
+
+      <section className="bg-white">
+        <div className="mx-auto grid w-full max-w-[1600px] gap-10 px-4 py-14 sm:px-6 lg:px-8 xl:px-10 lg:grid-cols-[0.85fr_1.15fr] md:py-20">
+          <aside className="border border-[#dedede] bg-[#f7f7f7] p-7">
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#666]">
+              Selected Plan
+            </p>
+
+            <h2 className="mt-3 text-3xl font-bold">
+              {selectedPlan.name}
+            </h2>
+
+            <div className="mt-5 flex items-end gap-2">
+              <span className="text-4xl font-bold">
+                {selectedPlan.price}
+              </span>
+
+              <span className="pb-1 text-sm text-[#666]">
+                one-time plan
+              </span>
+            </div>
+
+            <p className="mt-3 text-sm font-semibold text-[#444]">
+              {selectedPlan.accessLabel}
+            </p>
+
+            <div className="mt-7 border-t border-[#dedede] pt-6">
+              <p className="text-sm font-bold text-[#242424]">
+                Included benefits
+              </p>
+
+              <div className="mt-4 space-y-3">
+                {selectedPlan.benefits.map((benefit) => (
+                  <div
+                    key={benefit}
+                    className="border border-[#dedede] bg-white p-3 text-sm leading-6 text-[#555]"
+                  >
+                    {benefit}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <Link
+              href="/plans"
+              className="mt-7 inline-flex text-sm font-bold !text-[#0067b8] no-underline hover:underline"
+            >
+              Compare all plans
+            </Link>
+          </aside>
+
+          <div className="border border-[#dedede] bg-white p-7 md:p-9">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#666]">
+                Registration
+              </p>
+
+              <h2 className="mt-3 text-3xl font-bold">
+                Tell us about your organisation.
+              </h2>
+
+              <p className="mt-3 text-sm leading-7 text-[#666]">
+                Submit your basic information and select the service plan you
+                want to explore.
+              </p>
+            </div>
+
+            <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+              <div>
+                <label
+                  htmlFor="plan"
+                  className="block text-sm font-bold text-[#242424]"
+                >
+                  Service plan
+                </label>
+
+                <select
+                  id="plan"
+                  value={selectedPlan.id}
+                  onChange={(event) => {
+                    const plan = subscriptionPlans.find(
+                      (item) => item.id === event.target.value
+                    );
+
+                    if (plan) {
+                      setSelectedPlan(plan);
+                    }
+                  }}
+                  className="mt-2 w-full border border-[#999] bg-white px-4 py-3 text-sm text-[#242424] outline-none focus:border-[#0067b8]"
+                >
+                  {subscriptionPlans.map((plan) => (
+                    <option key={plan.id} value={plan.id}>
+                      {plan.name} - {plan.price} - {plan.accessLabel}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="grid gap-6 md:grid-cols-2">
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-bold text-[#242424]"
+                  >
+                    Full name
+                  </label>
+
+                  <input
+                    id="name"
+                    type="text"
+                    required
+                    value={name}
+                    onChange={(event) => setName(event.target.value)}
+                    className="mt-2 w-full border border-[#999] bg-white px-4 py-3 text-sm text-[#242424] outline-none focus:border-[#0067b8]"
+                    placeholder="Your name"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-bold text-[#242424]"
+                  >
+                    Business email
+                  </label>
+
+                  <input
+                    id="email"
+                    type="email"
+                    required
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
+                    className="mt-2 w-full border border-[#999] bg-white px-4 py-3 text-sm text-[#242424] outline-none focus:border-[#0067b8]"
+                    placeholder="name@company.com"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="company"
+                  className="block text-sm font-bold text-[#242424]"
+                >
+                  Organisation
+                </label>
+
+                <input
+                  id="company"
+                  type="text"
+                  required
+                  value={company}
+                  onChange={(event) => setCompany(event.target.value)}
+                  className="mt-2 w-full border border-[#999] bg-white px-4 py-3 text-sm text-[#242424] outline-none focus:border-[#0067b8]"
+                  placeholder="Organisation name"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="requirements"
+                  className="block text-sm font-bold text-[#242424]"
+                >
+                  Requirements
+                </label>
+
+                <textarea
+                  id="requirements"
+                  rows={5}
+                  value={message}
+                  onChange={(event) => setMessage(event.target.value)}
+                  className="mt-2 w-full resize-y border border-[#999] bg-white px-4 py-3 text-sm text-[#242424] outline-none focus:border-[#0067b8]"
+                  placeholder="Tell us what you want REVNCIA to help you achieve."
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="inline-flex min-h-12 w-full items-center justify-center bg-[#0067b8] px-6 py-3 text-sm font-bold !text-white transition hover:bg-[#005a9e] md:w-auto"
+              >
+                Create REVNCIA Request
+              </button>
+
+              {message ? (
+                <div className="border border-[#cfcfcf] bg-[#f7f7f7] p-4 text-sm leading-6 text-[#444]">
+                  {message}
+                </div>
+              ) : null}
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
 }

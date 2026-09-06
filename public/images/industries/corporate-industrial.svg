@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="55%" stop-color="#f4f7fa"/>
+      <stop offset="100%" stop-color="#e9f1f7"/>
+    </linearGradient>
+
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#005a9e"/>
+      <stop offset="100%" stop-color="#74b9dc"/>
+    </linearGradient>
+
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="18" stdDeviation="25" flood-opacity="0.12"/>
+    </filter>
+
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0V60" fill="none" stroke="#d8e2e9" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#grid)" opacity="0.45"/>
+
+  <circle cx="1260" cy="240" r="260" fill="#005a9e" opacity="0.06"/>
+  <circle cx="1390" cy="580" r="340" fill="#0078d4" opacity="0.045"/>
+
+  <g opacity="0.7">
+       <rect x="970" y="180" width="390" height="250" rx="20" fill="#ffffff" stroke="#c9dbe5"/>
+       <circle cx="1060" cy="305" r="48" fill="#eef6fb" stroke="#005a9e" stroke-width="5"/>
+       <circle cx="1190" cy="245" r="38" fill="#f1f7fa" stroke="#6b9fba" stroke-width="4"/>
+       <circle cx="1270" cy="350" r="48" fill="#eef6fb" stroke="#005a9e" stroke-width="5"/>
+       <path d="M1100 285 L1155 255 M1220 275 L1240 320 M1100 325 L1220 345"
+             stroke="#005a9e" stroke-width="5" fill="none"/>
+     </g>
+
+  <g transform="translate(120 110)">
+    <rect width="650" height="420" rx="28" fill="#ffffff" stroke="#d7e0e6" filter="url(#shadow)"/>
+
+    <rect x="42" y="42" width="8" height="105" rx="4" fill="url(#accent)"/>
+
+    <text x="82" y="82"
+          font-family="Segoe UI, Arial, sans-serif"
+          font-size="22"
+          font-weight="600"
+          letter-spacing="4"
+          fill="#005a9e">ENTERPRISE</text>
+
+    <text x="82" y="135"
+          font-family="Segoe UI, Arial, sans-serif"
+          font-size="38"
+          font-weight="700"
+          fill="#242424">AI-powered operations</text>
+
+    <circle cx="105" cy="245" r="58" fill="#eef6fb" stroke="#005a9e" stroke-width="3"/>
+    <circle cx="105" cy="245" r="22" fill="#005a9e"/>
+
+    <path d="M180 245 H315 M315 245 L285 225 M315 245 L285 265"
+          fill="none" stroke="#005a9e" stroke-width="6" stroke-linecap="round"/>
+
+    <rect x="365" y="190" width="210" height="110" rx="18"
+          fill="#f7fafc" stroke="#cbd9e2"/>
+
+    <circle cx="405" cy="230" r="12" fill="#005a9e"/>
+    <circle cx="445" cy="230" r="12" fill="#80a9c1"/>
+    <circle cx="485" cy="230" r="12" fill="#a7c5d6"/>
+
+    <rect x="405" y="260" width="130" height="8" rx="4" fill="#d5e1e8"/>
+  </g>
+
+  <g opacity="0.8">
+    <circle cx="1040" cy="690" r="8" fill="#005a9e"/>
+    <circle cx="1100" cy="640" r="5" fill="#6b9db9"/>
+    <circle cx="1160" cy="700" r="7" fill="#9cc3d7"/>
+    <circle cx="1230" cy="620" r="5" fill="#005a9e"/>
+    <circle cx="1300" cy="680" r="8" fill="#75a9c2"/>
+
+    <path d="M1040 690 L1100 640 L1160 700 L1230 620 L1300 680"
+          fill="none" stroke="#005a9e" stroke-width="2" opacity="0.5"/>
+  </g>
+</svg>

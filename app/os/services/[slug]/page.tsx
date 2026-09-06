@@ -1,21 +1,111 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
-import { offerings, offeringBySlug } from "@/lib/catalog";
-import { shell } from "@/lib/ui";
-import { ServiceVisual } from "@/components/ServiceVisual";
+import { offerings } from "@/lib/catalog";
 
-export function generateStaticParams(){ return offerings.map((o)=>({slug:o.slug})); }
+export default function OSServicesPage() {
+  return (
+    <main className="min-h-screen bg-[#f5f5f5] text-[#242424]">
+      <section className="border-b border-[#e1e1e1] bg-white">
+        <div className="mx-auto w-full max-w-[1600px] px-4 py-14 sm:px-6 lg:px-8 xl:px-10">
+          <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#666]">
+            REVNCIA OS
+          </p>
 
-export default async function OSServiceDetail({ params }: { params: Promise<{slug:string}> }) {
-  const { slug } = await params;
-  const service = offeringBySlug(slug);
-  if (!service) notFound();
-  const related = offerings.filter((o)=>o.group===service.group && o.slug!==service.slug).slice(0,4);
-  return <div className="min-h-[calc(100vh-72px)]"><div className={`${shell} py-10 lg:py-14`}>
-    <Link href="/os/services" className="text-[10px] uppercase tracking-[.16em] text-white/35 hover:text-white">← Service Catalog</Link>
-    <div className="mt-6 grid gap-8 xl:grid-cols-[1.1fr_.9fr] xl:items-start"><div><p className="site-section-label">Service {service.n} · {service.group}</p><h1 className="mt-4 page-display text-4xl md:text-6xl">{service.name}</h1><p className="mt-5 max-w-3xl text-lg leading-8 text-white/55">{service.title}</p><p className="mt-6 max-w-3xl text-sm leading-7 text-white/42">{service.body}</p><div className="mt-7 flex flex-wrap gap-3"><Link href={`/os/service-requests?service=${encodeURIComponent(service.name)}`} className="rounded-xl border border-white/20 bg-white px-5 py-3 text-[10px] font-semibold uppercase tracking-[.13em] text-black">Request this service →</Link><Link href="/os/projects" className="rounded-xl border border-white/12 px-5 py-3 text-[10px] font-semibold uppercase tracking-[.13em] text-white/65 hover:text-white">View projects</Link></div></div><div className="tech-panel p-4"><ServiceVisual slug={service.slug} name={service.name}/></div></div>
-    <div className="mt-12 grid gap-4 md:grid-cols-2"><div className="tech-panel p-6"><p className="site-section-label">Included capability</p><ul className="mt-5 space-y-3">{service.capabilities.map((x)=><li key={x} className="flex gap-3 text-sm leading-6 text-white/60"><span className="text-cyan-200">◇</span>{x}</li>)}</ul></div><div className="tech-panel p-6"><p className="site-section-label">Operating model</p><div className="mt-5 grid gap-3 sm:grid-cols-2">{[["Assess","Baseline the current state"],["Design","Define target capability"],["Implement","Configure and integrate"],["Adopt","Enable owners and users"],["Measure","Track agreed KPIs"],["Operate","Manage and improve"]] .map(([a,b])=><div key={a} className="rounded-xl border border-white/8 bg-white/[.018] p-4"><div className="font-semibold text-white">{a}</div><div className="mt-1 text-xs leading-5 text-white/35">{b}</div></div>)}</div></div></div>
-    <div className="mt-12 tech-panel p-6"><p className="site-section-label">Why this matters</p><h2 className="mt-3 text-2xl font-semibold text-white">What can happen when this capability is missing</h2><p className="mt-4 max-w-3xl text-sm leading-7 text-white/55">Without an agreed capability, owner, and operating process, teams can remain dependent on manual work, disconnected records, unclear accountability, and decisions that are difficult to measure or explain. The impact depends on your institution, systems, controls, and scope.</p></div>
-    <div className="mt-12"><p className="site-section-label">Related capabilities</p><div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{related.map(o=><Link key={o.slug} href={`/os/services/${o.slug}`} className="tech-panel p-5 hover:border-cyan-200/20"><div className="text-[9px] tracking-[.16em] text-cyan-200/60">{o.n}</div><h3 className="mt-3 font-semibold">{o.name}</h3><p className="mt-2 text-xs leading-5 text-white/35">{o.summary}</p></Link>)}</div></div>
-  </div></div>;
+          <h1 className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl">
+            Service Command Catalog
+          </h1>
+
+          <p className="mt-4 max-w-3xl text-base leading-8 text-[#555]">
+            Explore the REVNCIA service portfolio and connect customer
+            requirements with the appropriate delivery capability.
+          </p>
+
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link
+              href="/contact"
+              className="inline-flex min-h-[48px] items-center justify-center border border-[#0067b8] bg-[#0067b8] px-7 py-3 text-sm font-bold !text-white transition hover:bg-[#005a9f] hover:!text-white"
+            >
+              New Service Request
+            </Link>
+
+            <Link
+              href="/services"
+              className="inline-flex min-h-[48px] items-center justify-center border border-[#0067b8] bg-white px-7 py-3 text-sm font-bold text-[#0067b8] transition hover:bg-[#f3f8fc]"
+            >
+              Public Service Catalog
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#f5f5f5]">
+        <div className="mx-auto w-full max-w-[1600px] px-4 py-12 sm:px-6 lg:px-8 xl:px-10">
+
+          <div className="mb-8 grid gap-4 md:grid-cols-3">
+            <div className="border border-[#dedede] bg-white p-5">
+              <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#666]">
+                Catalog
+              </p>
+              <p className="mt-2 text-3xl font-semibold">
+                {offerings.length}
+              </p>
+              <p className="mt-1 text-sm text-[#666]">
+                Available service capabilities
+              </p>
+            </div>
+
+            <div className="border border-[#dedede] bg-white p-5">
+              <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#666]">
+                Delivery
+              </p>
+              <p className="mt-2 text-xl font-semibold">
+                Digital First
+              </p>
+              <p className="mt-1 text-sm text-[#666]">
+                Structured and scalable delivery
+              </p>
+            </div>
+
+            <div className="border border-[#dedede] bg-white p-5">
+              <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#666]">
+                Outcome
+              </p>
+              <p className="mt-2 text-xl font-semibold">
+                Business Value
+              </p>
+              <p className="mt-1 text-sm text-[#666]">
+                Focused on practical results
+              </p>
+            </div>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {offerings.map((service) => (
+              <Link
+                key={service.slug}
+                href={`/services/${service.slug}`}
+                className="group border border-[#dedede] bg-white p-6 shadow-[0_5px_18px_rgba(0,0,0,0.035)] transition hover:-translate-y-0.5 hover:border-[#b8d6ea] hover:shadow-[0_8px_24px_rgba(0,0,0,0.07)]"
+              >
+                <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#666]">
+                  REVNCIA Service
+                </p>
+
+                <h2 className="mt-3 text-lg font-semibold group-hover:text-[#0067b8]">
+                  {service.title}
+                </h2>
+
+                <p className="mt-3 text-sm leading-7 text-[#555]">
+                  {service.summary}
+                </p>
+
+                <span className="mt-5 inline-flex min-h-[40px] items-center justify-center border border-[#0067b8] bg-[#0067b8] px-5 py-2 text-sm font-bold !text-white transition group-hover:bg-[#005a9f]">
+                  Explore Service
+                </span>
+              </Link>
+            ))}
+          </div>
+
+        </div>
+      </section>
+    </main>
+  );
 }

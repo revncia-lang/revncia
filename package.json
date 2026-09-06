@@ -10,6 +10,7 @@
     "dev": "next dev",
     "start": "next start",
     "lint": "eslint",
+    "service-images": "node scripts/generate-service-images.mjs",
     "pages:build": "opennextjs-cloudflare build",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
