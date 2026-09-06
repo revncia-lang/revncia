@@ -1,7 +1,6 @@
 import { MediaFrame } from "@/components/MediaFrame";
-import { UniqueChart } from "@/components/UniqueChart";
 import { UniqueScene } from "@/components/UniqueScene";
-import { chartCaption, pictureCaption } from "@/lib/visuals";
+import { pictureCaption } from "@/lib/visuals";
 
 export function ServiceVisual({
   slug,
@@ -15,12 +14,6 @@ export function ServiceVisual({
       <MediaFrame ratio="landscape" className="w-full rounded-none rounded-t-xl border-0 border-b border-[#d2d2d7]">
         <UniqueScene id={`pic-${slug}`} title={pictureCaption(name)} />
       </MediaFrame>
-      <UniqueChart
-        id={`graph-${slug}`}
-        caption={chartCaption(name, "card")}
-        compact
-        embedded
-      />
     </div>
   );
 }

@@ -3,10 +3,8 @@ import Link from "next/link";
 import { BuyLayersGrid, FacilityDetail, HonestyCards, SupportDesk } from "@/components/CustomerFacilities";
 import { MediaFrame } from "@/components/MediaFrame";
 import { PageHero } from "@/components/PageHero";
-import { UniqueChart } from "@/components/UniqueChart";
 import { UniqueScene } from "@/components/UniqueScene";
 import { customerFacilities, facilitiesIntro, honestyLimits } from "@/lib/facilities";
-import { BetaLabel } from "@/components/BetaLabel";
 import { band, btnPrimary, kicker, shell } from "@/lib/ui";
 
 export const metadata: Metadata = {
@@ -35,8 +33,6 @@ export default function FacilitiesPage() {
           <UniqueScene id="facilities-access" title="What callers, staff, and citizens can use" />
         </MediaFrame>
         <div className="mb-12 grid gap-4 md:grid-cols-2">
-          <UniqueChart id="facilities-access-wait" caption="How waiting usually falls once a facility is live (example)" />
-          <UniqueChart id="facilities-access-use" caption="Who uses Voice, WhatsApp, and staff systems (example mix)" />
         </div>
         <p className={kicker}>What you can use</p>
         <h2 className="mt-3 max-w-3xl font-serif font-bold text-3xl md:text-4xl text-stone-900">
@@ -81,7 +77,6 @@ export default function FacilitiesPage() {
           </div>
           <Link href="/contact" className={`${btnPrimary} mt-10`}>
             Write to us about a facility
-            <BetaLabel />
           </Link>
         </div>
         <div className="lg:col-span-5">

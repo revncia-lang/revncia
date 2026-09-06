@@ -1,10 +1,8 @@
 import Link from "next/link";
-import { BetaLabel } from "@/components/BetaLabel";
 import { FacilitiesHomeSection } from "@/components/CustomerFacilities";
 import { HumanoidRobot } from "@/components/HumanoidRobot";
 import { PageGuide } from "@/components/PageGuide";
 import { ServiceVisual } from "@/components/ServiceVisual";
-import { UniqueChart } from "@/components/UniqueChart";
 import { engagement, flywheel, offerings } from "@/lib/catalog";
 import { company } from "@/lib/site";
 import { band, btnPrimary, btnSecondary, display, kicker, shell, surface, surfaceHover } from "@/lib/ui";
@@ -52,14 +50,12 @@ export default function Home() {
             <div className="mt-10 flex flex-wrap gap-3">
               <Link href="/services" className={btnPrimary}>
                 See every service
-                <BetaLabel />
               </Link>
               <Link href="/platform" className={btnSecondary}>
                 How we run AI
               </Link>
               <Link href="/contact" className={btnPrimary}>
                 Start a conversation
-                <BetaLabel />
               </Link>
             </div>
             <PageGuide sections={homeGuide} />
@@ -108,9 +104,6 @@ export default function Home() {
           How service, cost, and public wait times usually move after go-live — examples, not a quote.
         </h2>
         <div className="grid w-full gap-4 md:grid-cols-3">
-          <UniqueChart id="home-containment" caption="Callers finished without a callback (example path)" />
-          <UniqueChart id="home-cost-routing" caption="How spend is shared across approved models (example)" />
-          <UniqueChart id="home-public-impact" caption="How long a citizen case usually takes (example)" />
         </div>
       </section>
 

@@ -4,7 +4,6 @@ import Link from "next/link";
 import { FacilitiesOnService } from "@/components/CustomerFacilities";
 import { MediaFrame } from "@/components/MediaFrame";
 import { PageHero } from "@/components/PageHero";
-import { UniqueChart } from "@/components/UniqueChart";
 import { offerings } from "@/lib/catalog";
 import { btnSecondary, shell, surface } from "@/lib/ui";
 
@@ -56,8 +55,6 @@ export default function PlatformPage() {
         </ul>
         <FacilitiesOnService slug="ai-platform" />
         <div className="mt-10 grid gap-4 md:grid-cols-2">
-          <UniqueChart id="platform-routing" caption="How staff requests are shared across approved models (example)" />
-          <UniqueChart id="platform-tokens" caption="Spend your owner can read against a cost envelope (example)" />
         </div>
         <Link href="/services/ai-platform" className={`${btnSecondary} mt-8`}>
           What the platform includes

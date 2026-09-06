@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { AiBackdrop } from "@/components/AiBackdrop";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import "./jarvis.css";
+import { SiteChrome } from "@/components/SiteChrome";
 import { VirtualAssistant } from "@/components/VirtualAssistant";
 import { company } from "@/lib/site";
 
@@ -14,7 +13,7 @@ const sans = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: `${company.name} — Together we transform`,
+    default: `${company.name} — AI, Digital Transformation and Public Impact Company`,
     template: `%s — ${company.name}`,
   },
   description:
@@ -29,11 +28,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${sans.variable} h-full antialiased`}
     >
       <body className="relative flex min-h-full flex-col overflow-x-clip font-sans">
-        <AiBackdrop />
         <div className="relative z-10 flex min-h-full flex-col pb-24">
-          <Header />
-          {children}
-          <Footer />
+          <SiteChrome>{children}</SiteChrome>
         </div>
         <VirtualAssistant />
       </body>

@@ -9,7 +9,7 @@ import { shell, surface } from "@/lib/ui";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Contact REVNCIA in Cheyenne, Wyoming or by email at info@revncia.com.",
+  description: "Contact REVNCIA securely through the Website contact form.",
 };
 
 export default function ContactPage() {
@@ -22,15 +22,14 @@ export default function ContactPage() {
         lede="Write from the published office. Name who waits and the work you need so we can reply. Together we transform — and that starts with a message, not a pitch deck. We do not publish a phone tree, a WhatsApp token, or a guaranteed reply-time SLA."
         sections={[
           { title: "What to tell us", text: "Your name, organisation, email, who waits, and the outcome you need." },
-          { title: "How we reply", text: "info@revncia.com from Cheyenne on ordinary US business days — email-first." },
+          { title: "How we reply", text: "Submit the form securely and our team will review your request from the published office." },
         ]}
       />
       <section className={`${shell} grid gap-12 py-16 md:grid-cols-2`}>
         <div className="min-w-0">
           <h2 className="text-2xl font-semibold">What to tell us</h2>
-          <p className="mt-3 mb-8 text-sm leading-relaxed text-pretty break-words text-white/45">
-            Sending opens a draft to {company.email} so you can review it before
-            it leaves your inbox.
+          <p className="mt-3 mb-8 text-sm leading-relaxed text-pretty break-words text-[#606060]">
+            Your message is submitted through the secure Website form for review by our team.
           </p>
           <ContactForm />
         </div>
@@ -40,21 +39,21 @@ export default function ContactPage() {
           </MediaFrame>
           <div className={`${surface} p-6`}>
             <h2 className="text-2xl font-semibold">How customers reach us</h2>
-            <p className="mt-4 text-[0.95rem] leading-relaxed text-pretty break-words text-white/45">
+            <p className="mt-4 text-[0.95rem] leading-relaxed text-pretty break-words text-[#606060]">
               {company.name}
               <br />
               {company.address}
             </p>
-            <p className="mt-4 text-sm leading-relaxed text-pretty break-words text-white/45">
-              Email-first from this office on ordinary US business days. Name
-              who waits in the subject. Voice and WhatsApp that your callers
-              use after go-live are your channels — not a promise that a
-              REVNCIA person answers at all hours.
+            <p className="mt-4 text-sm leading-relaxed text-pretty break-words text-[#606060]">
+              Use the secure form to tell us who waits, what process is slow,
+              and what outcome you need. Our team reviews each request from the
+              published office and follows up through the contact details you
+              provide.
             </p>
-            <p className="mt-6 text-sm">
-              <a className="break-all text-cyan-200/80 underline underline-offset-4" href={`mailto:${company.email}`}>
-                {company.email}
-              </a>
+            <p className="mt-4 text-sm leading-relaxed text-pretty break-words text-white/45">
+              Your message is routed through a protected server endpoint. Do
+              not include passwords, card numbers, CVV codes, or bank
+              credentials in the message.
             </p>
           </div>
         </div>

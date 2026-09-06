@@ -1,22 +1,69 @@
 import Link from "next/link";
-import { AIEcosystem } from "@/components/AIEcosystem";
-import { HumanoidRobot } from "@/components/HumanoidRobot";
-import { UniqueChart } from "@/components/UniqueChart";
-import { UniqueScene } from "@/components/UniqueScene";
 
-const metrics = [["24","Active Projects","+12%"],["56","AI Agents","+16%"],["10.2M","Automated Tasks","+25%"],["99.9%","System Health","Excellent"]];
-const agents = [["Revenue Analyst","2.4M tasks"],["Support Agent","1.8M tasks"],["Data Processor","1.4M tasks"]];
-const activity = ["New service request submitted","AI Agent Revenue Analyst completed a task","Workflow Invoice Automation executed","Data sync with CRM completed"];
-const modules = [
-  ["Service Catalog","Explore all 112 capabilities, inspect delivery details and request work.","/os/services","◈"],
-  ["Service Requests","Turn an outcome or business problem into an assessed delivery request.","/os/service-requests","↗"],
-  ["Projects & Implementations","Connect scope, milestones, owners, agents, workflows and KPIs.","/os/projects","▦"],
-  ["Managed Operations","Move completed capabilities into monitored, continuously improved operation.","/os/managed-services","◉"],
+const cards = [
+  { label: "AI Core", value: "Ready", detail: "Governed intelligence layer", href: "/os/ai" },
+  { label: "Active agents", value: "18", detail: "Configured workers", href: "/os/agents" },
+  { label: "Workflows", value: "42", detail: "Automated operating paths", href: "/os/workflows" },
+  { label: "Projects", value: "12", detail: "Active transformation work", href: "/os/projects" },
 ];
-export default function OSHome(){return <div className="relative min-h-[calc(100vh-72px)] overflow-hidden"><div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_0%,rgba(98,217,255,.08),transparent_34%),linear-gradient(rgba(255,255,255,.018)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.018)_1px,transparent_1px)] bg-[length:auto,48px_48px,48px_48px]"/><div className="relative mx-auto max-w-[1500px] px-5 py-8 sm:px-8 lg:px-10 lg:py-10">
-<div className="grid gap-6 xl:grid-cols-[1.05fr_.95fr] xl:items-center"><div><p className="site-section-label">REVNCIA OS · OPERATING SYSTEM</p><h1 className="mt-4 page-display text-4xl md:text-6xl">One operating layer for AI transformation.</h1><p className="mt-5 max-w-3xl text-base leading-7 text-white/48">REVNCIA OS connects services, people, AI agents, workflows, knowledge, integrations, analytics and governance. It is the control surface where transformation becomes an operating capability instead of a collection of disconnected projects.</p><div className="mt-7 flex flex-wrap gap-3"><Link href="/os/services" className="rounded-xl border border-white/20 bg-white px-5 py-3 text-[10px] font-semibold uppercase tracking-[.13em] text-black">Open service catalog →</Link><Link href="/os/service-requests" className="rounded-xl border border-white/12 px-5 py-3 text-[10px] font-semibold uppercase tracking-[.13em] text-white/65">Start a request →</Link></div></div><div className="tech-panel min-h-[360px] p-2 sm:p-4"><AIEcosystem/></div></div>
-<div className="mt-8 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">{metrics.map(([v,l,d])=><div key={l} className="tech-panel p-5"><div className="text-[.6rem] uppercase tracking-[.18em] text-white/30">{l}</div><div className="mt-3 text-3xl font-medium text-white">{v}</div><div className="mt-2 text-xs text-cyan-200/65">{d}</div></div>)}</div>
-<div className="mt-6 grid gap-4 xl:grid-cols-[1.25fr_.75fr]"><div className="tech-panel p-5 sm:p-6"><div className="flex items-center justify-between"><div><p className="site-section-label">Operations telemetry</p><h2 className="mt-2 text-xl font-semibold">Activity across the operating layer</h2></div><span className="text-[.6rem] uppercase tracking-[.15em] text-white/25">Illustrative workspace</span></div><div className="mt-5"><UniqueChart id="os-command-tasks" caption="AI and workflow activity over time"/></div></div><div className="tech-panel p-5 sm:p-6"><p className="site-section-label">System status</p><div className="mt-5 space-y-4">{[["AI Agents","Online"],["Workflows","Running"],["Integrations","Connected"],["Data Pipeline","Active"],["Governance","Enforced"]].map(([a,b])=><div key={a} className="flex items-center justify-between border-b border-white/8 pb-3"><span className="text-sm text-white/55">{a}</span><span className="text-xs text-cyan-200/70">● {b}</span></div>)}</div><div className="mt-6 h-32 overflow-hidden rounded-xl border border-white/8"><UniqueScene id="os-command-status" title="REVNCIA OS system status"/></div></div></div>
-<div className="mt-6 grid gap-4 xl:grid-cols-[.75fr_1.25fr]"><div className="tech-panel p-3 min-h-[380px]"><HumanoidRobot/></div><div className="grid gap-4 sm:grid-cols-2">{modules.map(([t,d,h,ic])=><Link key={h} href={h} className="tech-panel group p-6"><div className="flex items-center justify-between"><span className="text-xl text-cyan-200">{ic}</span><span className="text-white/20 group-hover:text-cyan-200">→</span></div><h3 className="mt-6 text-xl font-semibold">{t}</h3><p className="mt-3 text-sm leading-6 text-white/42">{d}</p></Link>)}</div></div>
-<div className="mt-8 grid gap-4 lg:grid-cols-2"><div className="tech-panel p-5 sm:p-6"><p className="site-section-label">Top AI agents</p><div className="mt-5 space-y-3">{agents.map(([a,b],i)=><div key={a} className="flex items-center gap-3 rounded-xl border border-white/7 bg-white/[.018] p-3"><span className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 text-cyan-200">0{i+1}</span><span className="flex-1 text-sm text-white/70">{a}</span><span className="text-xs text-white/30">{b}</span></div>)}</div></div><div className="tech-panel p-5 sm:p-6"><p className="site-section-label">Recent activity</p><div className="mt-5 space-y-3">{activity.map((a,i)=><div key={a} className="flex gap-3 border-b border-white/7 pb-3"><span className="mt-1 h-1.5 w-1.5 rounded-full bg-cyan-300"/><div><p className="text-sm text-white/60">{a}</p><p className="mt-1 text-[10px] uppercase tracking-[.12em] text-white/25">{i+2} min ago · audit event</p></div></div>)}</div></div></div>
-</div></div>}
+
+const activity = [
+  ["Customer Service Agent", "Running", "98% successful handoffs"],
+  ["Invoice Processing Workflow", "Running", "1,284 tasks completed"],
+  ["Executive Insight Agent", "Ready", "12 approved knowledge sources"],
+] as const;
+
+export default function OSHome() {
+  return (
+    <div className="mx-auto max-w-7xl px-5 py-10 sm:px-8 lg:px-12">
+      <div className="flex flex-wrap items-end justify-between gap-5">
+        <div>
+          <p className="text-[10px] font-semibold uppercase tracking-[.24em] text-cyan-200/60">Organization workspace</p>
+          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Command Center</h1>
+          <p className="mt-3 max-w-2xl text-sm leading-7 text-white/50">Move from service discovery to governed delivery. Use the operating modules to understand capability, request work, and track outcomes.</p>
+        </div>
+        <Link href="/os/service-requests" className="inline-flex bg-white px-5 py-3 text-xs font-semibold uppercase tracking-[.12em] text-black transition hover:bg-cyan-100">New service request <span className="ml-2" aria-hidden>→</span></Link>
+      </div>
+
+      <section className="mt-10 grid gap-3 sm:grid-cols-2 xl:grid-cols-4" aria-label="Workspace overview">
+        {cards.map((card) => (
+          <Link key={card.href} href={card.href} className="border border-white/10 bg-white/[.035] p-5 transition hover:border-cyan-200/30 hover:bg-white/[.06]">
+            <p className="text-xs font-medium text-white/45">{card.label}</p>
+            <p className="mt-5 text-3xl font-semibold text-white">{card.value}</p>
+            <p className="mt-2 text-xs text-cyan-100/60">{card.detail}</p>
+          </Link>
+        ))}
+      </section>
+
+      <section className="mt-10 grid gap-4 lg:grid-cols-[1.2fr_.8fr]">
+        <div className="border border-white/10 bg-white/[.025] p-6">
+          <div className="flex items-center justify-between gap-4">
+            <div>
+              <p className="text-[10px] font-semibold uppercase tracking-[.2em] text-cyan-200/60">Live operations</p>
+              <h2 className="mt-2 text-xl font-semibold text-white">AI Operations</h2>
+            </div>
+            <Link href="/os/analytics" className="text-xs text-cyan-100/70 hover:text-white">View analytics →</Link>
+          </div>
+          <div className="mt-6 divide-y divide-white/10">
+            {activity.map(([name, status, detail]) => (
+              <div key={name} className="flex flex-wrap items-center justify-between gap-3 py-4 first:pt-0 last:pb-0">
+                <div><p className="text-sm font-medium text-white">{name}</p><p className="mt-1 text-xs text-white/40">{detail}</p></div>
+                <span className="text-[10px] font-semibold uppercase tracking-[.12em] text-emerald-200">{status}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="border border-white/10 bg-white/[.025] p-6">
+          <p className="text-[10px] font-semibold uppercase tracking-[.2em] text-cyan-200/60">Transformation workspace</p>
+          <h2 className="mt-2 text-xl font-semibold text-white">A clear path to operating value</h2>
+          <ol className="mt-6 space-y-4 text-sm text-white/55">
+            <li><span className="mr-3 text-cyan-200">01</span>Choose a capability from the service catalog.</li>
+            <li><span className="mr-3 text-cyan-200">02</span>Request an assessment and define scope.</li>
+            <li><span className="mr-3 text-cyan-200">03</span>Track implementation, adoption, and KPIs.</li>
+          </ol>
+          <Link href="/os/services" className="mt-7 inline-flex text-sm font-semibold text-cyan-100 hover:text-white">Browse service catalog →</Link>
+        </div>
+      </section>
+    </div>
+  );
+}

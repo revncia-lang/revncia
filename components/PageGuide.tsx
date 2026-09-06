@@ -26,7 +26,7 @@ export function PageGuide({
                   </span>
                   {s.title}
                 </h3>
-                <p className="mt-1 text-sm leading-relaxed text-pretty break-words text-white/45">
+                <p className="mt-1 text-sm leading-relaxed text-pretty break-words text-[#606060]">
                   {s.text}
                 </p>
               </li>

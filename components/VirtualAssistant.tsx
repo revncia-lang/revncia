@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { offerings } from "@/lib/catalog";
 import { painPoints, plainWhy } from "@/lib/pains";
 import { company } from "@/lib/site";
@@ -146,6 +146,11 @@ export function VirtualAssistant() {
     send(input);
   }
 
+  function clearConversation() {
+    setMsgs([{ role: "va", text: "Welcome back to REVNCIA Support. What would you like to understand or improve?" }]);
+    setInput("");
+  }
+
   function listen() {
     const w = window as Window & {
       webkitSpeechRecognition?: new () => {
@@ -179,47 +184,34 @@ export function VirtualAssistant() {
     rec.start();
   }
 
-  const label = useMemo(
-    () => (memory.name ? memory.name : "REVNCIA"),
-    [memory.name],
-  );
+  const label = "Support";
 
   return (
     <div className="fixed right-4 bottom-4 z-[80] flex flex-col items-end gap-3">
       {open ? (
-        <div className="va-panel w-[min(100vw-2rem,22rem)] overflow-hidden">
-          <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
-            <div>
-              <p className="va-panel-title text-[0.72rem] font-semibold tracking-[0.16em] uppercase">
-                {label}
-              </p>
-              <p className="mt-0.5 text-xs leading-snug text-white/55">
-                How can we help?
-              </p>
+        <div className="w-[min(calc(100vw-2rem),30rem)] overflow-hidden border border-[#d2d2d2] bg-white text-[#242424] shadow-2xl">
+          <div className="flex items-center justify-between border-b border-[#d2d2d2] bg-[#f5f5f5] px-5 py-4">
+            <div className="flex items-center gap-3">
+              <span className="grid h-9 w-9 place-items-center border border-[#0078d4] bg-[#0078d4] text-xs font-bold text-white">S</span>
+              <div>
+                <p className="text-sm font-semibold">{label}</p>
+                <p className="mt-0.5 flex items-center gap-1.5 text-xs leading-snug text-[#616161]"><span className="h-1.5 w-1.5 rounded-full bg-[#107c10]" />Available to guide you</p>
+              </div>
             </div>
-            <button
-              type="button"
-              className="va-panel-close rounded-md px-2.5 py-1 text-xs font-medium tracking-wide"
-              onClick={() => setOpen(false)}
-            >
-              Close
-            </button>
+            <div className="flex items-center gap-2"><button type="button" className="border border-[#d2d2d2] bg-white px-2.5 py-1 text-xs font-medium text-[#505050] hover:border-[#0078d4]" onClick={clearConversation}>Clear</button><button type="button" className="border border-[#0078d4] bg-white px-2.5 py-1 text-xs font-medium text-[#242424] hover:bg-[#f5f5f5]" onClick={() => setOpen(false)}>Close</button></div>
           </div>
-          <div className="max-h-72 space-y-2.5 overflow-y-auto px-4 py-3 text-[0.9rem] leading-6">
+          <div className="border-b border-[#edebe9] bg-white px-5 py-3"><p className="text-[11px] font-semibold uppercase tracking-[.12em] text-[#616161]">Quick questions</p><div className="mt-2 flex flex-wrap gap-2">{["Which service fits my business?", "How can AI improve security?", "How do I reduce process delays?"] .map((prompt) => <button key={prompt} type="button" onClick={() => send(prompt)} className="border border-[#d2d2d2] bg-white px-2.5 py-1.5 text-xs text-[#505050] hover:border-[#0078d4] hover:text-[#0078d4]">{prompt}</button>)}</div></div>
+          <div className="max-h-[26rem] space-y-3 overflow-y-auto px-5 py-4 text-[0.9rem] leading-6">
             {msgs.map((m, i) => (
               <div
                 key={i}
-                className={
-                  m.role === "user"
-                    ? "va-msg-user ml-8 px-3.5 py-2.5"
-                    : "va-msg-va mr-6 px-3.5 py-2.5"
-                }
+                className={m.role === "user" ? "ml-8 border border-[#b8d7ef] bg-[#f3f9fd] px-3.5 py-2.5 text-[#242424]" : "mr-6 border border-[#d2d2d2] bg-white px-3.5 py-2.5 text-[#242424]"}
               >
                 <p className="break-words">{m.text}</p>
                 {m.href ? (
                   <Link
                     href={m.href}
-                    className="va-msg-link mt-2 inline-block text-xs font-medium tracking-wide"
+                    className="mt-2 inline-block text-xs font-medium tracking-wide text-[#0078d4] hover:underline"
                   >
                     Continue
                   </Link>
@@ -228,17 +220,17 @@ export function VirtualAssistant() {
             ))}
             <div ref={endRef} />
           </div>
-          <form onSubmit={onSubmit} className="flex items-center gap-1.5 border-t border-white/10 p-3">
+          <form onSubmit={onSubmit} className="flex items-center gap-1.5 border-t border-[#d2d2d2] bg-[#f5f5f5] p-3">
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Type a question…"
-              className="va-input min-w-0 flex-1 px-3 py-2 text-sm leading-relaxed outline-none"
+              className="min-w-0 flex-1 border border-[#8a8886] bg-white px-3 py-2 text-sm leading-relaxed text-black outline-none placeholder:text-[#616161] focus:border-[#0078d4]"
             />
             <button
               type="button"
               onClick={listen}
-              className="va-listen px-2.5 py-2 text-[0.65rem] font-semibold uppercase tracking-wider"
+              className="border border-[#0078d4] bg-white px-2.5 py-2 text-xs font-semibold text-[#242424] hover:bg-[#f5f5f5]"
             >
               Listen
             </button>
@@ -251,11 +243,11 @@ export function VirtualAssistant() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="btn-cta inline-flex h-12 min-w-[5.5rem] items-center justify-center rounded-full border px-6 text-sm font-semibold tracking-normal text-white shadow-[0_8px_24px_rgba(59,145,199,0.28)] transition hover:bg-[#2F7AAB] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7ebde0]/80 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-        aria-label="Help!"
+        className="inline-flex h-12 min-w-[6rem] items-center justify-center border border-[#0078d4] bg-[#0078d4] px-6 text-sm font-semibold text-white transition hover:border-[#106ebe] hover:bg-[#106ebe] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0078d4] focus-visible:ring-offset-2"
+        aria-label="Open Support"
         aria-expanded={open}
       >
-        Help!
+        Support
       </button>
     </div>
   );

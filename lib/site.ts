@@ -1,9 +1,10 @@
 export const company = {
   name: "REVNCIA",
-  descriptor: "A Digital Transformation & Public Impact Company",
+  descriptor: "AI, Digital Transformation and Public Impact Company",
   tagline: "Customers get answers. Staff get one system. The public gets a record they can trust.",
   motto: "Together we transform",
   email: "info@revncia.com",
+  contactEmails: ["info@revncia.com", "revncia@gmail.com"],
   address: "525 Randall Ave Ste 100, Cheyenne, WY, USA",
   founder: "Muhammad Danish",
   founderTitle: "Founder & Chief Executive Officer",
@@ -30,6 +31,13 @@ export const nav = [
     hint: "Voice, WhatsApp, CRM, ERP, government — pick what waits first.",
     explain:
       "Choose a service by who waits: callers, WhatsApp chats, unread files, citizen cases, or a board that wants a plan. Each service says what you receive, who it helps, and what happens after go-live.",
+  },
+  {
+    href: "/plans",
+    label: "Plans",
+    hint: "Choose service access and request secure payment onboarding.",
+    explain:
+      "Compare monthly service access, payment channels, and the security, business value, and process guidance included with each plan.",
   },
   {
     href: "/facilities",

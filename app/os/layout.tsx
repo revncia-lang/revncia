@@ -2,6 +2,7 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const groups = [
   { title: "Command Center", href: "/os", icon: "⌂" },
@@ -26,7 +27,28 @@ const groups = [
 
 export default function OSLayout({ children }: { children: ReactNode }) {
   const path = usePathname();
-  return <div className="min-h-screen bg-black text-white">
+  const [ready, setReady] = useState(false);
+  const [accountHolder, setAccountHolder] = useState(false);
+
+  useEffect(() => {
+    setAccountHolder(window.localStorage.getItem("revncia-account-session") === "active");
+    setReady(true);
+  }, []);
+
+  if (!ready) return <div className="min-h-screen bg-white" aria-hidden="true" />;
+
+  if (!accountHolder) {
+    return <main className="flex min-h-screen items-center justify-center bg-[#f5f5f5] px-5 py-16 text-[#505050]">
+      <section className="w-full max-w-xl border border-[#d2d2d2] bg-white p-8 text-center shadow-[0_12px_35px_rgba(11,31,51,.08)]">
+        <p className="text-xs font-semibold uppercase tracking-[.18em] text-[#0078d4]">REVNCIA OS</p>
+        <h1 className="mt-4 text-3xl font-semibold">Account access required</h1>
+        <p className="mt-4 text-sm leading-7 text-[#606060]">REVNCIA OS is available to account holders. Log in to access your workspace, service requests, projects, workflows, agents, analytics, and governance tools.</p>
+        <div className="mt-7 flex flex-wrap justify-center gap-3"><Link href="/login" className="border border-[#0078d4] bg-[#0078d4] px-5 py-3 text-sm font-semibold text-white hover:bg-[#106ebe]">Log in</Link><Link href="/signup" className="border border-[#0078d4] bg-white px-5 py-3 text-sm font-semibold text-[#505050] hover:bg-[#f5f5f5]">Create an account</Link></div>
+      </section>
+    </main>;
+  }
+
+  return <div className="os-theme min-h-screen bg-white text-[#505050]">
     <div className="flex min-h-screen">
       <aside className="hidden w-[268px] shrink-0 border-r border-white/10 bg-[#030506] lg:flex lg:flex-col">
         <div className="border-b border-white/10 px-6 py-6"><Link href="/os" className="block"><div className="text-xl font-semibold tracking-[.22em]">REVNCIA</div><div className="mt-1 text-[9px] font-semibold uppercase tracking-[.28em] text-cyan-200/55">AI OPERATING SYSTEM</div></Link></div>

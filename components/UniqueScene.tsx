@@ -1,4 +1,4 @@
-import { hash32, palette, rnd } from "@/lib/hash";
+import { hash32, rnd } from "@/lib/hash";
 
 function motif(id: string) {
   const s = id.toLowerCase();
@@ -15,6 +15,23 @@ function motif(id: string) {
   return "net";
 }
 
+function concernedImage(mark: string) {
+  const images: Record<string, string> = {
+    voice: "/images/scene-voice.png",
+    chat: "/images/scene-messaging.png",
+    crm: "/images/ops-room.png",
+    ledger: "/images/scene-data.png",
+    docs: "/images/scene-knowledge.png",
+    civic: "/images/scene-civic.png",
+    care: "/images/boardroom.png",
+    shield: "/images/scene-command.png",
+    cloud: "/images/scene-data.png",
+    gate: "/images/scene-gateway.png",
+    net: "/images/scene-workforce.png",
+  };
+  return images[mark] ?? images.net;
+}
+
 export function UniqueScene({
   id,
   title,
@@ -23,7 +40,7 @@ export function UniqueScene({
   title: string;
 }) {
   const seed = hash32(id);
-  const p = { a: "#ffffff", b: "#a9b1b8", c: "#62d9ff", dim: "#05080a" };
+  const p = { a: "#0078d4", b: "#64748b", c: "#50aee8", dim: "#f5f9fc" };
   const r = rnd(seed);
   const kind = seed % 16;
   const mark = motif(id);
@@ -54,6 +71,7 @@ export function UniqueScene({
       </defs>
       <rect width="320" height="190" fill={`url(#${id}-g)`} />
       <rect width="320" height="190" fill={`url(#${id}-r)`} />
+      <image href={concernedImage(mark)} x="0" y="0" width="320" height="190" preserveAspectRatio="xMidYMid slice" opacity=".74" />
       <rect x="12" y="12" width="296" height="166" rx="10" fill="#05080a" fillOpacity="0.025" />
 
       {kind === 0 &&

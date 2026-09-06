@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { BetaLabel } from "@/components/BetaLabel";
 import { JarvisHud } from "@/components/JarvisHud";
 import { btnChip, btnPrimary } from "@/lib/ui";
 import { buildLocalMotion } from "@/lib/robotMotion";
@@ -438,7 +437,6 @@ export function HumanoidRobot() {
           onClick={() => void playMotion(LINES.speak)}
         >
           Speak
-          <BetaLabel />
         </button>
         <button
           type="button"

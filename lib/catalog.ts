@@ -1,3 +1,19 @@
+import { serviceCatalog } from "@/lib/services";
+
+export type Offering = {
+  slug: string;
+  n: string;
+  name: string;
+  title: string;
+  stage: string;
+  group: string;
+  summary: string;
+  body: string;
+  capabilities: string[];
+  image?: string;
+  note?: string;
+};
+
 const baseOfferings: Offering[] = [
   {
     slug: "ai-platform",
@@ -2508,7 +2524,21 @@ export const offerings: Offering[] = canonicalOfferings.map((item) => {
 });
 
 export function offeringBySlug(slug: string) {
-  return offerings.find((o) => o.slug === slug);
+  const direct = offerings.find((o) => o.slug === slug);
+  if (direct) return direct;
+
+  const legacyIndex = /^svc-(\d+)$/.exec(slug);
+  if (!legacyIndex) return undefined;
+
+  const legacy = serviceCatalog[Number(legacyIndex[1]) - 1];
+  if (!legacy) return undefined;
+
+  const normalized = legacy.name.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+  const exact = offerings.find((o) => o.name.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim() === normalized);
+  if (exact) return exact;
+
+  const categoryMatch = offerings.find((o) => o.group.toLowerCase().includes(legacy.category.split(" ")[0].toLowerCase()));
+  return categoryMatch ?? offerings[0];
 }
 
 export const stages = [

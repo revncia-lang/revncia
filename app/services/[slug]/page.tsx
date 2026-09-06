@@ -2,17 +2,15 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BetaLabel } from "@/components/BetaLabel";
 import { FacilitiesOnService } from "@/components/CustomerFacilities";
 import { MediaFrame } from "@/components/MediaFrame";
 import { PageHero } from "@/components/PageHero";
-import { UniqueChart } from "@/components/UniqueChart";
 import { UniqueScene } from "@/components/UniqueScene";
 import { offeringBySlug, offerings } from "@/lib/catalog";
 import { detailBlocks } from "@/lib/details";
 import { painPoints, plainWhy } from "@/lib/pains";
 import { btnPrimary, shell } from "@/lib/ui";
-import { chartCaption, pictureCaption } from "@/lib/visuals";
+import { pictureCaption } from "@/lib/visuals";
 
 export function generateStaticParams() {
   return offerings.map((o) => ({ slug: o.slug }));
@@ -43,6 +41,19 @@ export default async function ServicePage({
   const blocks = detailBlocks[o.slug] ?? [];
   const pains = painPoints[o.slug] ?? [];
   const why = plainWhy[o.slug] ?? o.body;
+  const customerRisks = pains.length > 0 ? pains : [
+    `Work connected to ${o.name.toLowerCase()} remains slower, less visible, or more dependent on manual effort.`,
+    "Teams may keep working across disconnected tools, creating avoidable rework, delays, and inconsistent information.",
+    "Without an agreed owner, process, and measurement plan, improvement is difficult to sustain after launch.",
+  ];
+  const deliverySteps = [
+    ["Discover", "Understand the current process, people, systems, data, risks, and desired outcome."],
+    ["Design", "Define the target experience, operating model, scope, ownership, controls, and success measures."],
+    ["Build", "Configure the capability, connect agreed systems, prepare approved data, and document decisions."],
+    ["Validate", "Test real scenarios with named users, review exceptions, confirm access, and agree acceptance criteria."],
+    ["Adopt", "Train owners and users, provide operating guidance, and establish the handover and support rhythm."],
+    ["Improve", "Review agreed KPIs, feedback, risks, and usage so the service remains useful after go-live."],
+  ] as const;
 
   return (
     <main>
@@ -85,15 +96,16 @@ export default async function ServicePage({
           <FacilitiesOnService slug={o.slug} />
 
           <h2 className="mt-12 font-serif font-bold text-3xl md:text-4xl">
-            What your customers and staff still struggle with if you skip this
+            Disadvantages if you do not get this service
           </h2>
           <p className="mt-3 text-[0.98rem] leading-relaxed text-stone-600">
-            These are everyday problems organisations report before they adopt
-            this kind of service. They are not a medical or legal diagnosis —
-            they are operational patterns we see in business life.
+            These are practical business and institutional risks that may remain
+            when the capability, ownership, and operating process are not in
+            place. The impact depends on your systems, people, controls, and
+            agreed scope.
           </p>
           <ul className="mt-5 space-y-3">
-            {pains.map((p) => (
+            {customerRisks.map((p) => (
               <li
                 key={p}
                 className="border border-[#0071e3]/20 bg-[#e8f1ff] px-4 py-3 text-sm leading-relaxed text-stone-800"
@@ -119,7 +131,12 @@ export default async function ServicePage({
             </div>
           ))}
 
-          <h2 className="mt-12 font-serif font-bold text-3xl">What you can use after go-live</h2>
+          <h2 className="mt-12 font-serif font-bold text-3xl">Advantages when you get this service</h2>
+          <p className="mt-3 text-[0.98rem] leading-relaxed text-stone-600">
+            The advantages below describe what customers can gain when the
+            service is correctly scoped, adopted by named owners, and measured
+            against agreed outcomes.
+          </p>
           <ul className="mt-4 space-y-2">
             {o.capabilities.map((c) => (
               <li key={c} className="border-l-2 border-[#0071e3] pl-3 text-[0.98rem] text-stone-700">
@@ -127,6 +144,19 @@ export default async function ServicePage({
               </li>
             ))}
           </ul>
+
+          <h2 className="mt-12 font-serif font-bold text-3xl">How REVNCIA delivers this service</h2>
+          <p className="mt-3 text-[0.98rem] leading-relaxed text-stone-600">
+            The exact scope is agreed with you before work begins. These steps explain the usual path from a customer question to an owned, measurable capability.
+          </p>
+          <ol className="mt-5 grid gap-3 sm:grid-cols-2">
+            {deliverySteps.map(([step, detail], index) => (
+              <li key={step} className="border border-[#0071e3]/20 bg-[#e8f1ff] p-4">
+                <span className="text-xs font-semibold tracking-[0.12em] text-[#0078d4]">0{index + 1} · {step}</span>
+                <p className="mt-2 text-sm leading-relaxed text-stone-700">{detail}</p>
+              </li>
+            ))}
+          </ol>
 
           {related.length > 0 ? (
             <div className="mt-12">
@@ -151,7 +181,6 @@ export default async function ServicePage({
             className={`${btnPrimary} mt-10`}
           >
             Talk to REVNCIA about this
-            <BetaLabel />
           </Link>
         </div>
         <aside className="space-y-4 md:col-span-5">
@@ -160,18 +189,6 @@ export default async function ServicePage({
               <UniqueScene id={`${o.slug}-side`} title={`${o.name} — how the pieces sit together`} />
             </MediaFrame>
           </div>
-          <UniqueChart
-            id={`${o.slug}-work`}
-            caption={chartCaption(o.name, "work")}
-          />
-          <UniqueChart
-            id={`${o.slug}-wait`}
-            caption={chartCaption(o.name, "wait")}
-          />
-          <UniqueChart
-            id={`${o.slug}-trust`}
-            caption={chartCaption(o.name, "trust")}
-          />
           <div className="flex min-w-0 justify-between gap-3 text-sm font-semibold text-[#0071e3]">
             <Link href={`/services/${prev.slug}`} className="min-w-0 text-pretty break-words">
               ← {prev.name}

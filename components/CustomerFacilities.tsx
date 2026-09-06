@@ -45,8 +45,8 @@ function ListBlock({
 }) {
   const box =
     tone === "omit"
-      ? "border-white/15 bg-[#002436] text-white hover:bg-[#002436] hover:text-white"
-      : "border-white/20 bg-[#002436] text-white hover:bg-[#002436] hover:text-white";
+      ? "border-white/15 bg-[#0078d4] text-white hover:bg-[#106ebe] hover:text-white"
+      : "border-white/20 bg-[#0078d4] text-white hover:bg-[#106ebe] hover:text-white";
   return (
     <div>
       <h4 className="text-[0.68rem] tracking-[0.14em] uppercase text-[#0071e3]">
@@ -152,7 +152,7 @@ export function HonestyCards({ items }: { items: HonestyLimit[] }) {
   return (
     <ul className="grid gap-3 md:grid-cols-2">
       {items.map((item) => (
-        <li key={item.id} className="resource-tab border border-white/15 bg-[#002436] p-4 text-white hover:bg-[#002436] hover:text-white">
+        <li key={item.id} className="resource-tab border border-white/15 bg-[#0078d4] p-4 text-white hover:bg-[#106ebe] hover:text-white">
           <p className="font-serif text-lg text-white">{item.title}</p>
           <p className="mt-2 text-sm leading-relaxed text-pretty break-words text-white">
             {item.text}
